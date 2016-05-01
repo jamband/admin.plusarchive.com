@@ -1,0 +1,30 @@
+//== selectize.less
+.selectize-input {
+  input {
+    color: #aaa;
+  }
+  border: 1px solid @gray-dark;
+  background: @gray-darker;
+  .active {
+    background-color: @gray-dark;
+    color: @gray-darker;
+  }
+  .selectize-control.multi & > div {
+    background: @gray-dark;
+    color: #aaa;
+  }
+}
+
+//== selectize.bootstrap3.less
+.selectize-dropdown.form-control {
+  color: #aaa;
+  background: darken(@gray-darker, 2%);
+  border: 1px solid @gray-dark;
+  .active {
+    background-color: @gray-dark;
+    color: #aaa;
+  }
+  .create {
+    color: #aaa;
+  }
+}

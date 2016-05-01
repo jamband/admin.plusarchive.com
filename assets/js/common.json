@@ -1,0 +1,24 @@
+[
+    "vendor/bower/jquery/dist/jquery.js",
+    "vendor/bower/bootstrap/dist/js/bootstrap.js",
+
+    "vendor/yiisoft/yii2/assets/*.js",
+    "vendor/bower/yii2-pjax/jquery.pjax.js",
+
+    "vendor/bower/masonry/dist/masonry.pkgd.js",
+    "vendor/bower/imagesloaded/imagesloaded.pkgd.js",
+    "vendor/bower/jquery_lazyload/jquery.lazyload.js",
+
+    "vendor/bower/toastr/toastr.js",
+    "vendor/bower/bootbox/bootbox.js",
+
+    "vendor/bower/sifter/sifter.js",
+    "vendor/bower/microplugin/src/microplugin.js",
+    "vendor/bower/selectize/dist/js/selectize.js",
+
+    "vendor/bower/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
+
+    "vendor/bower/html.sortable/dist/html.sortable.js",
+
+    "assets/js/common.js"
+]

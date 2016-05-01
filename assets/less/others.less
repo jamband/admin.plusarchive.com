@@ -1,0 +1,136 @@
+//=== common
+.refresh-link,
+.external-link {
+  &:before {
+    .icon-before(3px);
+  }
+}
+.refresh-link {
+  color: @text-color;
+  &:hover,
+  &:visited,
+  &:active {
+    color: @text-color;
+  }
+}
+.external-link:before {
+  content: "\f08e";
+}
+.refresh-link:before {
+  content: "\f021";
+}
+.total-count {
+  margin-top: 5px;
+  color: darken(@text-color, 20%);
+  font-size: 80%;
+  &:before {
+    .icon-before(3px);
+    content: "\f05a";
+  }
+}
+
+//=== tile
+#tile-search {
+  .thumbnail {
+    @media (min-width: @screen-sm-min) {
+      .box-shadow(1px 1px 1px rgba(0,0,0,.2));
+    }
+    @media (max-width: @screen-xs-max) {
+      border: none;
+      background: transparent;
+    }
+  }
+}
+#tile-container {
+  opacity: 0;
+  .tile {
+    @media (max-width: @screen-xs-max) {
+      &:first-child {
+        .thumbnail {
+          border: none;
+          .caption {
+            overflow: visible;
+          }
+        }
+      }
+    }
+    .thumbnail {
+      @media (min-width: @screen-sm-min) {
+        .box-shadow(2px 2px 3px rgba(0,0,0,.2));
+      }
+      @media (max-width: @screen-xs-max) {
+        margin-bottom: 11px;
+        padding-bottom: 11px;
+        border-bottom: 1px solid @gray-dark;
+        background: transparent;
+        .clearfix();
+        > img {
+          width: 30%;
+          height: 30%;
+          .pull-left();
+          margin-right: 9px;
+        }
+        .caption {
+          padding-top: 0;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  .list {
+    .thumbnail {
+      background: transparent;
+      border-bottom: 1px solid @gray-dark;
+      a {
+        > i {
+          color: darken(@text-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+//=== track
+#track-now-title,
+#track-now-clear {
+  cursor: pointer;
+  &:before {
+    .icon-before(5px);
+    padding-left: 5px;
+  }
+}
+#track-now-title:before {
+  content: "\f028";
+}
+#track-now-clear:before {
+  content: "\f00d";
+}
+.track-image {
+  width: 100%;
+  cursor: pointer;
+}
+.track-created-date {
+  color: darken(@text-color, 40%);
+  font-size: 75%;
+  &:before {
+    .icon-before(3px);
+    content: "\f017";
+  }
+}
+
+//=== playlist
+#playlist {
+  padding-left: 10px;
+  list-style: decimal-leading-zero inside none;
+  > li {
+    padding: 5px;
+    border-bottom: 1px solid @gray-dark;
+    cursor: pointer;
+    &:hover {
+      background-color: @gray-dark;
+    }
+    &.active {
+      color: @brand-primary;
+    }
+  }
+}

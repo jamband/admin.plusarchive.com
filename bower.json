@@ -1,0 +1,17 @@
+{
+  "name": "plusarchive",
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "fontawesome": "4.5.0",
+    "imagesloaded": "4.1.0",
+    "jquery": "2.2.3",
+    "masonry": "4.0.0",
+    "selectize": "0.12.1",
+    "toastr": "2.1.2",
+    "typeahead.js": "0.10.5",
+    "yii2-pjax": "2.0.6",
+    "bootstrap-hover-dropdown": "2.2.1",
+    "jquery_lazyload": "1.9.1",
+    "html.sortable": "0.3.1"
+  }
+}

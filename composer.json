@@ -1,0 +1,34 @@
+{
+  "require": {
+    "yiisoft/yii2": "^2.0",
+    "yiisoft/yii2-bootstrap": "^2.0",
+    "jamband/ripple": "^0.1",
+    "creocoder/yii2-taggable": "^2.0",
+    "2amigos/yii2-selectize-widget": "^1.0",
+    "hashids/hashids": "^1.0"
+  },
+  "require-dev": {
+    "vlucas/phpdotenv": "^2.2",
+    "codeception/codeception": "^2.0",
+    "yiisoft/yii2-codeception": "^2.0",
+    "yiisoft/yii2-debug": "^2.0",
+    "yiisoft/yii2-gii": "^2.0"
+  },
+  "provide": {
+    "bower-asset/jquery": "*",
+    "bower-asset/jquery.inputmask": "*",
+    "bower-asset/bootstrap": "*",
+    "bower-asset/punycode": "*",
+    "bower-asset/yii2-pjax": "*",
+    "bower-asset/typeahead.js": "*",
+    "bower-asset/selectize": "*"
+  },
+  "scripts": {
+    "clean": [
+      "gulp clean >/dev/null 2>&1 || rm -rf runtime/* vendor web/assets/*"
+    ],
+    "show-asset-version": [
+      "composer show -t | grep -o 'bower-asset.*' | sort | uniq"
+    ]
+  }
+}
