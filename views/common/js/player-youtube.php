@@ -23,18 +23,25 @@ window.onYouTubeIframeAPIReady = function() {
     plusarchive.player = new YT.Player('player', {
         videoId: $('#playlist').find('li').first().attr('data-provider-key'),
         playerVars: { rel: 0, showinfo: 0 },
-        events: { 'onStateChange': onPlayerStateChange }
+        events: {
+            'onStateChange': onPlayerStateChange,
+            'onError': playNext
+        }
     });
 };
 
+function playNext() {
+    plusarchive.nowPlaying++;
+    var $li = $('#playlist').find('li');
+    if ($li.length > plusarchive.nowPlaying) {
+        $li.eq(plusarchive.nowPlaying).addClass('active').siblings().removeClass('active');
+        plusarchive.player.loadVideoById($li.eq(plusarchive.nowPlaying).attr('data-provider-key'));
+    }
+}
+
 function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
-        plusarchive.nowPlaying++;
-        var $li = $('#playlist').find('li');
-        if ($li.length > plusarchive.nowPlaying) {
-            $li.eq(plusarchive.nowPlaying).addClass('active').siblings().removeClass('active');
-            plusarchive.player.loadVideoById($li.eq(plusarchive.nowPlaying).attr('data-provider-key'));
-        }
+        playNext();
     }
 }
 

@@ -32,7 +32,7 @@ $this->title = "$model->title - ".app()->name
         <br>
     </div>
     <div class="col-sm-6">
-        <h4 class="hidden-xs">Playlist</h4>
+        <h4 class="hidden-xs">Playlist <small>If the track can not be found it will be skipped.</small></h4>
         <ol id="playlist">
             <?php /* @var $item app\models\PlaylistItem */ ?>
             <?php foreach ($model->items as $item): ?>

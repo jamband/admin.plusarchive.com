@@ -28,14 +28,17 @@ function loadSCWidget() {
     });
 }
 
-plusarchive.player.bind(SC.Widget.Events.FINISH, function() {
+function playNext() {
     plusarchive.nowPlaying++;
     var $li = $('#playlist').find('li');
     if ($li.length > plusarchive.nowPlaying) {
         $li.eq(plusarchive.nowPlaying).addClass('active').siblings().removeClass('active');
         loadSCWidget();
     }
-});
+}
+
+plusarchive.player.bind(SC.Widget.Events.ERROR, playNext);
+plusarchive.player.bind(SC.Widget.Events.FINISH, playNext);
 
 $('#playlist').on('click', 'li', function() {
     var $this = $(this);
