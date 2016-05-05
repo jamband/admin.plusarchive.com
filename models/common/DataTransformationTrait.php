@@ -17,7 +17,7 @@ namespace app\models\common;
 trait DataTransformationTrait
 {
     /**
-     * Whether the recently added track. (within one month)
+     * Whether the recently added data. (within one month)
      * @return null|string
      */
     public function getNewText()
