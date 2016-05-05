@@ -120,6 +120,7 @@ class PlaylistItemController extends Controller
         $models = PlaylistItem::find()
             ->with(['track'])
             ->playlist($playlistId)
+            ->orderBy(['track_number' => SORT_ASC])
             ->all();
 
         if (empty($models)) {

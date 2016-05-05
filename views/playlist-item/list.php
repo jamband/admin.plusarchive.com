@@ -30,9 +30,9 @@ use yii\helpers\Html;
                 <h4><?= h($playlistTitle) ?> <small>Provided by <?= h($provider) ?></small></h4>
             </div>
             <div class="modal-body">
-                <ul id="playlist">
+                <ol id="playlist">
                     <?php foreach ($models as $model): ?>
-                        <li><small><?= h($model->track_number) ?>.</small> <?= h($model->track->title) ?></li>
+                        <li><?= h($model->track->title) ?></li>
                     <?php endforeach ?>
                 </ul>
             </div>
