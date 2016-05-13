@@ -112,7 +112,9 @@ class TrackController extends Controller
      */
     public function actionView($id)
     {
-        $model = $this->findModel(hashids()->decode($id));
+        $model = $this->findModel(
+            hashids()->decode($id), Track::STATUS_PUBLISH_TEXT
+        );
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['ripple-embed-view']);
 
@@ -210,12 +212,17 @@ class TrackController extends Controller
     /**
      * Finds the Track model based on its primary key value.
      * @param integer $id
+     * @param null|integer $status
      * @return Track
      * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    protected function findModel($id, $status = null)
     {
-        $model = Track::findOne($id);
+        $model = Track::find()
+            ->andWhere(['id' => $id])
+            ->status($status)
+            ->one();
+
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');
         }
