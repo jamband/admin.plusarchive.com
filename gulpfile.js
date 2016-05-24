@@ -39,5 +39,6 @@ gulp.task('build', ['scripts', 'styles', 'fonts']);
 
 gulp.task('default', ['build'], function() {
   gulp.watch('assets/js/**/*.js', ['scripts']);
-  gulp.watch('assets/less/**/*.less', ['styles']);
+  // gulp.watch('assets/less/**/*.less', ['styles']);
+  gulp.watch('assets/sass/**/*.scss', ['styles']);
 });
