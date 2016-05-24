@@ -14,9 +14,11 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('styles', function() {
-  gulp.src('assets/less/common.less')
+  // gulp.src('assets/less/common.less')
+  gulp.src('assets/sass/common.scss')
     .pipe($.plumber())
-    .pipe($.less())
+    // .pipe($.less())
+    .pipe($.sass().on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['last 2 versions']}))
     .pipe($.cssnano())
     .pipe(gulp.dest('web/css'))

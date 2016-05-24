@@ -1,0 +1,91 @@
+//== Colors
+$gray-base:         #000 !default;
+$gray-darker:       lighten($gray-base, 13.5%) !default;
+$gray-dark:         lighten($gray-base, 20%) !default;
+$gray-light:        lighten(#000, 46.7%) !default;
+$gray-lighter:      lighten($gray-base, 93.5%) !default;
+$brand-primary:     #cc6055 !default;
+
+//== Scaffolding
+$body-bg:               $gray-darker !default;
+$link-color:            $brand-primary !default;
+$text-color:            lighten($gray-light, 30%) !default;
+$link-hover-color:      lighten($link-color, 5%) !default;
+
+//== Typography
+$font-family-base:        "Lato", sans-serif !default;
+$font-size-base:          14px !default;
+$line-height-base:        1.6 !default;
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
+
+//== Components
+$border-radius-base:    2px !default;
+$border-radius-large:   3px !default;
+$border-radius-small:   1px !default;
+
+//== Tables
+$table-bg-accent:               #2a2a2a;
+$table-bg-active:               $gray-dark !default;
+$table-border-color:            $gray-dark !default;
+
+$btn-default-color:              #aaa !default;
+$btn-default-bg:                 $gray-dark !default;
+$btn-default-border:             #444 !default;
+
+//== Forms
+$input-bg:                       $gray-darker !default;
+$input-border:                   $gray-dark !default;
+$input-color:                    #aaa !default;
+
+//== Dropdowns
+$dropdown-bg:                    $gray-darker !default;
+$dropdown-link-color:            #999 !default;
+$dropdown-link-hover-color:      $gray-lighter !default;
+$dropdown-link-hover-bg:         $gray-dark !default;
+$dropdown-divider-bg:            $gray-dark !default;
+
+//== Alerts
+$alert-info-bg:               $body-bg !default;
+$alert-info-border:           lighten($body-bg, 10%) !default;
+$alert-danger-bg:             $body-bg !default;
+$alert-danger-border:         lighten($body-bg, 10%) !default;
+
+//== Labels
+$label-color:                 darken($text-color, 20%) !default;
+$label-default-bg:            transparent !default;
+$label-info-bg:               darken($gray-darker, 2%) !default;
+
+//== Modals
+$modal-content-bg:                $gray-darker !default;
+$modal-header-border-color:       $gray-dark !default;
+$modal-backdrop-opacity:          .7 !default;
+
+//== Navbar
+$navbar-default-link-color:                 darken($text-color, 20%) !default;
+$navbar-default-link-active-color:          lighten($text-color, 10%) !default;
+$navbar-default-link-hover-color:           $text-color !default;
+$navbar-default-bg:                         $gray-dark !default;
+$navbar-default-link-hover-bg:              $gray-darker !default;
+$navbar-default-link-active-bg:             $gray-darker !default;
+$navbar-default-border:                     $gray-darker !default;
+$navbar-default-toggle-hover-bg:            $gray-dark !default;
+$navbar-default-toggle-icon-bar-bg:         darken($text-color, 20%) !default;
+$navbar-default-toggle-border-color:        $gray-dark !default;
+
+//== Navs
+$nav-link-hover-bg:                         $gray-dark !default;
+$nav-pills-active-link-hover-bg:            $body-bg !default;
+$nav-pills-active-link-hover-color:         lighten($brand-primary, 10%) !default;
+
+//== Thumbnails
+$thumbnail-padding:           0 !default;
+$thumbnail-bg:                $gray-dark !default;
+$thumbnail-border:            none !default;
+
+//== Pagination
+$pagination-bg:                        $gray-darker !default;
+$pagination-hover-bg:                  $gray-dark !default;
+$pagination-disabled-bg:               $gray-darker !default;
+
+//== Close
+$close-color:                 $gray-lighter !default;

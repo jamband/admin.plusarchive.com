@@ -1,0 +1,15 @@
+@mixin icon-before-after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@mixin icon-before($padding: 5px) {
+  @include icon-before-after;
+  padding: 0 $padding;
+}
+@mixin icon-after($padding: 5px) {
+  @include icon-before-after;
+  padding: 0 $padding;
+}

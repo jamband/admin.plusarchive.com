@@ -1,0 +1,62 @@
+.list-view {
+  .sorter {
+    text-align: center;
+    margin: 10px 0 10px;
+    li {
+      display: inline-block;
+      padding: 0 15px;
+    }
+  }
+}
+.grid-view {
+  th {
+    white-space: nowrap;
+  }
+  td {
+    max-width: 200px;
+    word-wrap: break-word;
+  }
+  table {
+    i {
+      color: lighten($text-color, 10%);
+    }
+  }
+}
+.detail-view {
+  i {
+      color: lighten($text-color, 10%);
+  }
+}
+.not-set {
+  color: #c55;
+  font-style: italic;
+}
+.grid-view,
+.list-view {
+  a.asc:after,
+  a.desc:after {
+    @include icon-after(5px);
+  }
+}
+a.asc:after {
+  content: "\f15d";
+}
+a.desc:after {
+  content: "\f15e";
+}
+.sort-numerical {
+  a.asc:after {
+    content: "\f162";
+  }
+  a.desc:after {
+    content: "\f163";
+  }
+}
+.sort-ordinal {
+  a.asc:after {
+    content: "\f0de";
+  }
+  a.desc:after {
+    content: "\f0dd";
+  }
+}
