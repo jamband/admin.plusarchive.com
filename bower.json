@@ -3,7 +3,7 @@
   "dependencies": {
     "bootstrap": "3.3.6",
     "bootstrap-sass": "3.3.6",
-    "fontawesome": "4.5.0",
+    "fontawesome": "4.6.3",
     "imagesloaded": "4.1.0",
     "jquery": "2.2.4",
     "masonry": "4.1.0",
@@ -13,7 +13,6 @@
     "yii2-pjax": "2.0.6",
     "bootstrap-hover-dropdown": "2.2.1",
     "jquery_lazyload": "1.9.1",
-    "html.sortable": "0.3.1",
-    "font-awesome": "4.6.3"
+    "html.sortable": "0.3.1"
   }
 }
