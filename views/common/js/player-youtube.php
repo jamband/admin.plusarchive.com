@@ -22,7 +22,7 @@ $('#playlist').find('li').first().addClass('active');
 window.onYouTubeIframeAPIReady = function() {
     plusarchive.player = new YT.Player('player', {
         videoId: $('#playlist').find('li').first().attr('data-provider-key'),
-        playerVars: { rel: 0, showinfo: 0 },
+        playerVars: { rel: 0, showinfo: 0, playsinline: 1 },
         events: {
             'onStateChange': onPlayerStateChange,
             'onError': playNext
