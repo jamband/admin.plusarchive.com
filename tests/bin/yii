@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * This file is part of the plusarchive.com
+ *
+ * (c) Tomoki Morita <tmsongbooks215@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'test');
+
+require __DIR__.'/../../vendor/autoload.php';
+require __DIR__.'/../../vendor/yiisoft/yii2/Yii.php';
+require __DIR__.'/../../helpers/functions.php';
+
+exit((new yii\console\Application(yii\helpers\ArrayHelper::merge(require __DIR__.'/../../config/console.php', [
+    'components' => [
+        // 'db' => require __DIR__.'/../../config/test_db.php',
+    ],
+])))->run());

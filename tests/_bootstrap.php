@@ -9,7 +9,9 @@
  * file that was distributed with this source code.
  */
 
-return yii\helpers\ArrayHelper::merge(require __DIR__.'/common.php', [
-    'id' => 'plusarchive-console',
-    'controllerNamespace' => 'app\commands',
-]);
+define('YII_ENV', 'test');
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+
+require __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/yiisoft/yii2/Yii.php';
+require_once __DIR__.'/../helpers/functions.php';

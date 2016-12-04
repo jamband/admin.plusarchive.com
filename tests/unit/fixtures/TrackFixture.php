@@ -9,7 +9,12 @@
  * file that was distributed with this source code.
  */
 
-return yii\helpers\ArrayHelper::merge(require __DIR__.'/common.php', [
-    'id' => 'plusarchive-console',
-    'controllerNamespace' => 'app\commands',
-]);
+namespace app\tests\unit\fixtures;
+
+use app\models\Track;
+use yii\test\ActiveFixture;
+
+class TrackFixture extends ActiveFixture
+{
+    public $modelClass = Track::class;
+}

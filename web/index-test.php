@@ -22,4 +22,4 @@ if (preg_match('/\A(localhost|dev.plusarchive)\z/', $_SERVER['SERVER_NAME'])) {
 require __DIR__.'/../vendor/yiisoft/yii2/Yii.php';
 require __DIR__.'/../helpers/functions.php';
 
-(new yii\web\Application(require __DIR__.'/../tests/codeception/config/acceptance.php'))->run();
+(new yii\web\Application(require __DIR__.'/../config/test.php'))->run();

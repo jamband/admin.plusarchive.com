@@ -46,5 +46,5 @@ function h($string) {
     return htmlspecialchars($string, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 function asset_revision($file) {
-    return yii\helpers\Url::to("@web/$file").'?v='.filemtime(Yii::getAlias("@webroot/$file"));
+    return yii\helpers\Url::to("@web/$file").'?v='.filemtime(Yii::getAlias("@app/web/$file"));
 }

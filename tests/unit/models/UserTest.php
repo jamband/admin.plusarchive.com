@@ -9,7 +9,10 @@
  * file that was distributed with this source code.
  */
 
-return yii\helpers\ArrayHelper::merge(require __DIR__.'/common.php', [
-    'id' => 'plusarchive-console',
-    'controllerNamespace' => 'app\commands',
-]);
+namespace app\tests\unit\models;
+
+use Codeception\Test\Unit;
+
+class UserTest extends Unit
+{
+}

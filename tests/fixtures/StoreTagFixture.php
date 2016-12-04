@@ -9,7 +9,12 @@
  * file that was distributed with this source code.
  */
 
-return yii\helpers\ArrayHelper::merge(require __DIR__.'/common.php', [
-    'id' => 'plusarchive-console',
-    'controllerNamespace' => 'app\commands',
-]);
+namespace app\tests\fixtures;
+
+use app\models\StoreTag;
+use yii\test\ActiveFixture;
+
+class StoreTagFixture extends ActiveFixture
+{
+    public $modelClass = StoreTag::class;
+}
