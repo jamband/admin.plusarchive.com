@@ -49,6 +49,7 @@ class Formatter extends FormatterBase
     private function getBrandIcon($value)
     {
         $icons = [
+            'bandcamp.com' => 'bandcamp',
             'facebook.com' => 'facebook-square',
             'plus.google.com' => 'google-plus-square',
             'instagram.com' => 'instagram',
