@@ -105,6 +105,16 @@
 #track-now-clear:before {
   content: "\f00d";
 }
+.track-title {
+  display: block;
+  cursor: pointer;
+  color: $text-color;
+  &:hover,
+  &:visited,
+  &:active {
+    color: $text-color;
+  }
+}
 .track-image {
   width: 100%;
   cursor: pointer;

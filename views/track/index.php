@@ -39,13 +39,17 @@ $this->title = 'Tracks - '.app()->name;
                 <div class="thumbnail">
                     <?= Html::tag('img', '', [
                         'class' => 'lazy track-image',
+                        'title' => 'Play',
                         'data-original' => h($model->image),
                         'data-url' => $embedUrl,
                         'data-id' => hashids()->encode($model->id),
                     ]) ?>
                     <div class="caption">
-                        <?= h($model->title) ?>
-                        <br>
+                        <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
+                            'class' => 'track-title',
+                            'title' => 'View',
+                            'data-pjax' => '0',
+                        ]) ?>
                         <?php if (null !== $model->newText): ?>
                             <span class="label label-new"><?= h($model->newText) ?></span>
                         <?php endif ?>
