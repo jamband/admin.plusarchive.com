@@ -7,7 +7,7 @@ var del = require('del');
 gulp.task('scripts', function() {
   gulp.src(require('./assets/js/common.json'))
     .pipe($.concat('common.js'))
-    .pipe($.uglify({preserveComments: 'some'}))
+    .pipe($.uglify({preserveComments: 'license'}))
     .pipe(gulp.dest('web/js'))
     .pipe($.gzip())
     .pipe(gulp.dest('web/js'));
