@@ -2,7 +2,7 @@
   "require": {
     "yiisoft/yii2": "^2.0",
     "yiisoft/yii2-bootstrap": "^2.0",
-    "jamband/ripple": "^0.1",
+    "jamband/ripple": "^0.2",
     "creocoder/yii2-taggable": "^2.0",
     "2amigos/yii2-selectize-widget": "^1.0",
     "hashids/hashids": "^1.0"
