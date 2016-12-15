@@ -36,7 +36,7 @@ class Formatter extends FormatterBase
 
         $urls = '';
         foreach ($values as $v) {
-            $urls .= Html::a($this->getBrandIcon($v), $v, $options).' ';
+            $urls .= Html::a(static::getBrandIcon($v), $v, $options).' ';
         }
         return $urls;
     }
@@ -46,7 +46,7 @@ class Formatter extends FormatterBase
      * @param string $value
      * @return string
      */
-    private function getBrandIcon($value)
+    private static function getBrandIcon($value)
     {
         $icons = [
             'bandcamp.com' => 'bandcamp',
