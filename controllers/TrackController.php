@@ -12,7 +12,6 @@
 namespace app\controllers;
 
 use app\models\Track;
-use Goutte\Client;
 use jamband\ripple\Ripple;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
@@ -169,7 +168,7 @@ class TrackController extends Controller
         $model = new Track;
         $model->loadDefaultValues();
 
-        if ($model->load(request()->post()) && $model->setContents(new Client)->save()) {
+        if ($model->load(request()->post()) && $model->setContents()->save()) {
             session()->setFlash('success', 'New track has been added.');
             return $this->redirect(['admin']);
         }
@@ -187,7 +186,7 @@ class TrackController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->setContents(new Client)->save()) {
+        if ($model->load(request()->post()) && $model->setContents()->save()) {
             session()->setFlash('success', 'Track has been updated.');
             return $this->redirect(['admin']);
         }

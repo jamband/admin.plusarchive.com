@@ -16,7 +16,6 @@ use app\models\common\DataTransformationTrait;
 use app\models\query\TrackQuery;
 use app\validators\RippleValidatorTrait;
 use creocoder\taggable\TaggableBehavior;
-use Goutte\Client;
 use jamband\ripple\Ripple;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -123,15 +122,14 @@ class Track extends ActiveRecord
 
     /**
      * Sets some attributes. (provider, provider_key, title, image)
-     * @param Client $client
      * @return Track
      */
-    public function setContents(Client $client)
+    public function setContents()
     {
         $ripple = new Ripple($this->url);
 
         if ($ripple->isValidUrl()) {
-            $ripple->request($client);
+            $ripple->request();
 
             $provider = array_search($ripple->provider(), self::PROVIDER_DATA, true);
             $this->provider = $provider ?: null;
