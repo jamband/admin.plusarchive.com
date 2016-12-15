@@ -11,6 +11,7 @@
 
 namespace app\i18n;
 
+use jamband\ripple\Bandcamp;
 use yii\helpers\Html;
 use yii\i18n\Formatter as FormatterBase;
 
@@ -48,8 +49,7 @@ class Formatter extends FormatterBase
      */
     private static function getBrandIcon($value)
     {
-        $icons = [
-            'bandcamp.com' => 'bandcamp',
+        $icons = array_merge(array_fill_keys(Bandcamp::$hosts, 'bandcamp'), [
             'facebook.com' => 'facebook-square',
             'plus.google.com' => 'google-plus-square',
             'instagram.com' => 'instagram',
@@ -62,7 +62,7 @@ class Formatter extends FormatterBase
             'tumblr.com' => 'tumblr-square',
             'vimeo.com' => 'vimeo-square',
             'youtube.com' => 'youtube-square',
-        ];
+        ]);
         foreach ($icons as $domain => $icon) {
             if (false !== strpos($value, $domain)) {
                 return '<i class="fa fa-'.$icon.' fa-fw fa-lg"></i>';

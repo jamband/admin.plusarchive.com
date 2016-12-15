@@ -41,6 +41,8 @@ class FormatterTest extends Unit
     {
         return [
             ['<a href="https://foo.bandcamp.com"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://foo.bandcamp.com'],
+            ['<a href="http://music.botanicalhouse.net"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ', 'http://music.botanicalhouse.net'],
+            ['<a href="http://souterraine.biz"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ', 'http://souterraine.biz'],
             ['<a href="https://www.instagram.com/foo/"><i class="fa fa-instagram fa-fw fa-lg"></i></a> ', 'https://www.instagram.com/foo/'],
             ['<a href="http://www.last.fm/foo"><i class="fa fa-lastfm-square fa-fw fa-lg"></i></a> ', 'http://www.last.fm/foo'],
             ['<a href="https://www.mixcloud.com/foo/"><i class="fa fa-mixcloud fa-fw fa-lg"></i></a> ', 'https://www.mixcloud.com/foo/'],
