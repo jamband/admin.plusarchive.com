@@ -50,7 +50,7 @@ $this->title = 'Stores - '.app()->name;
                                 <div class="label label-default">
                                     <?= h($model->getAttributeLabel('link')) ?>:
                                 </div>
-                                <?= formatter()->asSnsIconLink($model->link, "\n", ['target' => '_blank']) ?>
+                                <?= formatter()->asSnsIconLink($model->link, "\n", [], ['target' => '_blank']) ?>
                                 <br>
                                 <div class="label label-default">
                                     <?= h($model->getAttributeLabel('tag')) ?>:

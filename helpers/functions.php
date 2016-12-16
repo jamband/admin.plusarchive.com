@@ -48,3 +48,6 @@ function h($string) {
 function asset_revision($file) {
     return yii\helpers\Url::to("@web/$file").'?v='.filemtime(Yii::getAlias("@app/web/$file"));
 }
+function custom_domains_for_as_sns_icon_link() {
+    return array_fill_keys(jamband\ripple\Bandcamp::$hosts, 'bandcamp');
+}

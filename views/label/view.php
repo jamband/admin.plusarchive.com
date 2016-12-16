@@ -30,7 +30,7 @@ $this->title = "View Label: $model->name - ".app()->name;
         ],
         [
             'attribute' => 'link',
-            'format' => ['snsIconLink', null, ['target' => '_blank']],
+            'format' => ['snsIconLink', null, custom_domains_for_as_sns_icon_link(), ['target' => '_blank']],
         ],
         'tagValues',
         'created_at:datetime',

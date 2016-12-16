@@ -43,7 +43,7 @@ $this->title = 'Admin Labels - '.app()->name;
             ],
             [
                 'attribute' => 'link',
-                'format' => ['snsIconLink', null, ['target' => '_blank']],
+                'format' => ['snsIconLink', null, custom_domains_for_as_sns_icon_link(), ['target' => '_blank']],
             ],
             'tagValues',
             'created_at:datetime',

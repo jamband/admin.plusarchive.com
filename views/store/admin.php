@@ -39,7 +39,7 @@ $this->title = 'Admin Stores - '.app()->name;
             ],
             [
                 'attribute' => 'link',
-                'format' => ['snsIconLink', null, ['target' => '_blank']],
+                'format' => ['snsIconLink', null, [], ['target' => '_blank']],
             ],
             'tagValues',
             'created_at:datetime',

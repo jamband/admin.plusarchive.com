@@ -41,8 +41,6 @@ class FormatterTest extends Unit
     {
         return [
             ['<a href="https://foo.bandcamp.com"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://foo.bandcamp.com'],
-            ['<a href="http://music.botanicalhouse.net"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ', 'http://music.botanicalhouse.net'],
-            ['<a href="http://souterraine.biz"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ', 'http://souterraine.biz'],
             ['<a href="https://www.instagram.com/foo/"><i class="fa fa-instagram fa-fw fa-lg"></i></a> ', 'https://www.instagram.com/foo/'],
             ['<a href="http://www.last.fm/foo"><i class="fa fa-lastfm-square fa-fw fa-lg"></i></a> ', 'http://www.last.fm/foo'],
             ['<a href="https://www.mixcloud.com/foo/"><i class="fa fa-mixcloud fa-fw fa-lg"></i></a> ', 'https://www.mixcloud.com/foo/'],
@@ -72,6 +70,16 @@ class FormatterTest extends Unit
         $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, '|'));
     }
 
+    public function testAsSnsIconLinkWithDomainsArgument()
+    {
+        $value = "http://music.botanicalhouse.net\n";
+        $value .= "http://souterraine.biz";
+        $expected = '<a href="http://music.botanicalhouse.net"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ';
+        $expected .= '<a href="http://souterraine.biz"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ';
+
+        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, null, custom_domains_for_as_sns_icon_link()));
+    }
+
     public function testAsSnsIconLinkWithOptionsArgument()
     {
         $value = "https://www.facebook.com/foo\n";
@@ -79,6 +87,6 @@ class FormatterTest extends Unit
         $expected = '<a href="https://plus.google.com/+foo" target="_blank"><i class="fa fa-google-plus-square fa-fw fa-lg"></i></a> ';
         $expected .= '<a href="https://www.facebook.com/foo" target="_blank"><i class="fa fa-facebook-square fa-fw fa-lg"></i></a> ';
 
-        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, null, ['target' => '_blank']));
+        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, null, [], ['target' => '_blank']));
     }
 }

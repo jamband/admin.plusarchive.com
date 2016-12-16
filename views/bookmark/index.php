@@ -50,7 +50,7 @@ $this->title = 'Bookmarks - '.app()->name;
                                 <div class="label label-default">
                                     <?= h($model->getAttributeLabel('link')) ?>:
                                 </div>
-                                <?= formatter()->asSnsIconLink($model->link, "\n", ['target' => '_blank']) ?>
+                                <?= formatter()->asSnsIconLink($model->link, "\n", [], ['target' => '_blank']) ?>
                                 <br>
                                 <span class="label label-default"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
                                 <?= h($model->tagValues) ?>

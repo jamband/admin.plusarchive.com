@@ -11,7 +11,6 @@
 
 namespace app\i18n;
 
-use jamband\ripple\Bandcamp;
 use yii\helpers\Html;
 use yii\i18n\Formatter as FormatterBase;
 
@@ -21,10 +20,11 @@ class Formatter extends FormatterBase
      * Formats the value as some hyperlink.
      * @param mixed $value the value to be formatted.
      * @param string $separator
+     * @param array $domains some custom domain
      * @param array $options the tag options in terms of name-value pairs. See [[Html::a()]].
      * @return null|string the formatted result.
      */
-    public function asSnsIconLink($value, $separator = null, $options = [])
+    public function asSnsIconLink($value, $separator = null, array $domains = [], array $options = [])
     {
         if (null === $value || '' === $value) {
             return null;
@@ -37,7 +37,7 @@ class Formatter extends FormatterBase
 
         $urls = '';
         foreach ($values as $v) {
-            $urls .= Html::a(static::getBrandIcon($v), $v, $options).' ';
+            $urls .= Html::a(static::getBrandIcon($v, $domains), $v, $options).' ';
         }
         return $urls;
     }
@@ -45,11 +45,13 @@ class Formatter extends FormatterBase
     /**
      * Get the brand icon for Font Awesome.
      * @param string $value
+     * @param array $domains
      * @return string
      */
-    private static function getBrandIcon($value)
+    private static function getBrandIcon($value, array $domains = [])
     {
-        $icons = array_merge(array_fill_keys(Bandcamp::$hosts, 'bandcamp'), [
+        $icons = array_merge($domains, [
+            'bandcamp.com' => 'bandcamp',
             'facebook.com' => 'facebook-square',
             'plus.google.com' => 'google-plus-square',
             'instagram.com' => 'instagram',

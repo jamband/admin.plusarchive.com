@@ -79,4 +79,13 @@ class FunctionsTest extends Unit
         $v = filemtime(Yii::getAlias('@app/web/css/common.css'));
         $this->assertSame("/css/common.css?v=$v", asset_revision('css/common.css'));
     }
+    public function testCustomDomainsForAsSnsIconLink()
+    {
+        $this->assertSame([
+            'bandcamp.com' => 'bandcamp',
+            'botanicalhouse.net' => 'bandcamp',
+            'mamabirdrecordingco.com' => 'bandcamp',
+            'souterraine.biz' => 'bandcamp',
+        ], custom_domains_for_as_sns_icon_link());
+    }
 }
