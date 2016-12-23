@@ -80,7 +80,7 @@ $this->title = 'Create Playlist Item - '.app()->name;
                 <div class="thumbnail">
                     <?= Html::tag('img', '', [
                         'class' => 'lazy track-image',
-                        'data-original' => h($track->image),
+                        'data-original' => without_scheme_url(h($track->image)),
                         'data-url' => $embedUrl,
                         'data-id' => hashids()->encode($track->id),
                     ]) ?>

@@ -46,7 +46,7 @@ $this->title = 'Admin Tracks - '.app()->name;
                 <div class="thumbnail">
                     <?= Html::tag('img', '', [
                         'class' => 'lazy track-image',
-                        'data-original' => h($model->image),
+                        'data-original' => without_scheme_url(h($model->image)),
                         'data-url' => $embedUrl,
                         'data-id' => hashids()->encode($model->id),
                     ]) ?>
