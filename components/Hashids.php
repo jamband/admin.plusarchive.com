@@ -43,6 +43,7 @@ class Hashids extends Object
     public function init()
     {
         parent::init();
+
         $this->_hashids = new HashidsBase(
             $this->salt,
             $this->minHashLength,
@@ -55,9 +56,10 @@ class Hashids extends Object
      */
     public function __call($name, $params)
     {
-        return method_exists($this->_hashids, $name)
-            ? call_user_func_array([$this->_hashids, $name], $params)
-            : parent::__call($name, $params);
+        if (method_exists($this->_hashids, $name)) {
+            return call_user_func_array([$this->_hashids, $name], $params);
+        }
+        return parent::__call($name, $params);
     }
 
     /**
@@ -67,6 +69,9 @@ class Hashids extends Object
     public function decode($id)
     {
         $id = $this->_hashids->decode($id);
-        return 1 === count($id) ? $id[0] : $id;
+        if (1 === count($id)) {
+            return $id[0];
+        }
+        return $id;
     }
 }
