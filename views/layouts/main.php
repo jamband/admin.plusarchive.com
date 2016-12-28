@@ -17,6 +17,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 
+$this->render('/common/js/analytics-tracking');
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -64,7 +66,6 @@ use yii\helpers\Html;
     <?php NavBar::end() ?>
     <div class="container"><?= $content ?></div>
     <script src="<?= asset_revision('js/common.js') ?>"></script>
-    <?= $this->render('/common/js/analyticstracking') ?>
 <?php $this->endBody() ?>
 </body>
 </html>
