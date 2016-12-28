@@ -33,13 +33,17 @@ $this->title = 'Admin Stores - '.app()->name;
                 'value' => function ($data) {
                     return Html::a(h($data->name), h($data->url), [
                         'class' => 'external-link',
+                        'rel' => 'noopener',
                         'target' => '_blank',
                     ]);
                 },
             ],
             [
                 'attribute' => 'link',
-                'format' => ['snsIconLink', null, [], ['target' => '_blank']],
+                'format' => ['snsIconLink', null, [], [
+                    'rel' => 'noopener',
+                    'target' => '_blank',
+                ]],
             ],
             'tagValues',
             'created_at:datetime',

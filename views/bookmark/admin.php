@@ -32,14 +32,18 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                 'format' => 'raw',
                 'value' => function ($data) {
                     return Html::a(h($data->name), h($data->url), [
-                        'target' => '_blank',
                         'class' => 'external-link',
+                        'rel' => 'noopener',
+                        'target' => '_blank',
                     ]);
                 },
             ],
             [
                 'attribute' => 'link',
-                'format' => ['snsIconLink', null, [], ['target' => '_blank']],
+                'format' => ['snsIconLink', null, [], [
+                    'rel' => 'noopener',
+                    'target' => '_blank',
+                ]],
             ],
             'tagValues',
             [

@@ -45,6 +45,7 @@ $this->title = 'Admin PlaylistItems - '.app()->name;
                 'value' => function ($data) {
                     return Html::a(h($data->track->title), h($data->track->url), [
                         'class' => 'external-link',
+                        'rel' => 'noopener',
                         'target' => '_blank',
                     ]);
                 },

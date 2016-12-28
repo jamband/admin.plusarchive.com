@@ -33,6 +33,7 @@ $this->title = 'Admin Labels - '.app()->name;
                 'value' => function ($data) {
                     return Html::a(h($data->name), h($data->url), [
                         'class' => 'external-link',
+                        'rel' => 'noopener',
                         'target' => '_blank',
                     ]);
                 },
@@ -43,7 +44,10 @@ $this->title = 'Admin Labels - '.app()->name;
             ],
             [
                 'attribute' => 'link',
-                'format' => ['snsIconLink', null, custom_domains_for_as_sns_icon_link(), ['target' => '_blank']],
+                'format' => ['snsIconLink', null, custom_domains_for_as_sns_icon_link(), [
+                    'rel' => 'noopener',
+                    'target' => '_blank',
+                ]],
             ],
             'tagValues',
             'created_at:datetime',

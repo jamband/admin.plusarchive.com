@@ -26,11 +26,17 @@ $this->title = "View Label: $model->name - ".app()->name;
         'country',
         [
             'attribute' => 'url',
-            'format' => ['url', ['target' => '_blank']],
+            'format' => ['url', [
+                'rel' => 'noopener',
+                'target' => '_blank',
+            ]],
         ],
         [
             'attribute' => 'link',
-            'format' => ['snsIconLink', null, custom_domains_for_as_sns_icon_link(), ['target' => '_blank']],
+            'format' => ['snsIconLink', null, custom_domains_for_as_sns_icon_link(), [
+                'rel' => 'noopener',
+                'target' => '_blank',
+            ]],
         ],
         'tagValues',
         'created_at:datetime',

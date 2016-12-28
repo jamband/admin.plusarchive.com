@@ -25,7 +25,11 @@ $this->title = "View Bookmark: $model->name - ".app()->name;
         'name',
         [
             'attribute' => 'url',
-            'format' => ['url', ['class' => 'external-link', 'target' => '_blank']],
+            'format' => ['url', [
+                'class' => 'external-link',
+                'rel' => 'noopener',
+                'target' => '_blank',
+            ]],
         ],
         'link:snsIconLink',
         'tagValues',

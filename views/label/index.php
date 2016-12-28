@@ -43,6 +43,7 @@ $this->title = 'Labels - '.app()->name;
                             <div class="caption">
                                 <?= Html::a(h($model->name), h($model->url), [
                                     'class' => 'external-link',
+                                    'rel' => 'noopener',
                                     'target' => '_blank',
                                 ]) ?>
                                 <?php if ($model->newText): ?>
@@ -57,7 +58,10 @@ $this->title = 'Labels - '.app()->name;
                                 <div class="label label-default">
                                     <?= h($model->getAttributeLabel('link')) ?>:
                                 </div>
-                                <?= formatter()->asSnsIconLink($model->link, "\n", custom_domains_for_as_sns_icon_link(), ['target' => '_blank']) ?>
+                                <?= formatter()->asSnsIconLink($model->link, "\n", custom_domains_for_as_sns_icon_link(), [
+                                    'rel' => 'noopener',
+                                    'target' => '_blank',
+                                ]) ?>
                                 <br>
                                 <span class="label label-default"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
                                 <?= h($model->tagValues) ?>

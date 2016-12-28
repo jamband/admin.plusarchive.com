@@ -24,11 +24,17 @@ $this->title = "View Store: $model->name - ".app()->name;
         'name',
         [
             'attribute' => 'url',
-            'format' => ['url', ['target' => '_blank']],
+            'format' => ['url', [
+                'rel' => 'noopener',
+                'target' => '_blank',
+            ]],
         ],
         [
             'attribute' => 'link',
-            'format' => ['snsIconLink', null, [], ['target' => '_blank']],
+            'format' => ['snsIconLink', null, [], [
+                'rel' => 'noopener',
+                'target' => '_blank',
+            ]],
         ],
         'tagValues',
         'created_at:datetime',

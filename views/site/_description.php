@@ -13,4 +13,4 @@
 <h2>About</h2>
 <?= h(app()->name) ?> is music archive website for everyday.<br>
 This website is an open source project.
-<a href="//github.com/jamband/plusarchive.com" target="_blank"><i class="fa fa-fw fa-github"></i>jamband/plusarchive.com</a>
+<a href="https://github.com/jamband/plusarchive.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>jamband/plusarchive.com</a>

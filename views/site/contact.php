@@ -20,8 +20,8 @@ $this->title = 'Contact - '.app()->name;
     <div class="col-xs-12 col-sm-5">
         <h2>Contact <small>for bugs and question</small></h2>
         Please to the message via
-        <a target="_blank" href="//twitter.com/livejam_db"><i class="fa fa-fw fa-twitter"></i>Twitter</a> or
-        <a target="_blank" href="//github.com/jamband/plusarchive.com/issues"><i class="fa fa-fw fa-github"></i>GitHub Issues</a>. Thank you.
+        <a href="https://twitter.com/livejam_db" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a> or
+        <a href="https://github.com/jamband/plusarchive.com/issues" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub Issues</a>. Thank you.
     </div>
     <div class="col-xs-12 col-sm-5">
     </div>
