@@ -61,7 +61,7 @@ class PlaylistController extends Controller
             'data' => new ActiveDataProvider([
                 'query' => Playlist::find()
                     ->status(Playlist::STATUS_PUBLISH)
-                    ->orderBy(['created_at' => SORT_DESC]),
+                    ->orderBy(['updated_at' => SORT_DESC]),
                 'pagination' => false,
             ]),
         ]);
