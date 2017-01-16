@@ -42,7 +42,7 @@ $_->set(yii\grid\GridView::class, [
     'layout' => '{items}{pager}',
 ]);
 $_->set(yii\widgets\ActiveForm::class, [
-    'enableClientScript' => false,
+    'validateOnBlur' => false,
 ]);
 $_->set(yii\widgets\LinkPager::class, [
     'maxButtonCount' => false,
