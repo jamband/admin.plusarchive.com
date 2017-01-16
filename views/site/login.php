@@ -26,7 +26,7 @@ $this->title = 'Login - '.app()->name;
     <div class="col-xs-12 col-sm-5">
         <?php $form = ActiveForm::begin(['fieldConfig' => ['template' => "{label}\n{input}"]]) ?>
             <?= $form->errorSummary($model) ?>
-            <?= $form->field($model, 'username') ?>
+            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
             <?= $form->field($model, 'rememberMe')->checkbox() ?>
             <div class="form-group">
