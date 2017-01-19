@@ -91,19 +91,22 @@
 }
 
 //=== track
-#track-now-title,
 #track-now-clear {
   cursor: pointer;
   &:before {
     @include icon-before(5px);
     padding-left: 5px;
+    content: "\f00d";
   }
 }
-#track-now-title:before {
-  content: "\f028";
-}
-#track-now-clear:before {
-  content: "\f00d";
+#track-now-title {
+  cursor: pointer;
+  font-weight: bold;
+  &:before {
+    @include icon-before(5px);
+    padding-left: 5px;
+    content: "\f028";
+  }
 }
 .track-title {
   font-weight: bold;
