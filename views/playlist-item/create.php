@@ -86,7 +86,7 @@ $this->title = 'Create Playlist Item - '.app()->name;
                     ]) ?>
                     <div class="caption">
                         <?= Html::a(h($track->title), '#', [
-                            'class' => 'track-select',
+                            'class' => 'track-title',
                             'data-id' => $track->id,
                             'data-title' => $track->title,
                         ]) ?>
@@ -119,7 +119,7 @@ $(document).on('change', '#playlistitemcreateform-playlist_id', function() {
     });
 });
 $(document).on('ready pjax:success', function() {
-    $('.track-select').on('click', function() {
+    $('.track-title').on('click', function() {
         $('#playlistitemcreateform-track_id').val($(this).attr('data-id'));
         $('#playlistitemcreateform-track_title').val($(this).attr('data-title'));
         window.scroll(0, 0);
