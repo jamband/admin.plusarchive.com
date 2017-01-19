@@ -12,18 +12,19 @@
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
     var $container = $('#tile-container');
-    $container.imagesLoaded(function() {
-        $('.lazy').lazyload({
-            threshold: 500,
-            placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
-            load: function() {
+    $('.lazy').lazyload({
+        threshold: 500,
+        placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
+        load: function() {
+            $container.imagesLoaded(function() {
                 $container.masonry({
+                    columnWidth: '.tile',
                     itemSelector: '.tile',
                     transitionDuration: 0
                 });
-            }
-        });
-        $container.css({'opacity': 1});
+                $container.css({'opacity': 1});
+            });
+        }
     });
 });
 JS

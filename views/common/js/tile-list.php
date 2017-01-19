@@ -14,6 +14,7 @@ $(document).on('ready pjax:success', function() {
     var $container = $('#tile-container');
     $container.imagesLoaded(function() {
         $container.masonry({
+            columnWidth: '.list',
             itemSelector: '.list',
             transitionDuration: 0
         });
