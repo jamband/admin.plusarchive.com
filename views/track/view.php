@@ -25,7 +25,7 @@ $this->title = "$model->title - ".app()->name;
     <iframe class="embed-responsive-item" src="<?= h($embed) ?>" frameborder="0" allowfullscreen></iframe>
 </div>
 <div class="text-center">
-    <h5><?= h($model->title) ?></h5>
+    <h4><?= h($model->title) ?></h4>
     <?php if (null !== $model->newText): ?>
         <span class="label label-new"><?= h($model->newText) ?></span>
     <?php endif ?>

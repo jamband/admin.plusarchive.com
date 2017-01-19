@@ -22,7 +22,7 @@
 .total-count {
   margin-top: 5px;
   color: darken($text-color, 20%);
-  font-size: 80%;
+  font-size: 85%;
   &:before {
     @include icon-before(3px);
     content: "\f05a";
@@ -106,6 +106,7 @@
   content: "\f00d";
 }
 .track-title {
+  font-weight: bold;
   display: block;
   cursor: pointer;
   color: $text-color;
@@ -121,7 +122,7 @@
 }
 .track-created-date {
   color: darken($text-color, 40%);
-  font-size: 75%;
+  font-size: 85%;
   &:before {
     @include icon-before(3px);
     content: "\f017";
