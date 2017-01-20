@@ -108,10 +108,13 @@
   }
 }
 .track-title {
-  font-weight: bold;
   display: block;
-  cursor: pointer;
+  font-weight: bold;
   color: $text-color;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
   &:hover,
   &:visited,
   &:active {
@@ -138,6 +141,9 @@
   > li {
     padding: 5px;
     border-bottom: 1px solid $gray-dark;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     cursor: pointer;
     &:hover {
       background-color: $gray-dark;
