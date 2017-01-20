@@ -1,8 +1,9 @@
 //=== common
-.refresh-link,
 .external-link {
+  font-weight: bold;
   &:before {
     @include icon-before(3px);
+    content: "\f08e";
   }
 }
 .refresh-link {
@@ -12,12 +13,10 @@
   &:active {
     color: $text-color;
   }
-}
-.external-link:before {
-  content: "\f08e";
-}
-.refresh-link:before {
-  content: "\f021";
+  &:before {
+    @include icon-before(3px);
+    content: "\f021";
+  }
 }
 .total-count {
   margin-top: 5px;
