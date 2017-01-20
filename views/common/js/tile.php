@@ -22,7 +22,7 @@ $(document).on('ready pjax:success', function() {
                     itemSelector: '.tile',
                     transitionDuration: 0
                 });
-                $container.css({'opacity': 1});
+                $container.find('.tile').css({'opacity': 1});
             });
         }
     });

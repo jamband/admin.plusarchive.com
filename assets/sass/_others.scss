@@ -41,8 +41,10 @@
   }
 }
 #tile-container {
-  opacity: 0;
   .tile {
+    &:not(:first-child) {
+      opacity: 0;
+    }
     @media (max-width: $screen-xs-max) {
       &:first-child {
         .thumbnail {
