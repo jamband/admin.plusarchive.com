@@ -1,7 +1,7 @@
 //== Colors
 $gray-base:         #000 !default;
 $gray-darker:       lighten($gray-base, 13.5%) !default;
-$gray-dark:         lighten($gray-base, 20%) !default;
+$gray-dark:         lighten($gray-base, 18%) !default;
 $gray-light:        lighten(#000, 46.7%) !default;
 $gray-lighter:      lighten($gray-base, 93.5%) !default;
 $brand-primary:     #cc6055 !default;
@@ -66,12 +66,13 @@ $navbar-default-link-color:                 darken($text-color, 20%) !default;
 $navbar-default-link-active-color:          lighten($text-color, 10%) !default;
 $navbar-default-link-hover-color:           $text-color !default;
 $navbar-default-bg:                         $gray-dark !default;
-$navbar-default-link-hover-bg:              $gray-darker !default;
-$navbar-default-link-active-bg:             $gray-darker !default;
-$navbar-default-border:                     $gray-darker !default;
+$navbar-default-link-hover-bg:              $gray-dark !default;
+$navbar-default-link-active-bg:             $gray-dark !default;
 $navbar-default-toggle-hover-bg:            $gray-dark !default;
 $navbar-default-toggle-icon-bar-bg:         darken($text-color, 20%) !default;
 $navbar-default-toggle-border-color:        $gray-dark !default;
+$navbar-default-brand-color:                lighten($text-color, 10%) !default;
+$navbar-default-brand-hover-color:          lighten($text-color, 10%) !default;
 
 //== Navs
 $nav-link-hover-bg:                         $gray-dark !default;

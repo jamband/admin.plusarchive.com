@@ -1,3 +1,16 @@
+.navbar {
+  border: none;
+  .active a {
+    @media (min-width: $screen-sm-min) {
+      border-bottom: 3px solid darken($brand-primary, 15%);
+      padding-bottom: 11px;
+    }
+    @media (max-width: $screen-xs-max) {
+      border-left: 5px solid darken($brand-primary, 15%);
+      padding-left: 9px;
+    }
+  }
+}
 .navbar-collapse {
   transition: height 0.01s;
   border-top: none;
