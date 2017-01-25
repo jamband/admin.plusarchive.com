@@ -13,7 +13,7 @@ $text-color:            lighten($gray-light, 30%) !default;
 $link-hover-color:      lighten($link-color, 5%) !default;
 
 //== Typography
-$font-family-base:        "Source Sans Pro", sans-serif !default;
+$font-family-base:        "Source Sans Pro", "游ゴシック体", "Yu Gothic", YuGothic sans-serif !default;
 $font-size-base:          14px !default;
 $line-height-base:        1.6 !default;
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
