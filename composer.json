@@ -24,7 +24,7 @@
   },
   "scripts": {
     "clean": [
-      "gulp clean >/dev/null 2>&1 || rm -rf runtime/* vendor web/assets/*"
+      "rm -rf node_modules runtime/* vendor web/assets/*"
     ],
     "show-asset-version": [
       "composer show -t | grep -o 'bower-asset.*' | sort | uniq"
