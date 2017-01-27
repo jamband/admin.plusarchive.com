@@ -18,6 +18,9 @@ use yii\db\ActiveRecord;
 /**
  * @property integer $id
  * @property string $name
+ * @property integer $frequency
+ * @property integer $created_at
+ * @property integer $updated_at
  */
 class TrackGenre extends ActiveRecord
 {
