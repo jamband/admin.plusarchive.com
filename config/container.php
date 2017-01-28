@@ -36,7 +36,7 @@ $_->set(yii\data\Pagination::class, [
     'pageSizeParam' => false,
 ]);
 $_->set(yii\data\Sort::class, [
-    'class' => app\data\Sort::class,
+    'class' => app\components\Sort::class,
 ]);
 $_->set(yii\grid\GridView::class, [
     'layout' => '{items}{pager}',

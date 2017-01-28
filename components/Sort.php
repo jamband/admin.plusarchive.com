@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace app\data;
+namespace app\components;
 
 use Yii;
 use yii\data\Sort as SortBase;
