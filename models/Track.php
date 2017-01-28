@@ -14,7 +14,7 @@ namespace app\models;
 use app\models\common\ActiveRecordTrait;
 use app\models\common\DataTransformationTrait;
 use app\models\query\TrackQuery;
-use app\validators\RippleValidatorTrait;
+use app\models\validators\RippleValidatorTrait;
 use creocoder\taggable\TaggableBehavior;
 use jamband\ripple\Ripple;
 use yii\behaviors\TimestampBehavior;

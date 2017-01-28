@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace app\validators;
+namespace app\models\validators;
 
 use jamband\ripple\Ripple;
 
