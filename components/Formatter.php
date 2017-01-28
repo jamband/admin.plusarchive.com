@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace app\i18n;
+namespace app\components;
 
 use yii\helpers\Html;
 use yii\i18n\Formatter as FormatterBase;

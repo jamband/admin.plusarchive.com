@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace app\tests\unit\i18n;
+namespace app\tests\unit\components;
 
 use Yii;
 use Codeception\Test\Unit;

@@ -38,7 +38,7 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'formatter' => [
-            'class' => app\i18n\Formatter::class,
+            'class' => app\components\Formatter::class,
             'dateFormat' => 'yyyy.MM.dd',
             'datetimeFormat' => 'yyyy.MM.dd HH:mm',
         ],
