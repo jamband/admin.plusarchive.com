@@ -58,11 +58,15 @@
     .thumbnail {
       @media (min-width: $screen-sm-min) {
         @include box-shadow(2px 2px 3px rgba(0,0,0,.2));
+        img {
+          border-radius: $border-radius-base $border-radius-base 0 0;
+        }
       }
       @media (max-width: $screen-xs-max) {
         margin-bottom: 11px;
         padding-bottom: 11px;
-        border-bottom: 1px solid $gray-dark;
+        border-bottom: 1px solid darken($gray-dark, 2%);
+        @include box-shadow(0px 1px 0px rgba(0,0,0,.1));
         background: transparent;
         @include clearfix;
         > img {
@@ -70,6 +74,8 @@
           height: 30%;
           float: left !important;
           margin-right: 9px;
+          border-radius: $border-radius-base;
+          @include box-shadow(1px 1px 2px rgba(0,0,0,.2));
         }
         .caption {
           padding-top: 0;
@@ -81,7 +87,8 @@
   .list {
     .thumbnail {
       background: transparent;
-      border-bottom: 1px solid $gray-dark;
+      border-bottom: 1px solid darken($gray-dark, 2%);
+      @include box-shadow(0px 1px 0px rgba(0,0,0,.1));
       a {
         > i {
           color: darken($text-color, 10%);
