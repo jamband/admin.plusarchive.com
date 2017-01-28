@@ -59,7 +59,7 @@ $this->title = 'Admin PlaylistItems - '.app()->name;
             'created_at:datetime',
             'updated_at:datetime',
             [
-                'class' => app\grid\ActionColumn::class,
+                'class' => app\components\ActionColumn::class,
                 'template' => '{sort} {delete}',
                 'buttons' => [
                     'sort' => function ($url, $model) {

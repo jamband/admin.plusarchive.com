@@ -32,7 +32,7 @@ $this->title = 'Admin LabelTags - '.app()->name;
             'created_at:datetime',
             'updated_at:datetime',
             [
-                'class' => app\grid\ActionColumn::class,
+                'class' => app\components\ActionColumn::class,
                 'template' => '{update} {delete}',
             ],
         ],

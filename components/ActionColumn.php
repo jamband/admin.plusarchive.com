@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace app\grid;
+namespace app\components;
 
 use Yii;
 use yii\helpers\Html;
