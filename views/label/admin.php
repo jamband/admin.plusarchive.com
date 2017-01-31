@@ -52,7 +52,7 @@ $this->title = 'Admin Labels - '.app()->name;
             'tagValues',
             'created_at:datetime',
             'updated_at:datetime',
-            ['class' => app\grid\ActionColumn::class],
+            ['class' => app\components\ActionColumn::class],
         ],
     ]) ?>
 <?php Pjax::end() ?>
