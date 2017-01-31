@@ -4,7 +4,6 @@
     "yiisoft/yii2-bootstrap": "~2.0.6",
     "jamband/ripple": "^0.3",
     "creocoder/yii2-taggable": "^2.0",
-    "2amigos/yii2-selectize-widget": "^1.0",
     "hashids/hashids": "^2.0"
   },
   "require-dev": {
@@ -19,8 +18,7 @@
     "bower-asset/bootstrap": "*",
     "bower-asset/punycode": "*",
     "bower-asset/yii2-pjax": "*",
-    "bower-asset/typeahead.js": "*",
-    "bower-asset/selectize": "*"
+    "bower-asset/typeahead.js": "*"
   },
   "scripts": {
     "clean": [

@@ -13,7 +13,6 @@
 /* @var $form yii\widgets\ActiveForm */
 /* @var $model app\models\Bookmark */
 
-use dosamigos\selectize\SelectizeTextInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -25,7 +24,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'link')->textarea(['rows' => 6]) ?>
-            <?= $form->field($model, 'tagValues')->widget(SelectizeTextInput::class, ['loadUrl' => ['bookmark-tag/list']]) ?>
+            <?= $form->field($model, 'tagValues') ?>
             <?= $form->field($model, 'status')->DropdownList($model::STATUS_DATA) ?>
             <div class="form-group">
                 <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
@@ -41,3 +40,8 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="col-xs-12 col-sm-1"></div>
 </div><!-- /.row -->
+
+<?= $this->render('/common/js/selectize', [
+    'id' => '#bookmark-tagvalues',
+    'url' => url(['bookmark-tag/list']),
+]) ?>

@@ -4,74 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "19950982b12d4a73dcc9f313d549ce98",
+    "content-hash": "c843c067cd3ddd59485dfff15ecbc18f",
     "packages": [
-        {
-            "name": "2amigos/yii2-selectize-widget",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/2amigos/yii2-selectize-widget.git",
-                "reference": "1000cf8703cf8b3eed61359c8a3922cfeb71df6e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/2amigos/yii2-selectize-widget/zipball/1000cf8703cf8b3eed61359c8a3922cfeb71df6e",
-                "reference": "1000cf8703cf8b3eed61359c8a3922cfeb71df6e",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/selectize": "~0.12.0",
-                "yiisoft/yii2": "~2.0.0",
-                "yiisoft/yii2-bootstrap": "~2.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "asset-installer-paths": {
-                    "npm-asset-library": "vendor/npm",
-                    "bower-asset-library": "vendor/bower"
-                },
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "dosamigos\\selectize\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "2amigOS! Consulting Group",
-                    "email": "hola@2amigos.us",
-                    "homepage": "http://2amigos.us",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Alexander Kochetov",
-                    "email": "creocoder@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "The selectize.js widget for the Yii framework",
-            "homepage": "https://github.com/2amigos/yii2-selectize-widget",
-            "keywords": [
-                "2amigos",
-                "selectize",
-                "widget",
-                "yii",
-                "yii 2",
-                "yii2"
-            ],
-            "time": "2016-09-10T19:27:58+00:00"
-        },
         {
             "name": "cebe/markdown",
             "version": "1.1.1",

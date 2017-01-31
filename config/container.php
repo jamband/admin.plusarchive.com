@@ -18,16 +18,6 @@ $_->set(app\widgets\ToastrNotification::class, [
         'positionClass' => 'toast-bottom-left',
     ],
 ]);
-$_->set(dosamigos\selectize\SelectizeTextInput::class, [
-    'options' => ['class' => 'form-control'],
-    'clientOptions' => [
-        'plugins' => ['remove_button'],
-        'valueField' => 'name',
-        'labelField' => 'name',
-        'searchField' => ['name'],
-        'create' => true,
-    ],
-]);
 $_->set(yii\captcha\Captcha::class, [
     'template' => '<p>{image} <span class="captcha-refresh label label-default">'.
         '<i class="fa fa-fw fa-refresh"></i> Refresh</span></p>'."\n{input}",

@@ -13,7 +13,6 @@
 /* @var $model app\models\Track */
 /* @var $form yii\widgets\ActiveForm */
 
-use dosamigos\selectize\SelectizeTextInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -26,7 +25,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'status')->dropDownList($model::STATUS_DATA) ?>
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'tagValues')->widget(SelectizeTextInput::class, ['loadUrl' => ['track-genre/list']]) ?>
+            <?= $form->field($model, 'tagValues') ?>
             <div class="form-group">
                 <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
             </div>
@@ -43,3 +42,8 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="col-xs-12 col-sm-1"></div>
 </div><!-- /.row -->
+
+<?= $this->render('/common/js/selectize', [
+    'id' => '#track-tagvalues',
+    'url' => url(['track-genre/list']),
+]) ?>

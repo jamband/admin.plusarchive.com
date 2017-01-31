@@ -13,7 +13,6 @@
 /* @var $model app\models\Label */
 /* @var $form yii\widgets\ActiveForm */
 
-use dosamigos\selectize\SelectizeTextInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -26,7 +25,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'country')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'link')->textarea(['rows' => 6]) ?>
-            <?= $form->field($model, 'tagValues')->widget(SelectizeTextInput::class, ['loadUrl' => ['label-tag/list']]) ?>
+            <?= $form->field($model, 'tagValues') ?>
             <div class="form-group">
                 <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
             </div>
@@ -40,4 +39,9 @@ use yii\widgets\ActiveForm;
         </div>
     </div>
     <div class="col-xs-12 col-sm-1"></div>
-</div>
+</div><!-- /.row -->
+
+<?= $this->render('/common/js/selectize', [
+    'id' => '#label-tagvalues',
+    'url' => url(['label-tag/list']),
+]) ?>
