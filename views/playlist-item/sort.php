@@ -41,7 +41,7 @@ $this->title = 'Sort Playlist Item - '.app()->name;
 
 <div class="row">
     <div class="col-sm-6">
-        <h4><?= h($playlistTitle) ?> <small>Provided by <?= h($provider) ?></small></h4>
+        <h4><?= h($playlistTitle) ?> <small>via <?= h($provider) ?></small></h4>
         <?php if ('YouTube' === $provider): ?>
             <div class="embed-responsive embed-responsive-16by9">
                 <div id="player" class="embed-responsive-item"></div>

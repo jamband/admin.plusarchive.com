@@ -19,7 +19,7 @@ $this->title = "$model->title - ".app()->name
 ?>
 <div class="row">
     <div class="col-sm-6">
-        <h4><?= h($model->title) ?> <small>provided by <?= h($provider) ?></small></h4>
+        <h4><?= h($model->title) ?> <small>via <?= h($provider) ?></small></h4>
         <?php if ('YouTube' === $provider): ?>
             <div class="embed-responsive embed-responsive-16by9">
                 <div id="player" class="embed-responsive-item"></div>
