@@ -14,7 +14,6 @@ $('$id').selectize({
         if (!query.length) {
             return callback();
         }
-        console.log(query);
         $.getJSON('$url', {
             query: query
         }).done(function(data) {
