@@ -16,14 +16,12 @@ Yii::$classMap = [
 return [
     'name' => 'Plus Archive',
     'basePath' => dirname(__DIR__),
-    'defaultRoute' => 'track',
     'bootstrap' => ['log'],
     'components' => [
         'authManager' => [
             'class' => yii\rbac\PhpManager::class,
         ],
         'cache' => [
-            // 'class' => yii\caching\FileCache::class,
             'class' => yii\caching\ApcCache::class,
             'useApcu' => true,
         ],
@@ -49,19 +47,6 @@ return [
             'salt' => getenv('HASHIDS_SALT'),
             'minHashLength' => 11,
             'alphabet' => getenv('HASHIDS_ALPHABET'),
-        ],
-    ],
-    'params' => [
-        'ripple-embed-index' => [
-            'Bandcamp' => 'size=large/tracklist=false/artwork=small/bgcol=333333/linkcol=cc6055/',
-            'SoundCloud' => '&auto_play=true&show_comments=false',
-            'YouTube' => '?autoplay=1&showinfo=0&playsinline=1',
-            'Vimeo' => '?autoplay=1',
-        ],
-        'ripple-embed-view' => [
-            'Bandcamp' => 'size=large/tracklist=false/bgcol=333333/linkcol=cc6055/',
-            'SoundCloud' => '&show_comments=false&visual=true',
-            'YouTube' => '?showinfo=0&playsinline=1',
         ],
     ],
 ];

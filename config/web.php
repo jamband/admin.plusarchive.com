@@ -11,6 +11,7 @@
 
 $config = [
     'id' => 'plusarchive',
+    'defaultRoute' => 'track',
     // 'catchAll' => ['site/offline'],
     'components' => [
         'request' => [
@@ -91,6 +92,19 @@ $config = [
                     'positionClass' => 'toast-bottom-left',
                 ],
             ],
+        ],
+    ],
+    'params' => [
+        'ripple-embed-index' => [
+            'Bandcamp' => 'size=large/tracklist=false/artwork=small/bgcol=333333/linkcol=cc6055/',
+            'SoundCloud' => '&auto_play=true&show_comments=false',
+            'YouTube' => '?autoplay=1&showinfo=0&playsinline=1',
+            'Vimeo' => '?autoplay=1',
+        ],
+        'ripple-embed-view' => [
+            'Bandcamp' => 'size=large/tracklist=false/bgcol=333333/linkcol=cc6055/',
+            'SoundCloud' => '&show_comments=false&visual=true',
+            'YouTube' => '?showinfo=0&playsinline=1',
         ],
     ],
 ];
