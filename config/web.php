@@ -49,6 +49,50 @@ $config = [
             'traceLevel' => YII_DEBUG ? 3 : 0,
         ],
     ],
+    'container' => [
+        'definitions' => [
+            yii\data\Pagination::class => [
+                'pageSizeParam' => false,
+            ],
+            yii\data\Sort::class => [
+                'class' => app\components\Sort::class,
+            ],
+            yii\grid\GridView::class => [
+                'layout' => '{items}{pager}',
+            ],
+            yii\widgets\ActiveForm::class => [
+                'validateOnBlur' => false,
+            ],
+            yii\widgets\LinkPager::class => [
+                'maxButtonCount' => false,
+                'prevPageLabel' => '<i class="fa fa-angle-left"></i>',
+                'nextPageLabel' => '<i class="fa fa-angle-right"></i>',
+                'firstPageLabel' => '<i class="fa fa-angle-double-left"></i>',
+                'lastPageLabel' => '<i class="fa fa-angle-double-right"></i>',
+                'firstPageCssClass' => 'first btn-group',
+                'nextPageCssClass' => 'next btn-group',
+                'prevPageCssClass' => 'prev btn-group',
+                'lastPageCssClass' => 'last btn-group',
+                'options' => ['class' => 'pagination btn-group btn-group-justified'],
+            ],
+            yii\widgets\Pjax::class => [
+                'scrollTo' => 0,
+            ],
+        ],
+        'singletons' => [
+            yii\captcha\Captcha::class => [
+                'template' => '<p>{image} <span class="captcha-refresh label label-default">'.
+                    '<i class="fa fa-fw fa-refresh"></i> Refresh</span></p>'."\n{input}",
+            ],
+            app\widgets\ToastrNotification::class => [
+                'options' => [
+                    'escapeHtml' => true,
+                    'timeOut' => 3600,
+                    'positionClass' => 'toast-bottom-left',
+                ],
+            ],
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {

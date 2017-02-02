@@ -9,8 +9,6 @@
  * file that was distributed with this source code.
  */
 
-require __DIR__.'/container.php';
-
 Yii::$classMap = [
     yii\helpers\Url::class => '@app/helpers/Url.php',
 ];
