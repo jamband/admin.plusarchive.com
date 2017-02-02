@@ -63,15 +63,14 @@ class BookmarkTagController extends Controller
 
     /**
      * Returns all tag name.
-     * @return string
+     * @return Response
      */
     public function actionList()
     {
         if (!request()->isAjax) {
             throw new NotFoundHttpException('Page not found.');
         }
-        response()->format = Response::FORMAT_JSON;
-        return BookmarkTag::getNames()->all();
+        return $this->asJson(BookmarkTag::getNames()->all());
     }
 
     /**

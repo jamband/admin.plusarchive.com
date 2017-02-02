@@ -64,15 +64,14 @@ class TrackGenreController extends Controller
 
     /**
      * Returns all genres name.
-     * @return string
+     * @return Response
      */
     public function actionList()
     {
         if (!request()->isAjax) {
             throw new NotFoundHttpException('Page not found.');
         }
-        response()->format = Response::FORMAT_JSON;
-        return TrackGenre::getNames()->all();
+        return $this->asJson(TrackGenre::getNames()->all());
     }
 
     /**
