@@ -24,6 +24,7 @@ $this->title = 'Admin Labels - '.app()->name;
         'totalCount' => $data->totalCount,
     ]) ?>
     <?= GridView::widget([
+        'id' => 'grid-view-label',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

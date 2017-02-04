@@ -24,6 +24,7 @@ $this->title = 'Admin Stores - '.app()->name;
         'totalCount' => $data->totalCount,
     ]) ?>
     <?= GridView::widget([
+        'id' => 'grid-view-store',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

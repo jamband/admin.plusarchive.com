@@ -24,6 +24,7 @@ $this->title = 'Admin StoreTags - '.app()->name;
         'enableCreate' => false,
     ]) ?>
     <?= GridView::widget([
+        'id' => 'grid-view-store-tag',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

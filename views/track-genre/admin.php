@@ -24,6 +24,7 @@ $this->title = 'Admin TrackGenres - '.app()->name;
         'enableCreate' => false,
     ]) ?>
     <?= GridView::widget([
+        'id' => 'grid-view-track-genre',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

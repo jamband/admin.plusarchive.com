@@ -26,6 +26,7 @@ $this->title = 'Admin PlaylistItems - '.app()->name;
         'totalCount' => $data->totalCount,
     ]) ?>
     <?= GridView::widget([
+        'id' => 'grid-view-playlist-item',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

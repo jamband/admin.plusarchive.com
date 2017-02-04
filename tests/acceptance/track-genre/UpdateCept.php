@@ -20,7 +20,7 @@ $I->seePageNotFound(['/track-genre/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/track-genre/admin']));
-$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i');
+$I->click('//*[@id="grid-view-track-genre"]/table/tbody/tr[1]/td[5]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/track-genre/update/1');
 $I->see('TrackGenre', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -41,7 +41,7 @@ $I->see('Admin: 5', '#menu-action');
 $I->see('genre-one', '.grid-view');
 $I->dontSee('genre1', '.grid-view');
 
-$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i');
+$I->click('//*[@id="grid-view-track-genre"]/table/tbody/tr[1]/td[5]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/track-genre/update/1');
 
 $I->moveMouseOver('#menu-action');

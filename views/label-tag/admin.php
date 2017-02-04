@@ -24,6 +24,7 @@ $this->title = 'Admin LabelTags - '.app()->name;
         'enableCreate' => false,
     ]) ?>
     <?= GridView::widget([
+        'id' => 'grid-view-label-tag',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

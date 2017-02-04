@@ -20,7 +20,7 @@ $I->seePageNotFound(['/label/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/label/admin']));
-$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[7]/a[2]/i');
+$I->click('//*[@id="grid-view-label"]/table/tbody/tr[1]/td[7]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/label/update/1');
 $I->see('Label', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -57,7 +57,7 @@ $I->see('Admin: 3', '#menu-action');
 $I->see('label-one', '.grid-view');
 $I->dontSee('label1', '.grid-view');
 
-$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[7]/a[2]/i');
+$I->click('//*[@id="grid-view-label"]/table/tbody/tr[1]/td[7]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/label/update/1');
 
 $I->moveMouseOver('#menu-action');

@@ -20,7 +20,7 @@ $I->seePageNotFound(['/store/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/store/admin']));
-$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[6]/a[2]/i');
+$I->click('//*[@id="grid-view-store"]/table/tbody/tr[1]/td[6]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/store/update/1');
 $I->see('Store', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -56,7 +56,7 @@ $I->see('Admin: 3', '#menu-action');
 $I->see('store-one', '.grid-view');
 $I->dontSee('store1', '.grid-view');
 
-$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[6]/a[2]/i');
+$I->click('//*[@id="grid-view-store"]/table/tbody/tr[1]/td[6]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/store/update/1');
 
 $I->moveMouseOver('#menu-action');

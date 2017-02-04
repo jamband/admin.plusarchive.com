@@ -24,6 +24,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
         'totalCount' => $data->totalCount,
     ]) ?>
     <?= GridView::widget([
+        'id' => 'grid-view-bookmark',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

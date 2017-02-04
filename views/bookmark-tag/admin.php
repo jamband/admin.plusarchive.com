@@ -24,6 +24,7 @@ $this->title = 'Admin BookmarkTags - '.app()->name;
         'enableCreate' => false,
     ]) ?>
     <?= GridView::widget([
+        'id' => 'grid-view-bookmark-tag',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

@@ -20,7 +20,7 @@ $I->seePageNotFound(['/bookmark-tag/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/bookmark-tag/admin']));
-$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i');
+$I->click('//*[@id="grid-view-bookmark-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark-tag/update/1');
 $I->see('BookmarkTag', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -41,7 +41,7 @@ $I->see('Admin: 3', '#menu-action');
 $I->see('tag-one', '.grid-view');
 $I->dontSee('tag1', '.grid-view');
 
-$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i');
+$I->click('//*[@id="grid-view-bookmark-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark-tag/update/1');
 
 $I->moveMouseOver('#menu-action');
