@@ -21,7 +21,7 @@
     "bower-asset/typeahead.js": "*"
   },
   "scripts": {
-    "clean": "rm -rf node_modules runtime/* vendor web/assets/*",
+    "clean": "rm -rf node_modules runtime/* tests/_output/* vendor web/assets/*",
     "show-asset-version": "composer show -t | grep -o 'bower-asset.*' | sort | uniq"
   }
 }
