@@ -12,12 +12,15 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['bookmarks' => app\tests\fixtures\BookmarkFixture::class]);
+
 $I->wantTo('ensure that bookmark/view works');
 $I->seePageNotFound(['/bookmark/view', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/bookmark/admin']));
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[7]/a[1]/i'); // View link
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[7]/a[1]/i'); // View link
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/1');
 $I->see('Bookmark', '#menu-controller');
 $I->see('View', '#menu-action');

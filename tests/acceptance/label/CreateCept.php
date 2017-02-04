@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['labels' => app\tests\fixtures\LabelFixture::class]);
+
 $I->wantTo('ensure that label/create works');
 $I->seePageNotFound(['/label/create']);
 $I->loginAsAdmin();
@@ -24,11 +27,13 @@ $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/label/create');
 
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('input[name="Label[name]"]', 'newlabel');
 $I->fillField('input[name="Label[url]"]', 'http://newlabel.example.com');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->see('Label has been added.');
 $I->seeCurrentUrlEquals('/index-test.php/label/4');
 

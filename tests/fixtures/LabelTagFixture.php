@@ -17,4 +17,6 @@ use yii\test\ActiveFixture;
 class LabelTagFixture extends ActiveFixture
 {
     public $modelClass = LabelTag::class;
+
+    public $dataFile = '@app/tests/fixtures/data/label_tag.php';
 }

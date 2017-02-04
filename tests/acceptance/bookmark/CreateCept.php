@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['bookmarks' => app\tests\fixtures\BookmarkFixture::class]);
+
 $I->wantTo('ensure that bookmark/create works');
 $I->seePageNotFound(['/bookmark/create']);
 $I->loginAsAdmin();
@@ -24,17 +27,21 @@ $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
 
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('#bookmark-name', 'newbookmark');
 $I->fillField('#bookmark-url', 'http://newbookmark.example.com');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->see('Bookmark has been added.');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/5');
 
 $I->moveMouseOver('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
+$I->wait(1);
 $I->see('Admin: 5', '#menu-action');
 
 $I->click('Bookmark', '.navbar');
+$I->wait(1);
 $I->see('3 results', '.total-count');

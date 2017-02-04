@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['stores' => app\tests\fixtures\StoreFixture::class]);
+
 $I->wantTo('ensure that store/create works');
 $I->seePageNotFound(['/store/create']);
 $I->loginAsAdmin();
@@ -24,11 +27,13 @@ $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/store/create');
 
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('#store-name', 'newstore');
 $I->fillField('#store-url', 'http://newstore.example.com');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->see('Store has been added.');
 $I->seeCurrentUrlEquals('/index-test.php/store/4');
 

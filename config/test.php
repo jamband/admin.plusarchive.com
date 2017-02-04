@@ -2,14 +2,6 @@
 
 return yii\helpers\ArrayHelper::merge(require __DIR__.'/web.php', [
     'id' => 'plusarchive-test',
-    'controllerMap' => [
-        'fixture' => [
-            'class' => yii\faker\FixtureController::class,
-            'fixtureDataPath' => '@tests/fixtures',
-            'templatePath' => '@tests/templates',
-            'namespace' => 'tests\fixtures',
-        ],
-    ],
     'components' => [
         'urlManager' => [
             'showScriptName' => true,
@@ -20,6 +12,12 @@ return yii\helpers\ArrayHelper::merge(require __DIR__.'/web.php', [
         'request' => [
             'cookieValidationKey' => 'test',
             'enableCsrfValidation' => false,
+        ],
+        'hashids' => [
+            'class' => app\components\Hashids::class,
+            'salt' => 'testsalt',
+            'minHashLength' => 8,
+            'alphabet' => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-',
         ],
     ],
 ]);

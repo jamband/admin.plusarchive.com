@@ -35,6 +35,7 @@ class AcceptanceTester extends \Codeception\Actor
         $I->fillField('#loginform-username', 'admin');
         $I->fillField('#loginform-password', 'adminadmin');
         $I->click('button[type=submit]');
+        $I->wait(1);
     }
 
     /**

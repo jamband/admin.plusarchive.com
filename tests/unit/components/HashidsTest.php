@@ -21,18 +21,6 @@ class HashidsTest extends Unit
     const HASH_ID = 'Xzr1XkpY';
     const MIN_HASH_LENGTH = 8;
 
-    protected function setUp()
-    {
-        parent::setUp();
-
-        Yii::$app->set('hashids', [
-            'class' => Hashids::class,
-            'salt' => 'testsalt',
-            'minHashLength' => 8,
-            'alphabet' => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-',
-        ]);
-    }
-
     public function testMinHashLength()
     {
         $this->assertSame(self::MIN_HASH_LENGTH, strlen(Yii::$app->hashids->encode(self::ID)));

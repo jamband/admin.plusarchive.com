@@ -59,12 +59,6 @@ class FunctionsTest extends Unit
 
     public function testHashids()
     {
-        Yii::$app->set('hashids', [
-            'class' => Hashids::class,
-            'salt' => 'testsalt',
-            'minHashLength' => 8,
-            'alphabet' => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-',
-        ]);
         $this->assertSame(Yii::$app->hashids, hashids());
     }
 

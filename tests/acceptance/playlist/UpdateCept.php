@@ -12,12 +12,15 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['playlists' => app\tests\fixtures\PlaylistFixture::class]);
+
 $I->wantTo('ensure that playlist/update works');
 $I->seePageNotFound(['/playlist/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/playlist/admin']));
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a[1]/i'); // Update link
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i'); // Update link
 $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
 $I->see('Playlist', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -37,10 +40,12 @@ $I->seeOptionIsSelected('#playlist-status', 'Publish');
 
 $I->fillField('#playlist-title', '');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('#playlist-title', 'playlist-one');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
 $I->see('Playlist has been updated.');
 
@@ -50,7 +55,7 @@ $I->see('Admin: 3', '#menu-action');
 $I->see('playlist-one', '.grid-view');
 $I->dontSee('playlist1', '.grid-view');
 
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a[1]/i'); // Update link
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i'); // Update link
 $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
 
 $I->moveMouseOver('#menu-action');

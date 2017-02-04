@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['store-tags' => app\tests\fixtures\StoreTagFixture::class]);
+
 $I->wantTo('ensure that store-tag/delete works');
 $I->seePageNotFound(['/store-tag/delete', 'id' => 1]);
 $I->loginAsAdmin();

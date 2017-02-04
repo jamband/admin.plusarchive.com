@@ -12,12 +12,15 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['label-tags' => app\tests\fixtures\LabelTagFixture::class]);
+
 $I->wantTo('ensure that label-tag/update works');
 $I->seePageNotFound(['/label-tag/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/label-tag/admin']));
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a[1]/i');
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/label-tag/update/1');
 $I->see('LabelTag', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -26,17 +29,19 @@ $I->seeInField('#labeltag-name', 'tag1');
 
 $I->fillField('#labeltag-name', '');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('#labeltag-name', 'tag-one');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/label-tag/admin');
 $I->see('Label tag has been updated.');
 $I->see('Admin: 3', '#menu-action');
 $I->see('tag-one', '.grid-view');
 $I->dontSee('tag1', '.grid-view');
 
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[5]/a[1]/i');
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/label-tag/update/1');
 
 $I->moveMouseOver('#menu-action');

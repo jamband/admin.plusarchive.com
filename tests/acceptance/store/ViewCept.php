@@ -12,12 +12,15 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['stores' => app\tests\fixtures\StoreFixture::class]);
+
 $I->wantTo('ensure that store/view works');
 $I->seePageNotFound(['/store/view', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/store/admin']));
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[6]/a[1]/i');
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[6]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/store/1');
 $I->see('Store', '#menu-controller');
 $I->see('View', '#menu-action');

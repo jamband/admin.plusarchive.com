@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['playlists' => app\tests\fixtures\PlaylistFixture::class]);
+
 $I->wantTo('ensure that playlist/create works');
 $I->seePageNotFound(['/playlist/create']);
 $I->loginAsAdmin();
@@ -24,10 +27,12 @@ $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
 
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('#playlist-title', 'newplaylist');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->see('Playlist has been added.');
 $I->seeCurrentUrlEquals('/index-test.php/playlist-item/create');
 

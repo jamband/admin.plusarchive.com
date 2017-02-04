@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['tracks' => app\tests\fixtures\TrackFixture::class]);
+
 $I->wantTo('ensure that track/delete works');
 $I->seePageNotFound(['/track/delete', 'id' => 1]);
 $I->loginAsAdmin();

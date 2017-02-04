@@ -17,4 +17,6 @@ use yii\test\ActiveFixture;
 class TrackFixture extends ActiveFixture
 {
     public $modelClass = Track::class;
+
+    public $dataFile = '@app/tests/fixtures/data/track.php';
 }

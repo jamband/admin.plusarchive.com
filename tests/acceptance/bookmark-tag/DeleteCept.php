@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['bookmark-tags' => app\tests\fixtures\BookmarkTagFixture::class]);
+
 $I->wantTo('ensure that bookmark-tag/delete works');
 $I->seePageNotFound(['/bookmark-tag/delete', 'id' => 1]);
 $I->loginAsAdmin();

@@ -12,6 +12,7 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
 $I->wantTo('ensure that signup works');
 $I->amOnPage(url(['/']));
 $I->dontSee('Sign up', '.navbar');
@@ -24,11 +25,13 @@ $I->click('Signup', '.navbar');
 $I->see('Sign up', 'h2');
 
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('#signupform-username', 'newuser');
 $I->fillField('#signupform-email', 'newuser@example.com');
 $I->fillField('#signupform-password', 'newusernewuser');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->see('Signed up successfully.');
 $I->seeCurrentUrlEquals('/index-test.php');

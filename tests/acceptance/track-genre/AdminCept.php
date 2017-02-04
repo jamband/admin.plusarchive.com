@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['track-genres' => app\tests\fixtures\TrackGenreFixture::class]);
+
 $I->wantTo('ensure that track-genre/admin works');
 $I->seePageNotFound(['/track-genre/admin']);
 $I->loginAsAdmin();

@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['tracks' => app\tests\fixtures\TrackFixture::class]);
+
 $I->wantTo('ensure that track/create works');
 $I->seePageNotFound(['/track/create']);
 $I->loginAsAdmin();
@@ -24,4 +27,5 @@ $I->see('Track', '#menu-controller');
 $I->see('Create', '#menu-action');
 $I->seeOptionIsSelected('#track-status', 'Private');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');

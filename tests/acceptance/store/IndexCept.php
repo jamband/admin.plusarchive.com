@@ -12,6 +12,8 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['stores' => app\tests\fixtures\StoreFixture::class]);
+
 $I->wantTo('ensure that stores works');
 $I->amOnPage(url(['/']));
 $I->click('Store', '.navbar');
@@ -27,6 +29,7 @@ $I->see('3 results', '.total-count');
 
 $I->fillField('input[name=search]', '1');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/stores?search=1');
 $I->see('1 results', '.total-count');
 $I->see('store1', '.caption');
@@ -34,6 +37,6 @@ $I->dontSee('store2', '.caption');
 $I->dontSee('store3', '.caption');
 
 $I->click('Reset All', '.caption');
-$I->seeCurrentUrlEquals('/index-test.php/stores');
 $I->wait(1);
+$I->seeCurrentUrlEquals('/index-test.php/stores');
 $I->see('3 results', '.total-count');

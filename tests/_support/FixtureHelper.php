@@ -9,21 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace tests\codeception\_support;
-
 use Codeception\Module;
 use Codeception\TestCase;
-use tests\codeception\fixtures\BookmarkFixture;
-use tests\codeception\fixtures\BookmarkTagFixture;
-use tests\codeception\fixtures\LabelFixture;
-use tests\codeception\fixtures\LabelTagFixture;
-use tests\codeception\fixtures\PlaylistFixture;
-use tests\codeception\fixtures\PlaylistItemFixture;
-use tests\codeception\fixtures\StoreFixture;
-use tests\codeception\fixtures\StoreTagFixture;
-use tests\codeception\fixtures\TrackFixture;
-use tests\codeception\fixtures\TrackGenreFixture;
-use tests\codeception\fixtures\UserFixture;
+use app\tests\fixtures\BookmarkFixture;
+use app\tests\fixtures\BookmarkTagFixture;
+use app\tests\fixtures\LabelFixture;
+use app\tests\fixtures\LabelTagFixture;
+use app\tests\fixtures\PlaylistFixture;
+use app\tests\fixtures\PlaylistItemFixture;
+use app\tests\fixtures\StoreFixture;
+use app\tests\fixtures\StoreTagFixture;
+use app\tests\fixtures\TrackFixture;
+use app\tests\fixtures\TrackGenreFixture;
+use app\tests\fixtures\UserFixture;
 use yii\test\FixtureTrait;
 
 class FixtureHelper extends Module

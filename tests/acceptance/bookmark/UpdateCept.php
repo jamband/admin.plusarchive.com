@@ -12,12 +12,15 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['bookmarks' => app\tests\fixtures\BookmarkFixture::class]);
+
 $I->wantTo('ensure that bookmark/update works');
 $I->seePageNotFound(['/bookmark/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/bookmark/admin']));
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/update/1');
 $I->see('Bookmark', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -38,20 +41,24 @@ $I->seeInField('#bookmark-link', "https://twitter.com/bookmark1\nhttps://soundcl
 
 $I->fillField('#bookmark-name', '');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('#bookmark-name', 'bookmark-one');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/1');
 $I->see('Bookmark has been updated.');
 
 $I->moveMouseOver('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
+$I->wait(1);
 $I->see('Admin: 4', '#menu-action');
 $I->see('bookmark-one', '.grid-view');
 $I->dontSee('bookmark1', '.grid-view');
 
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
+$I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/update/1');
 
 $I->moveMouseOver('#menu-action');

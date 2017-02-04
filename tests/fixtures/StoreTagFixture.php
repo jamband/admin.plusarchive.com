@@ -17,4 +17,6 @@ use yii\test\ActiveFixture;
 class StoreTagFixture extends ActiveFixture
 {
     public $modelClass = StoreTag::class;
+
+    public $dataFile = '@app/tests/fixtures/data/store_tag.php';
 }

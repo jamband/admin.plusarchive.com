@@ -12,12 +12,15 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['labels' => app\tests\fixtures\LabelFixture::class]);
+
 $I->wantTo('ensure that label/update works');
 $I->seePageNotFound(['/label/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/label/admin']));
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[7]/a[2]/i');
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[7]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/label/update/1');
 $I->see('Label', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -39,10 +42,12 @@ $I->seeInField('#label-link', "https://twitter.com/label1records\nhttps://soundc
 
 $I->fillField('#label-name', '');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeElement('.has-error');
 
 $I->fillField('#label-name', 'label-one');
 $I->click('button[type=submit]');
+$I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/label/1');
 $I->see('label has been updated.');
 
@@ -52,7 +57,7 @@ $I->see('Admin: 3', '#menu-action');
 $I->see('label-one', '.grid-view');
 $I->dontSee('label1', '.grid-view');
 
-$I->click('//*[@id="w1"]/table/tbody/tr[1]/td[7]/a[2]/i');
+$I->click('//*[@id="w0"]/table/tbody/tr[1]/td[7]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/label/update/1');
 
 $I->moveMouseOver('#menu-action');

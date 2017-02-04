@@ -17,4 +17,6 @@ use yii\test\ActiveFixture;
 class TrackGenreFixture extends ActiveFixture
 {
     public $modelClass = TrackGenre::class;
+
+    public $dataFile = '@app/tests/fixtures/data/track_genre.php';
 }

@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['playlists' => app\tests\fixtures\PlaylistFixture::class]);
+
 $I->wantTo('ensure that playlist/admin works');
 $I->seePageNotFound(['/playlist/admin']);
 $I->loginAsAdmin();

@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['bookmarks' => app\tests\fixtures\BookmarkFixture::class]);
+
 $I->wantTo('ensure that bookmark/admin works');
 $I->seePageNotFound(['/bookmark/admin']);
 $I->loginAsAdmin();

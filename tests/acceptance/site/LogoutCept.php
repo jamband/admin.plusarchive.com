@@ -12,14 +12,17 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
 $I->wantTo('ensure that logout works');
 $I->amOnPage(url(['/site/login']));
 $I->see('Log in', 'h2');
 $I->dontSee('Logout');
 
 $I->loginAsAdmin();
+$I->wait(1);
 $I->see('Logout');
 
 $I->click('Logout', '.navbar');
+$I->wait(1);
 $I->dontSee('Logout', '.navbar');
 $I->seeCurrentUrlEquals('/index-test.php');

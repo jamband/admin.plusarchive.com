@@ -17,4 +17,6 @@ use yii\test\ActiveFixture;
 class PlaylistFixture extends ActiveFixture
 {
     public $modelClass = Playlist::class;
+
+    public $dataFile = '@app/tests/fixtures/data/playlist.php';
 }

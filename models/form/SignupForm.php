@@ -31,9 +31,9 @@ class SignupForm extends Model
             [['username', 'email'], 'unique', 'targetClass' => User::class,
                 'message' => 'This {attribute} is not available.',
             ],
-            ['username', 'match', 'pattern' => '/\A[a-z0-9_]{4,20}\z/'],
+            ['username', 'match', 'pattern' => '/^[a-z0-9_]{4,20}$/'],
             ['email', 'email'],
-            ['password', 'match', 'pattern' => '/\A[A-Za-z0-9_]{8,60}\z/'],
+            ['password', 'match', 'pattern' => '/^[A-Za-z0-9_]{8,60}$/'],
         ];
     }
 

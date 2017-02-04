@@ -12,12 +12,14 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
 $I->wantTo('ensure that admin works');
 $I->amOnPage(url(['/']));
 $I->dontSee('Admin', '.navbar');
 
 $I->seePageNotFound(['/site/admin']);
 $I->loginAsAdmin();
+$I->wait(1);
 
 $I->click('Admin', '.navbar');
 $I->seeCurrentUrlEquals('/index-test.php/admin');

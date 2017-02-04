@@ -12,6 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
+$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['labels' => app\tests\fixtures\LabelFixture::class]);
+
 $I->wantTo('ensure that label/admin works');
 $I->seePageNotFound(['/label/admin']);
 $I->loginAsAdmin();

@@ -17,4 +17,6 @@ use yii\test\ActiveFixture;
 class BookmarkTagFixture extends ActiveFixture
 {
     public $modelClass = BookmarkTag::class;
+
+    public $dataFile = '@app/tests/fixtures/data/bookmark_tag.php';
 }
