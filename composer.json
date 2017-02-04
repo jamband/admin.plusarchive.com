@@ -1,6 +1,6 @@
 {
   "require": {
-    "yiisoft/yii2": "2.0.11",
+    "yiisoft/yii2": "2.0.11.1",
     "yiisoft/yii2-bootstrap": "2.0.6",
     "jamband/ripple": "0.3.1",
     "creocoder/yii2-taggable": "2.0.0",
