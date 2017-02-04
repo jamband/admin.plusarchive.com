@@ -12,7 +12,7 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['playlists' => app\tests\fixtures\PlaylistFixture::class]);
+$I->haveFixtures(['playlists' => app\tests\acceptance\fixtures\PlaylistFixture::class]);
 
 $I->wantTo('ensure that playlists works');
 $I->amOnPage(url(['/']));

@@ -12,8 +12,8 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
-$I->haveFixtures(['bookmarks' => app\tests\fixtures\BookmarkFixture::class]);
+$I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
+$I->haveFixtures(['bookmarks' => app\tests\acceptance\fixtures\BookmarkFixture::class]);
 
 $I->wantTo('ensure that bookmark/view works');
 $I->seePageNotFound(['/bookmark/view', 'id' => 1]);

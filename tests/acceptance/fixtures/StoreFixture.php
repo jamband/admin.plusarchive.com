@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace app\tests\fixtures;
+namespace app\tests\acceptance\fixtures;
 
-use app\models\Track;
+use app\models\Store;
 use yii\test\ActiveFixture;
 
-class TrackFixture extends ActiveFixture
+class StoreFixture extends ActiveFixture
 {
-    public $modelClass = Track::class;
+    public $modelClass = Store::class;
 
-    public $dataFile = '@app/tests/fixtures/data/track.php';
+    public $dataFile = '@app/tests/acceptance/fixtures/data/store.php';
 }

@@ -12,7 +12,7 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['stores' => app\tests\fixtures\StoreFixture::class]);
+$I->haveFixtures(['stores' => app\tests\acceptance\fixtures\StoreFixture::class]);
 
 $I->wantTo('ensure that stores works');
 $I->amOnPage(url(['/']));

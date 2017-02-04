@@ -12,7 +12,7 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['bookmarks' => app\tests\fixtures\BookmarkFixture::class]);
+$I->haveFixtures(['bookmarks' => app\tests\acceptance\fixtures\BookmarkFixture::class]);
 
 $I->wantTo('ensure that bookmarks works');
 $I->amOnPage(url(['/']));

@@ -12,8 +12,8 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
-$I->haveFixtures(['labels' => app\tests\fixtures\LabelFixture::class]);
+$I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
+$I->haveFixtures(['labels' => app\tests\acceptance\fixtures\LabelFixture::class]);
 
 $I->wantTo('ensure that label/create works');
 $I->seePageNotFound(['/label/create']);

@@ -12,7 +12,7 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
+$I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
 $I->wantTo('ensure that logout works');
 $I->amOnPage(url(['/site/login']));
 $I->see('Log in', 'h2');

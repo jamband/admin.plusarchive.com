@@ -12,8 +12,8 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
-$I->haveFixtures(['playlists' => app\tests\fixtures\PlaylistFixture::class]);
+$I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
+$I->haveFixtures(['playlists' => app\tests\acceptance\fixtures\PlaylistFixture::class]);
 
 $I->wantTo('ensure that playlist/delete works');
 $I->seePageNotFound(['/playlist/delete', 'id' => 1]);

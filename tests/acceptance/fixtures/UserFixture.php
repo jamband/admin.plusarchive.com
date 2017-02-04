@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace app\tests\fixtures;
+namespace app\tests\acceptance\fixtures;
 
 use app\models\User;
 use yii\test\ActiveFixture;
@@ -18,5 +18,5 @@ class UserFixture extends ActiveFixture
 {
     public $modelClass = User::class;
 
-    public $dataFile = '@app/tests/fixtures/data/user.php';
+    public $dataFile = '@app/tests/acceptance/fixtures/data/user.php';
 }

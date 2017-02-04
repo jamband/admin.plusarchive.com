@@ -12,7 +12,7 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['labels' => app\tests\fixtures\LabelFixture::class]);
+$I->haveFixtures(['labels' => app\tests\acceptance\fixtures\LabelFixture::class]);
 
 $I->wantTo('ensure that labels works');
 $I->amOnPage(url(['/']));

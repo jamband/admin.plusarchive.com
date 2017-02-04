@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace app\tests\fixtures;
+namespace app\tests\acceptance\fixtures;
 
 use app\models\BookmarkTag;
 use yii\test\ActiveFixture;
@@ -18,5 +18,5 @@ class BookmarkTagFixture extends ActiveFixture
 {
     public $modelClass = BookmarkTag::class;
 
-    public $dataFile = '@app/tests/fixtures/data/bookmark_tag.php';
+    public $dataFile = '@app/tests/acceptance/fixtures/data/bookmark_tag.php';
 }

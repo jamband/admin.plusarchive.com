@@ -12,7 +12,7 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['tracks' => app\tests\fixtures\TrackFixture::class]);
+$I->haveFixtures(['tracks' => app\tests\acceptance\fixtures\TrackFixture::class]);
 
 $I->wantTo('ensure that track/now works');
 $I->seePageNotFound(['/track/now', 'id' => 1]);

@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace app\tests\fixtures;
+namespace app\tests\acceptance\fixtures;
 
-use app\models\TrackGenre;
+use app\models\PlaylistItem;
 use yii\test\ActiveFixture;
 
-class TrackGenreFixture extends ActiveFixture
+class PlaylistItemFixture extends ActiveFixture
 {
-    public $modelClass = TrackGenre::class;
+    public $modelClass = PlaylistItem::class;
 
-    public $dataFile = '@app/tests/fixtures/data/track_genre.php';
+    public $dataFile = '@app/tests/acceptance/fixtures/data/playlist_item.php';
 }

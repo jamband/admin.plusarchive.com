@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace app\tests\fixtures;
+namespace app\tests\acceptance\fixtures;
 
-use app\models\Bookmark;
+use app\models\LabelTag;
 use yii\test\ActiveFixture;
 
-class BookmarkFixture extends ActiveFixture
+class LabelTagFixture extends ActiveFixture
 {
-    public $modelClass = Bookmark::class;
+    public $modelClass = LabelTag::class;
 
-    public $dataFile = '@app/tests/fixtures/data/bookmark.php';
+    public $dataFile = '@app/tests/acceptance/fixtures/data/label_tag.php';
 }

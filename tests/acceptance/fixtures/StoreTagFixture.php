@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace app\tests\fixtures;
+namespace app\tests\acceptance\fixtures;
 
-use app\models\Playlist;
+use app\models\StoreTag;
 use yii\test\ActiveFixture;
 
-class PlaylistFixture extends ActiveFixture
+class StoreTagFixture extends ActiveFixture
 {
-    public $modelClass = Playlist::class;
+    public $modelClass = StoreTag::class;
 
-    public $dataFile = '@app/tests/fixtures/data/playlist.php';
+    public $dataFile = '@app/tests/acceptance/fixtures/data/store_tag.php';
 }

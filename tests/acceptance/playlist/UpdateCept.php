@@ -12,8 +12,9 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['users' => app\tests\fixtures\UserFixture::class]);
-$I->haveFixtures(['playlists' => app\tests\fixtures\PlaylistFixture::class]);
+$I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
+$I->haveFixtures(['playlists' => app\tests\acceptance\fixtures\PlaylistFixture::class]);
+$I->haveFixtures(['playlist-items' => app\tests\acceptance\fixtures\PlaylistItemFixture::class]);
 
 $I->wantTo('ensure that playlist/update works');
 $I->seePageNotFound(['/playlist/update', 'id' => 1]);
@@ -22,6 +23,7 @@ $I->loginAsAdmin();
 $I->amOnPage(url(['/playlist/admin']));
 $I->click('//*[@id="w0"]/table/tbody/tr[1]/td[5]/a[1]/i'); // Update link
 $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
+
 $I->see('Playlist', '#menu-controller');
 $I->see('Update', '#menu-action');
 
