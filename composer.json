@@ -1,6 +1,6 @@
 {
   "require": {
-    "yiisoft/yii2": "2.0.11.1",
+    "yiisoft/yii2": "2.0.11.2",
     "yiisoft/yii2-bootstrap": "2.0.6",
     "jamband/ripple": "0.3.1",
     "creocoder/yii2-taggable": "2.0.0",
@@ -10,7 +10,7 @@
     "yiisoft/yii2-debug": "2.0.7",
     "yiisoft/yii2-gii": "2.0.5",
     "vlucas/phpdotenv": "2.4.0",
-    "codeception/codeception": "2.2.8"
+    "codeception/codeception": "2.2.9"
   },
   "provide": {
     "bower-asset/jquery": "*",
