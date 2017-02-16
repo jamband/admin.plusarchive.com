@@ -17,7 +17,7 @@
 use yii\helpers\Html;
 
 ?>
-<div id="track-modal" class="modal">
+<div id="track-modal" class="modal fade">
     <div class="text-center modal-dialog">
         <?= Html::tag('iframe', '', [
             'src' => h($embed),
@@ -51,7 +51,9 @@ $(document).on('click', '#track-now-title', function() {
     $('#track-modal').modal('show');
 });
 $(document).on('click', '#track-now-clear', function() {
-    $('#track-now').empty();
+    $('#track-now').children().fadeOut(function() {
+        $(this).remove();
+    });
 });
 JS
 );

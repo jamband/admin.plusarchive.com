@@ -84,6 +84,7 @@
     }
   }
   .list {
+    opacity: 0;
     .thumbnail {
       background: transparent;
       border-bottom: 1px solid $gray-dark;
@@ -106,6 +107,7 @@
   }
 }
 #track-now-title {
+  display: inline-block;
   cursor: pointer;
   font-weight: bold;
   &:before {
