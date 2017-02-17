@@ -26,7 +26,7 @@ use yii\helpers\Html;
             'allowfullscreen' => true,
         ]) ?>
         <?= Html::a('<i class="fa fa-fw fa-eye"></i> View', ['view', 'id' => $id], [
-            'class' => 'label label-default track-modal-action',
+            'class' => 'label label-default',
         ]) ?>
         <div class="track-modal-loading">
             <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
@@ -52,7 +52,6 @@ if (/^(Vimeo|YouTube)$/.test($iframe.attr('data-provider'))) {
 $modal.modal('show');
 
 $iframe.load(function() {
-    $('.track-modal-action').show();
     $('.track-modal-loading').fadeOut();
 });
 $(document).on('click', '#track-now-title', function() {
