@@ -19,7 +19,7 @@
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
-$this->title = 'Tracks - '.app()->name;
+$this->title = app()->name;
 ?>
 <div id="track-now" class="text-center"></div>
 
