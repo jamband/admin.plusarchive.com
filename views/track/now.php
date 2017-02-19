@@ -29,8 +29,7 @@ use yii\helpers\Html;
             'class' => 'label label-default',
         ]) ?>
         <div class="track-modal-loading">
-            <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
-            <span class="sr-only">Loading...</span>
+            <div class="ball-pulse"><div></div><div></div><div></div></div>
         </div>
     </div>
 </div>
