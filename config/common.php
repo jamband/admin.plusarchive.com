@@ -14,7 +14,7 @@ Yii::$classMap = [
 ];
 
 return [
-    'name' => 'Plus Archive',
+    'name' => 'PlusArchive',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
