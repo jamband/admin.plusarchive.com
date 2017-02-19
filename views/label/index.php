@@ -18,7 +18,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\Pjax;
-use yii\widgets\LinkPager;
 
 $this->title = 'Labels - '.app()->name;
 ?>
@@ -71,7 +70,7 @@ $this->title = 'Labels - '.app()->name;
                 <?php endforeach ?>
             </div><!-- /.row -->
 
-            <?= LinkPager::widget(['pagination' => $data->pagination]) ?>
+            <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
         </div>
     </div><!-- /.row -->
 <?php Pjax::end() ?>

@@ -38,4 +38,5 @@ $this->title = 'Admin StoreTags - '.app()->name;
             ],
         ],
     ]) ?>
+    <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
 <?php Pjax::end() ?>

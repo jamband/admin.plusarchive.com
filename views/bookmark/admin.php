@@ -59,4 +59,5 @@ $this->title = 'Admin Bookmarks - '.app()->name;
             ['class' => app\components\ActionColumn::class],
         ],
     ]) ?>
+    <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
 <?php Pjax::end() ?>

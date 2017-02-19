@@ -85,9 +85,9 @@ $thumbnail-bg:                $gray-dark !default;
 $thumbnail-border:            none !default;
 
 //== Pagination
-$pagination-bg:                        $gray-darker !default;
-$pagination-hover-bg:                  $gray-dark !default;
-$pagination-disabled-bg:               $gray-darker !default;
+$pagination-bg:                        transparent !default;
+$pagination-hover-bg:                  rgba(55,55,55,0.4) !default;
+$pagination-disabled-bg:               transparent !default;
 
 //== Close
 $close-color:                 $gray-lighter !default;

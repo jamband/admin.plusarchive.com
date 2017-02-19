@@ -6,3 +6,12 @@
     }
   }
 }
+.pagination-info {
+  position: relative;
+  bottom: 50px;
+  z-index: -1;
+  color: lighten($gray-dark, 10%);
+  @media (max-width: $screen-xs-max) {
+    font-size: 80%;
+  }
+}

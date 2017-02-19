@@ -38,4 +38,5 @@ $this->title = 'Admin TrackGenres - '.app()->name;
             ],
         ],
     ]); ?>
+    <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
 <?php Pjax::end() ?>

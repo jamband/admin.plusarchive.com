@@ -38,4 +38,5 @@ $this->title = 'Admin LabelTags - '.app()->name;
             ],
         ],
     ]) ?>
+    <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
 <?php Pjax::end() ?>

@@ -56,4 +56,5 @@ $this->title = 'Admin Labels - '.app()->name;
             ['class' => app\components\ActionColumn::class],
         ],
     ]) ?>
+    <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
 <?php Pjax::end() ?>

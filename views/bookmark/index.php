@@ -16,7 +16,6 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
 
 $this->title = 'Bookmarks - '.app()->name;
@@ -64,7 +63,7 @@ $this->title = 'Bookmarks - '.app()->name;
                 <?php endforeach ?>
             </div><!-- /.row -->
 
-            <?= LinkPager::widget(['pagination' => $data->pagination]) ?>
+            <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
         </div>
     </div><!-- /.row -->
 <?php Pjax::end() ?>

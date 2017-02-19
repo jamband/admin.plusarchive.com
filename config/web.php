@@ -59,7 +59,7 @@ $config = [
                 'class' => app\components\Sort::class,
             ],
             yii\grid\GridView::class => [
-                'layout' => '{items}{pager}',
+                'layout' => '{items}',
             ],
             yii\widgets\ActiveForm::class => [
                 'validateOnBlur' => false,
@@ -71,6 +71,7 @@ $config = [
                 'firstPageLabel' => '<i class="fa fa-angle-double-left"></i>',
                 'lastPageLabel' => '<i class="fa fa-angle-double-right"></i>',
                 'firstPageCssClass' => 'first btn-group',
+                'hideOnSinglePage' => false,
                 'nextPageCssClass' => 'next btn-group',
                 'prevPageCssClass' => 'prev btn-group',
                 'lastPageCssClass' => 'last btn-group',

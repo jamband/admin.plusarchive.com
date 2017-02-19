@@ -19,7 +19,6 @@
 /* @var $embedUrl string */
 
 use yii\helpers\Html;
-use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
 
 $this->title = 'Admin Tracks - '.app()->name;
@@ -91,7 +90,7 @@ $this->title = 'Admin Tracks - '.app()->name;
         <?php endforeach ?>
     </div><!-- /.row -->
 
-    <?= LinkPager::widget(['pagination' => $data->pagination]) ?>
+    <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
 <?php Pjax::end() ?>
 
 <?= $this->render('/common/js/tile') ?>

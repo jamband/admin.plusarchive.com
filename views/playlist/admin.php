@@ -43,4 +43,5 @@ $this->title = 'Admin Playlists - '.app()->name;
             ],
         ],
     ]) ?>
+    <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
 <?php Pjax::end() ?>
