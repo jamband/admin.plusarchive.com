@@ -1,5 +1,8 @@
 .pagination {
   > li {
+    @media (max-width: $screen-xs-max) {
+      font-size: 80%;
+    }
     a,
     span {
       margin-left: 0;
@@ -8,10 +11,13 @@
 }
 .pagination-info {
   position: relative;
-  bottom: 50px;
   z-index: -1;
   color: lighten($gray-dark, 10%);
+  @media (min-width: $screen-sm-min) {
+    bottom: 50px;
+  }
   @media (max-width: $screen-xs-max) {
     font-size: 80%;
+    bottom: 48px;
   }
 }
