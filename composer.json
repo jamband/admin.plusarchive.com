@@ -7,7 +7,7 @@
     "hashids/hashids": "2.0.3"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "2.0.7",
+    "yiisoft/yii2-debug": "2.0.8",
     "yiisoft/yii2-gii": "2.0.5",
     "vlucas/phpdotenv": "2.4.0",
     "codeception/codeception": "2.2.9"
