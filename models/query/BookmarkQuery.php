@@ -28,7 +28,7 @@ class BookmarkQuery extends ActiveQuery
 
     /**
      * @param string $country
-     * @return StoreQuery
+     * @return BookmarkQuery
      */
     public function country($country)
     {
