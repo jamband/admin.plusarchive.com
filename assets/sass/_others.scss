@@ -93,6 +93,9 @@
           color: darken($text-color, 10%);
         }
       }
+      a.label {
+        padding: .2em .3em .3em;
+      }
     }
   }
 }
