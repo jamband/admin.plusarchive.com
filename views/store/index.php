@@ -47,18 +47,18 @@ $this->title = 'Stores - '.app()->name;
                                     <span class="label label-new"><?= h($model->newText) ?></span>
                                 <?php endif ?>
                                 <br>
-                                <div class="label label-default">
-                                    <?= h($model->getAttributeLabel('link')) ?>:
-                                </div>
+                                <div class="label label-default"><?= h($model->getAttributeLabel('link')) ?>:</div>
                                 <?= formatter()->asSnsIconLink($model->link, "\n", [], [
                                     'rel' => 'noopener',
                                     'target' => '_blank',
                                 ]) ?>
                                 <br>
-                                <div class="label label-default">
-                                    <?= h($model->getAttributeLabel('tag')) ?>:
-                                </div>
-                                <?= h($model->tagValues) ?>
+                                <div class="label label-default"><?= h($model->getAttributeLabel('tag')) ?>:</div>
+                                <?php foreach ($model->storeTags as $tag): ?>
+                                    <?= Html::a(h($tag->name), ['', 'tag' => $tag->name], [
+                                        'class' => 'label label-default',
+                                    ]) ?>
+                                <?php endforeach ?>
                             </div>
                         </div>
                     </div>

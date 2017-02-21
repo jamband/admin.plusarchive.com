@@ -63,7 +63,11 @@ $this->title = 'Labels - '.app()->name;
                                 ]) ?>
                                 <br>
                                 <span class="label label-default"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
-                                <?= h($model->tagValues) ?>
+                                <?php foreach ($model->labelTags as $tag): ?>
+                                    <?= Html::a(h($tag->name), ['', 'tag' => $tag->name], [
+                                        'class' => 'label label-default',
+                                    ]) ?>
+                                <?php endforeach ?>
                             </div>
                         </div>
                     </div>

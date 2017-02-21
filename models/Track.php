@@ -99,7 +99,8 @@ class Track extends ActiveRecord
     public function getTrackGenres()
     {
         return $this->hasMany(TrackGenre::class, ['id' => 'track_genre_id'])
-            ->viaTable('track_genre_assn', ['track_id' => 'id']);
+            ->viaTable('track_genre_assn', ['track_id' => 'id'])
+            ->orderBy(['name' => SORT_ASC]);
     }
 
     /**
