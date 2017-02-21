@@ -25,6 +25,7 @@ $this->title = 'Stores - '.app()->name;
         <div id="tile-search" class="col-xs-12 col-sm-4">
             <?= $this->render('_search', [
                 'sort' => $sort,
+                'country' => $country,
                 'tag' => $tag,
                 'search' => $search,
                 'totalCount' => $data->totalCount,
@@ -46,6 +47,11 @@ $this->title = 'Stores - '.app()->name;
                                 <?php if ($model->newText): ?>
                                     <span class="label label-new"><?= h($model->newText) ?></span>
                                 <?php endif ?>
+                                <br>
+                                <div class="label label-default">
+                                    <?= h($model->getAttributeLabel('country')) ?>:
+                                </div>
+                                <?= h($model->country) ?>
                                 <br>
                                 <div class="label label-default"><?= h($model->getAttributeLabel('link')) ?>:</div>
                                 <?= formatter()->asSnsIconLink($model->link, "\n", [], [

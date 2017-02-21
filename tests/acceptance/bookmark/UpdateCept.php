@@ -19,7 +19,7 @@ $I->seePageNotFound(['/bookmark/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/bookmark/admin']));
-$I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
+$I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[8]/a[2]/i'); // Update link
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/update/1');
 $I->see('Bookmark', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -35,6 +35,7 @@ $I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
 $I->moveBack();
 
 $I->seeInField('#bookmark-name', 'bookmark1');
+$I->seeInField('#bookmark-country', 'Japan');
 $I->seeInField('#bookmark-url', 'https://bookmark1.example.com/');
 $I->seeInField('#bookmark-link', "https://twitter.com/bookmark1\nhttps://soundcloud.com/bookmark1");
 
@@ -56,7 +57,7 @@ $I->see('Admin: 4', '#menu-action');
 $I->see('bookmark-one', '.grid-view');
 $I->dontSee('bookmark1', '.grid-view');
 
-$I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
+$I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[8]/a[2]/i'); // Update link
 $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/update/1');
 

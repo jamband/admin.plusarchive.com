@@ -19,7 +19,7 @@ $I->seePageNotFound(['/bookmark/view', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/bookmark/admin']));
-$I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[7]/a[1]/i'); // View link
+$I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[8]/a[1]/i'); // View link
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/1');
 $I->see('Bookmark', '#menu-controller');
 $I->see('View', '#menu-action');

@@ -40,6 +40,16 @@ $I->see('store1', '.grid-view');
 $I->see('store2', '.grid-view');
 $I->see('store3', '.grid-view');
 
+$I->selectOption('select[name="StoreSearch[country]"]', 'Japan');
+$I->wait(1);
+$I->see('Admin: 1', '#menu-action');
+$I->see('Japan', '.grid-view');
+$I->dontSee('store2', '.grid-view');
+$I->dontSee('store3', '.grid-view');
+
+$I->moveMouseOver('#menu-action');
+$I->click('Admin', '#menu-action + .dropdown-menu');
+
 $I->fillField('input[name="StoreSearch[link]"]', 'you');
 $I->pressKey(['name' => 'StoreSearch[link]'], WebDriverKeys::ENTER);
 $I->wait(1);

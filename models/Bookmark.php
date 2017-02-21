@@ -11,6 +11,7 @@
 
 namespace app\models;
 
+use app\models\common\ActiveRecordTrait;
 use app\models\common\DataTransformationTrait;
 use app\models\query\BookmarkQuery;
 use creocoder\taggable\TaggableBehavior;
@@ -21,6 +22,7 @@ use yii\db\ActiveRecord;
 /**
  * @property integer $id
  * @property string $name
+ * @property string $country
  * @property string $url
  * @property string $link
  * @property integer $status
@@ -29,6 +31,7 @@ use yii\db\ActiveRecord;
  */
 class Bookmark extends ActiveRecord
 {
+    use ActiveRecordTrait;
     use DataTransformationTrait;
 
     const STATUS_PRIVATE = 0;
@@ -94,8 +97,8 @@ class Bookmark extends ActiveRecord
     {
         return [
             [['name', 'url'], 'required'],
-            [['name', 'url', 'link'], 'trim'],
-            [['name', 'url'], 'string', 'max' => 255],
+            [['name', 'country', 'url', 'link'], 'trim'],
+            [['name', 'country', 'url'], 'string', 'max' => 255],
             [['name', 'url'], 'unique'],
 
             ['url', 'url'],

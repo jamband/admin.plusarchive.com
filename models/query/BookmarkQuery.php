@@ -27,6 +27,15 @@ class BookmarkQuery extends ActiveQuery
     }
 
     /**
+     * @param string $country
+     * @return StoreQuery
+     */
+    public function country($country)
+    {
+        return $this->andFilterWhere(['country' => $country]);
+    }
+
+    /**
      * @param integer $status
      * @return BookmarkQuery
      */

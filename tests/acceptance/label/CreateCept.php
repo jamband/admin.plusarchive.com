@@ -29,8 +29,8 @@ $I->click('button[type=submit]');
 $I->wait(1);
 $I->seeElement('.has-error');
 
-$I->fillField('input[name="Label[name]"]', 'newlabel');
-$I->fillField('input[name="Label[url]"]', 'http://newlabel.example.com');
+$I->fillField('#label-name', 'newlabel');
+$I->fillField('#label-url', 'http://newlabel.example.com');
 $I->click('button[type=submit]');
 $I->wait(1);
 $I->see('Label has been added.');

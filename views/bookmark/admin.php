@@ -40,6 +40,10 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                 },
             ],
             [
+                'attribute' => 'country',
+                'filter' => array_combine($countries = $search::getCountries(), $countries),
+            ],
+            [
                 'attribute' => 'link',
                 'format' => ['snsIconLink', null, [], [
                     'rel' => 'noopener',

@@ -11,6 +11,7 @@
 
 namespace app\models;
 
+use app\models\common\ActiveRecordTrait;
 use app\models\common\DataTransformationTrait;
 use app\models\query\LabelQuery;
 use creocoder\taggable\TaggableBehavior;
@@ -29,6 +30,7 @@ use yii\db\ActiveRecord;
  */
 class Label extends ActiveRecord
 {
+    use ActiveRecordTrait;
     use DataTransformationTrait;
 
     /**
@@ -47,19 +49,6 @@ class Label extends ActiveRecord
         return [
             'tagValues' => 'Tag',
         ];
-    }
-
-    /**
-     * Returns all countries.
-     * @return array
-     */
-    public static function getCountries()
-    {
-        return static::find()
-            ->select('country')
-            ->distinct()
-            ->orderBy(['country' => SORT_ASC])
-            ->column();
     }
 
     /**

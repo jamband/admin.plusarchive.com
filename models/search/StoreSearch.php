@@ -22,8 +22,8 @@ class StoreSearch extends Store
     public function rules()
     {
         return [
-            [['name', 'link'], 'trim'],
-            [['name', 'link'], 'safe'],
+            [['name', 'country', 'link'], 'trim'],
+            [['name', 'country', 'link'], 'safe'],
         ];
     }
 
@@ -47,6 +47,7 @@ class StoreSearch extends Store
         ]);
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', 'name', $this->name])
+                ->andFilterWhere(['country' => $this->country])
                 ->andFilterWhere(['like', 'link', $this->link]);
         }
 

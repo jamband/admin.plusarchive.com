@@ -19,7 +19,7 @@ $I->seePageNotFound(['/store/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/store/admin']));
-$I->click('//*[@id="grid-view-store"]/table/tbody/tr[1]/td[6]/a[2]/i');
+$I->click('//*[@id="grid-view-store"]/table/tbody/tr[1]/td[7]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/store/update/1');
 $I->see('Store', '#menu-controller');
 $I->see('Update', '#menu-action');
@@ -35,6 +35,7 @@ $I->seeCurrentUrlEquals('/index-test.php/store/create');
 $I->moveBack();
 
 $I->seeInField('#store-name', 'store1');
+$I->seeInField('#store-country', 'Japan');
 $I->seeInField('#store-url', 'https://store1.example.com/');
 $I->seeInField('#store-link', "https://twitter.com/store1\nhttps://soundcloud.com/store1");
 
@@ -55,7 +56,7 @@ $I->see('Admin: 3', '#menu-action');
 $I->see('store-one', '.grid-view');
 $I->dontSee('store1', '.grid-view');
 
-$I->click('//*[@id="grid-view-store"]/table/tbody/tr[1]/td[6]/a[2]/i');
+$I->click('//*[@id="grid-view-store"]/table/tbody/tr[1]/td[7]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/store/update/1');
 
 $I->moveMouseOver('#menu-action');

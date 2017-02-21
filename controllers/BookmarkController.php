@@ -53,11 +53,12 @@ class BookmarkController extends Controller
     /**
      * Lists all Bookmark models.
      * @param string $sort
+     * @param string $country
      * @param string $search
      * @param string $tag
      * @return mixed
      */
-    public function actionIndex($sort = null, $search = null, $tag = null)
+    public function actionIndex($sort = null, $country = null, $search = null, $tag = null)
     {
         $query = Bookmark::find()
             ->with(['bookmarkTags'])
@@ -66,7 +67,8 @@ class BookmarkController extends Controller
         if (null !== $search) {
             $query->search($search);
         } else {
-            $query->sort($sort);
+            $query->country($country)
+                ->sort($sort);
         }
         if (null !== $tag) {
             $query->allTagValues($tag);
@@ -75,9 +77,10 @@ class BookmarkController extends Controller
         return $this->render('index', [
             'data' => new ActiveDataProvider([
                 'query' => $query,
-                'pagination' => ['pageSize' => 10],
+                'pagination' => ['pageSize' => 8],
             ]),
             'sort' => $sort ?: 'Sort',
+            'country' => $country ?: 'Countries',
             'tag' => $tag ?: 'Tags',
             'search' => $search,
         ]);

@@ -23,6 +23,7 @@ $this->title = "View Bookmark: $model->name - ".app()->name;
     'attributes' => [
         'id',
         'name',
+        'country',
         [
             'attribute' => 'url',
             'format' => ['url', [

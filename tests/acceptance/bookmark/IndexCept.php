@@ -26,6 +26,17 @@ $I->seeElement('.fa-soundcloud');
 $I->seeElement('.fa-twitter-square');
 $I->see('3 results', '.total-count');
 
+$I->click('Countries', '.caption');
+$I->wait(1);
+$I->click('Japan', '.caption');
+$I->wait(1);
+$I->seeCurrentUrlEquals('/index-test.php/bookmarks?country=Japan');
+$I->see('bookmark1', '.caption');
+$I->dontSee('bookmark2', '.caption');
+$I->dontSee('bookmark3', '.caption');
+$I->see('1 results', '.total-count');
+
+
 $I->fillField('input[name=search]', '1');
 $I->click('button[type=submit]');
 $I->wait(1);

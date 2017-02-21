@@ -27,6 +27,16 @@ $I->seeElement('.fa-youtube-square');
 $I->seeElement('.fa-twitter-square');
 $I->see('3 results', '.total-count');
 
+$I->click('Countries', '.caption');
+$I->wait(1);
+$I->click('Japan', '.caption');
+$I->wait(1);
+$I->seeCurrentUrlEquals('/index-test.php/stores?country=Japan');
+$I->see('store1', '.caption');
+$I->dontSee('store2', '.caption');
+$I->dontSee('store3', '.caption');
+$I->see('1 results', '.total-count');
+
 $I->fillField('input[name=search]', '1');
 $I->click('button[type=submit]');
 $I->wait(1);

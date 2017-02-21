@@ -76,7 +76,7 @@ class LabelController extends Controller
         return $this->render('index', [
             'data' => new ActiveDataProvider([
                 'query' => $query,
-                'pagination' => ['pageSize' => 10],
+                'pagination' => ['pageSize' => 8],
             ]),
             'sort' => $sort ?: 'Sort',
             'country' => $country ?: 'Countries',

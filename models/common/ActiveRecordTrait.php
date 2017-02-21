@@ -27,6 +27,19 @@ trait ActiveRecordTrait
     }
 
     /**
+     * Returns all countries.
+     * @return array
+     */
+    public static function getCountries()
+    {
+        return static::find()
+            ->select('country')
+            ->distinct()
+            ->orderBy(['country' => SORT_ASC])
+            ->column();
+    }
+
+    /**
      * Returns all ids.
      * @return array
      */

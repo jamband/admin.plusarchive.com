@@ -22,6 +22,7 @@ use yii\widgets\ActiveForm;
     <div class="col-xs-12 col-sm-5">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'country')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'link')->textarea(['rows' => 6]) ?>
             <?= $form->field($model, 'tagValues') ?>

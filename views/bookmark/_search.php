@@ -11,12 +11,15 @@
 
 /* @var $this yii\web\View */
 /* @var $sort string */
+/* @var $country string */
 /* @var $tag string */
 /* @var $search string */
 
+use app\models\Bookmark;
 use app\models\BookmarkTag;
 use yii\helpers\Html;
 use yii\helpers\Url;
+
 ?>
 <div class="thumbnail">
     <div class="caption">
@@ -32,6 +35,20 @@ use yii\helpers\Url;
                 <li role="separator" class="divider"></li>
                 <li><a href="<?= Url::currentPlus(['sort' => 'Name', 'search' => null]) ?>">Name</a></li>
                 <li><a href="<?= Url::currentPlus(['sort' => 'Latest', 'search' => null]) ?>">Latest</a></li>
+            </ul>
+        </span><!-- /.dropdown -->
+
+        <span class="dropdown">
+            <?= Html::a(h($country).' <span class="caret"></span>', '#', [
+                'class' => 'dropdown-toggle label label-default',
+                'data-toggle' => 'dropdown',
+            ]) ?>
+            <ul class="dropdown-menu scrollable-menu">
+                <li><a href="<?= Url::currentPlus(['country' => null, 'search' => null]) ?>">Reset</a></li>
+                <li role="separator" class="divider"></li>
+                <?php foreach (Bookmark::getCountries() as $country): ?>
+                    <li><a href="<?= Url::currentPlus(['country' => $country, 'search' => null]) ?>"><?= h($country) ?></a></li>
+                <?php endforeach ?>
             </ul>
         </span><!-- /.dropdown -->
 

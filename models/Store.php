@@ -11,6 +11,7 @@
 
 namespace app\models;
 
+use app\models\common\ActiveRecordTrait;
 use app\models\common\DataTransformationTrait;
 use app\models\query\StoreQuery;
 use creocoder\taggable\TaggableBehavior;
@@ -21,6 +22,7 @@ use yii\behaviors\TimestampBehavior;
 /**
  * @property integer $id
  * @property string $name
+ * @property string $country
  * @property string $url
  * @property string $link
  * @property integer $created_at
@@ -28,6 +30,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Store extends ActiveRecord
 {
+    use ActiveRecordTrait;
     use DataTransformationTrait;
 
     /**
@@ -73,9 +76,9 @@ class Store extends ActiveRecord
     {
         return [
             [['name', 'url'], 'required'],
-            [['name', 'url', 'link'], 'trim'],
+            [['name', 'country', 'url', 'link'], 'trim'],
             [['name', 'url'], 'unique'],
-            [['name'], 'string', 'max' => 200],
+            [['name', 'country'], 'string', 'max' => 200],
 
             ['url', 'url'],
             ['link', 'string', 'max' => 1000],

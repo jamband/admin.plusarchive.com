@@ -22,8 +22,8 @@ class BookmarkSearch extends Bookmark
     public function rules()
     {
         return [
-            [['name', 'link'], 'trim'],
-            [['name', 'link'], 'safe'],
+            [['name', 'country', 'link'], 'trim'],
+            [['name', 'country', 'link'], 'safe'],
 
             ['status', 'in', 'range' => array_keys(Bookmark::STATUS_DATA)],
         ];
@@ -49,6 +49,7 @@ class BookmarkSearch extends Bookmark
         ]);
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', 'name', $this->name])
+                ->andFilterWhere(['country' => $this->country])
                 ->andFilterWhere(['like', 'link', $this->link])
                 ->andFilterWhere(['status' => $this->status]);
         }

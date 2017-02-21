@@ -27,6 +27,15 @@ class StoreQuery extends ActiveQuery
     }
 
     /**
+     * @param string $country
+     * @return StoreQuery
+     */
+    public function country($country)
+    {
+        return $this->andFilterWhere(['country' => $country]);
+    }
+
+    /**
      * @param string $sort
      * @return StoreQuery
      */

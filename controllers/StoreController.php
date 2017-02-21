@@ -53,11 +53,12 @@ class StoreController extends Controller
     /**
      * Lists all Store models.
      * @param string $sort
+     * @param string $country
      * @param string $tag
      * @param string $search
      * @return mixed
      */
-    public function actionIndex($sort = null, $tag = null, $search = null)
+    public function actionIndex($sort = null, $country = null, $tag = null, $search = null)
     {
         $query = Store::find()
             ->with(['storeTags']);
@@ -65,7 +66,8 @@ class StoreController extends Controller
         if (null !== $search) {
             $query->search($search);
         } else {
-            $query->sort($sort);
+            $query->country($country)
+                ->sort($sort);
         }
         if (null !== $tag) {
             $query->allTagValues($tag);
@@ -74,9 +76,10 @@ class StoreController extends Controller
         return $this->render('index', [
             'data' => new ActiveDataProvider([
                 'query' => $query,
-                'pagination' => ['pageSize' => 10],
+                'pagination' => ['pageSize' => 8],
             ]),
             'sort' => $sort ?: 'Sort',
+            'country' => $country ?: 'Countries',
             'tag' => $tag ?: 'Tags',
             'search' => $search,
         ]);
