@@ -43,7 +43,7 @@ use yii\helpers\Url;
                 'class' => 'dropdown-toggle label label-default',
                 'data-toggle' => 'dropdown',
             ]) ?>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu scrollable-menu">
                 <li><a href="<?= Url::currentPlus(['country' => null, 'search' => null]) ?>">Reset</a></li>
                 <li role="separator" class="divider"></li>
                 <?php foreach (Label::getCountries() as $country): ?>
