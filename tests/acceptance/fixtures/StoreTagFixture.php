@@ -19,4 +19,8 @@ class StoreTagFixture extends ActiveFixture
     public $modelClass = StoreTag::class;
 
     public $dataFile = '@app/tests/acceptance/fixtures/data/store_tag.php';
+
+    public $depends = [
+        UserFixture::class,
+    ];
 }

@@ -19,4 +19,8 @@ class TrackGenreFixture extends ActiveFixture
     public $modelClass = TrackGenre::class;
 
     public $dataFile = '@app/tests/acceptance/fixtures/data/track_genre.php';
+
+    public $depends = [
+        UserFixture::class,
+    ];
 }

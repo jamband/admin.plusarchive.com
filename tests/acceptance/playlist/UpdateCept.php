@@ -12,9 +12,7 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
 $I->haveFixtures(['playlists' => app\tests\acceptance\fixtures\PlaylistFixture::class]);
-$I->haveFixtures(['playlist-items' => app\tests\acceptance\fixtures\PlaylistItemFixture::class]);
 
 $I->wantTo('ensure that playlist/update works');
 $I->seePageNotFound(['/playlist/update', 'id' => 1]);

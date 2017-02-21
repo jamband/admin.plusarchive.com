@@ -13,6 +13,7 @@
 
 $I = new AcceptanceTester($scenario);
 $I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
+
 $I->wantTo('ensure that admin works');
 $I->amOnPage(url(['/']));
 $I->dontSee('Admin', '.navbar');

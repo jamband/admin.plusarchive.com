@@ -13,7 +13,6 @@
 
 $I = new AcceptanceTester($scenario);
 $I->haveFixtures(['tracks' => app\tests\acceptance\fixtures\TrackFixture::class]);
-$I->haveFixtures(['track-genres' => app\tests\acceptance\fixtures\TrackGenreFixture::class]);
 
 $I->wantTo('ensure that tracks works');
 $I->amOnPage(url(['/track/index']));

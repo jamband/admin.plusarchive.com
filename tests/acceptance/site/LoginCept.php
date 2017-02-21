@@ -13,6 +13,7 @@
 
 $I = new AcceptanceTester($scenario);
 $I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
+
 $I->wantTo('ensure that login works');
 $I->amOnPage(url(['/']));
 $I->dontSee('Login', '.navbar');

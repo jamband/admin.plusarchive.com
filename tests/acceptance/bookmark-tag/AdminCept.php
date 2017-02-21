@@ -12,7 +12,6 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
 $I->haveFixtures(['bookmark-tags' => app\tests\acceptance\fixtures\BookmarkTagFixture::class]);
 
 $I->wantTo('ensure that bookmark-tag/admin works');

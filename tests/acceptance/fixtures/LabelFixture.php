@@ -19,4 +19,8 @@ class LabelFixture extends ActiveFixture
     public $modelClass = Label::class;
 
     public $dataFile = '@app/tests/acceptance/fixtures/data/label.php';
+
+    public $depends = [
+        UserFixture::class,
+    ];
 }

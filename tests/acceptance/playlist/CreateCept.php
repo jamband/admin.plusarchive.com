@@ -12,7 +12,6 @@
 /* @var $scenario Codeception\Scenario */
 
 $I = new AcceptanceTester($scenario);
-$I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
 $I->haveFixtures(['playlists' => app\tests\acceptance\fixtures\PlaylistFixture::class]);
 
 $I->wantTo('ensure that playlist/create works');
