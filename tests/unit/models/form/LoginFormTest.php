@@ -24,7 +24,7 @@ class LoginFormTest extends Unit
         $this->tester->haveFixtures([
             'users' => [
                 'class' => UserFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/login.php',
+                'dataFile' => '@fixture/login.php',
             ]
         ]);
 

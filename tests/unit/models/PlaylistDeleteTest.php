@@ -26,11 +26,11 @@ class PlaylistDeleteTest extends Unit
         $this->tester->haveFixtures([
             'playlists' => [
                 'class' => PlaylistFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/playlist-delete/playlist.php',
+                'dataFile' => '@fixture/playlist-delete/playlist.php',
             ],
             'items' => [
                 'class' => PlaylistItemFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/playlist-delete/playlist_item.php',
+                'dataFile' => '@fixture/playlist-delete/playlist_item.php',
             ],
         ]);
 
