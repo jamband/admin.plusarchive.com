@@ -93,6 +93,8 @@ class PlaylistItemSortForm extends Model
                 $playlistItem->save();
             }
         }
+        Playlist::updateTimestampAttribute($this->playlist_id);
+
         return true;
     }
 

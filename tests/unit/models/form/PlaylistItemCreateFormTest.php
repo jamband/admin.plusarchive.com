@@ -11,6 +11,7 @@
 
 namespace app\tests\unit\models\form;
 
+use app\models\Playlist;
 use app\models\PlaylistItem;
 use app\models\form\PlaylistItemCreateForm;
 use app\tests\unit\fixtures\PlaylistFixture;
@@ -27,15 +28,15 @@ class PlaylistItemCreateFormTest extends Unit
         $this->tester->haveFixtures([
             'playlist' => [
                 'class' => PlaylistFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/playlist-item-create-form/playlist.php',
+                'dataFile' => '@fixture/playlist-item-create-form/playlist.php',
             ],
             'track' => [
                 'class' => TrackFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/playlist-item-create-form/track.php',
+                'dataFile' => '@fixture/playlist-item-create-form/track.php',
             ],
             'items' => [
                 'class' => PlaylistItemFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/playlist-item-create-form/playlist_item.php',
+                'dataFile' => '@fixture/playlist-item-create-form/playlist_item.php',
             ],
         ]);
 
@@ -96,6 +97,9 @@ class PlaylistItemCreateFormTest extends Unit
         $this->assertSame(1, (int)$query->count());
         $this->assertSame(1, (int)$query->max('track_number'));
 
+        $playlist = Playlist::findOne($playlist_id);
+        $this->assertGreaterThan($this->playlist['jamband']['updated_at'], $playlist->updated_at);
+
         // if some track already exists in the playlist.
         $playlist_id = $this->playlist['rock-music-video']['id'];
 
@@ -108,5 +112,8 @@ class PlaylistItemCreateFormTest extends Unit
         $query = PlaylistItem::find()->playlist($playlist_id);
         $this->assertSame(2, (int)$query->count());
         $this->assertSame(2, (int)$query->max('track_number'));
+
+        $playlist = Playlist::findOne($playlist_id);
+        $this->assertGreaterThan($this->playlist['rock-music-video']['updated_at'], $playlist->updated_at);
     }
 }

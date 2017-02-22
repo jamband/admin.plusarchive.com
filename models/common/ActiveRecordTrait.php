@@ -11,6 +11,7 @@
 
 namespace app\models\common;
 
+use yii\base\UnknownMethodException;
 use yii\db\ActiveQuery;
 
 trait ActiveRecordTrait
@@ -48,5 +49,23 @@ trait ActiveRecordTrait
         return static::find()
             ->select('id')
             ->column();
+    }
+
+    /**
+     * Updates a timestamp attribute to the current timestamp.
+     * Works when using yii\behaviors\TimestampBehavior
+     * @param integer $id
+     * @param string $attribute
+     */
+    public static function updateTimestampAttribute($id, $attribute = 'updated_at')
+    {
+        $model = static::findOne($id);
+
+        if (!$model->hasMethod('touch')) {
+            throw new UnknownMethodException('Calling unknown method: '.self::class.'::touch()');
+        }
+        if (null !== $model) {
+            $model->touch($attribute);
+        }
     }
 }

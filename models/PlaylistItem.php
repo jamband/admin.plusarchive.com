@@ -110,6 +110,7 @@ class PlaylistItem extends ActiveRecord
         if (!static::hasTracksByPlaylistId($this->playlist_id)) {
             Playlist::toIncomplete($this->playlist_id);
         }
+        Playlist::updateTimestampAttribute($this->playlist_id);
     }
 
     /**

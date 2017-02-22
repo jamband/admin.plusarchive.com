@@ -28,15 +28,15 @@ class TrackDeleteTest extends Unit
         $this->tester->haveFixtures([
             'track' => [
                 'class' => TrackFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/track-delete/track.php',
+                'dataFile' => '@fixture/track-delete/track.php',
             ],
             'playlist' => [
                 'class' => PlaylistFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/track-delete/playlist.php',
+                'dataFile' => '@fixture/track-delete/playlist.php',
             ],
             'items' => [
                 'class' => PlaylistItemFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/track-delete/playlist_item.php',
+                'dataFile' => '@fixture/track-delete/playlist_item.php',
             ],
         ]);
 
@@ -56,5 +56,8 @@ class TrackDeleteTest extends Unit
         $this->assertSame(Playlist::STATUS_PUBLISH, Playlist::findOne($this->playlist['playlist1']['id'])->status);
         $this->assertSame(Playlist::STATUS_INCOMPLETE, Playlist::findOne($this->playlist['playlist2']['id'])->status);
         $this->assertSame(0, (int)PlaylistItem::find()->track($this->track['track3']['id'])->count());
+
+        $playlist = Playlist::findOne($this->playlist['playlist2']['id']);
+        $this->assertGreaterThan($this->playlist['playlist2']['updated_at'], $playlist->updated_at);
     }
 }

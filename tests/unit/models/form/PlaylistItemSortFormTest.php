@@ -11,6 +11,7 @@
 
 namespace app\tests\unit\models\form;
 
+use app\models\Playlist;
 use app\models\PlaylistItem;
 use app\models\form\PlaylistItemSortForm;
 use app\tests\unit\fixtures\PlaylistFixture;
@@ -27,15 +28,15 @@ class PlaylistItemSortFormTest extends Unit
         $this->tester->haveFixtures([
             'playlist' => [
                 'class' => PlaylistFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/playlist-item-sort-form/playlist.php',
+                'dataFile' => '@fixture/playlist-item-sort-form/playlist.php',
             ],
             'track' => [
                 'class' => TrackFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/playlist-item-sort-form/track.php',
+                'dataFile' => '@fixture/playlist-item-sort-form/track.php',
             ],
             'items' => [
                 'class' => PlaylistItemFixture::class,
-                'dataFile' => codecept_root_dir().'/tests/unit/fixtures/data/playlist-item-sort-form/playlist_item.php',
+                'dataFile' => '@fixture/playlist-item-sort-form/playlist_item.php',
             ],
         ]);
 
@@ -103,6 +104,9 @@ class PlaylistItemSortFormTest extends Unit
         $model = PlaylistItem::findOne($this->items['item3']['id']);
         $this->assertSame(2, $model->track_number);
 
+        $playlist = Playlist::findOne($model->playlist_id);
+        $this->assertGreaterThan($this->playlist['playlist1']['updated_at'], $playlist->updated_at);
+
         $model = new PlaylistItemSortForm([
             'ids' => $this->items['item3']['id'].','.$this->items['item1']['id'].','.$this->items['item2']['id'],
             'playlist_id' => $this->playlist['playlist1']['id'],
@@ -117,5 +121,8 @@ class PlaylistItemSortFormTest extends Unit
 
         $model = PlaylistItem::findOne($this->items['item3']['id']);
         $this->assertSame(1, $model->track_number);
+
+        $playlist = Playlist::findOne($model->playlist_id);
+        $this->assertGreaterThan($this->playlist['playlist1']['updated_at'], $playlist->updated_at);
     }
 }
