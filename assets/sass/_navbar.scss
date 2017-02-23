@@ -11,12 +11,6 @@
     }
   }
 }
-.navbar-brand {
-  &:before {
-    @include icon-before;
-    content: "\f012";
-  }
-}
 .navbar-collapse {
   border-top: none;
   box-shadow: none;

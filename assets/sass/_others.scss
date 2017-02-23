@@ -152,10 +152,20 @@
 
 //=== playlist
 .playlist-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: $link-color;
+  list-style: none;
+  padding-left: 0;
+  > li {
+    @media (min-width: $screen-sm-min) {
+      font-size: 130%;
+    }
+    @media (max-width: $screen-xs-max) {
+      font-size: 110%;
+    }
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $link-color;
+  }
 
   .playlist-frequency {
     padding: 0 .5em;

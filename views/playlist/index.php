@@ -24,12 +24,14 @@ $this->title = 'Playlists - '.app()->name;
     </div>
     <div class="col-sm-5">
         <?php /* @var $model app\models\Playlist */ ?>
-        <?php foreach ($data->models as $model): ?>
-            <h4 class="playlist-title">
-                <span class="playlist-frequency"><?= h(sprintf('%02d', $model->frequency)) ?> tracks</span>
-                <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)]) ?>
-            </h4>
-        <?php endforeach ?>
+        <ul class="playlist-title">
+            <?php foreach ($data->models as $model): ?>
+                <li>
+                    <span class="playlist-frequency"><?= h(sprintf('%02d', $model->frequency)) ?> tracks</span>
+                    <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)]) ?>
+                </li>
+            <?php endforeach ?>
+        </ul>
     </div>
     <div class="col-sm-1"></div>
 </div><!-- /.row -->
