@@ -2,6 +2,9 @@
 @import "variables";
 @import "bootstrap";
 
+// Originals mixins
+@import "mixins/icons";
+
 // Customized Twitter Bootstrap components
 @import "scaffolding";
 @import "buttons";
@@ -13,7 +16,6 @@
 @import "pagination";
 
 // Originals
-@import "mixins/icons";
 @import "layouts";
 @import "views";
 @import "others";

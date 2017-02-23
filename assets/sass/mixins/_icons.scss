@@ -7,9 +7,9 @@
 }
 @mixin icon-before($padding: 5px) {
   @include icon-before-after;
-  padding: 0 $padding;
+  padding-right: $padding;
 }
 @mixin icon-after($padding: 5px) {
   @include icon-before-after;
-  padding: 0 $padding;
+  padding-left: $padding;
 }
