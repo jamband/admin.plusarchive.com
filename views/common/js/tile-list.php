@@ -12,14 +12,12 @@
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
     var $container = $('#tile-container');
-    $container.imagesLoaded(function() {
-        $container.masonry({
-            columnWidth: '.list',
-            itemSelector: '.list',
-            transitionDuration: 0
-        });
-        $container.find('.list').animate({'opacity': 1});
+    $container.masonry({
+        columnWidth: '.list',
+        itemSelector: '.list',
+        transitionDuration: 0
     });
+    $container.find('.list').animate({'opacity': 1});
 });
 JS
 );

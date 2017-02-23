@@ -55,6 +55,16 @@ class Playlist extends ActiveRecord
     /**
      * @inheritdoc
      */
+    public function attributeLabels()
+    {
+        return [
+            'frequency' => 'tracks',
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function find()
     {
         return new PlaylistQuery(static::class);

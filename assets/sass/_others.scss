@@ -151,6 +151,21 @@
 }
 
 //=== playlist
+.playlist-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: $link-color;
+
+  .playlist-frequency {
+    padding: 0 .5em;
+    margin-right: .5em;
+    border-radius: $border-radius-base;
+    color: darken($text-color, 15%);
+    background-color: $gray-dark;
+    font-size: 70%;
+  }
+}
 #playlist {
   padding-left: 10px;
   list-style: decimal-leading-zero inside none;
