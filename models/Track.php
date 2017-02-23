@@ -196,11 +196,10 @@ class Track extends ActiveRecord
         PlaylistItem::removeTracks($this->id);
 
         foreach ($playlist_ids as $playlist_id) {
-            if (PlaylistItem::hasTracksByPlaylistId($playlist_id)) {
-                Playlist::updateTimestampAttribute($playlist_id);
-            } else {
+            if (!PlaylistItem::hasTracksByPlaylistId($playlist_id)) {
                 Playlist::toIncomplete($playlist_id);
             }
+            Playlist::saveFrequency($playlist_id);
         }
         return true;
     }

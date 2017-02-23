@@ -35,6 +35,7 @@ $this->title = 'Admin Playlists - '.app()->name;
                 },
                 'filter' => $search::STATUS_DATA,
             ],
+            'frequency',
             'created_at:datetime',
             'updated_at:datetime',
             [

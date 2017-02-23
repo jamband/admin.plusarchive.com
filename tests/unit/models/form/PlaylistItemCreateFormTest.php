@@ -99,6 +99,7 @@ class PlaylistItemCreateFormTest extends Unit
 
         $playlist = Playlist::findOne($playlist_id);
         $this->assertGreaterThan($this->playlist['jamband']['updated_at'], $playlist->updated_at);
+        $this->assertSame(1, $playlist->frequency);
 
         // if some track already exists in the playlist.
         $playlist_id = $this->playlist['rock-music-video']['id'];
@@ -115,5 +116,6 @@ class PlaylistItemCreateFormTest extends Unit
 
         $playlist = Playlist::findOne($playlist_id);
         $this->assertGreaterThan($this->playlist['rock-music-video']['updated_at'], $playlist->updated_at);
+        $this->assertSame(2, $playlist->frequency);
     }
 }

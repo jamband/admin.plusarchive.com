@@ -105,7 +105,7 @@ class PlaylistItemCreateForm extends Model
         $item->track_number = $this->getLastTrackNumberByPlaylistId();
 
         if ($item->save()) {
-            Playlist::updateTimestampAttribute($item->playlist_id);
+            Playlist::saveFrequency($item->playlist_id);
             return true;
         }
         return false;

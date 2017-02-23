@@ -49,12 +49,14 @@ class TrackDeleteTest extends Unit
     {
         $this->assertSame(Playlist::STATUS_PUBLISH, Playlist::findOne($this->playlist['playlist1']['id'])->status);
         $this->assertSame(Playlist::STATUS_PUBLISH, Playlist::findOne($this->playlist['playlist2']['id'])->status);
+        $this->assertSame(1, Playlist::findOne($this->playlist['playlist2']['id'])->frequency);
         $this->assertSame(1, (int)PlaylistItem::find()->track($this->track['track3']['id'])->count());
 
         Track::findOne($this->track['track3']['id'])->delete();
 
         $this->assertSame(Playlist::STATUS_PUBLISH, Playlist::findOne($this->playlist['playlist1']['id'])->status);
         $this->assertSame(Playlist::STATUS_INCOMPLETE, Playlist::findOne($this->playlist['playlist2']['id'])->status);
+        $this->assertSame(0, Playlist::findOne($this->playlist['playlist2']['id'])->frequency);
         $this->assertSame(0, (int)PlaylistItem::find()->track($this->track['track3']['id'])->count());
 
         $playlist = Playlist::findOne($this->playlist['playlist2']['id']);

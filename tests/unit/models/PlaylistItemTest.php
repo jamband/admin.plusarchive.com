@@ -35,7 +35,10 @@ class PlaylistItemTest extends Unit
     public function testDelete()
     {
         $this->assertSame(Playlist::STATUS_PUBLISH, Playlist::findOne($this->items['item1']['playlist_id'])->status);
+        $this->assertSame(1, Playlist::findOne($this->items['item1']['playlist_id'])->frequency);
+
         PlaylistItem::findOne($this->items['item1']['id'])->delete();
         $this->assertSame(Playlist::STATUS_INCOMPLETE, Playlist::findOne($this->items['item1']['playlist_id'])->status);
+        $this->assertSame(0, Playlist::findOne($this->items['item1']['playlist_id'])->frequency);
     }
 }

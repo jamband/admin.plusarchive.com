@@ -22,6 +22,7 @@ use yii\helpers\ArrayHelper;
  * @property integer $id
  * @property string $title
  * @property integer $status
+ * @property integer $frequency
  * @property integer $created_at
  * @property integer $updated_at
  */
@@ -121,6 +122,22 @@ class Playlist extends ActiveRecord
             if (!$this->isNewRecord && empty(static::findOne($this->id)->items)) {
                 $this->addError($attribute, $message);
             }
+        }
+    }
+
+    /**
+     * @param integer $id
+     */
+    public static function saveFrequency($id)
+    {
+        $frequency = (int)PlaylistItem::find()
+            ->where(['playlist_id' => $id])
+            ->count();
+
+        $model = static::findOne($id);
+        if (null !== $model) {
+            $model->frequency = $frequency;
+            $model->save();
         }
     }
 
