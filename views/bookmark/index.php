@@ -30,7 +30,7 @@ $this->title = 'Bookmarks - '.app()->name;
                 'country' => $country,
                 'tag' => $tag,
                 'search' => $search,
-                'totalCount' => $data->totalCount,
+                'total' => $data->totalCount,
             ]) ?>
             <h2>Bookmarks</h2>
         </div>

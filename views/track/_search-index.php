@@ -13,6 +13,7 @@
 /* @var $provider string */
 /* @var $genre string */
 /* @var $search string */
+/* @var $total integer */
 
 use app\models\Track;
 use app\models\TrackGenre;
@@ -60,7 +61,7 @@ use yii\helpers\Url;
                 'placeholder' => 'Search artist or title ...',
             ]) ?>
 
-            <div class="pull-right total-count"><?= h($totalCount) ?> results</div>
+            <div class="pull-right total-count"><?= h(number_format($total)) ?> results</div>
             <div class="clearfix"></div>
         </div><!-- /.caption -->
     </div><!-- /.thumbnail -->

@@ -37,7 +37,7 @@ $this->render('/common/js/analytics-tracking');
 <?php $this->beginBody() ?>
     <?= ToastrNotification::widget() ?>
     <?php NavBar::begin([
-        'brandLabel' => '<i class="fa fa-fw fa-signal"></i> '.h(app()->name),
+        'brandLabel' => '<i class="fa fa-fw fa-angle-up"></i> '.h(app()->name),
         'options' => ['class' => 'navbar-default'],
     ]) ?>
         <?= Nav::widget([

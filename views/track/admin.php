@@ -36,7 +36,6 @@ $this->title = 'Admin Tracks - '.app()->name;
             'sort' => $sort,
             'status' => $status,
             'search' => $search,
-            'total' => $data->totalCount,
         ]) ?>
         <?php /* @var $model app\models\Track */ ?>
         <?php /* @var $genre app\models\TrackGenre */ ?>

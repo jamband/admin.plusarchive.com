@@ -29,7 +29,7 @@ $this->title = 'Labels - '.app()->name;
                 'country' => $country,
                 'tag' => $tag,
                 'search' => $search,
-                'totalCount' => $data->totalCount,
+                'total' => $data->totalCount,
             ]) ?>
             <h2>Labels</h2>
         </div>

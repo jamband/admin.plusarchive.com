@@ -14,18 +14,14 @@
     color: $text-color;
   }
   &:before {
-    @include icon-before(3px);
-    content: "\f021";
+    @include icon-before(5px);
+    content: "\f01e";
   }
 }
 .total-count {
   margin-top: 5px;
-  color: darken($text-color, 20%);
+  color: darken($text-color, 25%);
   font-size: 85%;
-  &:before {
-    @include icon-before(3px);
-    content: "\f05a";
-  }
 }
 
 //=== tile

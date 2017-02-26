@@ -28,7 +28,7 @@ $this->title = 'Stores - '.app()->name;
                 'country' => $country,
                 'tag' => $tag,
                 'search' => $search,
-                'totalCount' => $data->totalCount,
+                'total' => $data->totalCount,
             ]) ?>
             <h2>Stores</h2>
         </div>

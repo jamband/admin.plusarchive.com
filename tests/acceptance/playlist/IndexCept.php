@@ -19,11 +19,11 @@ $I->amOnPage(url(['/']));
 $I->click('Playlist', '.navbar');
 $I->seeCurrentUrlEquals('/index-test.php/playlists');
 $I->see('Playlists', 'h2');
-$I->see('playlist1', 'h4');
-$I->see('playlist2', 'h4');
-$I->dontSee('playlist3', 'h4');
+$I->see('playlist1', '.playlist-title');
+$I->see('playlist2', '.playlist-title');
+$I->dontSee('playlist3', '.playlist-title');
 
-$I->click('playlist1', 'h4');
+$I->click('playlist1', '.playlist-title');
 $I->seeCurrentUrlEquals('/index-test.php/playlist/'.hashids()->encode(1));
 
 $I->click('Back to playlist');

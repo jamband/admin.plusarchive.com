@@ -29,7 +29,7 @@ $this->title = app()->name;
             'provider' => $provider,
             'genre' => $genre,
             'search' => $search,
-            'totalCount' => $data->totalCount,
+            'total' => $data->totalCount,
         ]) ?>
         <?php /* @var $model app\models\Track */ ?>
         <?php /* @var $genre app\models\TrackGenre */ ?>

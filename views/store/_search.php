@@ -14,6 +14,7 @@
 /* @var $country string */
 /* @var $tag string */
 /* @var $search string */
+/* @var $total integer */
 
 use app\models\Store;
 use app\models\StoreTag;
@@ -71,7 +72,7 @@ use yii\helpers\Url;
             'placeholder' => 'name or link ...',
         ]) ?>
 
-        <div class="pull-right total-count"><?= h($totalCount) ?> results</div>
+        <div class="pull-right total-count"><?= h(number_format($total)) ?> results</div>
         <div class="clearfix"></div>
     </div><!-- /.caption -->
 </div><!-- /.thumbnail -->
