@@ -17,7 +17,7 @@ use yii\helpers\Html;
 <div class="text-center">
     <?= $this->render('/common/nav/base') ?>
     <span class="dropdown">
-        <?= Html::a(ucfirst($this->context->action->id).' <span class="caret"></span>', '#', [
+        <?= Html::a(ucfirst($this->context->action->id).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
             'id' => 'menu-action',
             'class' => 'dropdown-toggle dropdown-hover label label-default',
             'data-toggle' => 'dropdown',

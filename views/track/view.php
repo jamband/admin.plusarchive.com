@@ -39,3 +39,7 @@ $this->title = "$model->title - ".app()->name;
         ]) ?>
     <?php endforeach ?>
 </div>
+<p class="clearfix"></p>
+<p class="text-center">
+    <a href="<?= url(['index']) ?>"><i class="fa fa-fw fa-angle-left"></i> Back to tracks</a>
+</p>

@@ -25,7 +25,7 @@ use yii\helpers\Html;
             'frameborder' => '0',
             'allowfullscreen' => true,
         ]) ?>
-        <?= Html::a('<i class="fa fa-fw fa-eye"></i> View', ['view', 'id' => $id], [
+        <?= Html::a('View <i class="fa fa-fw fa-angle-right"></i>', ['view', 'id' => $id], [
             'class' => 'label label-default',
         ]) ?>
         <div class="track-modal-loading">

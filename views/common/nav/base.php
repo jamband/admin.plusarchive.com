@@ -16,7 +16,7 @@ use yii\helpers\Inflector;
 
 ?>
 <span class="dropdown">
-    <?= Html::a(Inflector::id2camel($this->context->id).' <span class="caret"></span>', '#', [
+    <?= Html::a(Inflector::id2camel($this->context->id).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
         'id' => 'menu-controller',
         'class' => 'dropdown-toggle dropdown-hover label label-default',
         'data-toggle' => 'dropdown',

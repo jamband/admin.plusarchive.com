@@ -28,7 +28,7 @@ use yii\helpers\Url;
             <?= Html::a('Reset All', [''], ['class' => 'refresh-link']) ?>
             <br>
             <span class="dropdown">
-                <?= Html::a(h($status).' <span class="caret"></span>', '#', [
+                <?= Html::a(h($status).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
                     'class' => 'dropdown-toggle label label-default',
                     'data-toggle' => 'dropdown',
                 ]) ?>
@@ -43,7 +43,7 @@ use yii\helpers\Url;
             <br>
 
             <span class="dropdown">
-                <?= Html::a(h($provider).' <span class="caret"></span>', '#', [
+                <?= Html::a(h($provider).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
                     'class' => 'dropdown-toggle label label-default',
                     'data-toggle' => 'dropdown',
                 ]) ?>
@@ -57,7 +57,7 @@ use yii\helpers\Url;
             </span><!-- /.dropdown -->
 
             <span class="dropdown">
-                <?= Html::a(h($genre).' <span class="caret"></span>', '#', [
+                <?= Html::a(h($genre).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
                     'class' => 'dropdown-toggle label label-default',
                     'data-toggle' => 'dropdown',
                 ]) ?>

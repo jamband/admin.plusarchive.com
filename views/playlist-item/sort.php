@@ -26,7 +26,7 @@ $this->title = 'Sort Playlist Item - '.app()->name;
     <?= $this->render('/common/nav/base') ?>
 
     <span class="dropdown">
-        <?= Html::a('Sort <span class="caret"></span>', '#', [
+        <?= Html::a('Sort <i class="fa fa-fw fa-angle-down"></i>', '#', [
             'class' => 'dropdown-toggle label label-default',
             'data-toggle' => 'dropdown',
             'data-hover' => 'dropdown',

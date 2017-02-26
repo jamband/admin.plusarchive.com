@@ -22,7 +22,7 @@ if (!isset($enableCreate)) {
     <?= $this->render('/common/nav/base') ?>
 
     <span class="dropdown">
-        <?= Html::a(ucfirst($this->context->action->id).": $totalCount".' <span class="caret"></span>', '#', [
+        <?= Html::a(ucfirst($this->context->action->id).": $totalCount".' <i class="fa fa-fw fa-angle-down"></i>', '#', [
             'id' => 'menu-action',
             'class' => 'dropdown-toggle dropdown-hover label label-default',
             'data-toggle' => 'dropdown',
