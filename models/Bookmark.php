@@ -12,7 +12,6 @@
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
-use app\models\common\DataTransformationTrait;
 use app\models\query\BookmarkQuery;
 use creocoder\taggable\TaggableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -32,7 +31,6 @@ use yii\db\ActiveRecord;
 class Bookmark extends ActiveRecord
 {
     use ActiveRecordTrait;
-    use DataTransformationTrait;
 
     const STATUS_PRIVATE = 0;
     const STATUS_PUBLISH = 1;

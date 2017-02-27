@@ -54,9 +54,6 @@ $this->title = 'Admin Tracks - '.app()->name;
                             'title' => 'View',
                             'data-pjax' => '0',
                         ]) ?>
-                        <?php if (null !== $model->newText): ?>
-                            <span class="label label-new"><?= h($model->newText) ?></span>
-                        <?php endif ?>
                         <?= Html::a(h($model->statusText), ['', 'status' => $model->statusText], [
                             'class' => 'label label-default',
                         ]) ?>

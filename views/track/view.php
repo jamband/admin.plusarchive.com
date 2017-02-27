@@ -26,9 +26,6 @@ $this->title = "$model->title - ".app()->name;
 </div>
 <div class="text-center">
     <h4><?= h($model->title) ?></h4>
-    <?php if (null !== $model->newText): ?>
-        <span class="label label-new"><?= h($model->newText) ?></span>
-    <?php endif ?>
     <?= Html::a(h($model->providerText), ['index', 'provider' => $model->providerText], [
         'class' => 'label label-default',
     ]) ?>

@@ -12,7 +12,6 @@
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
-use app\models\common\DataTransformationTrait;
 use app\models\query\TrackQuery;
 use app\models\validators\RippleValidatorTrait;
 use creocoder\taggable\TaggableBehavior;
@@ -37,7 +36,6 @@ class Track extends ActiveRecord
 {
     use ActiveRecordTrait;
     use RippleValidatorTrait;
-    use DataTransformationTrait;
 
     const STATUS_PRIVATE = 0;
     const STATUS_PUBLISH = 1;

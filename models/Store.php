@@ -12,7 +12,6 @@
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
-use app\models\common\DataTransformationTrait;
 use app\models\query\StoreQuery;
 use creocoder\taggable\TaggableBehavior;
 use yii\db\ActiveQuery;
@@ -31,7 +30,6 @@ use yii\behaviors\TimestampBehavior;
 class Store extends ActiveRecord
 {
     use ActiveRecordTrait;
-    use DataTransformationTrait;
 
     /**
      * @inheritdoc

@@ -12,7 +12,6 @@
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
-use app\models\common\DataTransformationTrait;
 use app\models\query\LabelQuery;
 use creocoder\taggable\TaggableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -31,7 +30,6 @@ use yii\db\ActiveRecord;
 class Label extends ActiveRecord
 {
     use ActiveRecordTrait;
-    use DataTransformationTrait;
 
     /**
      * @inheritdoc

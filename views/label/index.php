@@ -45,9 +45,6 @@ $this->title = 'Labels - '.app()->name;
                                     'rel' => 'noopener',
                                     'target' => '_blank',
                                 ]) ?>
-                                <?php if ($model->newText): ?>
-                                    <span class="label label-new"><?= h($model->newText) ?></span>
-                                <?php endif ?>
                                 <br>
                                 <div class="label label-default">
                                     <?= h($model->getAttributeLabel('country')) ?>:
