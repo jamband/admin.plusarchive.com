@@ -1,6 +1,12 @@
 [
     "vendor/bower/jquery/dist/jquery.js",
-    "vendor/bower/bootstrap/dist/js/bootstrap.js",
+
+    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/alert.js",
+    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/button.js",
+    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
+    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
+    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
+    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/transition.js",
 
     "vendor/yiisoft/yii2/assets/*.js",
     "vendor/bower/yii2-pjax/jquery.pjax.js",
@@ -10,7 +16,6 @@
     "vendor/bower/jquery_lazyload/jquery.lazyload.js",
 
     "vendor/bower/toastr/toastr.js",
-    "vendor/bower/bootbox/bootbox.js",
 
     "vendor/bower/sifter/sifter.js",
     "vendor/bower/microplugin/src/microplugin.js",
