@@ -3,6 +3,7 @@
 
     "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/alert.js",
     "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/button.js",
+    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/collapse.js",
     "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
     "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
     "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
