@@ -20,7 +20,6 @@ class RbacController extends Controller
 {
     /**
      * Initialization.
-     * @return integer
     public function actionInit()
     {
         $auth = app()->authManager;

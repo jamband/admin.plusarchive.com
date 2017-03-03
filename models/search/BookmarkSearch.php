@@ -17,7 +17,7 @@ use app\models\Bookmark;
 class BookmarkSearch extends Bookmark
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -34,7 +34,7 @@ class BookmarkSearch extends Bookmark
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params = [])
     {
         $query = Bookmark::find()
             ->with(['bookmarkTags']);

@@ -19,12 +19,13 @@ use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $title
- * @property integer $status
- * @property integer $frequency
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $status
+ * @property int $frequency
+ * @property int $created_at
+ * @property int $updated_at
+ * @property PlaylistItem[] $items
  */
 class Playlist extends ActiveRecord
 {
@@ -45,7 +46,7 @@ class Playlist extends ActiveRecord
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -53,7 +54,7 @@ class Playlist extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -63,7 +64,8 @@ class Playlist extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @return PlaylistQuery
      */
     public static function find()
     {
@@ -72,7 +74,7 @@ class Playlist extends ActiveRecord
 
     /**
      * Returns all playlist list.
-     * @return array
+     * @return string[]
      */
     public static function getListData()
     {
@@ -101,7 +103,7 @@ class Playlist extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -119,9 +121,8 @@ class Playlist extends ActiveRecord
     /**
      * Validates whether item exists.
      * @param string $attribute
-     * @param array $params
      */
-    public function validateItemExists($attribute, $params)
+    public function validateItemExists($attribute)
     {
         if (self::STATUS_INCOMPLETE !== (int)$this->status) {
             $message = 'You can not publish/private because the item does not exist in this playlist.';
@@ -136,7 +137,7 @@ class Playlist extends ActiveRecord
     }
 
     /**
-     * @param integer $id
+     * @param int $id
      */
     public static function saveFrequency($id)
     {
@@ -152,7 +153,7 @@ class Playlist extends ActiveRecord
     }
 
     /**
-     * @param integer $id
+     * @param int $id
      */
     public static function toIncomplete($id)
     {
@@ -164,7 +165,7 @@ class Playlist extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -174,7 +175,7 @@ class Playlist extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function transactions()
     {
@@ -184,7 +185,7 @@ class Playlist extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function beforeDelete()
     {

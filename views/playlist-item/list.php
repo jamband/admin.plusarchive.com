@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $models app\models\PlaylistItem */
-/* @var $provider string */
-/* @var $playlistTitle string */
-
-use yii\helpers\Html;
+/**
+ * @var yii\web\View $this
+ * @var app\models\PlaylistItem $models
+ * @var string $provider
+ * @var string $playlistTitle
+ */
 
 ?>
 <div class="form-group">
@@ -34,7 +34,7 @@ use yii\helpers\Html;
                     <?php foreach ($models as $model): ?>
                         <li><?= h($model->track->title) ?></li>
                     <?php endforeach ?>
-                </ul>
+                </ol>
             </div>
         </div>
     </div>

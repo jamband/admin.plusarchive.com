@@ -17,7 +17,7 @@ use app\models\Store;
 class StoreSearch extends Store
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -32,7 +32,7 @@ class StoreSearch extends Store
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params = [])
     {
         $query = Store::find()
             ->with(['storeTags']);

@@ -18,11 +18,12 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class StoreController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -56,7 +57,7 @@ class StoreController extends Controller
      * @param string $country
      * @param string $tag
      * @param string $search
-     * @return mixed
+     * @return string
      */
     public function actionIndex($sort = null, $country = null, $tag = null, $search = null)
     {
@@ -87,7 +88,7 @@ class StoreController extends Controller
 
     /**
      * Manages all Store models.
-     * @return mixed
+     * @return string
      */
     public function actionAdmin()
     {
@@ -99,8 +100,8 @@ class StoreController extends Controller
 
     /**
      * Displays a single Store model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string
      */
     public function actionView($id)
     {
@@ -111,7 +112,7 @@ class StoreController extends Controller
 
     /**
      * Creates a new Store model.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
@@ -128,8 +129,8 @@ class StoreController extends Controller
 
     /**
      * Updates an existing Store model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
      */
     public function actionUpdate($id)
     {
@@ -146,8 +147,8 @@ class StoreController extends Controller
 
     /**
      * Deletes an existing Store model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
      */
     public function actionDelete($id)
     {
@@ -159,7 +160,7 @@ class StoreController extends Controller
 
     /**
      * Finds the Store model based on its primary key value.
-     * @param integer $id
+     * @param int $id
      * @return Store
      * @throws NotFoundHttpException
      */

@@ -19,20 +19,21 @@ use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property string $country
  * @property string $url
  * @property string $link
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $created_at
+ * @property int $updated_at
+ * @property StoreTag[] $storeTags
  */
 class Store extends ActiveRecord
 {
     use ActiveRecordTrait;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -40,7 +41,7 @@ class Store extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -50,7 +51,8 @@ class Store extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @return StoreQuery
      */
     public static function find()
     {
@@ -68,7 +70,7 @@ class Store extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -85,7 +87,7 @@ class Store extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -99,7 +101,7 @@ class Store extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function transactions()
     {

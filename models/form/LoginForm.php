@@ -24,7 +24,7 @@ class LoginForm extends Model
     private $_user = false;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -34,7 +34,7 @@ class LoginForm extends Model
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -48,10 +48,8 @@ class LoginForm extends Model
 
     /**
      * Validates the password.
-     * @param string $attribute
-     * @param array $params
      */
-    public function validatePassword($attribute, $params)
+    public function validatePassword()
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
@@ -64,12 +62,12 @@ class LoginForm extends Model
 
     /**
      * Logs in a user using the provided username and password.
-     * @return boolean whether the user is logged in successfully
+     * @return bool whether the user is logged in successfully
      */
     public function login()
     {
         if ($this->validate()) {
-            return user()->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
         }
         Yii::warning('failure logged in');
         return false;

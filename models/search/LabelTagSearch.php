@@ -17,7 +17,7 @@ use yii\data\ActiveDataProvider;
 class LabelTagSearch extends LabelTag
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -31,7 +31,7 @@ class LabelTagSearch extends LabelTag
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params = [])
     {
         $query = LabelTag::find();
 

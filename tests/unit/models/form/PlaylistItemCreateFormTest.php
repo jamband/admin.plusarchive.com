@@ -21,6 +21,15 @@ use Codeception\Test\Unit;
 
 class PlaylistItemCreateFormTest extends Unit
 {
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
+    private $playlist;
+    private $track;
+    private $items;
+
     protected function setUp()
     {
         parent::setUp();
@@ -48,9 +57,6 @@ class PlaylistItemCreateFormTest extends Unit
 
     public function testValidateProvider()
     {
-        $playlist = $this->tester->grabFixture('playlist');
-        $track = $this->tester->grabFixture('track');
-
         $model = new PlaylistItemCreateForm([
             'playlist_id' => $this->playlist['ambient']['id'],
             'track_id' => $this->track['youtube2']['id'],

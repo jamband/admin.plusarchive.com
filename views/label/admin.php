@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $data yii\data\ActiveDataProvider */
-/* @var $search app\models\search\LabelSearch */
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $data
+ * @var app\models\search\LabelSearch $search
+ */
 
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -21,7 +23,7 @@ $this->title = 'Admin Labels - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [
-        'totalCount' => $data->totalCount,
+        'total' => $data->totalCount,
     ]) ?>
     <?= GridView::widget([
         'id' => 'grid-view-label',

@@ -9,12 +9,17 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $data yii\data\ActiveDataProvider */
-/* @var $tag string */
-/* @var $sort string */
-/* @var $search string */
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $data
+ * @var string $tag
+ * @var string $sort
+ * @var string $country
+ * @var string $search
+ */
 
+use app\models\Store;
+use app\models\StoreTag;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
@@ -34,7 +39,7 @@ $this->title = 'Stores - '.app()->name;
         </div>
         <div class="col-xs-12 col-sm-8">
             <div id="tile-container" class="row">
-                <?php /* @var $model app\models\Store */ ?>
+                <?php /* @var Store $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-xs-12 col-sm-6 list">
                         <div class="thumbnail">
@@ -57,6 +62,7 @@ $this->title = 'Stores - '.app()->name;
                                 ]) ?>
                                 <br>
                                 <div class="label label-default"><?= h($model->getAttributeLabel('tag')) ?>:</div>
+                                <?php /** @var StoreTag $tag */ ?>
                                 <?php foreach ($model->storeTags as $tag): ?>
                                     <?= Html::a(h($tag->name), ['', 'tag' => $tag->name], [
                                         'class' => 'label label-default',

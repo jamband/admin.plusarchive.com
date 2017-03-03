@@ -9,6 +9,10 @@
  * file that was distributed with this source code.
  */
 
+/**
+ * @var yii\web\View $this
+ */
+
 $this->registerJs(<<<'JS'
 $(document).on('click', '.track-image', function() {
     var $this = $(this);

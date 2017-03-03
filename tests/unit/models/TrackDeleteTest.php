@@ -21,6 +21,14 @@ use Codeception\Test\Unit;
 
 class TrackDeleteTest extends Unit
 {
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
+    private $track;
+    private $playlist;
+
     protected function setUp()
     {
         parent::setUp();

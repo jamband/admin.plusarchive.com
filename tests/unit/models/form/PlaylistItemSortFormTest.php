@@ -21,6 +21,15 @@ use Codeception\Test\Unit;
 
 class PlaylistItemSortFormTest extends Unit
 {
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
+    private $playlist;
+    private $track;
+    private $items;
+
     protected function setUp()
     {
         parent::setUp();

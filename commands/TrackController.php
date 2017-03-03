@@ -11,12 +11,12 @@
 
 namespace app\commands;
 
+use app\models\query\TrackQuery;
 use app\models\Track;
 use jamband\ripple\Ripple;
 use SplFileObject;
 use Yii;
 use yii\console\Controller;
-use yii\db\ActiveQuery;
 use yii\helpers\FileHelper;
 
 /**
@@ -25,7 +25,7 @@ use yii\helpers\FileHelper;
 class TrackController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {
@@ -35,7 +35,6 @@ class TrackController extends Controller
 
     /**
      * Creates some csv files for each provider.
-     * @return integer the status of the action execution
      */
     public function actionDump()
     {
@@ -57,12 +56,13 @@ class TrackController extends Controller
 
     /**
      * @param string $provider
-     * @param ActiveQuery $query
+     * @param TrackQuery $query
      */
-    private static function dump($provider, $query)
+    private static function dump($provider, TrackQuery $query)
     {
         $file = new SplFileObject(Yii::getAlias("@dump/$provider.csv"), 'w');
 
+        /** @var string[] $fields */
         foreach ($query->provider($provider)->asArray()->all() as $fields) {
             $file->fputcsv($fields);
         }

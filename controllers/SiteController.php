@@ -18,11 +18,12 @@ use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\ErrorAction;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class SiteController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -51,7 +52,7 @@ class SiteController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function actions()
     {
@@ -62,7 +63,7 @@ class SiteController extends Controller
 
     /**
      * Site contact.
-     * @return mixed
+     * @return string
      */
     public function actionContact()
     {
@@ -71,7 +72,7 @@ class SiteController extends Controller
 
     /**
      * Privacy policy page.
-     * @return mixed
+     * @return string
      */
     public function actionPrivacy()
     {
@@ -80,7 +81,7 @@ class SiteController extends Controller
 
     /**
      * Site about.
-     * @return mixed
+     * @return string
      */
     public function actionAbout()
     {
@@ -89,7 +90,7 @@ class SiteController extends Controller
 
     /**
      * Maintenance page.
-     * @return mixed
+     * @return string
      * @throws NotFoundHttpException If not in maintenance mode
      */
     public function actionOffline()
@@ -102,7 +103,7 @@ class SiteController extends Controller
 
     /**
      * Site admin.
-     * @return mixed
+     * @return string
      */
     public function actionAdmin()
     {
@@ -111,7 +112,7 @@ class SiteController extends Controller
 
     /**
      * User login.
-     * @return mixed
+     * @return string|Response
      */
     public function actionLogin()
     {
@@ -128,7 +129,7 @@ class SiteController extends Controller
 
     /**
      * User logout.
-     * @return mixed
+     * @return Response
      */
     public function actionLogout()
     {
@@ -140,7 +141,7 @@ class SiteController extends Controller
 
     /**
      * User signup.
-     * @return mixed
+     * @return string|Response
      */
     public function actionSignup()
     {

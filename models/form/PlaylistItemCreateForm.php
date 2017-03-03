@@ -23,7 +23,7 @@ class PlaylistItemCreateForm extends Model
     public $track_title;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -34,7 +34,7 @@ class PlaylistItemCreateForm extends Model
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -51,9 +51,8 @@ class PlaylistItemCreateForm extends Model
     /**
      * Validates whether same provider.
      * @param string $attribute
-     * @param array $params
      */
-    public function validateProvider($attribute, $params)
+    public function validateProvider($attribute)
     {
         $item = PlaylistItem::find()
             ->playlist($this->playlist_id)
@@ -75,9 +74,8 @@ class PlaylistItemCreateForm extends Model
     /**
      * Validates whether unique item in selected playlist.
      * @param string $attribute
-     * @param array $params
      */
-    public function validateUnique($attribute, $params)
+    public function validateUnique($attribute)
     {
         $query = PlaylistItem::find()
             ->andWhere([
@@ -92,7 +90,7 @@ class PlaylistItemCreateForm extends Model
 
     /**
      * Creates a new playlist item.
-     * @return boolean
+     * @return bool
      */
     public function save()
     {
@@ -113,7 +111,7 @@ class PlaylistItemCreateForm extends Model
 
     /**
      * Returns last track number by playlist_id
-     * @return integer
+     * @return int
      */
     private function getLastTrackNumberByPlaylistId()
     {

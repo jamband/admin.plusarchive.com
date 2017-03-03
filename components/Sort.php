@@ -28,7 +28,7 @@ class Sort extends SortBase
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function createUrl($attribute, $absolute = false)
     {

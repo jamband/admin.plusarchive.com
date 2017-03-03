@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $form yii\widgets\ActiveForm */
-/* @var $model app\models\Bookmark */
+/**
+ * @var yii\web\View $this
+ * @var yii\widgets\ActiveForm $form
+ * @var app\models\Bookmark $model
+ */
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;

@@ -9,6 +9,10 @@
  * file that was distributed with this source code.
  */
 
+/**
+ * @var yii\web\View $this
+ */
+
 $this->registerJsFile('//www.youtube.com/iframe_api');
 
 $this->registerJs(<<<'JS'

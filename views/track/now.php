@@ -9,10 +9,12 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Track */
-/* @var $embed string */
-/* @var $id string */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Track $model
+ * @var string $embed
+ * @var string $id
+ */
 
 use yii\helpers\Html;
 

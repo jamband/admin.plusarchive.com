@@ -9,13 +9,16 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $data yii\data\ActiveDataProvider */
-/* @var $provider string */
-/* @var $genre string */
-/* @var $search string */
-/* @var $embedUrl string */
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $data
+ * @var string $provider
+ * @var string $genre
+ * @var string $search
+ * @var string $embedUrl
+ */
 
+use app\models\TrackGenre;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
@@ -31,8 +34,6 @@ $this->title = app()->name;
             'search' => $search,
             'total' => $data->totalCount,
         ]) ?>
-        <?php /* @var $model app\models\Track */ ?>
-        <?php /* @var $genre app\models\TrackGenre */ ?>
         <?php foreach ($data->models as $model): ?>
             <div class="col-xs-12 col-sm-3 tile">
                 <div class="thumbnail">
@@ -52,6 +53,7 @@ $this->title = app()->name;
                         <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
                                 'class' => 'label label-default',
                         ]) ?>
+                        <?php /** @var TrackGenre $genre */ ?>
                         <?php foreach ($model->trackGenres as $genre): ?>
                             <?= Html::a(h($genre->name), ['', 'genre' => $genre->name], [
                                 'class' => 'label label-default',

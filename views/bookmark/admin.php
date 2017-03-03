@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $search app\models\search\BookmarkSearch */
-/* @var $data yii\data\ActiveDataProvider */
+/**
+ * @var yii\web\View $this
+ * @var app\models\search\BookmarkSearch $search
+ * @var yii\data\ActiveDataProvider $data
+ */
 
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -21,7 +23,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [
-        'totalCount' => $data->totalCount,
+        'total' => $data->totalCount,
     ]) ?>
     <?= GridView::widget([
         'id' => 'grid-view-bookmark',

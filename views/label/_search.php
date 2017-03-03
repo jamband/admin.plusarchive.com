@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $sort string */
-/* @var $country string */
-/* @var $tag string */
-/* @var $search string */
-/* @var $total integer */
+/**
+ * @var yii\web\View $this
+ * @var string $sort
+ * @var string $country
+ * @var string $tag
+ * @var string $search
+ * @var int $total
+ */
 
 use app\models\Label;
 use app\models\LabelTag;

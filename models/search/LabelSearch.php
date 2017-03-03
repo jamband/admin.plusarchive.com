@@ -17,7 +17,7 @@ use app\models\Label;
 class LabelSearch extends Label
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -32,7 +32,7 @@ class LabelSearch extends Label
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params = [])
     {
         $query = Label::find()
             ->with(['labelTags']);

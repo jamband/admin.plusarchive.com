@@ -18,11 +18,12 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class BookmarkController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -56,7 +57,7 @@ class BookmarkController extends Controller
      * @param string $country
      * @param string $search
      * @param string $tag
-     * @return mixed
+     * @return string
      */
     public function actionIndex($sort = null, $country = null, $search = null, $tag = null)
     {
@@ -88,7 +89,7 @@ class BookmarkController extends Controller
 
     /**
      * Manages all Bookmark models.
-     * @return mixed
+     * @return string
      */
     public function actionAdmin()
     {
@@ -100,8 +101,8 @@ class BookmarkController extends Controller
 
     /**
      * Displays a single Bookmark model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string
      */
     public function actionView($id)
     {
@@ -112,7 +113,7 @@ class BookmarkController extends Controller
 
     /**
      * Creates a new Bookmark model.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
@@ -130,8 +131,8 @@ class BookmarkController extends Controller
 
     /**
      * Updates an existing Bookmark model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
      */
     public function actionUpdate($id)
     {
@@ -148,8 +149,8 @@ class BookmarkController extends Controller
 
     /**
      * Deletes an existing Bookmark model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
      */
     public function actionDelete($id)
     {
@@ -161,7 +162,7 @@ class BookmarkController extends Controller
 
     /**
      * Finds the Bookmark model based on its primary key value.
-     * @param integer $id
+     * @param int $id
      * @return Bookmark
      * @throws NotFoundHttpException
      */

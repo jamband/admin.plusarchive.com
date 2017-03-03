@@ -17,7 +17,7 @@ use yii\data\ActiveDataProvider;
 class StoreTagSearch extends StoreTag
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -32,7 +32,7 @@ class StoreTagSearch extends StoreTag
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params = [])
     {
         $query = StoreTag::find();
 

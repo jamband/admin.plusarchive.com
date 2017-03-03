@@ -9,7 +9,9 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
+/**
+ * @var yii\web\View $this
+ */
 
 $this->title = 'Admin Site - '.app()->name;
 ?>

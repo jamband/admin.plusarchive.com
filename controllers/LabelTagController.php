@@ -22,7 +22,7 @@ use yii\web\Response;
 class LabelTagController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -49,9 +49,10 @@ class LabelTagController extends Controller
             ],
         ];
     }
+
     /**
      * Manages all LabelTag models.
-     * @return mixed
+     * @return string
      */
     public function actionAdmin()
     {
@@ -64,6 +65,7 @@ class LabelTagController extends Controller
     /**
      * Returns all tag name.
      * @return Response
+     * @throws NotFoundHttpException
      */
     public function actionList()
     {
@@ -75,8 +77,8 @@ class LabelTagController extends Controller
 
     /**
      * Updates an existing LabelTag model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
      */
     public function actionUpdate($id)
     {
@@ -93,8 +95,8 @@ class LabelTagController extends Controller
 
     /**
      * Deletes an existing LabelTag model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
      */
     public function actionDelete($id)
     {
@@ -106,7 +108,7 @@ class LabelTagController extends Controller
 
     /**
      * Finds the Bookmark model based on its primary key value.
-     * @param integer $id
+     * @param int $id
      * @return LabelTag
      * @throws NotFoundHttpException
      */

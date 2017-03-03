@@ -9,16 +9,19 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $content string */
+/**
+ * @var yii\web\View $this
+ * @var string $content
+ * @var yii\web\Controller $context
+ */
 
 use app\widgets\ToastrNotification;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 
+$context = $this->context;
 $this->render('/common/js/analytics-tracking');
-
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -44,11 +47,11 @@ $this->render('/common/js/analytics-tracking');
             'options' => ['class' => 'navbar-nav'],
             'items' => [
                 ['label' => 'Admin', 'url' => ['/site/admin'], 'visible' => user()->can('admin')],
-                ['label' => 'Track', 'url' => ['/track/index'], 'active' => $this->context->id === 'track'],
-                ['label' => 'Playlist', 'url' => ['/playlist/index'], 'active' => $this->context->id === 'playlist'],
-                ['label' => 'Label', 'url' => ['/label/index'], 'active' => $this->context->id === 'label'],
-                ['label' => 'Store', 'url' => ['/store/index'], 'active' => $this->context->id === 'store'],
-                ['label' => 'Bookmark', 'url' => ['/bookmark/index'], 'active' => $this->context->id === 'bookmark'],
+                ['label' => 'Track', 'url' => ['/track/index'], 'active' => $context->id === 'track'],
+                ['label' => 'Playlist', 'url' => ['/playlist/index'], 'active' => $context->id === 'playlist'],
+                ['label' => 'Label', 'url' => ['/label/index'], 'active' => $context->id === 'label'],
+                ['label' => 'Store', 'url' => ['/store/index'], 'active' => $context->id === 'store'],
+                ['label' => 'Bookmark', 'url' => ['/bookmark/index'], 'active' => $context->id === 'bookmark'],
             ],
         ]) ?>
         <?= Nav::widget([

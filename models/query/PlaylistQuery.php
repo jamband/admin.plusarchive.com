@@ -16,8 +16,8 @@ use yii\db\ActiveQuery;
 class PlaylistQuery extends ActiveQuery
 {
     /**
-     * @param integer $status
-     * @return PlaylistQuery
+     * @param int $status
+     * @return $this
      */
     public function status($status)
     {

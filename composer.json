@@ -20,6 +20,9 @@
     "bower-asset/yii2-pjax": "*",
     "bower-asset/typeahead.js": "*"
   },
+  "autoload": {
+    "files": ["helpers/functions.php"]
+  },
   "scripts": {
     "clean": "rm -rf node_modules runtime/* tests/_output/* vendor web/assets/*",
     "show-asset-version": "composer show -t | grep -o 'bower-asset.*' | sort | uniq"

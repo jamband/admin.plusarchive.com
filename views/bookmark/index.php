@@ -9,15 +9,18 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $data yii\data\ActiveDataProvider */
-/* @var $sort string */
-/* @var $country string */
-/* @var $tag string */
-/* @var $search string */
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $data
+ * @var string $sort
+ * @var string $country
+ * @var string $tag
+ * @var string $search
+ */
 
+use app\models\Bookmark;
+use app\models\BookmarkTag;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 $this->title = 'Bookmarks - '.app()->name;
@@ -36,7 +39,7 @@ $this->title = 'Bookmarks - '.app()->name;
         </div>
         <div class="col-xs-12 col-sm-8">
             <div id="tile-container" class="row">
-                <?php /* @var $model app\models\Bookmark */ ?>
+                <?php /** @var Bookmark $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-xs-12 col-sm-6 list">
                         <div class="thumbnail">
@@ -59,12 +62,12 @@ $this->title = 'Bookmarks - '.app()->name;
                                 ]) ?>
                                 <br>
                                 <span class="label label-default"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
+                                <?php /** @var BookmarkTag $tag */ ?>
                                 <?php foreach ($model->bookmarkTags as $tag): ?>
                                     <?= Html::a(h($tag->name), ['', 'tag' => $tag->name], [
                                         'class' => 'label label-default',
                                     ]) ?>
                                 <?php endforeach ?>
-
                             </div>
                         </div>
                     </div>

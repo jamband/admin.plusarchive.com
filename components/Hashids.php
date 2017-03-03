@@ -26,7 +26,7 @@ class Hashids extends Object
     public $salt;
 
     /**
-     * @var integer
+     * @var int
      */
     public $minHashLength;
 
@@ -35,10 +35,13 @@ class Hashids extends Object
      */
     public $alphabet;
 
+    /**
+     * @var HashidsBase
+     */
     private $_hashids;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {
@@ -52,7 +55,7 @@ class Hashids extends Object
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function __call($name, $params)
     {
@@ -64,7 +67,7 @@ class Hashids extends Object
 
     /**
      * @param string $id
-     * @return integer|array
+     * @return int|int[]
      */
     public function decode($id)
     {

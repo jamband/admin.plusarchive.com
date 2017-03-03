@@ -18,6 +18,11 @@ use Codeception\Test\Unit;
 
 class SignupFormTest extends Unit
 {
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
     protected function setUp()
     {
         parent::setUp();

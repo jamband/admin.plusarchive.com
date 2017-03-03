@@ -9,8 +9,10 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Label */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Label $model
+ */
 
 use yii\widgets\DetailView;
 

@@ -19,11 +19,12 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class PlaylistController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -53,7 +54,7 @@ class PlaylistController extends Controller
 
     /**
      * Lists all Playlist models.
-     * @return mixed
+     * @return string
      */
     public function actionIndex()
     {
@@ -70,7 +71,7 @@ class PlaylistController extends Controller
     /**
      * Displays some PlaylistItem models by playlist primary key.
      * @param string $id the hashed playlist id
-     * @return mixed
+     * @return string
      */
     public function actionView($id)
     {
@@ -96,7 +97,7 @@ class PlaylistController extends Controller
 
     /**
      * Manages all Playlist models.
-     * @return mixed
+     * @return string
      */
     public function actionAdmin()
     {
@@ -108,7 +109,7 @@ class PlaylistController extends Controller
 
     /**
      * Creates a new Playlist model.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
@@ -125,8 +126,8 @@ class PlaylistController extends Controller
 
     /**
      * Updates an existing Playlist model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
      */
     public function actionUpdate($id)
     {
@@ -143,8 +144,8 @@ class PlaylistController extends Controller
 
     /**
      * Deletes an existing Playlist model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
      */
     public function actionDelete($id)
     {
@@ -156,9 +157,9 @@ class PlaylistController extends Controller
 
     /**
      * Finds the Playlist model based on its primary key value.
-     * @param integer $id
-     * @param null|integer $status
-     * @return Bookmark
+     * @param int $id
+     * @param int $status
+     * @return Playlist|array
      * @throws NotFoundHttpException
      */
     protected function findModel($id, $status = null)

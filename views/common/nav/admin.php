@@ -9,20 +9,25 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $enableCreate boolean */
+/**
+ * @var yii\web\View $this
+ * @var bool $enableCreate
+ * @var int $total
+ * @var yii\web\Controller $context
+ */
 
 use yii\helpers\Html;
 
 if (!isset($enableCreate)) {
     $enableCreate = true;
 }
+$context = $this->context;
 ?>
 <div class="text-center">
     <?= $this->render('/common/nav/base') ?>
 
     <span class="dropdown">
-        <?= Html::a(ucfirst($this->context->action->id).': '.number_format($totalCount).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
+        <?= Html::a(ucfirst($context->action->id).': '.number_format($total).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
             'id' => 'menu-action',
             'class' => 'dropdown-toggle dropdown-hover label label-default',
             'data-toggle' => 'dropdown',

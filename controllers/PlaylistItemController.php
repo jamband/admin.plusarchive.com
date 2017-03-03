@@ -22,11 +22,12 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class PlaylistItemController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -56,7 +57,7 @@ class PlaylistItemController extends Controller
 
     /**
      * Manages all PlaylistItem models.
-     * @return mixed
+     * @return string
      */
     public function actionAdmin()
     {
@@ -72,7 +73,7 @@ class PlaylistItemController extends Controller
      * @param string $provider
      * @param string $genre
      * @param string $search
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate($status = null, $provider = null, $genre = null, $search = null)
     {
@@ -108,9 +109,10 @@ class PlaylistItemController extends Controller
 
     /**
      * Returns the playlist items by playlist primary key.
-     * @param integer $playlistId
+     * @param int $playlistId
      * @param string $playlistTitle
-     * @return mixed
+     * @return null|string
+     * @throws NotFoundHttpException
      */
     public function actionList($playlistId = null, $playlistTitle = null)
     {
@@ -135,8 +137,9 @@ class PlaylistItemController extends Controller
 
     /**
      * Sorts the playlist items.
-     * @param integer $playlist_id
-     * @return mixed
+     * @param int $playlist_id
+     * @return string|Response
+     * @throws NotFoundHttpException
      */
     public function actionSort($playlist_id)
     {
@@ -172,8 +175,8 @@ class PlaylistItemController extends Controller
 
     /**
      * Deletes an existing PlaylistItem model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
      */
     public function actionDelete($id)
     {
@@ -185,7 +188,7 @@ class PlaylistItemController extends Controller
 
     /**
      * Finds the PlaylistItem model based on its primary key value.
-     * @param integer $id
+     * @param int $id
      * @return PlaylistItem
      * @throws NotFoundHttpException
      */

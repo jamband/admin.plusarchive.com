@@ -21,15 +21,15 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $url
- * @property integer $status
- * @property integer $provider
+ * @property int $status
+ * @property int $provider
  * @property string $provider_key
  * @property string $title
  * @property string $image
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $created_at
+ * @property int $updated_at
  * @property string $tagValues
  */
 class Track extends ActiveRecord
@@ -66,7 +66,7 @@ class Track extends ActiveRecord
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -74,7 +74,7 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -84,7 +84,8 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @return TrackQuery
      */
     public static function find()
     {
@@ -121,7 +122,7 @@ class Track extends ActiveRecord
 
     /**
      * Sets some attributes. (provider, provider_key, title, image)
-     * @return Track
+     * @return $this
      */
     public function setContents()
     {
@@ -140,7 +141,7 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -159,7 +160,7 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -173,7 +174,7 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function transactions()
     {
@@ -183,7 +184,7 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function beforeDelete()
     {

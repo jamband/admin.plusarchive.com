@@ -9,10 +9,17 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $model app\models\form\PlaylistItemCreateForm */
-/* @var $form yii\widgets\ActiveForm */
-/* @var $embedUrl string */
+/**
+ * @var yii\web\View $this
+ * @var yii\widgets\ActiveForm $form
+ * @var string $status
+ * @var string $provider
+ * @var string $genre
+ * @var string $search
+ * @var yii\data\ActiveDataProvider $data
+ * @var string $embedUrl
+ * @var app\models\form\PlaylistItemCreateForm $model
+ */
 
 use app\models\Playlist;
 use yii\helpers\Html;
@@ -110,7 +117,7 @@ $(document).on('change', '#playlistitemcreateform-playlist_id', function() {
         timeout: 10000,
         data: {
             playlistId: $el.val(),
-            playlistTitle: $el.find('option:selected').text(),
+            playlistTitle: $el.find('option:selected').text()
         }
     }).done(function(data) {
         $('#playlist-items').html(data);

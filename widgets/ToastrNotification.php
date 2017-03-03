@@ -12,7 +12,7 @@ use yii\helpers\Json;
 class ToastrNotification extends Toastr
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function run()
     {

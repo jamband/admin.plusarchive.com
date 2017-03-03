@@ -16,18 +16,18 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $name
- * @property integer $frequency
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $frequency
+ * @property int $created_at
+ * @property int $updated_at
  */
 class TrackGenre extends ActiveRecord
 {
     use ActiveRecordTrait;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -35,7 +35,15 @@ class TrackGenre extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     */
+    public static function find()
+    {
+        return parent::find();
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -47,7 +55,7 @@ class TrackGenre extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {

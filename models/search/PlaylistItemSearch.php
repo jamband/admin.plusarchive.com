@@ -12,9 +12,7 @@
 namespace app\models\search;
 
 use yii\data\ActiveDataProvider;
-use app\models\Playlist;
 use app\models\PlaylistItem;
-use app\models\Track;
 
 class PlaylistItemSearch extends PlaylistItem
 {
@@ -24,7 +22,7 @@ class PlaylistItemSearch extends PlaylistItem
     public $status;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -39,7 +37,7 @@ class PlaylistItemSearch extends PlaylistItem
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params = [])
     {
         $query = PlaylistItem::find()
             ->joinWith(['playlist p', 'track t']);

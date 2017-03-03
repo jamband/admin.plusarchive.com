@@ -9,12 +9,14 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $provider string */
-/* @var $genre string */
-/* @var $sort string */
-/* @var $status string */
-/* @var $search string */
+/**
+ * @var yii\web\View $this
+ * @var string $provider
+ * @var string $genre
+ * @var string $sort
+ * @var string $status
+ * @var string $search
+ */
 
 use app\models\Track;
 use app\models\TrackGenre;

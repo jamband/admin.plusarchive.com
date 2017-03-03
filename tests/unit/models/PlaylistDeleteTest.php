@@ -19,6 +19,14 @@ use Codeception\Test\Unit;
 
 class PlaylistDeleteTest extends Unit
 {
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
+    private $playlists;
+    private $items;
+
     protected function setUp()
     {
         parent::setUp();
@@ -45,6 +53,5 @@ class PlaylistDeleteTest extends Unit
 
         Playlist::findOne($this->playlists['playlist2']['id'])->delete();
         $this->assertSame(0, (int)PlaylistItem::find()->playlist($this->playlists['playlist2']['id'])->count());
-
     }
 }

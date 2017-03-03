@@ -9,15 +9,18 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $data yii\data\ActiveDataProvider */
-/* @var $provider string */
-/* @var $genre string */
-/* @var $status string */
-/* @var $sort string */
-/* @var $search string */
-/* @var $embedUrl string */
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $data
+ * @var string $provider
+ * @var string $genre
+ * @var string $status
+ * @var string $sort
+ * @var string $search
+ * @var string $embedUrl
+ */
 
+use app\models\TrackGenre;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
@@ -27,7 +30,7 @@ $this->title = 'Admin Tracks - '.app()->name;
 
 <?php Pjax::begin(['id' => 'track-pjax']) ?>
     <?= $this->render('/common/nav/admin', [
-        'totalCount' => $data->totalCount,
+        'total' => $data->totalCount,
     ]) ?>
     <div id="tile-container" class="row text-center">
         <?= $this->render('_search-admin', [
@@ -37,8 +40,6 @@ $this->title = 'Admin Tracks - '.app()->name;
             'status' => $status,
             'search' => $search,
         ]) ?>
-        <?php /* @var $model app\models\Track */ ?>
-        <?php /* @var $genre app\models\TrackGenre */ ?>
         <?php foreach ($data->models as $model): ?>
             <div class="col-xs-12 col-sm-3 tile">
                 <div class="thumbnail">
@@ -60,6 +61,7 @@ $this->title = 'Admin Tracks - '.app()->name;
                         <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
                                 'class' => 'label label-default',
                         ]) ?>
+                        <?php /** @var TrackGenre $genre */ ?>
                         <?php foreach ($model->trackGenres as $genre): ?>
                             <?= Html::a(h($genre->name), ['', 'genre' => $genre->name], [
                                 'class' => 'label label-default',

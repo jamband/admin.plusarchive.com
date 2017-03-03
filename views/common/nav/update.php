@@ -9,16 +9,20 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $model yii\db\ActiveRecord */
+/**
+ * @var yii\web\View $this
+ * @var yii\db\ActiveRecord $model
+ * @var yii\web\Controller $context
+ */
 
 use yii\helpers\Html;
 
+$context = $this->context;
 ?>
 <div class="text-center">
     <?= $this->render('/common/nav/base') ?>
     <span class="dropdown">
-        <?= Html::a(ucfirst($this->context->action->id).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
+        <?= Html::a(ucfirst($context->action->id).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
             'id' => 'menu-action',
             'class' => 'dropdown-toggle dropdown-hover label label-default',
             'data-toggle' => 'dropdown',

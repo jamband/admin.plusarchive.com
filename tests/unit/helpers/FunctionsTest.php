@@ -12,7 +12,6 @@
 namespace app\tests\unit\helpers;
 
 use Yii;
-use app\components\Hashids;
 use Codeception\Test\Unit;
 
 class FunctionsTest extends Unit

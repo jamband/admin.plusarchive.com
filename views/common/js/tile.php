@@ -9,6 +9,10 @@
  * file that was distributed with this source code.
  */
 
+/**
+ * @var yii\web\View $this
+ */
+
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
     var $container = $('#tile-container');

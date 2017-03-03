@@ -19,14 +19,15 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property string $country
  * @property string $url
  * @property string $link
- * @property integer $status
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $status
+ * @property int $created_at
+ * @property int $updated_at
+ * @property BookmarkTag[] $bookmarkTags
  */
 class Bookmark extends ActiveRecord
 {
@@ -44,7 +45,7 @@ class Bookmark extends ActiveRecord
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -52,7 +53,7 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -62,7 +63,8 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @return BookmarkQuery
      */
     public static function find()
     {
@@ -89,7 +91,7 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -107,7 +109,7 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -121,7 +123,7 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function transactions()
     {

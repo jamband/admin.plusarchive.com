@@ -9,13 +9,15 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $playlistTitle string */
-/* @var $provider string */
-/* @var $playlist_id integer */
-/* @var $items app\models\PlaylistItem */
-/* @var $model app\models\form\PlaylistItemSortForm */
-/* @var $embed string */
+/**
+ * @var yii\web\View $this
+ * @var string $playlistTitle
+ * @var string $provider
+ * @var int $playlist_id
+ * @var app\models\PlaylistItem $items
+ * @var app\models\form\PlaylistItemSortForm $model
+ * @var string $embed
+ */
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;

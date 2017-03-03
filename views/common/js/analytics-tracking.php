@@ -1,5 +1,18 @@
 <?php
 
+/*
+ * This file is part of the plusarchive.com
+ *
+ * (c) Tomoki Morita <tmsongbooks215@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * @var yii\web\View $this
+ */
+
 $this->registerJs(<<<'JS'
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

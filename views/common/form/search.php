@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $search string */
-/* @var $placeholder string */
+/**
+ * @var yii\web\View $this
+ * @var string $search
+ * @var string $placeholder
+ */
 
 use yii\helpers\Html;
 

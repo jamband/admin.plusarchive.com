@@ -9,14 +9,18 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
+/**
+ * @var yii\web\View $this
+ * @var yii\web\Controller $context
+ */
 
 use yii\helpers\Html;
 use yii\helpers\Inflector;
 
+$context = $this->context;
 ?>
 <span class="dropdown">
-    <?= Html::a(Inflector::id2camel($this->context->id).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
+    <?= Html::a(Inflector::id2camel($context->id).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
         'id' => 'menu-controller',
         'class' => 'dropdown-toggle dropdown-hover label label-default',
         'data-toggle' => 'dropdown',

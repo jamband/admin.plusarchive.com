@@ -9,8 +9,10 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Playlist */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Playlist $model
+ */
 
 $this->title = "Update Playlist: $model->title - ".app()->name;
 ?>

@@ -14,10 +14,13 @@ namespace app\models\query;
 use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
+/**
+ * @method $this allTagValues($values, $attribute = null)
+ */
 class LabelQuery extends ActiveQuery
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -28,7 +31,7 @@ class LabelQuery extends ActiveQuery
 
     /**
      * @param string $country
-     * @return LabelQuery
+     * @return $this
      */
     public function country($country)
     {
@@ -37,7 +40,7 @@ class LabelQuery extends ActiveQuery
 
     /**
      * @param string $sort
-     * @return LabelQuery
+     * @return $this
      */
     public function sort($sort)
     {
@@ -53,7 +56,7 @@ class LabelQuery extends ActiveQuery
 
     /**
      * @param string $search
-     * @return LabelQuery
+     * @return $this
      */
     public function search($search)
     {

@@ -9,9 +9,12 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $data yii\data\ActiveDataProvider */
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $data
+ */
 
+use app\models\Playlist;
 use yii\helpers\Html;
 
 $this->title = 'Playlists - '.app()->name;
@@ -23,7 +26,7 @@ $this->title = 'Playlists - '.app()->name;
         <i class="fa fa-fw fa-info-circle"></i> It does not work well with mobile.
     </div>
     <div class="col-sm-5">
-        <?php /* @var $model app\models\Playlist */ ?>
+        <?php /** @var Playlist $model */ ?>
         <ul class="playlist-title">
             <?php foreach ($data->models as $model): ?>
                 <li>

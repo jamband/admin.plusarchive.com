@@ -9,10 +9,13 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Track */
-/* @var $embed string */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Track $model
+ * @var string $embed
+ */
 
+use app\models\TrackGenre;
 use yii\helpers\Html;
 
 $this->title = "$model->title - ".app()->name;
@@ -29,7 +32,7 @@ $this->title = "$model->title - ".app()->name;
     <?= Html::a(h($model->providerText), ['index', 'provider' => $model->providerText], [
         'class' => 'label label-default',
     ]) ?>
-    <?php /* @var $genre app\models\TrackGenre */ ?>
+    <?php /** @var TrackGenre $genre */ ?>
     <?php foreach ($model->trackGenres as $genre): ?>
         <?= Html::a(h($genre->name), ['index', 'genre' => $genre->name], [
             'class' => 'label label-default',

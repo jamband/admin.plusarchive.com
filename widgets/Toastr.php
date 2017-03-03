@@ -2,7 +2,6 @@
 
 namespace app\widgets;
 
-use Yii;
 use yii\base\InvalidParamException;
 use yii\base\Widget;
 use yii\helpers\Json;
@@ -41,7 +40,7 @@ class Toastr extends Widget
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {
@@ -50,8 +49,8 @@ class Toastr extends Widget
     }
 
     /**
-     * @inheritdoc
-     * @throw InvalidConfigException
+     * {@inheritdoc}
+     * @throws InvalidParamException
      */
     public function run()
     {

@@ -12,14 +12,13 @@
 namespace yii\helpers;
 
 use yii\data\Pagination;
-use yii\helpers\BaseUrl;
 
 class Url extends BaseUrl
 {
     /**
      * Url::current() removing current page index.
      * @param array $params
-     * @param boolean|string $scheme
+     * @param bool|string $scheme
      * @return string
      * @see current()
      */

@@ -9,10 +9,14 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Playlist */
-/* @var $provider string */
-/* @var $embed string */
+/**
+ * @var yii\web\View $this
+ * @var app\models\Playlist $model
+ * @var string $provider
+ * @var string $embed
+ */
+
+use app\models\PlaylistItem;
 
 $this->title = "$model->title - ".app()->name
 
@@ -34,7 +38,7 @@ $this->title = "$model->title - ".app()->name
     <div class="col-sm-6">
         <h4 class="hidden-xs">Playlist <small> missing track will be skipped</small></h4>
         <ol id="playlist">
-            <?php /* @var $item app\models\PlaylistItem */ ?>
+            <?php /* @var PlaylistItem $item */ ?>
             <?php foreach ($model->items as $item): ?>
                 <li data-provider-key="<?= h($item->track->provider_key) ?>"><?= h($item->track->title) ?></li>
             <?php endforeach ?>

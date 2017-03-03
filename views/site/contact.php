@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $form yii\widgets\ActiveForm */
-/* @var $model app\models\form\ContactForm */
+/**
+ * @var yii\web\View $this
+ */
 
 $this->title = 'Contact - '.app()->name;
 ?>

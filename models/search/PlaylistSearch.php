@@ -17,7 +17,7 @@ use app\models\Playlist;
 class PlaylistSearch extends Playlist
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -34,7 +34,7 @@ class PlaylistSearch extends Playlist
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params = [])
     {
         $query = Playlist::find();
 

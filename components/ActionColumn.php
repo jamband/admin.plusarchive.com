@@ -18,17 +18,17 @@ use yii\grid\ActionColumn as ActionColumnBase;
 class ActionColumn extends ActionColumnBase
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $buttonOptions = [];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function initDefaultButtons()
     {
         if (!isset($this->buttons['view'])) {
-            $this->buttons['view'] = function ($url, $model, $key) {
+            $this->buttons['view'] = function ($url) {
                 $options = array_merge([
                     'title' => Yii::t('yii', 'View'),
                     'aria-label' => Yii::t('yii', 'View'),
@@ -38,7 +38,7 @@ class ActionColumn extends ActionColumnBase
             };
         }
         if (!isset($this->buttons['update'])) {
-            $this->buttons['update'] = function ($url, $model, $key) {
+            $this->buttons['update'] = function ($url) {
                 $options = array_merge([
                     'title' => Yii::t('yii', 'Update'),
                     'aria-label' => Yii::t('yii', 'Update'),
@@ -48,7 +48,7 @@ class ActionColumn extends ActionColumnBase
             };
         }
         if (!isset($this->buttons['delete'])) {
-            $this->buttons['delete'] = function ($url, $model, $key) {
+            $this->buttons['delete'] = function ($url) {
                 $options = array_merge([
                     'title' => Yii::t('yii', 'Delete'),
                     'aria-label' => Yii::t('yii', 'Delete'),

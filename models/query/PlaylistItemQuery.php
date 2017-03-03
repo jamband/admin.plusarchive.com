@@ -16,8 +16,8 @@ use yii\db\ActiveQuery;
 class PlaylistItemQuery extends ActiveQuery
 {
     /**
-     * @param integer $playlist_id
-     * @return PlaylistItemQuery
+     * @param int $playlist_id
+     * @return $this
      */
     public function playlist($playlist_id)
     {
@@ -25,8 +25,8 @@ class PlaylistItemQuery extends ActiveQuery
     }
 
     /**
-     * @param integer $track_id
-     * @return PlaylistItemQuery
+     * @param int $track_id
+     * @return $this
      */
     public function track($track_id)
     {

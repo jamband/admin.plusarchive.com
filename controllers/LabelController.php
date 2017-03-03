@@ -18,11 +18,12 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class LabelController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -56,7 +57,7 @@ class LabelController extends Controller
      * @param string $country
      * @param string $tag
      * @param string $search
-     * @return mixed
+     * @return string
      */
     public function actionIndex($sort = null, $country = null, $tag = null, $search = null)
     {
@@ -87,7 +88,7 @@ class LabelController extends Controller
 
     /**
      * Manages all Label models.
-     * @return mixed
+     * @return string
      */
     public function actionAdmin()
     {
@@ -99,8 +100,8 @@ class LabelController extends Controller
 
     /**
      * Displays a single Label model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string
      */
     public function actionView($id)
     {
@@ -111,7 +112,7 @@ class LabelController extends Controller
 
     /**
      * Creates a new Label model.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
@@ -128,8 +129,8 @@ class LabelController extends Controller
 
     /**
      * Updates an existing Label model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
      */
     public function actionUpdate($id)
     {
@@ -146,8 +147,8 @@ class LabelController extends Controller
 
     /**
      * Deletes an existing Label model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
      */
     public function actionDelete($id)
     {
@@ -159,7 +160,7 @@ class LabelController extends Controller
 
     /**
      * Finds the Label model based on its primary key value.
-     * @param integer $id
+     * @param int $id
      * @return Label
      * @throws NotFoundHttpException
      */

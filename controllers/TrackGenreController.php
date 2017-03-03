@@ -22,7 +22,7 @@ use yii\web\Response;
 class TrackGenreController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -52,7 +52,7 @@ class TrackGenreController extends Controller
 
     /**
      * Manages all TrackGenre models.
-     * @return mixed
+     * @return string
      */
     public function actionAdmin()
     {
@@ -65,6 +65,7 @@ class TrackGenreController extends Controller
     /**
      * Returns all genres name.
      * @return Response
+     * @throws NotFoundHttpException
      */
     public function actionList()
     {
@@ -76,8 +77,8 @@ class TrackGenreController extends Controller
 
     /**
      * Updates an existing TrackGenre model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
      */
     public function actionUpdate($id)
     {
@@ -94,8 +95,8 @@ class TrackGenreController extends Controller
 
     /**
      * Deletes an existing TrackGenre model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return Response
      */
     public function actionDelete($id)
     {
@@ -107,7 +108,7 @@ class TrackGenreController extends Controller
 
     /**
      * Finds the TrackGenre model based on its primary key value.
-     * @param integer $id
+     * @param int $id
      * @return TrackGenre
      * @throws NotFoundHttpException
      */

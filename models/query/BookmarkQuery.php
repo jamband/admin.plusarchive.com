@@ -14,10 +14,13 @@ namespace app\models\query;
 use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
+/**
+ * @method $this allTagValues($values, $attribute = null)
+ */
 class BookmarkQuery extends ActiveQuery
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -28,7 +31,7 @@ class BookmarkQuery extends ActiveQuery
 
     /**
      * @param string $country
-     * @return BookmarkQuery
+     * @return $this
      */
     public function country($country)
     {
@@ -36,8 +39,8 @@ class BookmarkQuery extends ActiveQuery
     }
 
     /**
-     * @param integer $status
-     * @return BookmarkQuery
+     * @param int $status
+     * @return $this
      */
     public function status($status)
     {
@@ -46,7 +49,7 @@ class BookmarkQuery extends ActiveQuery
 
     /**
      * @param string $search
-     * @return BookmarkQuery
+     * @return $this
      */
     public function search($search)
     {
@@ -58,7 +61,7 @@ class BookmarkQuery extends ActiveQuery
 
     /**
      * @param string $sort
-     * @return BookmarkQuery
+     * @return $this
      */
     public function sort($sort)
     {

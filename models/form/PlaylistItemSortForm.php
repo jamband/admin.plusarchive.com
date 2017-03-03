@@ -21,7 +21,7 @@ class PlaylistItemSortForm extends Model
     public $playlist_id;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -31,7 +31,7 @@ class PlaylistItemSortForm extends Model
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -45,9 +45,8 @@ class PlaylistItemSortForm extends Model
     /**
      * Validates whether valid id.
      * @param string $attribute
-     * @param array $params
      */
-    public function validateId($attribute, $params)
+    public function validateId($attribute)
     {
         foreach ($this->getIds() as $id) {
             $query = PlaylistItem::find()
@@ -65,9 +64,8 @@ class PlaylistItemSortForm extends Model
     /**
      * Validates whether the number of tracks is valid.
      * @param string $attribute
-     * @param array $params
      */
-    public function validateIdTotal($attribute, $params)
+    public function validateIdTotal($attribute)
     {
         $query = PlaylistItem::find()
             ->andWhere(['playlist_id' => $this->playlist_id]);
@@ -79,7 +77,7 @@ class PlaylistItemSortForm extends Model
 
     /**
      * Change the order of the tracks of a particular playlist.
-     * @return boolean
+     * @return bool
      */
     public function save()
     {
@@ -99,7 +97,7 @@ class PlaylistItemSortForm extends Model
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     private function getIds()
     {

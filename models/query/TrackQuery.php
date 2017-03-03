@@ -15,10 +15,13 @@ use app\models\Track;
 use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
+/**
+ * @method $this allTagValues($values, $attribute = null)
+ */
 class TrackQuery extends ActiveQuery
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -29,18 +32,17 @@ class TrackQuery extends ActiveQuery
 
     /**
      * @param string $provider
-     * @return TrackQuery
+     * @return $this
      */
     public function provider($provider)
     {
-
         $provider = array_search($provider, Track::PROVIDER_DATA, true);
         return false === $provider ? $this : $this->andWhere(['provider' => $provider]);
     }
 
     /**
      * @param string $status
-     * @return TrackQuery
+     * @return $this
      */
     public function status($status)
     {
@@ -50,7 +52,7 @@ class TrackQuery extends ActiveQuery
 
     /**
      * @param string $search
-     * @return TrackQuery
+     * @return $this
      */
     public function search($search)
     {
@@ -60,7 +62,7 @@ class TrackQuery extends ActiveQuery
 
     /**
      * @param string $sort
-     * @return TrackQuery
+     * @return $this
      */
     public function sort($sort)
     {

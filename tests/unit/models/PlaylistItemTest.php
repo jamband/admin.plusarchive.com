@@ -19,6 +19,13 @@ use Codeception\Test\Unit;
 
 class PlaylistItemTest extends Unit
 {
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
+    private $items;
+
     protected function setUp()
     {
         parent::setUp();

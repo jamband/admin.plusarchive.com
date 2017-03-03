@@ -16,14 +16,14 @@ use jamband\ripple\Ripple;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 class TrackController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      * @throws NotFoundHttpException
      */
     public function behaviors()
@@ -56,7 +56,7 @@ class TrackController extends Controller
      * @param string $provider
      * @param string $genre
      * @param string $search
-     * @return mixed
+     * @return string
      */
     public function actionIndex($provider = null, $genre = null, $search = null)
     {
@@ -86,7 +86,8 @@ class TrackController extends Controller
     /**
      * Renders the HTML of the now playing track.
      * @param string $id the hashed track id
-     * @return mixed
+     * @return string
+     * @throws NotFoundHttpException
      */
     public function actionNow($id = null)
     {
@@ -107,7 +108,7 @@ class TrackController extends Controller
     /**
      * Displays a single Track model.
      * @param string $id the hashed track id
-     * @return mixed
+     * @return string
      */
     public function actionView($id)
     {
@@ -125,12 +126,12 @@ class TrackController extends Controller
 
     /**
      * Manages all Track models.
-     * @param integer $status
+     * @param int $status
      * @param string $provider
      * @param string $sort
      * @param string $genre
      * @param string $search
-     * @return mixed
+     * @return string
      */
     public function actionAdmin($status = null, $provider = null, $sort = null, $genre = null, $search = null)
     {
@@ -161,7 +162,7 @@ class TrackController extends Controller
 
     /**
      * Creates a new Track model.
-     * @return mixed
+     * @return string|Response
      */
     public function actionCreate()
     {
@@ -179,8 +180,8 @@ class TrackController extends Controller
 
     /**
      * Updates an existing Track model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string|Response
      */
     public function actionUpdate($id)
     {
@@ -197,8 +198,8 @@ class TrackController extends Controller
 
     /**
      * Deletes an existing Track model.
-     * @param integer $id
-     * @return mixed
+     * @param int $id
+     * @return string
      */
     public function actionDelete($id)
     {
@@ -210,9 +211,9 @@ class TrackController extends Controller
 
     /**
      * Finds the Track model based on its primary key value.
-     * @param integer $id
-     * @param null|integer $status
-     * @return Track
+     * @param int $id
+     * @param int $status
+     * @return Track|array
      * @throws NotFoundHttpException
      */
     protected function findModel($id, $status = null)

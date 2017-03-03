@@ -17,6 +17,13 @@ use Codeception\Test\Unit;
 
 class LoginFormTest extends Unit
 {
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
+    private $users;
+
     protected function setUp()
     {
         parent::setUp();

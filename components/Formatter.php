@@ -14,13 +14,16 @@ namespace app\components;
 use yii\helpers\Html;
 use yii\i18n\Formatter as FormatterBase;
 
+/**
+ * {@inheritdoc}
+ */
 class Formatter extends FormatterBase
 {
     /**
      * Formats the value as some hyperlink.
      * @param mixed $value the value to be formatted.
      * @param string $separator
-     * @param array $domains some custom domain
+     * @param string[] $domains some custom domain
      * @param array $options the tag options in terms of name-value pairs. See [[Html::a()]].
      * @return null|string the formatted result.
      */
@@ -45,7 +48,7 @@ class Formatter extends FormatterBase
     /**
      * Get the brand icon for Font Awesome.
      * @param string $value
-     * @param array $domains
+     * @param string[] $domains
      * @return string
      */
     private static function getBrandIcon($value, array $domains = [])

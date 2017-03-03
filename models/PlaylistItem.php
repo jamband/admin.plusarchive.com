@@ -17,17 +17,19 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
- * @property integer $id
- * @property integer $playlist_id
- * @property integer $track_id
- * @property integer $track_number
- * @property integer $created_at
- * @property integer $updated_at
+ * @property int $id
+ * @property int $playlist_id
+ * @property int $track_id
+ * @property int $track_number
+ * @property int $created_at
+ * @property int $updated_at
+ * @property Playlist $playlist
+ * @property Track $track
  */
 class PlaylistItem extends ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -51,7 +53,7 @@ class PlaylistItem extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function find()
     {
@@ -59,8 +61,8 @@ class PlaylistItem extends ActiveRecord
     }
 
     /**
-     * @param integer $track_id track id
-     * @return array track ids
+     * @param int $track_id track id
+     * @return string[] track ids
      */
     public static function getPlaylistIdsByTrackId($track_id)
     {
@@ -72,8 +74,8 @@ class PlaylistItem extends ActiveRecord
 
     /**
      * Whether has some tracks.
-     * @param integer $playlist_id
-     * @return boolean
+     * @param int $playlist_id
+     * @return bool
      */
     public static function hasTracksByPlaylistId($playlist_id)
     {
@@ -83,7 +85,7 @@ class PlaylistItem extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -93,7 +95,7 @@ class PlaylistItem extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function transactions()
     {
@@ -103,7 +105,7 @@ class PlaylistItem extends ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function afterDelete()
     {
@@ -115,7 +117,7 @@ class PlaylistItem extends ActiveRecord
 
     /**
      * Removes all of the specific tracks
-     * @param integer $track_id
+     * @param int $track_id
      */
     public static function removeTracks($track_id)
     {
@@ -124,7 +126,7 @@ class PlaylistItem extends ActiveRecord
 
     /**
      * Removes all of the specific playlist
-     * @param integer $playlist_id
+     * @param int $playlist_id
      */
     public static function removePlaylists($playlist_id)
     {

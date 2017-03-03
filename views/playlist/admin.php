@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $data yii\data\ActiveDataProvider */
-/* @var $search app\models\search\PlaylistSearch */
+/**
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $data
+ * @var app\models\search\PlaylistSearch $search
+ */
 
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -20,7 +22,7 @@ $this->title = 'Admin Playlists - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [
-        'totalCount' => $data->totalCount,
+        'total' => $data->totalCount,
     ]) ?>
     <?= GridView::widget([
         'id' => 'grid-view-playlist',

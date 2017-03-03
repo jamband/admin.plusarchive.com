@@ -9,9 +9,11 @@
  * file that was distributed with this source code.
  */
 
-/* @var $this yii\web\View */
-/* @var $search app\models\search\TrackGenreSearch */
-/* @var $data yii\data\ActiveDataProvider */
+/**
+ * @var yii\web\View $this
+ * @var app\models\search\TrackGenreSearch $search
+ * @var yii\data\ActiveDataProvider $data
+ */
 
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -20,7 +22,7 @@ $this->title = 'Admin TrackGenres - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [
-        'totalCount' => $data->totalCount,
+        'total' => $data->totalCount,
         'enableCreate' => false,
     ]) ?>
     <?= GridView::widget([

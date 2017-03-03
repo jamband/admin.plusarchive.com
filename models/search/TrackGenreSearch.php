@@ -17,7 +17,7 @@ use yii\data\ActiveDataProvider;
 class TrackGenreSearch extends TrackGenre
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -32,7 +32,7 @@ class TrackGenreSearch extends TrackGenre
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params = [])
     {
         $query = TrackGenre::find();
 
