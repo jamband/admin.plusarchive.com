@@ -18,7 +18,7 @@ class TrackFixture extends ActiveFixture
 {
     public $modelClass = Track::class;
 
-    public $dataFile = '@app/tests/acceptance/fixtures/data/track.php';
+    public $dataFile = '@fixture/track.php';
 
     public $depends = [
         UserFixture::class,

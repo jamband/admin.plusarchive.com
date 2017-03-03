@@ -18,7 +18,7 @@ class PlaylistFixture extends ActiveFixture
 {
     public $modelClass = Playlist::class;
 
-    public $dataFile = '@app/tests/acceptance/fixtures/data/playlist.php';
+    public $dataFile = '@fixture/playlist.php';
 
     public $depends = [
         UserFixture::class,

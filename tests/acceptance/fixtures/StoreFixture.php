@@ -18,7 +18,7 @@ class StoreFixture extends ActiveFixture
 {
     public $modelClass = Store::class;
 
-    public $dataFile = '@app/tests/acceptance/fixtures/data/store.php';
+    public $dataFile = '@fixture/store.php';
 
     public $depends = [
         UserFixture::class,

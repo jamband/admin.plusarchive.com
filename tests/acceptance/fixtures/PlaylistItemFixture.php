@@ -18,5 +18,5 @@ class PlaylistItemFixture extends ActiveFixture
 {
     public $modelClass = PlaylistItem::class;
 
-    public $dataFile = '@app/tests/acceptance/fixtures/data/playlist_item.php';
+    public $dataFile = '@fixture/playlist_item.php';
 }

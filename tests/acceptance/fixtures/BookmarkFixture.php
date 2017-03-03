@@ -18,7 +18,7 @@ class BookmarkFixture extends ActiveFixture
 {
     public $modelClass = Bookmark::class;
 
-    public $dataFile = '@app/tests/acceptance/fixtures/data/bookmark.php';
+    public $dataFile = '@fixture/bookmark.php';
 
     public $depends = [
         UserFixture::class,

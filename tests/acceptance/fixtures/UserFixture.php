@@ -18,5 +18,5 @@ class UserFixture extends ActiveFixture
 {
     public $modelClass = User::class;
 
-    public $dataFile = '@app/tests/acceptance/fixtures/data/user.php';
+    public $dataFile = '@fixture/user.php';
 }
