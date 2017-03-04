@@ -13,7 +13,7 @@
  * @var yii\web\View $this
  */
 
-$this->registerJsFile('//www.youtube.com/iframe_api');
+$this->registerJsFile('https://www.youtube.com/iframe_api');
 
 $this->registerJs(<<<'JS'
 var plusarchive = {

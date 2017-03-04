@@ -13,7 +13,7 @@
  * @var yii\web\View $this
  */
 
-$this->registerJsFile('//w.soundcloud.com/player/api.js');
+$this->registerJsFile('https://w.soundcloud.com/player/api.js');
 
 $this->registerJs(<<<'JS'
 var plusarchive = {
