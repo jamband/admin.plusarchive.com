@@ -12,6 +12,6 @@
     "gulp-uglify": "2.0.1"
   },
   "scripts": {
-    "postinstall": "bower install && ./assets/scripts/postinstall.sh"
+    "postinstall": "bower install && ./assets/shell/postinstall.sh"
   }
 }
