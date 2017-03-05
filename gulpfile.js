@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
-gulp.task('scripts', function() {
+gulp.task('js', function() {
   gulp.src(require('./assets/js/common.json'))
     .pipe($.concat('common.js'))
     .pipe($.uglify({preserveComments: 'license'}))
@@ -12,7 +12,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('web/js'));
 });
 
-gulp.task('styles', function() {
+gulp.task('css', function() {
   gulp.src('assets/sass/common.scss')
     .pipe($.plumber())
     .pipe($.sass().on('error', $.sass.logError))
@@ -23,14 +23,14 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('web/css'));
 });
 
-gulp.task('fonts', function() {
-  gulp.src(require('./assets/font/common.json'))
+gulp.task('font', function() {
+  gulp.src(require('./assets/fonts/common.json'))
     .pipe(gulp.dest('web/fonts'));
 });
 
-gulp.task('build', ['scripts', 'styles', 'fonts']);
+gulp.task('build', ['js', 'css', 'font']);
 
 gulp.task('default', ['build'], function() {
-  gulp.watch('assets/js/**/*.js', ['scripts']);
-  gulp.watch('assets/sass/**/*.scss', ['styles']);
+  gulp.watch('assets/js/**/*.js', ['js']);
+  gulp.watch('assets/sass/**/*.scss', ['css']);
 });
