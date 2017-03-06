@@ -115,10 +115,8 @@
   display: block;
   font-weight: bold;
   color: $text-color;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   cursor: pointer;
+  @include text-truncate();
   &:hover,
   &:active {
     color: #fff;
@@ -151,10 +149,8 @@
     @media (max-width: $screen-xs-max) {
       font-size: 110%;
     }
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: $link-color;
+    @include text-truncate();
   }
   .playlist-frequency {
     padding: 0 .5em;
@@ -171,10 +167,8 @@
   > li {
     padding: 5px;
     border-bottom: 1px solid $gray-dark;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     cursor: pointer;
+    @include text-truncate();
     &:hover {
       color: #fff;
       background-color: $gray-dark;
