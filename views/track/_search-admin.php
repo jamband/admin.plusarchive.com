@@ -30,7 +30,7 @@ use yii\helpers\Url;
             <a class="refresh-link" href="<?= url(['']) ?>">Reset All</a>
             <br>
             <span class="dropdown">
-                <?= Html::a(h($sort).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
+                <?= Html::a(h($sort), '#', [
                     'id' => 'search-sort',
                     'class' => 'dropdown-toggle label label-default',
                     'data-toggle' => 'dropdown',
@@ -45,7 +45,7 @@ use yii\helpers\Url;
             </span><!-- /.dropdown -->
 
             <span class="dropdown">
-                <?= Html::a(h($status).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
+                <?= Html::a(h($status), '#', [
                     'id' => 'search-status',
                     'class' => 'dropdown-toggle label label-default',
                     'data-toggle' => 'dropdown',
@@ -61,7 +61,7 @@ use yii\helpers\Url;
             <br>
 
             <span class="dropdown">
-                <?= Html::a(h($provider).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
+                <?= Html::a(h($provider), '#', [
                     'id' => 'search-provider',
                     'class' => 'dropdown-toggle label label-default',
                     'data-toggle' => 'dropdown',
@@ -76,7 +76,7 @@ use yii\helpers\Url;
             </span><!-- /.dropdown -->
 
             <span class="dropdown">
-                <?= Html::a(h($genre).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
+                <?= Html::a(h($genre), '#', [
                     'id' => 'search-genre',
                     'class' => 'dropdown-toggle label label-default',
                     'data-toggle' => 'dropdown',

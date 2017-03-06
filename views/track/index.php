@@ -36,7 +36,7 @@ $this->title = app()->name;
         ]) ?>
         <?php foreach ($data->models as $model): ?>
             <div class="col-xs-12 col-sm-3 tile">
-                <div class="thumbnail">
+                <div class="thumbnail clearfix">
                     <?= Html::tag('img', '', [
                         'class' => 'lazy track-image',
                         'title' => 'Play',
@@ -44,7 +44,7 @@ $this->title = app()->name;
                         'data-url' => $embedUrl,
                         'data-id' => hashids()->encode($model->id),
                     ]) ?>
-                    <div class="caption">
+                    <div class="caption clearfix">
                         <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
                             'class' => 'track-title',
                             'title' => 'View',
@@ -63,7 +63,6 @@ $this->title = app()->name;
                         <div class="hidden-xs pull-right track-created-date">
                             <?= formatter()->asDate($model->created_at) ?>
                         </div>
-                        <div class="clearfix"></div>
                     </div><!-- /.caption -->
                 </div><!-- /.thumbnail -->
             </div><!-- /.tile -->

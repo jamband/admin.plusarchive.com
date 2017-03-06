@@ -20,7 +20,7 @@ $context = $this->context;
 <div class="text-center">
     <?= $this->render('/common/nav/base') ?>
     <span class="dropdown">
-        <?= Html::a(ucfirst($context->action->id).' <i class="fa fa-fw fa-angle-down"></i>', '#', [
+        <?= Html::a(ucfirst($context->action->id), '#', [
             'id' => 'menu-action',
             'class' => 'dropdown-toggle dropdown-hover label label-default',
             'data-toggle' => 'dropdown',

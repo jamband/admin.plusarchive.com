@@ -1,15 +1,8 @@
-@mixin icon-before-after {
-  display: inline-block;
-  font-family: "FontAwesome";
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-@mixin icon-before($padding: 5px) {
-  @include icon-before-after;
-  padding-right: $padding;
-}
-@mixin icon-after($padding: 5px) {
-  @include icon-before-after;
-  padding-left: $padding;
+@mixin app-icon($content, $provider: "fa") {
+  @if $provider == "fa" {
+    @include fa-icon();
+  }
+  width: (18em / 12);
+  text-align: center;
+  content: $content;
 }

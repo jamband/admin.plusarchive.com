@@ -1,11 +1,14 @@
+// Font Awesome
+@import "../../vendor/bower/fontawesome/scss/font-awesome";
+
+// Mixins
+@import "mixins/icons";
+
 // Twitter Bootstrap cores
 @import "variables";
 @import "bootstrap";
 
-// Originals mixins
-@import "mixins/icons";
-
-// Customized Twitter Bootstrap components
+// Other
 @import "scaffolding";
 @import "buttons";
 @import "dropdowns";
@@ -14,16 +17,10 @@
 @import "navbar";
 @import "responsive-embed";
 @import "pagination";
-
-// Originals
-@import "layouts";
 @import "views";
-@import "others";
+@import "other";
 
-// Font Awesome
-@import "../../vendor/bower/fontawesome/scss/font-awesome";
-
-// toastr
+// Toastr
 @import "../../vendor/bower/toastr/toastr.scss";
 @import "toastr";
 

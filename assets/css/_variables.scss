@@ -11,6 +11,7 @@ $body-bg:               $gray-darker !default;
 $link-color:            $brand-primary !default;
 $text-color:            lighten($gray-light, 30%) !default;
 $link-hover-color:      lighten($link-color, 5%) !default;
+$link-hover-decoration: none !default;
 
 //== Typography
 $font-family-base:        "Source Sans Pro", "游ゴシック体", "Yu Gothic", YuGothic sans-serif !default;
@@ -55,6 +56,7 @@ $alert-danger-border:         lighten($body-bg, 10%) !default;
 $label-color:                 darken($text-color, 20%) !default;
 $label-default-bg:            transparent !default;
 $label-info-bg:               darken($gray-darker, 2%) !default;
+$label-link-hover-color:      #fff !default;
 
 //== Modals
 $modal-content-bg:                $gray-darker !default;

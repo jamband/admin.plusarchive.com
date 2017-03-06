@@ -1,4 +1,7 @@
 .dropdown {
+  > a:after {
+    @include app-icon($fa-var-angle-down);
+  }
   .scrollable-menu {
       height: auto;
       max-height: 400px;

@@ -1,7 +1,7 @@
 #input-search {
   margin-top: 5px;
   .form-control {
-    @include box-shadow(none);
+    box-shadow: none;
   }
   .btn-default {
     background-color: $input-bg;
@@ -26,7 +26,7 @@ input[readonly].form-control {
   margin: 0 0 15px 0;
 }
 .required {
-  label:after {
+  > label:after {
     content: " *";
     color: darken($brand-primary, 10%);
   }

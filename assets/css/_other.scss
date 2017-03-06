@@ -1,21 +1,18 @@
-//=== common
+//== Common
 .external-link {
   font-weight: bold;
   &:before {
-    @include icon-before(3px);
-    content: "\f08e";
+    @include app-icon($fa-var-external-link);
   }
 }
 .refresh-link {
   color: $text-color;
   &:hover,
-  &:visited,
   &:active {
-    color: $text-color;
+    color: #fff;
   }
   &:before {
-    @include icon-before(5px);
-    content: "\f01e";
+    @include app-icon($fa-var-repeat);
   }
 }
 .total-count {
@@ -24,11 +21,11 @@
   font-size: 85%;
 }
 
-//=== tile
+//== Tiles
 #tile-search {
   .thumbnail {
     @media (min-width: $screen-sm-min) {
-      @include box-shadow(1px 1px 1px rgba(0,0,0,.2));
+      box-shadow: 1px 1px 1px rgba(0,0,0,.2);
     }
     @media (max-width: $screen-xs-max) {
       border: none;
@@ -53,7 +50,7 @@
     }
     .thumbnail {
       @media (min-width: $screen-sm-min) {
-        @include box-shadow(2px 2px 3px rgba(0,0,0,.2));
+        box-shadow: 2px 2px 3px rgba(0,0,0,.2);
         img {
           border-radius: $border-radius-base $border-radius-base 0 0;
         }
@@ -63,14 +60,13 @@
         padding-bottom: 11px;
         border-bottom: 1px solid $gray-dark;
         background: transparent;
-        @include clearfix;
         > img {
           width: 30%;
           height: 30%;
           float: left !important;
           margin-right: 9px;
           border-radius: $border-radius-base;
-          @include box-shadow(1px 1px 2px rgba(0,0,0,.2));
+          box-shadow: 1px 1px 2px rgba(0,0,0,.2);
         }
         .caption {
           padding-top: 0;
@@ -96,23 +92,23 @@
   }
 }
 
-//=== track
+//=== Track
 #track-now-clear {
   cursor: pointer;
   &:before {
-    @include icon-before(5px);
-    padding-left: 5px;
-    content: "\f00d";
+    @include app-icon($fa-var-close);
   }
 }
 #track-now-title {
   display: inline-block;
   cursor: pointer;
   font-weight: bold;
+  &:hover,
+  &:active {
+    color: #fff;
+  }
   &:before {
-    @include icon-before(5px);
-    padding-left: 5px;
-    content: "\f028";
+    @include app-icon($fa-var-volume-up);
   }
 }
 .track-title {
@@ -124,9 +120,8 @@
   text-overflow: ellipsis;
   cursor: pointer;
   &:hover,
-  &:visited,
   &:active {
-    color: $text-color;
+    color: #fff;
   }
 }
 .track-image {
@@ -137,8 +132,7 @@
   color: darken($text-color, 40%);
   font-size: 85%;
   &:before {
-    @include icon-before(3px);
-    content: "\f017";
+    @include app-icon($fa-var-clock-o);
   }
 }
 .track-modal-loading {
@@ -146,7 +140,7 @@
   color: $gray-light;
 }
 
-//=== playlist
+//=== Playlist
 .playlist-title {
   list-style: none;
   padding-left: 0;
@@ -162,7 +156,6 @@
     text-overflow: ellipsis;
     color: $link-color;
   }
-
   .playlist-frequency {
     padding: 0 .5em;
     margin-right: .5em;
@@ -183,6 +176,7 @@
     text-overflow: ellipsis;
     cursor: pointer;
     &:hover {
+      color: #fff;
       background-color: $gray-dark;
     }
     &.active {

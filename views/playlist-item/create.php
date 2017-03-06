@@ -84,23 +84,22 @@ $this->title = 'Create Playlist Item - '.app()->name;
         ]) ?>
         <?php foreach ($data->models as $track): ?>
             <div class="col-xs-12 col-sm-3 tile">
-                <div class="thumbnail">
+                <div class="thumbnail clearfix">
                     <?= Html::tag('img', '', [
                         'class' => 'lazy track-image',
                         'data-original' => without_scheme_url(h($track->image)),
                         'data-url' => $embedUrl,
                         'data-id' => hashids()->encode($track->id),
                     ]) ?>
-                    <div class="caption">
+                    <div class="caption clearfix">
                         <?= Html::a(h($track->title), '#', [
                             'class' => 'track-title',
                             'data-id' => $track->id,
                             'data-title' => $track->title,
                         ]) ?>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
+                    </div><!-- /.caption -->
+                </div><!-- /.thumbnail -->
+            </div><!-- /.tile -->
         <?php endforeach ?>
     </div><!-- /.row -->
     <?= LinkPager::widget(['pagination' => $data->pagination]) ?>

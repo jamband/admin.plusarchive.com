@@ -13,7 +13,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('css', function() {
-  gulp.src('assets/sass/common.scss')
+  gulp.src('assets/css/common.scss')
     .pipe($.plumber())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['last 2 versions']}))
@@ -32,5 +32,5 @@ gulp.task('build', ['js', 'css', 'font']);
 
 gulp.task('default', ['build'], function() {
   gulp.watch('assets/js/**/*.js', ['js']);
-  gulp.watch('assets/sass/**/*.scss', ['css']);
+  gulp.watch('assets/css/**/*.scss', ['css']);
 });
