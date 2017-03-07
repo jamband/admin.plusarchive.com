@@ -31,25 +31,25 @@
   color: #c55;
   font-style: italic;
 }
-a.asc:after {
+a.asc::after {
   @include app-icon($fa-var-sort-alpha-asc);
 }
-a.desc:after {
+a.desc::after {
   @include app-icon($fa-var-sort-alpha-desc);
 }
 .sort-numerical {
-  a.asc:after {
+  a.asc::after {
     @include app-icon($fa-var-sort-numeric-asc);
   }
-  a.desc:after {
+  a.desc::after {
     @include app-icon($fa-var-sort-numeric-desc);
   }
 }
 .sort-ordinal {
-  a.asc:after {
+  a.asc::after {
     @include app-icon($fa-var-sort-asc);
   }
-  a.desc:after {
+  a.desc::after {
     @include app-icon($fa-var-sort-desc);
   }
 }

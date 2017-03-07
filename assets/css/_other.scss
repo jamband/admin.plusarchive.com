@@ -1,7 +1,7 @@
 //== Common
 .external-link {
   font-weight: bold;
-  &:before {
+  &::before {
     @include app-icon($fa-var-external-link);
   }
 }
@@ -11,7 +11,7 @@
   &:active {
     color: #fff;
   }
-  &:before {
+  &::before {
     @include app-icon($fa-var-repeat);
   }
 }
@@ -95,7 +95,7 @@
 //=== Track
 #track-now-clear {
   cursor: pointer;
-  &:before {
+  &::before {
     @include app-icon($fa-var-close);
   }
 }
@@ -107,7 +107,7 @@
   &:active {
     color: #fff;
   }
-  &:before {
+  &::before {
     @include app-icon($fa-var-volume-up);
   }
 }
@@ -129,7 +129,7 @@
 .track-created-date {
   color: darken($text-color, 40%);
   font-size: 85%;
-  &:before {
+  &::before {
     @include app-icon($fa-var-clock-o);
   }
 }

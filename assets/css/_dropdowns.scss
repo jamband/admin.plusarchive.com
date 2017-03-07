@@ -1,5 +1,5 @@
 .dropdown {
-  > a:after {
+  > a::after {
     @include app-icon($fa-var-angle-down);
   }
   .scrollable-menu {
