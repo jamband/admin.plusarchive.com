@@ -1,6 +1,7 @@
 #toast-container {
   > div,
-  > :hover {
-    box-shadow: 0 0;
+  > div:hover {
+    border-radius: $border-radius-base;
+    box-shadow: none;
   }
 }
