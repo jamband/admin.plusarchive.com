@@ -13,6 +13,7 @@ namespace app\models\form;
 
 use app\models\Playlist;
 use app\models\PlaylistItem;
+use Exception;
 use yii\base\Model;
 
 class PlaylistItemSortForm extends Model
@@ -78,22 +79,29 @@ class PlaylistItemSortForm extends Model
     /**
      * Change the order of the tracks of a particular playlist.
      * @return bool
+     * @throws Exception
      */
     public function save()
     {
         if (!$this->validate()) {
             return false;
         }
-        foreach ($this->getIds() as $k => $id) {
-            $playlistItem = PlaylistItem::findOne($id);
-            if (null !== $playlistItem) {
-                $playlistItem->track_number = (int)$k + 1;
-                $playlistItem->save();
+        $transaction = db()->beginTransaction();
+        try {
+            foreach ($this->getIds() as $k => $id) {
+                $playlistItem = PlaylistItem::findOne($id);
+                if (null !== $playlistItem) {
+                    $playlistItem->track_number = (int)$k + 1;
+                    $playlistItem->save();
+                }
             }
+            Playlist::updateTimestampAttribute($this->playlist_id);
+            $transaction->commit();
+            return true;
+        } catch (Exception $e) {
+            $transaction->rollBack();
+            throw $e;
         }
-        Playlist::updateTimestampAttribute($this->playlist_id);
-
-        return true;
     }
 
     /**

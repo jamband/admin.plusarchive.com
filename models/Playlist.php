@@ -148,7 +148,7 @@ class Playlist extends ActiveRecord
         $model = static::findOne($id);
         if (null !== $model) {
             $model->frequency = $frequency;
-            $model->save();
+            $model->save(false);
         }
     }
 
@@ -160,7 +160,7 @@ class Playlist extends ActiveRecord
         $model = static::findOne($id);
         if (null !== $model) {
             $model->status = self::STATUS_INCOMPLETE;
-            $model->save();
+            $model->save(false);
         }
     }
 

@@ -14,6 +14,7 @@ namespace app\models\form;
 use app\models\Playlist;
 use app\models\PlaylistItem;
 use app\models\Track;
+use Exception;
 use yii\base\Model;
 
 class PlaylistItemCreateForm extends Model
@@ -91,22 +92,29 @@ class PlaylistItemCreateForm extends Model
     /**
      * Creates a new playlist item.
      * @return bool
+     * @throws Exception
      */
     public function save()
     {
         if (!$this->validate()) {
             return false;
         }
-        $item = new PlaylistItem;
-        $item->playlist_id = $this->playlist_id;
-        $item->track_id = $this->track_id;
-        $item->track_number = $this->getLastTrackNumberByPlaylistId();
-
-        if ($item->save()) {
+        $transaction = db()->beginTransaction();
+        try {
+            $item = new PlaylistItem;
+            $item->playlist_id = $this->playlist_id;
+            $item->track_id = $this->track_id;
+            $item->track_number = $this->getLastTrackNumberByPlaylistId();
+            if (!$item->save()) {
+                return false;
+            }
             Playlist::saveFrequency($item->playlist_id);
+            $transaction->commit();
             return true;
+        } catch (Exception $e) {
+            $transaction->rollBack();
+            throw $e;
         }
-        return false;
     }
 
     /**
