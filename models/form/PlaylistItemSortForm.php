@@ -92,7 +92,9 @@ class PlaylistItemSortForm extends Model
                 $playlistItem = PlaylistItem::findOne($id);
                 if (null !== $playlistItem) {
                     $playlistItem->track_number = (int)$k + 1;
-                    $playlistItem->save();
+                    if (!$playlistItem->save()) {
+                        return false;
+                    }
                 }
             }
             Playlist::updateTimestampAttribute($this->playlist_id);
