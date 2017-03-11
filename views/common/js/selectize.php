@@ -17,6 +17,8 @@
 
 $this->registerJs(<<<JS
 $('$id').selectize({
+    delimiter: ', ',
+    persist: false,
     valueField: 'name',
     labelField: 'name',
     searchField: 'name',
