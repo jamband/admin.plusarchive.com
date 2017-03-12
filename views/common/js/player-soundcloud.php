@@ -21,14 +21,18 @@ var plusarchive = {
     player: SC.Widget('player')
 };
 
-$('#playlist').find('li').first().addClass('active');
+var $playlist = $('#playlist');
+
+$playlist.find('li').first().addClass('active');
 
 function loadSCWidget() {
     var track = $('#playlist').find('li').eq(plusarchive.nowPlaying).attr('data-provider-key');
-    plusarchive.player.load('//api.soundcloud.com/tracks/' + track, {
-        auto_play: true,
+    plusarchive.player.load('https://api.soundcloud.com/tracks/' + track, {
         visual: true,
-        show_comments: false
+        show_comments: false,
+        callback: function() {
+            plusarchive.player.play();
+        }
     });
 }
 
@@ -44,7 +48,7 @@ function playNext() {
 plusarchive.player.bind(SC.Widget.Events.ERROR, playNext);
 plusarchive.player.bind(SC.Widget.Events.FINISH, playNext);
 
-$('#playlist').on('click', 'li', function() {
+$playlist.on('click', 'li', function() {
     var $this = $(this);
     plusarchive.nowPlaying = $this.index();
     $this.addClass('active').siblings().removeClass('active');

@@ -20,13 +20,18 @@ var plusarchive = {
     nowPlaying: 0,
     player
 };
+var $playlist = $('#playlist');
 
-$('#playlist').find('li').first().addClass('active');
+$playlist.find('li').first().addClass('active');
 
 window.onYouTubeIframeAPIReady = function() {
     plusarchive.player = new YT.Player('player', {
         videoId: $('#playlist').find('li').first().attr('data-provider-key'),
-        playerVars: { rel: 0, showinfo: 0, playsinline: 1 },
+        playerVars: {
+            rel: 0,
+            showinfo: 0,
+            playsinline: 1
+        },
         events: {
             'onStateChange': onPlayerStateChange,
             'onError': playNext
@@ -49,7 +54,7 @@ function onPlayerStateChange(event) {
     }
 }
 
-$('#playlist').on('click', 'li', function() {
+$playlist.on('click', 'li', function() {
     var $this = $(this);
     plusarchive.nowPlaying = $this.index();
     $this.addClass('active').siblings().removeClass('active');
