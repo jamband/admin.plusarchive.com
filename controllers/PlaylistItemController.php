@@ -1,5 +1,6 @@
 <?php
 
+
 /*
  * This file is part of the plusarchive.com
  *
@@ -169,7 +170,7 @@ class PlaylistItemController extends Controller
             'playlist_id' => $items[0]->playlist_id,
             'items' => $items,
             'model' => $model,
-            'embed' => $ripple->embed($provider, $items[0]->track->provider_key),
+            'embed' => $ripple->embed($items[0]->track->url, $provider, $items[0]->track->provider_key),
         ]);
     }
 

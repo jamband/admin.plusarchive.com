@@ -100,7 +100,7 @@ class TrackController extends Controller
 
         return $this->renderAjax('now', [
             'model' => $model,
-            'embed' => $ripple->embed($model->providerText, $model->provider_key),
+            'embed' => $ripple->embed($model->url, $model->providerText, $model->provider_key),
             'id' => $id,
         ]);
     }
@@ -120,7 +120,7 @@ class TrackController extends Controller
 
         return $this->render('view', [
             'model' => $model,
-            'embed' => $ripple->embed($model->providerText, $model->provider_key),
+            'embed' => $ripple->embed($model->url, $model->providerText, $model->provider_key),
         ]);
     }
 

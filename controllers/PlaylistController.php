@@ -78,10 +78,12 @@ class PlaylistController extends Controller
         $model = $this->findModel(
             hashids()->decode($id), Playlist::STATUS_PUBLISH
         );
+        $url = '';
         $key = '';
         $provider = '';
 
         if (!empty($model->items)) {
+            $url = $model->items[0]->track->url;
             $key = $model->items[0]->track->provider_key;
             $provider = $model->items[0]->track->providerText;
         }
@@ -91,7 +93,7 @@ class PlaylistController extends Controller
         return $this->render('view', [
             'model' => $model,
             'provider' => $provider,
-            'embed' => $ripple->embed($provider, $key),
+            'embed' => $ripple->embed($url, $provider, $key),
         ]);
     }
 
