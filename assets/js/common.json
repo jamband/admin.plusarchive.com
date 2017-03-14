@@ -24,7 +24,5 @@
 
     "vendor/bower/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
 
-    "vendor/bower/html.sortable/dist/html.sortable.js",
-
     "assets/js/common.js"
 ]

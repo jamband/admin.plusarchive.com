@@ -11,7 +11,7 @@
 
 /**
  * @var yii\web\View $this
- * @var app\models\Playlist $model
+ * @var app\models\Track $model
  */
 
 $this->title = "Update Playlist: $model->title - ".app()->name;

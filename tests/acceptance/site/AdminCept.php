@@ -42,11 +42,6 @@ $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
 $I->moveBack();
 
 $I->moveMouseOver('#menu-controller');
-$I->click('PlaylistItem', '.dropdown-menu');
-$I->seeCurrentUrlEquals('/index-test.php/playlist-item/admin');
-$I->moveBack();
-
-$I->moveMouseOver('#menu-controller');
 $I->click('Label', '.dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/label/admin');
 $I->moveBack();

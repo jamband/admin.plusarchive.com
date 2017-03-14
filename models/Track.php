@@ -28,6 +28,7 @@ use yii\db\ActiveRecord;
  * @property string $provider_key
  * @property string $title
  * @property string $image
+ * @property int $type
  * @property int $created_at
  * @property int $updated_at
  * @property string $tagValues
@@ -63,6 +64,20 @@ class Track extends ActiveRecord
         self::PROVIDER_SOUNDCLOUD => self::PROVIDER_SOUNDCLOUD_TEXT,
         self::PROVIDER_VIMEO => self::PROVIDER_VIMEO_TEXT,
         self::PROVIDER_YOUTUBE => self::PROVIDER_YOUTUBE_TEXT,
+    ];
+
+    const TYPE_TRACK = 1;
+    const TYPE_ALBUM = 2;
+    const TYPE_PLAYLIST = 3;
+
+    const TYPE_TRACK_TEXT = 'Track';
+    const TYPE_ALBUM_TEXT = 'Album';
+    const TYPE_PLAYLIST_TEXT = 'Playlist';
+
+    const TYPE_DATA = [
+        self::TYPE_TRACK => self::TYPE_TRACK_TEXT,
+        self::TYPE_ALBUM => self::TYPE_ALBUM_TEXT,
+        self::TYPE_PLAYLIST => self::TYPE_PLAYLIST_TEXT,
     ];
 
     /**
@@ -103,6 +118,15 @@ class Track extends ActiveRecord
     }
 
     /**
+     * Transformation of status attribute.
+     * @return string
+     */
+    public function getStatusText()
+    {
+        return self::STATUS_DATA[$this->status];
+    }
+
+    /**
      * Transformation of provider attribute.
      * @return string
      */
@@ -112,13 +136,14 @@ class Track extends ActiveRecord
     }
 
     /**
-     * Transformation of status attribute.
+     * Transformation of type attribute.
      * @return string
      */
-    public function getStatusText()
+    public function getTypeText()
     {
-        return self::STATUS_DATA[$this->status];
+        return self::TYPE_DATA[$this->type];
     }
+
 
     /**
      * Sets some attributes. (provider, provider_key, title, image)
@@ -155,6 +180,7 @@ class Track extends ActiveRecord
             ['url', 'validateContent'],
             ['status', 'in', 'range' => array_keys(self::STATUS_DATA)],
             ['title', 'string', 'max' => 200],
+            ['type', 'in', 'range' => array_keys(self::TYPE_DATA)],
             ['tagValues', 'safe'],
         ];
     }
@@ -181,25 +207,5 @@ class Track extends ActiveRecord
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,
         ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function beforeDelete()
-    {
-        if (!parent::beforeDelete()) {
-            return false;
-        }
-        $playlist_ids = PlaylistItem::getPlaylistIdsByTrackId($this->id);
-        PlaylistItem::removeTracks($this->id);
-
-        foreach ($playlist_ids as $playlist_id) {
-            if (!PlaylistItem::hasTracksByPlaylistId($playlist_id)) {
-                Playlist::toIncomplete($playlist_id);
-            }
-            Playlist::saveFrequency($playlist_id);
-        }
-        return true;
     }
 }

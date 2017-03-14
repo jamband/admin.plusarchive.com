@@ -25,15 +25,15 @@ $I->see('playlist1', '.grid-view');
 $I->see('playlist2', '.grid-view');
 $I->see('playlist3', '.grid-view');
 $I->see('Publish', '.grid-view');
-$I->see('Incomplete', '.grid-view');
+$I->see('Private', '.grid-view');
 
 $I->fillField('input[name="PlaylistSearch[title]"]', 3);
 $I->pressKey(['name' => 'PlaylistSearch[title]'], WebDriverKeys::ENTER);
 $I->wait(1);
 $I->see('Admin: 1', '#menu-action');
 $I->see('playlist3', '.grid-view');
-$I->dontSee('bookmark1', '.grid-view');
-$I->dontSee('bookmark2', '.grid-view');
+$I->dontSee('playlist1', '.grid-view');
+$I->dontSee('playlist2', '.grid-view');
 
 $I->moveMouseOver('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
@@ -41,10 +41,10 @@ $I->see('Admin: 3', '#menu-action');
 $I->see('playlist1', '.grid-view');
 $I->see('playlist2', '.grid-view');
 $I->see('playlist3', '.grid-view');
-
-$I->selectOption('select[name="PlaylistSearch[status]"]', 'Incomplete');
+//
+$I->selectOption('select[name="PlaylistSearch[status]"]', 'Private');
 $I->wait(1);
 $I->see('Admin: 1', '#menu-action');
-$I->see('playlist3', '.grid-view');
+$I->see('playlist2', '.grid-view');
 $I->dontSee('playlist1', '.grid-view');
-$I->dontSee('playlist2', '.grid-view');
+$I->dontSee('playlist3', '.grid-view');

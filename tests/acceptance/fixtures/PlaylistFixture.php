@@ -11,17 +11,16 @@
 
 namespace app\tests\acceptance\fixtures;
 
-use app\models\Playlist;
+use app\models\Track;
 use yii\test\ActiveFixture;
 
 class PlaylistFixture extends ActiveFixture
 {
-    public $modelClass = Playlist::class;
+    public $modelClass = Track::class;
 
     public $dataFile = '@fixture/playlist.php';
 
     public $depends = [
         UserFixture::class,
-        PlaylistItemFixture::class,
     ];
 }

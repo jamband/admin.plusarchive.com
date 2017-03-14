@@ -30,7 +30,7 @@ $config = [
                 '<action:\w+>' => 'site/<action>',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:[\w-]+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:[\w-]+>/<action:(admin|create|sort|now|list)>' => '<controller>/<action>',
+                '<controller:[\w-]+>/<action:(admin|create|now|list)>' => '<controller>/<action>',
                 '<controller:(track|playlist)>/<id:[\w-]+>' => '<controller>/view',
                 '' => 'track/index',
             ],
@@ -96,16 +96,20 @@ $config = [
         ],
     ],
     'params' => [
-        'ripple-embed-index' => [
+        'embed-track' => [
+            'Bandcamp' => 'size=large/tracklist=false/bgcol=333333/linkcol=cc6055/',
+            'SoundCloud' => '&show_comments=false&visual=true',
+            'YouTube' => '&showinfo=0&playsinline=1',
+        ],
+        'embed-track-modal' => [
             'Bandcamp' => 'size=large/tracklist=false/artwork=small/bgcol=333333/linkcol=cc6055/',
             'SoundCloud' => '&auto_play=true&show_comments=false',
             'YouTube' => '&autoplay=1&showinfo=0&playsinline=1',
             'Vimeo' => '&autoplay=1',
         ],
-        'ripple-embed-view' => [
-            'Bandcamp' => 'size=large/tracklist=false/bgcol=333333/linkcol=cc6055/',
-            'SoundCloud' => '&show_comments=false&visual=true',
-            'YouTube' => '&showinfo=0&playsinline=1',
+        'embed-playlist' => [
+            'SoundCloud' => '&show_comments=false&show_artwork=false&color=cc6055&show_playcount=false&font=Arial',
+            'YouTube' => '&playsinline=1',
         ],
     ],
 ];

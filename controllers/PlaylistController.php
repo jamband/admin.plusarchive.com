@@ -12,7 +12,7 @@
 namespace app\controllers;
 
 use app\models\search\PlaylistSearch;
-use app\models\Playlist;
+use app\models\Track;
 use jamband\ripple\Ripple;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
@@ -53,15 +53,16 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Lists all Playlist models.
+     * Lists all playlists of Track models.
      * @return string
      */
     public function actionIndex()
     {
         return $this->render('index', [
             'data' => new ActiveDataProvider([
-                'query' => Playlist::find()
-                    ->status(Playlist::STATUS_PUBLISH)
+                'query' => Track::find()
+                    ->status(Track::STATUS_PUBLISH_TEXT)
+                    ->type(Track::TYPE_PLAYLIST_TEXT)
                     ->orderBy(['created_at' => SORT_DESC]),
                 'pagination' => false,
             ]),
@@ -69,36 +70,26 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Displays some PlaylistItem models by playlist primary key.
+     * Displays a specific playlist of Track model.
      * @param string $id the hashed playlist id
      * @return string
      */
     public function actionView($id)
     {
         $model = $this->findModel(
-            hashids()->decode($id), Playlist::STATUS_PUBLISH
+            hashids()->decode($id), Track::STATUS_PUBLISH
         );
-        $url = '';
-        $key = '';
-        $provider = '';
-
-        if (!empty($model->items)) {
-            $url = $model->items[0]->track->url;
-            $key = $model->items[0]->track->provider_key;
-            $provider = $model->items[0]->track->providerText;
-        }
         $ripple = new Ripple;
-        $ripple->setEmbedParams(app()->params['ripple-embed-view']);
+        $ripple->setEmbedParams(app()->params['embed-playlist']);
 
         return $this->render('view', [
             'model' => $model,
-            'provider' => $provider,
-            'embed' => $ripple->embed($url, $provider, $key),
+            'embed' => $ripple->embed($model->url, $model->providerText, $model->provider_key),
         ]);
     }
 
     /**
-     * Manages all Playlist models.
+     * Manages all playlists of Track model.
      * @return string
      */
     public function actionAdmin()
@@ -110,16 +101,17 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Creates a new Playlist model.
+     * Creates a new playlist of Track model.
      * @return string|Response
      */
     public function actionCreate()
     {
-        $model = new Playlist;
+        $model = new Track;
+        $model->type = Track::TYPE_PLAYLIST;
 
-        if ($model->load(request()->post()) && $model->save()) {
+        if ($model->load(request()->post()) && $model->setContents()->save()) {
             session()->setFlash('success', 'Playlist has been added.');
-            return $this->redirect(['/playlist-item/create']);
+            return $this->redirect(['admin']);
         }
         return $this->render('create', [
             'model' => $model,
@@ -127,7 +119,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Updates an existing Playlist model.
+     * Updates an existing playlist of Track model.
      * @param int $id
      * @return string|Response
      */
@@ -135,7 +127,7 @@ class PlaylistController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->save()) {
+        if ($model->load(request()->post()) && $model->setContents()->save()) {
             session()->setFlash('success', 'Playlist has been updated.');
             return $this->redirect(['admin']);
         }
@@ -145,7 +137,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Deletes an existing Playlist model.
+     * Deletes an existing playlist of Track model.
      * @param int $id
      * @return Response
      */
@@ -158,17 +150,18 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Finds the Playlist model based on its primary key value.
+     * Finds the playlist of Track model based on its primary key value.
      * @param int $id
      * @param int $status
-     * @return Playlist|array
+     * @return Track|array
      * @throws NotFoundHttpException
      */
     protected function findModel($id, $status = null)
     {
-        $model = Playlist::find()
+        $model = Track::find()
             ->andWhere(['id' => $id])
             ->status($status)
+            ->type(Track::TYPE_PLAYLIST_TEXT)
             ->one();
 
         if (null === $model) {

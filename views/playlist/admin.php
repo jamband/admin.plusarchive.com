@@ -16,6 +16,7 @@
  */
 
 use yii\grid\GridView;
+use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 $this->title = 'Admin Playlists - '.app()->name;
@@ -29,7 +30,17 @@ $this->title = 'Admin Playlists - '.app()->name;
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [
-            'title',
+            [
+                'attribute' => 'title',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return Html::a(h($data->title), h($data->url), [
+                        'class' => 'external-link',
+                        'rel' => 'noopener',
+                        'target' => '_blank',
+                    ]);
+                },
+            ],
             [
                 'attribute' => 'status',
                 'value' => function ($model) {
@@ -37,7 +48,14 @@ $this->title = 'Admin Playlists - '.app()->name;
                 },
                 'filter' => $search::STATUS_DATA,
             ],
-            'frequency',
+            [
+                'attribute' => 'provider',
+                'value' => function ($model) {
+                    return $model->providerText;
+                },
+                'filter' => $search::PROVIDER_DATA,
+            ],
+            'provider_key',
             'created_at:datetime',
             'updated_at:datetime',
             [

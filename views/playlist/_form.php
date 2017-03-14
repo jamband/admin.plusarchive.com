@@ -11,7 +11,7 @@
 
 /**
  * @var yii\web\View $this
- * @var app\models\Playlist $model
+ * @var app\models\Track $model
  * @var yii\widgets\ActiveForm $form
  */
 
@@ -23,8 +23,10 @@ use yii\widgets\ActiveForm;
     <div class="col-xs-12 col-sm-1"></div>
     <div class="col-xs-12 col-sm-5">
         <?php $form = ActiveForm::begin() ?>
-            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'status')->DropdownList($model::STATUS_DATA) ?>
+        <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'status')->dropDownList($model::STATUS_DATA) ?>
+        <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
             <div class="form-group">
                 <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
             </div>

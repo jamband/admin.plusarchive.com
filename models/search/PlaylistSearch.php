@@ -12,9 +12,9 @@
 namespace app\models\search;
 
 use yii\data\ActiveDataProvider;
-use app\models\Playlist;
+use app\models\Track;
 
-class PlaylistSearch extends Playlist
+class PlaylistSearch extends Track
 {
     /**
      * {@inheritdoc}
@@ -22,10 +22,11 @@ class PlaylistSearch extends Playlist
     public function rules()
     {
         return [
-            [['title'], 'trim'],
-            [['title', 'status'], 'safe'],
+            [['provider_key', 'title'], 'trim'],
+            [['status', 'provider', 'provider_key', 'title'], 'safe'],
 
             ['status', 'in', 'range' => array_keys(self::STATUS_DATA)],
+            ['provider', 'in', 'range' => array_keys(self::PROVIDER_DATA)],
         ];
     }
 
@@ -36,7 +37,8 @@ class PlaylistSearch extends Playlist
      */
     public function search(array $params = [])
     {
-        $query = Playlist::find();
+        $query = Track::find()
+            ->type(Track::TYPE_PLAYLIST_TEXT);
 
         $data = new ActiveDataProvider([
             'query' => $query,
@@ -48,7 +50,9 @@ class PlaylistSearch extends Playlist
         ]);
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', 'title', $this->title])
-                ->andFilterWhere(['status' => $this->status]);
+                ->andFilterWhere(['like', 'provider_key', $this->provider_key])
+                ->andFilterWhere(['status' => $this->status])
+                ->andFilterWhere(['provider' => $this->provider]);
         }
 
         return $data;

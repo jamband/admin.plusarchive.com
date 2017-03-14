@@ -138,9 +138,8 @@
   color: $gray-light;
 }
 
-//=== Playlist
+//== Playlist
 .playlist-title {
-  list-style: none;
   padding-left: 0;
   > li {
     @media (min-width: $screen-sm-min) {
@@ -151,30 +150,5 @@
     }
     color: $link-color;
     @include text-truncate();
-  }
-  .playlist-frequency {
-    padding: 0 .5em;
-    margin-right: .5em;
-    border-radius: $border-radius-base;
-    color: darken($text-color, 15%);
-    background-color: $gray-dark;
-    font-size: 70%;
-  }
-}
-#playlist {
-  padding-left: 10px;
-  list-style: decimal-leading-zero inside none;
-  > li {
-    padding: 5px;
-    border-bottom: 1px solid $gray-dark;
-    cursor: pointer;
-    @include text-truncate();
-    &:hover {
-      color: #fff;
-      background-color: $gray-dark;
-    }
-    &.active {
-      color: $brand-primary;
-    }
   }
 }

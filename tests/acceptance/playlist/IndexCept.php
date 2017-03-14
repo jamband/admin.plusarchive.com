@@ -20,8 +20,8 @@ $I->click('Playlist', '.navbar');
 $I->seeCurrentUrlEquals('/index-test.php/playlists');
 $I->see('Playlists', 'h2');
 $I->see('playlist1', '.playlist-title');
-$I->see('playlist2', '.playlist-title');
-$I->dontSee('playlist3', '.playlist-title');
+$I->see('playlist3', '.playlist-title');
+$I->dontSee('playlist2', '.playlist-title');
 
 $I->click('playlist1', '.playlist-title');
 $I->seeCurrentUrlEquals('/index-test.php/playlist/'.hashids()->encode(1));

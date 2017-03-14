@@ -29,7 +29,6 @@ $context = $this->context;
         <li><a data-pjax="0" href="<?= url(['/track/admin']) ?>">Track</a></li>
         <li><a data-pjax="0" href="<?= url(['/track-genre/admin']) ?>">TrackGenre</a></li>
         <li><a data-pjax="0" href="<?= url(['/playlist/admin']) ?>">Playlist</a></li>
-        <li><a data-pjax="0" href="<?= url(['/playlist-item/admin']) ?>">PlaylistItem</a></li>
         <li><a data-pjax="0" href="<?= url(['/label/admin']) ?>">Label</a></li>
         <li><a data-pjax="0" href="<?= url(['/label-tag/admin']) ?>">LabelTag</a></li>
         <li><a data-pjax="0" href="<?= url(['/store/admin']) ?>">Store</a></li>

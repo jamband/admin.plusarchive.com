@@ -62,8 +62,9 @@ class TrackController extends Controller
     {
         $query = Track::find()
             ->with(['trackGenres'])
+            ->status(Track::STATUS_PUBLISH_TEXT)
             ->provider($provider)
-            ->status(Track::STATUS_PUBLISH_TEXT);
+            ->type(Track::TYPE_TRACK_TEXT);
 
         if (null !== $search) {
             $query->search($search);
@@ -96,7 +97,7 @@ class TrackController extends Controller
         }
         $model = $this->findModel(hashids()->decode($id));
         $ripple = new Ripple;
-        $ripple->setEmbedParams(app()->params['ripple-embed-index']);
+        $ripple->setEmbedParams(app()->params['embed-track-modal']);
 
         return $this->renderAjax('now', [
             'model' => $model,
@@ -116,7 +117,7 @@ class TrackController extends Controller
             hashids()->decode($id), Track::STATUS_PUBLISH_TEXT
         );
         $ripple = new Ripple;
-        $ripple->setEmbedParams(app()->params['ripple-embed-view']);
+        $ripple->setEmbedParams(app()->params['embed-track']);
 
         return $this->render('view', [
             'model' => $model,
@@ -136,7 +137,8 @@ class TrackController extends Controller
     public function actionAdmin($status = null, $provider = null, $sort = null, $genre = null, $search = null)
     {
         $query = Track::find()
-            ->with(['trackGenres']);
+            ->with(['trackGenres'])
+            ->type(Track::TYPE_TRACK_TEXT);
 
         if (null !== $search) {
             $query->search($search);
@@ -221,6 +223,7 @@ class TrackController extends Controller
         $model = Track::find()
             ->andWhere(['id' => $id])
             ->status($status)
+            ->type(Track::TYPE_TRACK_TEXT)
             ->one();
 
         if (null === $model) {

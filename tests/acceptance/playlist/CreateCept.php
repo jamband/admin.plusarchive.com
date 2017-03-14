@@ -29,18 +29,3 @@ $I->click('button[type=submit]');
 $I->wait(1);
 $I->seeElement('.has-error');
 
-$I->fillField('#playlist-title', 'newplaylist');
-$I->click('button[type=submit]');
-$I->wait(1);
-$I->see('Playlist has been added.');
-$I->seeCurrentUrlEquals('/index-test.php/playlist-item/create');
-
-$I->moveMouseOver('#menu-controller');
-$I->click('Playlist', '#menu-controller + .dropdown-menu');
-$I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
-$I->see('Admin: 4', '#menu-action');
-
-$I->selectOption('select[name="PlaylistSearch[status]"]', 'Incomplete');
-$I->wait(1);
-$I->see('Admin: 2', '#menu-action');
-$I->see('newplaylist', '.grid-view');

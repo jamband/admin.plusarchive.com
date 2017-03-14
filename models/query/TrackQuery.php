@@ -51,6 +51,16 @@ class TrackQuery extends ActiveQuery
     }
 
     /**
+     * @param string $type
+     * @return $this
+     */
+    public function type($type)
+    {
+        $type = array_search($type, Track::TYPE_DATA, true);
+        return false === $type ? $this : $this->andWhere(['type' => $type]);
+    }
+
+    /**
      * @param string $search
      * @return $this
      */
