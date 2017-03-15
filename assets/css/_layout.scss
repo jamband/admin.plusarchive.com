@@ -13,7 +13,7 @@ body {
   padding: 15px;
   font-size: 90%;
   text-align: center;
-  background-color: darken($gray-darker, 1%);
+  background-color: $gray-dark;
   a {
     padding: 5px;
     color: lighten($gray-light, 10%);
