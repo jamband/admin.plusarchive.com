@@ -4,7 +4,8 @@
     color: #aaa;
   }
   border: 1px solid $gray-dark;
-  background: $gray-darker;
+  background: darken($gray-darker, 1%);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
   .active {
     background-color: $gray-dark;
     color: $gray-darker;

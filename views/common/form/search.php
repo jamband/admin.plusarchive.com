@@ -18,15 +18,12 @@
 use yii\helpers\Html;
 
 ?>
-<?= Html::beginForm([''], 'get', ['data-pjax' => true]) ?>
-    <div id="input-search" class="input-group">
+<?= Html::beginForm([''], 'get', ['id' => 'input-search', 'data-pjax' => true]) ?>
+    <div class="form-group has-feedback">
         <?= Html::textInput('search', $search, [
             'class' => 'form-control',
             'placeholder' => $placeholder,
         ]) ?>
-        <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-        </div>
+        <button class="btn btn-default form-control-feedback" type="submit"><i class="fa fa-search"></i></button>
     </div>
 <?= Html::endForm() ?>
-
