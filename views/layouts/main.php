@@ -68,10 +68,10 @@ $this->render('/common/js/analytics-tracking');
         <?= $content ?>
     </div>
     <footer class="footer">
-        <a href="<?= url(['/track/index']) ?>">Home</a>
+        <a href="<?= url(['/']) ?>">Home</a>
         <a href="<?= url(['/site/contact']) ?>">Contact</a>
         <a href="<?= url(['/site/privacy']) ?>">Privacy</a>
-        <a href="<?= url(['/site/privacy']) ?>">About</a>
+        <a href="<?= url(['/site/about']) ?>">About</a>
     </footer>
     <script src="<?= asset_revision('js/common.js') ?>"></script>
 <?php $this->endBody() ?>
