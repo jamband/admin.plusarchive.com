@@ -1,0 +1,24 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 70px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  font-size: 90%;
+  text-align: center;
+  background-color: darken($gray-darker, 1%);
+  a {
+    padding: 5px;
+    color: lighten($gray-light, 10%);
+    &:hover {
+      color: #fff;
+    }
+  }
+}

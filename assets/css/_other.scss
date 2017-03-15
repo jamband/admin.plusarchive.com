@@ -148,7 +148,10 @@
     @media (max-width: $screen-xs-max) {
       font-size: 110%;
     }
-    color: $link-color;
+    a:after {
+      @include app-icon($fa-var-angle-right);
+      color: darken($link-color, 5%);
+    }
     @include text-truncate();
   }
 }

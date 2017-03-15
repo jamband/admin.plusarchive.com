@@ -57,9 +57,6 @@ $this->render('/common/js/analytics-tracking');
         <?= Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-                ['label' => 'Privacy', 'url' => ['/site/privacy']],
-                ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Signup', 'url' => ['/site/signup'], 'visible' => user()->can('admin')],
                 ['label' => 'Login', 'url' => ['/site/login'], 'visible' => false],
                 ['label' => 'Logout', 'url' => ['/site/logout'], 'visible' => user()->can('admin'),
@@ -67,7 +64,15 @@ $this->render('/common/js/analytics-tracking');
             ],
         ]) ?>
     <?php NavBar::end() ?>
-    <div class="container"><?= $content ?></div>
+    <div class="container">
+        <?= $content ?>
+    </div>
+    <footer class="footer">
+        <a href="<?= url(['/track/index']) ?>">Home</a>
+        <a href="<?= url(['/site/contact']) ?>">Contact</a>
+        <a href="<?= url(['/site/privacy']) ?>">Privacy</a>
+        <a href="<?= url(['/site/privacy']) ?>">About</a>
+    </footer>
     <script src="<?= asset_revision('js/common.js') ?>"></script>
 <?php $this->endBody() ?>
 </body>
