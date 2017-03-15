@@ -29,7 +29,7 @@ input[readonly].form-control {
     margin-bottom: 0;
   }
   .form-control-feedback {
-    pointer-events: initial;;
+    pointer-events: auto;
   }
   .btn-default {
     background-color: transparent;
