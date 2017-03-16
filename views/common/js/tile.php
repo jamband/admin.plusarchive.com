@@ -15,22 +15,23 @@
 
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
-    var $container = $('#tile-container');
-    $('.lazy').lazyload({
+    var lazy = $('.track-image').lazyload({
         threshold: 500,
-        effect: 'fadeIn',
         placeholder: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
-        load: function() {
-            $container.imagesLoaded(function() {
-                $container.masonry({
-                    columnWidth: '.tile',
-                    itemSelector: '.tile',
-                    transitionDuration: 0
-                });
-                $container.find('.tile').css({'opacity': 1});
-            });
-        }
     });
+    var $container = $('#tile-container');
+    var masonry = $container.masonry({
+        columnWidth: '.tile',
+        itemSelector: '.tile',
+        transitionDuration: 0
+    });
+    $container.imagesLoaded().progress(function() {
+        masonry.masonry('layout');
+        $container.find('.tile').css({'visibility': 'visible'});
+    });
+    lazy.load(function() {
+        masonry.masonry('layout');
+    })
 });
 JS
 );

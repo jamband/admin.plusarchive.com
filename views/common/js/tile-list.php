@@ -21,7 +21,7 @@ $(document).on('ready pjax:success', function() {
         itemSelector: '.list',
         transitionDuration: 0
     });
-    $container.find('.list').animate({'opacity': 1});
+    $container.find('.list').css({'visibility': 'visible'});
 });
 JS
 );
