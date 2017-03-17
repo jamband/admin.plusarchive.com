@@ -15,13 +15,7 @@
 
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
-    var $container = $('#tile-container');
-    $container.masonry({
-        columnWidth: '.list',
-        itemSelector: '.list',
-        transitionDuration: 0
-    });
-    $container.find('.list').css({'visibility': 'visible'});
+    $('#tile-container').masonry({transitionDuration: 0});
 });
 JS
 );

@@ -44,8 +44,10 @@ $this->title = 'Admin Tracks - '.app()->name;
             <div class="col-xs-12 col-sm-3 tile">
                 <div class="thumbnail clearfix">
                     <?= Html::tag('img', '', [
-                        'class' => 'track-image',
-                        'data-original' => without_scheme_url(h($model->image)),
+                        'class' => 'lazyload track-image',
+                        'title' => 'Play',
+                        'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
+                        'data-src' => without_scheme_url(h($model->image)),
                         'data-url' => $embedUrl,
                         'data-id' => hashids()->encode($model->id),
                     ]) ?>

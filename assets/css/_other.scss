@@ -35,9 +35,6 @@
 }
 #tile-container {
   .tile {
-    &:not(:first-child) {
-      visibility: hidden;
-    }
     @media (max-width: $screen-xs-max) {
       &:first-child {
         .thumbnail {
@@ -53,8 +50,6 @@
         box-shadow: 2px 2px 3px rgba(0,0,0,.2);
         img {
           width: 100%;
-          height: auto;
-          min-height: 100px;
           border-radius: $border-radius-base $border-radius-base 0 0;
         }
       }
@@ -79,7 +74,6 @@
     }
   }
   .list {
-    visibility: hidden;
     .thumbnail {
       background: transparent;
       border-bottom: 1px solid $gray-dark;
