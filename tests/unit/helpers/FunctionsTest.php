@@ -91,11 +91,8 @@ class FunctionsTest extends Unit
 
     public function testCustomDomainsForAsSnsIconLink()
     {
-        $this->assertSame([
-            'bandcamp.com' => 'bandcamp',
-            'botanicalhouse.net' => 'bandcamp',
-            'mamabirdrecordingco.com' => 'bandcamp',
-            'souterraine.biz' => 'bandcamp',
-        ], custom_domains_for_as_sns_icon_link());
+        $this->assertArrayHasKey('bandcamp.com', custom_domains_for_as_sns_icon_link());
+        $this->assertArrayHasKey('botanicalhouse.net', custom_domains_for_as_sns_icon_link());
+        $this->assertArrayHasKey('mamabirdrecordingco.com', custom_domains_for_as_sns_icon_link());
     }
 }
