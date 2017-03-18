@@ -36,8 +36,7 @@ use yii\widgets\ActiveForm;
     <div class="col-xs-12 col-sm-5">
         <div class="alert alert-info">
             <i class="fa fa-info-circle"></i>
-            <strong><?= h($model->getAttributeLabel('link')) ?></strong>
-            が複数ある場合は改行で区切って入力してください。<br>
+            <strong><?= h($model->getAttributeLabel('link')) ?></strong> が複数ある場合は改行で区切って入力してください。
         </div>
     </div>
     <div class="col-xs-12 col-sm-1"></div>

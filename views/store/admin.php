@@ -15,6 +15,7 @@
  * @var app\models\search\StoreSearch $search
  */
 
+use app\components\ActionColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -55,7 +56,7 @@ $this->title = 'Admin Stores - '.app()->name;
             'tagValues',
             'created_at:datetime',
             'updated_at:datetime',
-            ['class' => app\components\ActionColumn::class],
+            ['class' => ActionColumn::class],
         ],
     ]) ?>
     <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>

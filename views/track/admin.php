@@ -51,7 +51,7 @@ $this->title = 'Admin Tracks - '.app()->name;
                         'data-url' => $embedUrl,
                         'data-id' => hashids()->encode($model->id),
                     ]) ?>
-                    <div class="caption clearfix">
+                    <div class="caption">
                         <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
                             'class' => 'track-title',
                             'title' => 'View',
@@ -80,7 +80,7 @@ $this->title = 'Admin Tracks - '.app()->name;
                             'data-method' => 'post',
                         ]) ?>
                         <br>
-                        <div class="pull-right track-created-date">
+                        <div class="hidden-xs text-right track-created-date">
                             <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div><!-- /.caption -->

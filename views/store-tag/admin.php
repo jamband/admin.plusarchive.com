@@ -15,6 +15,7 @@
  * @var app\models\search\StoreTagSearch $search
  */
 
+use app\components\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
@@ -35,7 +36,7 @@ $this->title = 'Admin StoreTags - '.app()->name;
             'created_at:datetime',
             'updated_at:datetime',
             [
-                'class' => app\components\ActionColumn::class,
+                'class' => ActionColumn::class,
                 'template' => '{update} {delete}',
             ],
         ],

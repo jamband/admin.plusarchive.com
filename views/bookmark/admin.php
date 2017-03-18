@@ -15,6 +15,7 @@
  * @var yii\data\ActiveDataProvider $data
  */
 
+use app\components\ActionColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -62,7 +63,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
             ],
             'created_at:datetime',
             'updated_at:datetime',
-            ['class' => app\components\ActionColumn::class],
+            ['class' => ActionColumn::class],
         ],
     ]) ?>
     <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>

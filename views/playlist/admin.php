@@ -15,6 +15,7 @@
  * @var app\models\search\PlaylistSearch $search
  */
 
+use app\components\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
@@ -59,7 +60,7 @@ $this->title = 'Admin Playlists - '.app()->name;
             'created_at:datetime',
             'updated_at:datetime',
             [
-                'class' => app\components\ActionColumn::class,
+                'class' => ActionColumn::class,
                 'template' => '{update} {delete}',
             ],
         ],

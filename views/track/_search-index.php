@@ -63,8 +63,7 @@ use yii\helpers\Url;
                 'placeholder' => 'Search artist or title ...',
             ]) ?>
 
-            <div class="pull-right total-count"><?= h(number_format($total)) ?> results</div>
-            <div class="clearfix"></div>
+            <div class="text-right total-count"><?= h(number_format($total)) ?> results</div>
         </div><!-- /.caption -->
     </div><!-- /.thumbnail -->
 </div><!-- /.tile -->
