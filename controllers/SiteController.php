@@ -98,7 +98,9 @@ class SiteController extends Controller
         if (null === app()->catchAll) {
             throw new NotFoundHttpException('page not found.');
         }
+        db()->schema->refresh();
         response()->statusCode = 503;
+
         return $this->render('offline');
     }
 
