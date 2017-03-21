@@ -54,6 +54,7 @@
         }
       }
       @media (max-width: $screen-xs-max) {
+
         margin-bottom: 11px;
         padding-bottom: 11px;
         border-bottom: 1px solid $gray-dark;
@@ -133,20 +134,3 @@
   color: $gray-light;
 }
 
-//== Playlist
-.playlist-title {
-  padding-left: 0;
-  > li {
-    @media (min-width: $screen-sm-min) {
-      font-size: 130%;
-    }
-    @media (max-width: $screen-xs-max) {
-      font-size: 110%;
-    }
-    a::after {
-      @include app-icon($fa-var-angle-right);
-      color: darken($link-color, 5%);
-    }
-    @include text-truncate();
-  }
-}
