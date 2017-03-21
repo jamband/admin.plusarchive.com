@@ -29,7 +29,7 @@
     }
     @media (max-width: $screen-xs-max) {
       border: none;
-      background: transparent;
+      background: none;
     }
   }
 }
@@ -48,7 +48,7 @@
     .thumbnail {
       @media (min-width: $screen-sm-min) {
         box-shadow: 2px 2px 3px rgba(0,0,0,.2);
-        img {
+        > img {
           width: 100%;
           border-radius: $border-radius-base $border-radius-base 0 0;
         }
@@ -57,7 +57,7 @@
         margin-bottom: 11px;
         padding-bottom: 11px;
         border-bottom: 1px solid $gray-dark;
-        background: transparent;
+        background: none;
         > img {
           width: 30%;
           height: 30%;
@@ -75,21 +75,19 @@
   }
   .list {
     .thumbnail {
-      background: transparent;
+      background: none;
       border-bottom: 1px solid $gray-dark;
-      a {
-        > i {
-          color: darken($text-color, 10%);
-        }
+      i {
+        color: darken($text-color, 10%);
       }
-      a.label {
+      .label {
         padding: .2em .3em .3em;
       }
     }
   }
 }
 
-//=== Track
+//== Track
 #track-now-clear {
   cursor: pointer;
   &::before {
@@ -108,6 +106,10 @@
     @include app-icon($fa-var-volume-up);
   }
 }
+.track-image {
+  width: 100%;
+  cursor: pointer;
+}
 .track-title {
   display: block;
   font-weight: bold;
@@ -118,10 +120,6 @@
   &:active {
     color: #fff;
   }
-}
-.track-image {
-  width: 100%;
-  cursor: pointer;
 }
 .track-created-date {
   color: darken($text-color, 40%);
@@ -145,7 +143,7 @@
     @media (max-width: $screen-xs-max) {
       font-size: 110%;
     }
-    a:after {
+    a::after {
       @include app-icon($fa-var-angle-right);
       color: darken($link-color, 5%);
     }
