@@ -107,6 +107,10 @@
     @include app-icon($fa-var-volume-up);
   }
 }
+#track-modal-loading {
+  margin-top: 3px;
+  color: $gray-light;
+}
 .track-image {
   width: 100%;
   cursor: pointer;
@@ -129,8 +133,3 @@
     @include app-icon($fa-var-clock-o);
   }
 }
-.track-modal-loading {
-  margin-top: 3px;
-  color: $gray-light;
-}
-
