@@ -47,29 +47,50 @@
     }
     .thumbnail {
       @media (min-width: $screen-sm-min) {
-        box-shadow: 2px 2px 3px rgba(0,0,0,.2);
-        > img {
-          width: 100%;
-          border-radius: $border-radius-base $border-radius-base 0 0;
-        }
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, .2);
       }
       @media (max-width: $screen-xs-max) {
-
         margin-bottom: 11px;
         padding-bottom: 11px;
         border-bottom: 1px solid $gray-dark;
         background: none;
-        > img {
+      }
+      .track-image {
+        @media (min-width: $screen-sm-min) {
+          width: 100%;
+          border-radius: $border-radius-base $border-radius-base 0 0;
+          cursor: pointer;
+        }
+        @media (max-width: $screen-xs-max) {
           width: 30%;
           height: 30%;
           float: left !important;
-          margin-right: 9px;
+          margin-right: 15px;
           border-radius: $border-radius-base;
           box-shadow: 1px 1px 2px rgba(0,0,0,.2);
         }
+      }
+      @media (max-width: $screen-xs-max) {
         .caption {
           padding-top: 0;
           overflow: hidden;
+        }
+      }
+      .track-title {
+        display: block;
+        font-weight: bold;
+        color: $text-color;
+        @include text-truncate();
+        &:hover,
+        &:active {
+          color: #fff;
+        }
+      }
+      .track-created-date {
+        color: darken($text-color, 40%);
+        font-size: 85%;
+        &::before {
+          @include app-icon($fa-var-clock-o);
         }
       }
     }
@@ -107,29 +128,7 @@
     @include app-icon($fa-var-volume-up);
   }
 }
-#track-modal-loading {
+#track-now-loading {
   margin-top: 3px;
   color: $gray-light;
-}
-.track-image {
-  width: 100%;
-  cursor: pointer;
-}
-.track-title {
-  display: block;
-  font-weight: bold;
-  color: $text-color;
-  cursor: pointer;
-  @include text-truncate();
-  &:hover,
-  &:active {
-    color: #fff;
-  }
-}
-.track-created-date {
-  color: darken($text-color, 40%);
-  font-size: 85%;
-  &::before {
-    @include app-icon($fa-var-clock-o);
-  }
 }

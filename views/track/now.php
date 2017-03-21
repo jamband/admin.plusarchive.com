@@ -30,7 +30,7 @@ use yii\helpers\Html;
         <?= Html::a('View <i class="fa fa-fw fa-angle-right"></i>', ['view', 'id' => $id], [
             'class' => 'label label-default',
         ]) ?>
-        <div id="track-modal-loading">
+        <div id="track-now-loading">
             <div class="line-scale"><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     </div>
@@ -53,7 +53,7 @@ if (/^(Vimeo|YouTube)$/.test($iframe.attr('data-provider'))) {
 $modal.modal('show');
 
 $iframe.load(function() {
-    $('#track-modal-loading').fadeOut();
+    $('#track-now-loading').fadeOut();
 });
 $(document).on('click', '#track-now-title', function() {
     $('#track-modal').modal('show');
