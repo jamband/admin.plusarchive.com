@@ -46,10 +46,18 @@
       }
     }
     .thumbnail {
+      .track-image-wrap {
+        position: relative;
+        @media (max-width: $screen-xs-max) {
+          width: 30%;
+          height: 30%;
+        }
+      }
       @media (min-width: $screen-sm-min) {
         box-shadow: 2px 2px 3px rgba(0, 0, 0, .2);
       }
       @media (max-width: $screen-xs-max) {
+        display: flex;
         margin-bottom: 11px;
         padding-bottom: 11px;
         border-bottom: 1px solid $gray-dark;
@@ -62,18 +70,38 @@
           cursor: pointer;
         }
         @media (max-width: $screen-xs-max) {
-          width: 30%;
-          height: 30%;
-          float: left !important;
           margin-right: 15px;
           border-radius: $border-radius-base;
           box-shadow: 1px 1px 2px rgba(0,0,0,.2);
         }
       }
+      .track-play {
+        opacity: 0;
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #fff;
+          pointer-events: none;
+          @include app-icon($fa-var-play-circle-o);
+          @media (min-width: $screen-sm-min) {
+            font-size: 250%;
+          }
+          @media (max-width: $screen-xs-max) {
+            font-size: 150%;
+          }
+        }
+      }
       @media (max-width: $screen-xs-max) {
         .caption {
           padding-top: 0;
-          overflow: hidden;
+          &:first-child {
+            width: 100%;
+          }
+          &:not(:first-child) {
+            width: 70%;
+          }
         }
       }
       .track-title {

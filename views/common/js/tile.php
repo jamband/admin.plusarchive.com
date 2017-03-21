@@ -21,6 +21,12 @@ $(document).on('ready pjax:success', function() {
             $container.masonry({transitionDuration: 0});
         }, true);
     });
+    $(document).on('lazybeforeunveil', function(){
+        $container.find('.track-play').css({
+            'opacity': .6,
+            'transition': 'opacity 200ms'
+        });
+    });
 });
 JS
 );
