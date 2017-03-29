@@ -45,7 +45,6 @@ $this->title = 'Admin Tracks - '.app()->name;
                 <div class="thumbnail clearfix">
                     <?= Html::tag('img', '', [
                         'class' => 'lazyload track-image',
-                        'title' => 'Play',
                         'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
                         'data-src' => without_scheme_url(h($model->image)),
                         'data-url' => $embedUrl,
@@ -54,7 +53,6 @@ $this->title = 'Admin Tracks - '.app()->name;
                     <div class="caption">
                         <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
                             'class' => 'track-title',
-                            'title' => 'View',
                             'data-pjax' => '0',
                         ]) ?>
                         <?= Html::a(h($model->statusText), ['', 'status' => $model->statusText], [
