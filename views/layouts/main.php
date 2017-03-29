@@ -32,7 +32,6 @@ $this->render('/common/js/analytics-tracking');
     <?= Html::csrfMetaTags() ?>
     <title><?= h($this->title) ?></title>
     <link href="<?= asset_revision('favicon.ico') ?>" rel="icon">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
     <link href="<?= asset_revision('css/common.css') ?>" rel="stylesheet">
     <?php $this->head() ?>
 </head>
