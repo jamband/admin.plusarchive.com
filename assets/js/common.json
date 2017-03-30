@@ -1,27 +1,27 @@
 [
-    "vendor/bower/jquery/dist/jquery.js",
+    "node_modules/jquery/dist/jquery.js",
 
-    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/alert.js",
-    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/button.js",
-    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/collapse.js",
-    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
-    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
-    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
-    "vendor/bower/bootstrap-sass/assets/javascripts/bootstrap/transition.js",
+    "node_modules/bootstrap-sass/assets/javascripts/bootstrap/alert.js",
+    "node_modules/bootstrap-sass/assets/javascripts/bootstrap/button.js",
+    "node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js",
+    "node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js",
+    "node_modules/bootstrap-sass/assets/javascripts/bootstrap/modal.js",
+    "node_modules/bootstrap-sass/assets/javascripts/bootstrap/tab.js",
+    "node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js",
 
     "vendor/yiisoft/yii2/assets/*.js",
-    "vendor/bower/yii2-pjax/jquery.pjax.js",
+    "node_modules/yii2-pjax/jquery.pjax.js",
 
-    "vendor/bower/masonry/dist/masonry.pkgd.js",
-    "vendor/bower/lazysizes/lazysizes.js",
+    "node_modules/masonry-layout/dist/masonry.pkgd.js",
+    "node_modules/lazysizes/lazysizes.js",
 
-    "vendor/bower/toastr/toastr.js",
+    "node_modules/toastr/toastr.js",
 
-    "vendor/bower/sifter/sifter.js",
-    "vendor/bower/microplugin/src/microplugin.js",
-    "vendor/bower/selectize/dist/js/selectize.js",
+    "node_modules/sifter/sifter.js",
+    "node_modules/microplugin/src/microplugin.js",
+    "node_modules/selectize/dist/js/selectize.js",
 
-    "vendor/bower/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
+    "node_modules/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js",
 
     "assets/js/common.js"
 ]

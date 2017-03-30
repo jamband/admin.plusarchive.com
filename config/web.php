@@ -125,6 +125,20 @@ if (YII_ENV_DEV) {
         'class' => yii\gii\Module::class,
         'allowedIPs' => ['127.0.0.1', '::1'],
     ];
+    $config['container']['definitions'] += [
+        yii\web\JqueryAsset::class => [
+            'sourcePath' => '@app/node_modules/jquery/dist',
+        ],
+        yii\bootstrap\BootstrapAsset::class => [
+            'sourcePath' => '@app/node_modules/bootstrap/dist',
+        ],
+        yii\bootstrap\BootstrapPluginAsset::class => [
+            'sourcePath' => '@app/node_modules/bootstrap/dist',
+        ],
+        yii\gii\TypeAheadAsset::class => [
+            'sourcePath' => '@app/node_modules/typeahead.js/dist',
+        ],
+    ];
 }
 
 return yii\helpers\ArrayHelper::merge(require __DIR__.'/common.php', $config);

@@ -2,7 +2,7 @@
 @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600";
 
 // Font Awesome
-@import "../../vendor/bower/fontawesome/scss/font-awesome";
+@import "../../node_modules/font-awesome/scss/font-awesome";
 
 // Mixins
 @import "mixins/icons";
@@ -31,14 +31,14 @@
 @import "lazysizes";
 
 // Toastr
-@import "../../vendor/bower/toastr/toastr.scss";
+@import "../../node_modules/toastr/toastr.scss";
 @import "toastr";
 
 // Selectize.js
-@import "../../vendor/bower/selectize/dist/css/selectize.bootstrap3.scss";
+@import "../../node_modules/selectize/dist/css/selectize.bootstrap3.scss";
 @import "selectize";
 
 // Loaders.css
 @import "loaders-license";
-@import "../../vendor/bower/loaders.css/src/animations/line-scale";
+@import "../../node_modules/loaders.css/src/animations/line-scale";
 @import "loaders";

@@ -12,6 +12,20 @@
     "gulp-uglify": "2.1.2"
   },
   "scripts": {
-    "postinstall": "bower install && ./assets/shell/postinstall.sh"
+    "postinstall": "./assets/shell/postinstall.sh"
+  },
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "bootstrap-hover-dropdown": "2.2.1",
+    "bootstrap-sass": "3.3.7",
+    "font-awesome": "4.7.0",
+    "jquery": "2.2.4",
+    "lazysizes": "3.0.0",
+    "loaders.css": "0.1.2",
+    "masonry-layout": "4.1.1",
+    "selectize": "0.12.4",
+    "toastr": "2.1.2",
+    "typeahead.js": "0.11.1",
+    "yii2-pjax": "2.0.6"
   }
 }

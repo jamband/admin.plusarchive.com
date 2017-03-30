@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mv vendor/bower/selectize/dist/css/selectize.bootstrap3.css vendor/bower/selectize/dist/css/selectize.bootstrap3.scss
+mv node_modules/selectize/dist/css/selectize.bootstrap3.css node_modules/selectize/dist/css/selectize.bootstrap3.scss
