@@ -11,9 +11,6 @@
     "gulp-sass": "3.1.0",
     "gulp-uglify": "2.1.2"
   },
-  "scripts": {
-    "postinstall": "./assets/shell/postinstall.sh"
-  },
   "dependencies": {
     "bootstrap": "3.3.7",
     "bootstrap-hover-dropdown": "2.2.1",
@@ -27,5 +24,8 @@
     "toastr": "2.1.2",
     "typeahead.js": "0.11.1",
     "yii2-pjax": "2.0.6"
+  },
+  "scripts": {
+    "postinstall": "./assets/shell/postinstall.sh"
   }
 }
