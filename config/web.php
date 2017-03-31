@@ -80,8 +80,6 @@ $config = [
             yii\widgets\Pjax::class => [
                 'scrollTo' => 0,
             ],
-        ],
-        'singletons' => [
             yii\captcha\Captcha::class => [
                 'template' => '<p>{image} <span class="captcha-refresh label label-default">'.
                     '<i class="fa fa-fw fa-refresh"></i> Refresh</span></p>'."\n{input}",
