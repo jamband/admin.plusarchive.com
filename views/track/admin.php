@@ -43,16 +43,19 @@ $this->title = 'Admin Tracks - '.app()->name;
         <?php foreach ($data->models as $model): ?>
             <div class="col-xs-12 col-sm-3 tile">
                 <div class="thumbnail clearfix">
-                    <?= Html::tag('img', '', [
-                        'class' => 'lazyload track-image',
-                        'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
-                        'data-src' => without_scheme_url(h($model->image)),
-                        'data-url' => $embedUrl,
-                        'data-id' => hashids()->encode($model->id),
-                    ]) ?>
+                    <div class="tile-image-wrap">
+                        <?= Html::tag('img', '', [
+                            'class' => 'lazyload img-responsive tile-image',
+                            'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
+                            'data-src' => without_scheme_url(h($model->image)),
+                            'data-url' => $embedUrl,
+                            'data-id' => hashids()->encode($model->id),
+                        ]) ?>
+                        <div class="tile-play"></div>
+                    </div>
                     <div class="caption">
                         <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
-                            'class' => 'track-title',
+                            'class' => 'tile-title',
                             'data-pjax' => '0',
                         ]) ?>
                         <?= Html::a(h($model->statusText), ['', 'status' => $model->statusText], [
@@ -78,7 +81,7 @@ $this->title = 'Admin Tracks - '.app()->name;
                             'data-method' => 'post',
                         ]) ?>
                         <br>
-                        <div class="hidden-xs text-right track-created-date">
+                        <div class="hidden-xs text-right tile-created-date">
                             <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div><!-- /.caption -->

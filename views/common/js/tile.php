@@ -22,7 +22,7 @@ $(document).on('ready pjax:success', function() {
         }, true);
     });
     $(document).on('lazybeforeunveil', function(){
-        $container.find('.track-play').css({
+        $container.find('.tile-play').css({
             'opacity': .6,
             'transition': 'opacity 200ms'
         });
