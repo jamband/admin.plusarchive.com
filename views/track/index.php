@@ -24,7 +24,7 @@ use yii\widgets\Pjax;
 
 $this->title = app()->name;
 ?>
-<div id="track-now" class="text-center"></div>
+<div id="now-playing" class="text-center"></div>
 
 <?php Pjax::begin() ?>
     <div id="tile-container" class="row text-center">

@@ -26,7 +26,7 @@ use yii\widgets\Pjax;
 
 $this->title = 'Admin Tracks - '.app()->name;
 ?>
-<div id="track-now" class="text-center"></div>
+<div id="now-playing" class="text-center"></div>
 
 <?php Pjax::begin(['id' => 'track-pjax']) ?>
     <?= $this->render('/common/nav/admin', [

@@ -136,27 +136,3 @@
     }
   }
 }
-
-//== Track
-#track-now-clear {
-  cursor: pointer;
-  &::before {
-    @include app-icon($fa-var-close);
-  }
-}
-#track-now-title {
-  display: inline-block;
-  cursor: pointer;
-  font-weight: bold;
-  &:hover,
-  &:active {
-    color: #fff;
-  }
-  &::before {
-    @include app-icon($fa-var-volume-up);
-  }
-}
-#track-now-loading {
-  margin-top: 3px;
-  color: $gray-light;
-}

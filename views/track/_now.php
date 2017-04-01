@@ -20,7 +20,7 @@ $(document).on('click', '.track-image', function() {
         timeout: 10000,
         data: { id: $this.attr('data-id') }
     }).done(function(data) {
-        $('#track-now').hide().html(data).fadeIn();
+        $('#now-playing').hide().html(data).fadeIn();
     }).fail(function(data) {
         alert('Request failure.');
     });
