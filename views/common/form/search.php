@@ -18,7 +18,7 @@
 use yii\helpers\Html;
 
 ?>
-<?= Html::beginForm([''], 'get', ['id' => 'form-search', 'data-pjax' => true]) ?>
+<?= Html::beginForm([''], 'get', ['class' => 'form-search', 'data-pjax' => true]) ?>
     <div class="form-group has-feedback">
         <?= Html::textInput('search', $search, [
             'class' => 'form-control',

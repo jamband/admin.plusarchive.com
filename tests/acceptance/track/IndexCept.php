@@ -47,7 +47,7 @@ $I->see('track1', '.thumbnail');
 $I->see('track2', '.thumbnail');
 
 $I->fillField(['name' => 'search'], '3');
-$I->click('#form-search button');
+$I->click('.form-search button');
 $I->wait(1);
 $I->seeInField(['name' => 'search'], '3');
 $I->see('1 results', '.total-count');
