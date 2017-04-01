@@ -23,7 +23,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
-<div class="col-xs-12 col-sm-3 tile tile-search">
+<div class="col-xs-12 col-sm-3 card card-search">
     <div class="thumbnail">
         <div class="caption">
             <a class="refresh-link" href="<?= url(['']) ?>">Reset All</a>
@@ -66,4 +66,4 @@ use yii\helpers\Url;
             <div class="text-right total-count"><?= h(number_format($total)) ?> results</div>
         </div><!-- /.caption -->
     </div><!-- /.thumbnail -->
-</div><!-- /.tile -->
+</div><!-- /.card -->

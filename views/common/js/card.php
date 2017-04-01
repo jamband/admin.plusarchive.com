@@ -15,14 +15,14 @@
 
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
-    var $container = $('.tile-container');
+    var $container = $('.card-container');
     $container.each(function() {
         this.addEventListener('load', function() {
             $container.masonry({transitionDuration: 0});
         }, true);
     });
     $(document).on('lazybeforeunveil', function(){
-        $container.find('.tile-play').css({
+        $container.find('.card-play').css({
             'opacity': .6,
             'transition': 'opacity 200ms'
         });

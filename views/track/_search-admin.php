@@ -24,7 +24,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
-<div class="col-xs-12 col-sm-3 tile">
+<div class="col-xs-12 col-sm-3 card">
     <div class="thumbnail">
         <div class="caption">
             <a class="refresh-link" href="<?= url(['']) ?>">Reset All</a>
@@ -97,4 +97,4 @@ use yii\helpers\Url;
             ]) ?>
         </div><!-- /.caption -->
     </div><!-- /.thumbnail -->
-</div><!-- .tile -->
+</div><!-- .card -->

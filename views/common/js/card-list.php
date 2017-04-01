@@ -15,7 +15,7 @@
 
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
-    $('.tile-container').masonry({transitionDuration: 0});
+    $('.card-container').masonry({transitionDuration: 0});
 });
 JS
 );

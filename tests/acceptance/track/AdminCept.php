@@ -61,7 +61,7 @@ $I->see('Admin: 1', '#menu-action');
 $I->see('track5', '.thumbnail');
 $I->dontSee('track1', '.thumbnail');
 
-$I->click('YouTube', '.tile-image + .caption');
+$I->click('YouTube', '.card-image-wrap + .caption');
 $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=YouTube');
 $I->see('YouTube', '.dropdown-toggle');

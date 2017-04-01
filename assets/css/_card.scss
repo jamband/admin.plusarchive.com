@@ -1,4 +1,4 @@
-.tile-search {
+.card-search {
   .thumbnail {
     @media (min-width: $screen-sm-min) {
       box-shadow: 1px 1px 1px rgba(0,0,0,.2);
@@ -9,8 +9,8 @@
     }
   }
 }
-.tile-container {
-  .tile {
+.card-container {
+  .card {
     @media (max-width: $screen-xs-max) {
       &:first-child {
         .thumbnail {
@@ -22,7 +22,7 @@
       }
     }
     .thumbnail {
-      .tile-image-wrap {
+      .card-image-wrap {
         position: relative;
         @media (max-width: $screen-xs-max) {
           width: 30%;
@@ -39,7 +39,7 @@
         border-bottom: 1px solid $gray-dark;
         background: none;
       }
-      .tile-image {
+      .card-image {
         @media (min-width: $screen-sm-min) {
           width: 100%;
           border-radius: $border-radius-base $border-radius-base 0 0;
@@ -51,7 +51,7 @@
           box-shadow: 1px 1px 2px rgba(0,0,0,.2);
         }
       }
-      .tile-play {
+      .card-play {
         opacity: 0;
         &::before {
           position: absolute;
@@ -80,7 +80,7 @@
           }
         }
       }
-      .tile-title {
+      .card-title {
         display: block;
         font-weight: bold;
         color: $text-color;
@@ -90,7 +90,7 @@
           color: #fff;
         }
       }
-      .tile-created-date {
+      .card-created-date {
         color: darken($text-color, 40%);
         font-size: 85%;
         &::before {

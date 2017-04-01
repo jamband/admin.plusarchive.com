@@ -27,7 +27,7 @@ $this->title = 'Bookmarks - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <div class="row">
-        <div class="col-xs-12 col-sm-4 tile-search">
+        <div class="col-xs-12 col-sm-4 card-search">
             <?= $this->render('_search', [
                 'sort' => $sort,
                 'country' => $country,
@@ -38,7 +38,7 @@ $this->title = 'Bookmarks - '.app()->name;
             <h2>Bookmarks</h2>
         </div>
         <div class="col-xs-12 col-sm-8">
-            <div class="row tile-container">
+            <div class="row card-container">
                 <?php /** @var Bookmark $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-xs-12 col-sm-6 list">
@@ -79,4 +79,4 @@ $this->title = 'Bookmarks - '.app()->name;
     </div><!-- /.row -->
 <?php Pjax::end() ?>
 
-<?= $this->render('/common/js/tile-list') ?>
+<?= $this->render('/common/js/card-list') ?>
