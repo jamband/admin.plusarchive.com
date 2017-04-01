@@ -30,14 +30,14 @@ use yii\helpers\Html;
         <?= Html::a('View <i class="fa fa-fw fa-angle-right"></i>', ['view', 'id' => $id], [
             'class' => 'label label-default',
         ]) ?>
-        <div id="now-playing-loading">
+        <div class="now-playing-loading">
             <div class="line-scale"><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     </div>
 </div>
-<p id="now-playing-title">
+<p class="now-playing-title">
     <?= h($model->title) ?>
-    <span id="now-playing-clear"></span>
+    <span class="now-playing-clear"></span>
 </p>
 
 <?php
@@ -53,12 +53,12 @@ if (/^(Vimeo|YouTube)$/.test($iframe.attr('data-provider'))) {
 $modal.modal('show');
 
 $iframe.load(function() {
-    $('#now-playing-loading').fadeOut();
+    $('.now-playing-loading').fadeOut();
 });
-$(document).on('click', '#now-playing-title', function() {
+$(document).on('click', '.now-playing-title', function() {
     $('#track-modal').modal('show');
 });
-$(document).on('click', '#now-playing-clear', function() {
+$(document).on('click', '.now-playing-clear', function() {
     $('#now-playing').children().fadeOut(function() {
         $(this).remove();
     });
