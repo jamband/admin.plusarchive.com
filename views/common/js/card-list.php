@@ -15,7 +15,10 @@
 
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
-    $('.card-container').masonry({transitionDuration: 0});
+    var $card = $('.card-container').masonry({ transitionDuration: 0 });
+    $(window).load(function() {
+        $card.masonry('layout');
+    });
 });
 JS
 );
