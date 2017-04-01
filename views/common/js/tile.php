@@ -15,7 +15,7 @@
 
 $this->registerJs(<<<'JS'
 $(document).on('ready pjax:success', function() {
-    var $container = $('#tile-container');
+    var $container = $('.tile-container');
     $container.each(function() {
         this.addEventListener('load', function() {
             $container.masonry({transitionDuration: 0});

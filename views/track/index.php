@@ -27,7 +27,7 @@ $this->title = app()->name;
 <div id="now-playing" class="text-center"></div>
 
 <?php Pjax::begin() ?>
-    <div id="tile-container" class="row text-center">
+    <div class="row text-center tile-container">
         <?= $this->render('_search-index', [
             'provider' => $provider,
             'genre' => $genre,

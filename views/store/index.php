@@ -27,7 +27,7 @@ $this->title = 'Stores - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <div class="row">
-        <div id="tile-search" class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-4 tile-search">
             <?= $this->render('_search', [
                 'sort' => $sort,
                 'country' => $country,
@@ -38,7 +38,7 @@ $this->title = 'Stores - '.app()->name;
             <h2>Stores</h2>
         </div>
         <div class="col-xs-12 col-sm-8">
-            <div id="tile-container" class="row">
+            <div class="row tile-container">
                 <?php /* @var Store $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-xs-12 col-sm-6 list">

@@ -22,7 +22,7 @@
 }
 
 //== Tiles
-#tile-search {
+.tile-search {
   .thumbnail {
     @media (min-width: $screen-sm-min) {
       box-shadow: 1px 1px 1px rgba(0,0,0,.2);
@@ -33,7 +33,7 @@
     }
   }
 }
-#tile-container {
+.tile-container {
   .tile {
     @media (max-width: $screen-xs-max) {
       &:first-child {

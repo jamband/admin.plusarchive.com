@@ -19,7 +19,7 @@ $I->seePageNotFound(['/track/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 // $I->amOnPage(url(['/track/admin']));
-// $I->click('//*[@id="tile-container"]/div[2]/div/div/a[3]'); // Update link
+// $I->click('//*[@class="tile-container"]/div[2]/div/div/a[3]'); // Update link
 // $I->seeCurrentUrlEquals('/index-test.php/track/update/1');
 // $I->see('Track', '#menu-controller');
 // $I->see('Update', '#menu-action');

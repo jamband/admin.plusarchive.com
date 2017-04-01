@@ -32,7 +32,7 @@ $this->title = 'Admin Tracks - '.app()->name;
     <?= $this->render('/common/nav/admin', [
         'total' => $data->totalCount,
     ]) ?>
-    <div id="tile-container" class="row text-center">
+    <div class="row text-center tile-container">
         <?= $this->render('_search-admin', [
             'provider' => $provider,
             'genre' => $genre,
