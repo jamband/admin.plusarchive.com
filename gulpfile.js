@@ -1,18 +1,18 @@
 'use strict';
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 
-gulp.task('js', function() {
+gulp.task('js', () =>
   gulp.src(require('./assets/js/common.json'))
     .pipe($.concat('common.js'))
     .pipe($.uglify({preserveComments: 'license'}))
     .pipe(gulp.dest('web/js'))
     .pipe($.gzip())
-    .pipe(gulp.dest('web/js'));
-});
+    .pipe(gulp.dest('web/js'))
+);
 
-gulp.task('css', function() {
+gulp.task('css', () =>
   gulp.src('assets/css/common.scss')
     .pipe($.plumber())
     .pipe($.sass().on('error', $.sass.logError))
@@ -20,17 +20,17 @@ gulp.task('css', function() {
     .pipe($.cssnano())
     .pipe(gulp.dest('web/css'))
     .pipe($.gzip())
-    .pipe(gulp.dest('web/css'));
-});
+    .pipe(gulp.dest('web/css'))
+);
 
-gulp.task('font', function() {
+gulp.task('font', () =>
   gulp.src(require('./assets/fonts/common.json'))
-    .pipe(gulp.dest('web/fonts'));
-});
+    .pipe(gulp.dest('web/fonts'))
+);
 
 gulp.task('build', ['js', 'css', 'font']);
 
-gulp.task('default', ['build'], function() {
+gulp.task('default', ['build'], () => {
   gulp.watch('assets/js/**/*.js', ['js']);
   gulp.watch('assets/css/**/*.scss', ['css']);
 });
