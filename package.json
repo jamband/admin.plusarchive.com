@@ -26,6 +26,10 @@
     "yii2-pjax": "2.0.6"
   },
   "scripts": {
-    "postinstall": "./assets/shell/postinstall.sh"
+    "postinstall": "./assets/shell/postinstall.sh; gulp build",
+    "build": "gulp build",
+    "js": "gulp js",
+    "css": "gulp css",
+    "watch": "gulp"
   }
 }

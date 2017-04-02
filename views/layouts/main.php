@@ -32,7 +32,7 @@ $this->render('/common/js/analytics-tracking');
     <?= Html::csrfMetaTags() ?>
     <title><?= h($this->title) ?></title>
     <link href="<?= asset_revision('favicon.ico') ?>" rel="icon">
-    <link href="<?= asset_revision('css/common.css') ?>" rel="stylesheet">
+    <link href="<?= asset_revision('assets/common.css') ?>" rel="stylesheet">
     <?php $this->head() ?>
 </head>
 <body>
@@ -72,7 +72,7 @@ $this->render('/common/js/analytics-tracking');
         <a href="<?= url(['/site/privacy']) ?>">Privacy</a>
         <a href="<?= url(['/site/about']) ?>">About</a>
     </footer>
-    <script src="<?= asset_revision('js/common.js') ?>"></script>
+    <script src="<?= asset_revision('assets/common.js') ?>"></script>
 <?php $this->endBody() ?>
 </body>
 </html>
