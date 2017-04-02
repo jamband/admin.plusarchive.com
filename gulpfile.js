@@ -16,7 +16,7 @@ gulp.task('css', () =>
   gulp.src('assets/css/common.scss')
     .pipe($.plumber())
     .pipe($.sass().on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['last 2 versions']}))
+    .pipe($.autoprefixer({browsers: ['last 2 versions'], cascade: false}))
     .pipe($.cssnano())
     .pipe(gulp.dest('web/assets'))
     .pipe($.gzip())
