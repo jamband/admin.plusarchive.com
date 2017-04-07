@@ -27,7 +27,7 @@ $config = [
             'enableStrictParsing' => true,
             'rules' => [
                 '<controller:(track|playlist|label|store|bookmark)>s' => '<controller>/index',
-                '<action:\w+>' => 'site/<action>',
+                '<action:[\w-]+>' => 'site/<action>',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:[\w-]+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:[\w-]+>/<action:(admin|create|now|list)>' => '<controller>/<action>',
@@ -125,16 +125,16 @@ if (YII_ENV_DEV) {
     ];
     $config['container']['definitions'] += [
         yii\web\JqueryAsset::class => [
-            'sourcePath' => '@app/node_modules/jquery/dist',
+            'sourcePath' => '@app/client/node_modules/jquery/dist',
         ],
         yii\bootstrap\BootstrapAsset::class => [
-            'sourcePath' => '@app/node_modules/bootstrap/dist',
+            'sourcePath' => '@app/client/node_modules/bootstrap/dist',
         ],
         yii\bootstrap\BootstrapPluginAsset::class => [
-            'sourcePath' => '@app/node_modules/bootstrap/dist',
+            'sourcePath' => '@app/client/node_modules/bootstrap/dist',
         ],
         yii\gii\TypeAheadAsset::class => [
-            'sourcePath' => '@app/node_modules/typeahead.js/dist',
+            'sourcePath' => '@app/client/node_modules/typeahead.js/dist',
         ],
     ];
 }

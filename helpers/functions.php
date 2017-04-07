@@ -69,9 +69,17 @@ if (!function_exists('h')) {
         return htmlspecialchars($string, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
 }
-if (!function_exists('asset_revision')) {
-    function asset_revision($file) {
-        return yii\helpers\Url::to("@web/$file").'?v='.filemtime(Yii::getAlias("@app/web/$file"));
+if (!function_exists('asset')) {
+    function asset($file) {
+        $manifest = Yii::getAlias('@app/web/assets/manifest.json');
+
+        $manifest = file_exists($manifest)
+            ? json_decode(file_get_contents($manifest))
+            : new stdClass;
+
+        return property_exists($manifest, $file)
+            ? '/assets/'.$manifest->$file
+            : '/assets/'.$file;
     }
 }
 if (!function_exists('without_scheme_url')) {

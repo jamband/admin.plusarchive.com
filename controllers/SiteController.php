@@ -13,6 +13,7 @@ namespace app\controllers;
 
 use app\models\form\LoginForm;
 use app\models\form\SignupForm;
+use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -77,6 +78,17 @@ class SiteController extends Controller
     public function actionPrivacy()
     {
         return $this->render('privacy');
+    }
+
+    /**
+     * Third-Party Licenses page.
+     * @return string
+     */
+    public function actionThirdPartyLicenses()
+    {
+        return $this->render('third-party-licenses', [
+            'licenses' => file_get_contents(Yii::getAlias('@app/web/assets/3rdpartylicenses.txt')),
+        ]);
     }
 
     /**

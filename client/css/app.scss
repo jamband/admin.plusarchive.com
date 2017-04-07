@@ -1,9 +1,9 @@
 // Font
-@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600";
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600");
 
 // Font Awesome
-$fa-font-path: "./" !default;
-@import "../../node_modules/font-awesome/scss/font-awesome";
+$fa-font-path: "~font-awesome/fonts" !default;
+@import "~font-awesome/scss/font-awesome";
 
 // Mixins
 @import "mixins/icons";
@@ -34,14 +34,14 @@ $fa-font-path: "./" !default;
 @import "lazysizes";
 
 // Toastr
-@import "../../node_modules/toastr/toastr.scss";
+@import "~toastr/toastr.scss";
 @import "toastr";
 
 // Selectize.js
-@import "../../node_modules/selectize/dist/css/selectize.bootstrap3.scss";
+@import "~selectize/dist/css/selectize.bootstrap3.scss";
 @import "selectize";
 
 // Loaders.css
 @import "loaders-license";
-@import "../../node_modules/loaders.css/src/animations/line-scale";
+@import "~loaders.css/src/animations/line-scale";
 @import "loaders";

@@ -24,7 +24,8 @@
     "files": ["helpers/functions.php"]
   },
   "scripts": {
-    "clean": "rm -rf node_modules runtime/* tests/_output/* vendor web/assets/*",
+    "start": "composer ins && cd client && yarn && node_modules/.bin/webpack -p",
+    "clean": "rm -rf client/node_modules runtime/* tests/_output/* vendor web/assets/*",
     "show-asset-version": "composer show -t | grep -o 'bower-asset.*' | sort | uniq"
   }
 }

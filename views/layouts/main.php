@@ -31,8 +31,9 @@ $this->render('/common/js/analytics-tracking');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= h($this->title) ?></title>
-    <link href="<?= asset_revision('favicon.ico') ?>" rel="icon">
-    <link href="<?= asset_revision('assets/common.css') ?>" rel="stylesheet">
+    <link rel="shortcut icon" href="<?= asset('favicon.ico') ?>">
+    <link rel="apple-touch-icon" href="<?= asset('icon.png') ?>">
+    <link rel="stylesheet" href="<?= asset('app.css')?>">
     <?php $this->head() ?>
 </head>
 <body>
@@ -68,11 +69,12 @@ $this->render('/common/js/analytics-tracking');
     </div>
     <footer class="footer">
         <a href="<?= url(['/']) ?>">Home</a>
+        <a href="<?= url(['/site/about']) ?>">About</a>
         <a href="<?= url(['/site/contact']) ?>">Contact</a>
         <a href="<?= url(['/site/privacy']) ?>">Privacy</a>
-        <a href="<?= url(['/site/about']) ?>">About</a>
+        <a href="<?= url(['/site/third-party-licenses']) ?>">Third-Party Licenses</a>
     </footer>
-    <script src="<?= asset_revision('assets/common.js') ?>"></script>
+    <script src="<?= asset('app.js') ?>"></script>
 <?php $this->endBody() ?>
 </body>
 </html>
