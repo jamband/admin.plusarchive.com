@@ -32,9 +32,10 @@ module.exports = {
       },
       {
         test: require.resolve('toastr'),
-        use: [
-          { loader: 'expose-loader', options: 'toastr' }
-        ]
+        use: {
+          loader: 'expose-loader',
+          options: 'toastr'
+        }
       },
       {
         test: /\.scss$/,
@@ -50,14 +51,12 @@ module.exports = {
       },
       {
         test: /favicon\.ico|icon\.png$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name]-[hash].[ext]'
-            }
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name]-[hash].[ext]'
           }
-        ]
+        }
       }
     ]
   },
