@@ -41,7 +41,7 @@ $this->title = app()->name;
                         <?= Html::tag('img', '', [
                             'class' => 'lazyload img-responsive card-image',
                             'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
-                            'data-src' => without_scheme_url(h($model->image)),
+                            'data-src' => h($model->image),
                             'data-url' => $embedUrl,
                             'data-id' => hashids()->encode($model->id),
                         ]) ?>

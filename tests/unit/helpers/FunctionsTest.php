@@ -82,15 +82,6 @@ class FunctionsTest extends Unit
 
     }
 
-    public function testWithoutSchemeUrl()
-    {
-        $this->assertSame('www.example.com/path/to', without_scheme_url('www.example.com/path/to'));
-        $this->assertSame('ftp://example.com/path/to/example.txt', 'ftp://example.com/path/to/example.txt');
-
-        $this->assertSame('//www.example.com/path/to', without_scheme_url('http://www.example.com/path/to'));
-        $this->assertSame('//www.example.com/path/to', without_scheme_url('https://www.example.com/path/to'));
-    }
-
     public function testCustomDomainsForAsSnsIconLink()
     {
         $this->assertArrayHasKey('bandcamp.com', custom_domains_for_as_sns_icon_link());

@@ -82,11 +82,6 @@ if (!function_exists('asset')) {
             : '/assets/'.$file;
     }
 }
-if (!function_exists('without_scheme_url')) {
-    function without_scheme_url($url) {
-        return preg_replace('#\Ahttps?://#', '//', $url);
-    }
-}
 if (!function_exists('custom_domains_for_as_sns_icon_link')) {
     function custom_domains_for_as_sns_icon_link() {
         return array_fill_keys(jamband\ripple\Bandcamp::$hosts, 'bandcamp');
