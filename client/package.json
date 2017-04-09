@@ -33,7 +33,6 @@
     "last 2 versions"
   ],
   "scripts": {
-    "postinstall": "./shell/postinstall.sh",
     "build": "rm -rf ../web/assets/* && webpack -p",
     "watch": "webpack -w"
   }
