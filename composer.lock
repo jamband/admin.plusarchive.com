@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e58458387f1c76906fe9e040f7e1f3f",
+    "content-hash": "db0281942e34158fc9d314cacbd200e0",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -219,16 +219,16 @@
         },
         {
             "name": "jamband/ripple",
-            "version": "v0.4.2",
+            "version": "v0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jamband/ripple.git",
-                "reference": "1ee52f9d21e8e2b1122672df9f532f7be7c9d730"
+                "reference": "21bfdee0e03f38c1dfda93f70e5a35ea447e8931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jamband/ripple/zipball/1ee52f9d21e8e2b1122672df9f532f7be7c9d730",
-                "reference": "1ee52f9d21e8e2b1122672df9f532f7be7c9d730",
+                "url": "https://api.github.com/repos/jamband/ripple/zipball/21bfdee0e03f38c1dfda93f70e5a35ea447e8931",
+                "reference": "21bfdee0e03f38c1dfda93f70e5a35ea447e8931",
                 "shasum": ""
             },
             "require": {
@@ -266,7 +266,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2017-03-17T09:15:06+00:00"
+            "time": "2017-04-09T15:01:18+00:00"
         },
         {
             "name": "yiisoft/yii2",
