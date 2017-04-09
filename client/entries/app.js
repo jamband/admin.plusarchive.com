@@ -22,9 +22,7 @@ require('lazysizes/lazysizes')
 
 require('toastr/toastr')
 
-require('sifter/sifter')
-require('microplugin/src/microplugin')
-require('selectize/dist/js/selectize')
+require('selectize/dist/js/standalone/selectize')
 
 require('../js/app.js')
 
