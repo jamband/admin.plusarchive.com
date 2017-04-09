@@ -71,13 +71,15 @@ class FunctionsTest extends Unit
         $this->assertSame('&lt;script&gt;alert(&#039;xss&#039;);&lt;/script&gt;', h("<script>alert('xss');</script>"));
     }
 
-    public function testAssertRevision()
+    public function testAsset()
     {
-        $v = filemtime(Yii::getAlias('@app/web/favicon.ico'));
-        $this->assertSame("/favicon.ico?v=$v", asset_revision('favicon.ico'));
+        $this->assertTrue((bool)preg_match('#\A\/assets/app\-[0-9a-f]+\.css\z#', asset('app.css')));
+        $this->assertTrue((bool)preg_match('#\A\/assets/app\-[0-9a-f]+\.js\z#', asset('app.js')));
+        $this->assertTrue((bool)preg_match('#\A\/assets/icon\-[0-9a-f]+\.png\z#', asset('icon.png')));
+        $this->assertTrue((bool)preg_match('#\A\/assets/favicon\-[0-9a-f]+\.ico\z#', asset('favicon.ico')));
 
-        $v = filemtime(Yii::getAlias('@app/web/css/common.css'));
-        $this->assertSame("/css/common.css?v=$v", asset_revision('css/common.css'));
+        $this->assertSame('/assets/foo.css', asset('foo.css'));
+
     }
 
     public function testWithoutSchemeUrl()
