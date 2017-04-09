@@ -10,11 +10,11 @@ require('bootstrap-sass/assets/javascripts/bootstrap/transition')
 
 require('bootstrap-hover-dropdown/bootstrap-hover-dropdown')
 
-require('../../vendor/yiisoft/yii2/assets/yii.activeForm')
-require('../../vendor/yiisoft/yii2/assets/yii.captcha')
-require('../../vendor/yiisoft/yii2/assets/yii.gridView')
-require('../../vendor/yiisoft/yii2/assets/yii')
-require('../../vendor/yiisoft/yii2/assets/yii.validation')
+require('yii')
+require('yii.activeForm')
+require('yii.captcha')
+require('yii.gridView')
+require('yii.validation')
 require('yii2-pjax/jquery.pjax.js')
 
 require('masonry-layout/dist/masonry.pkgd')

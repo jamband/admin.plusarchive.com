@@ -15,6 +15,12 @@ module.exports = {
     publicPath: '/assets/',
     filename: '[name]-[hash].js'
   },
+  resolve: {
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, '../vendor/yiisoft/yii2/assets')
+    ]
+  },
   module: {
     rules: [
       {
