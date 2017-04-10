@@ -14,6 +14,8 @@
  * @var app\models\Track $model
  * @var string $embed
  * @var string $id
+ * @var string $title
+ * @var string $provider
  */
 
 use yii\helpers\Html;
@@ -23,7 +25,7 @@ use yii\helpers\Html;
     <div class="text-center modal-dialog">
         <?= Html::tag('iframe', '', [
             'src' => h($embed),
-            'data-provider' => h($model->providerText),
+            'data-provider' => h($provider),
             'frameborder' => '0',
             'allowfullscreen' => true,
         ]) ?>
@@ -36,7 +38,7 @@ use yii\helpers\Html;
     </div>
 </div>
 <p class="now-playing-title">
-    <?= h($model->title) ?>
+    <?= h($title) ?>
     <span class="now-playing-clear"></span>
 </p>
 

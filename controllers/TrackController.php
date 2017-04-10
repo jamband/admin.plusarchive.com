@@ -80,29 +80,33 @@ class TrackController extends Controller
             'provider' => $provider ?: 'Providers',
             'genre' => $genre ?: 'Genres',
             'search' => $search,
-            'embedUrl' => url(['now']),
+            'embedAction' => url(['now']),
         ]);
     }
 
     /**
      * Renders the HTML of the now playing track.
      * @param string $id the hashed track id
+     * @param string $url
+     * @param string $title
+     * @param string $provider
+     * @param string $key provider key
      * @return string
      * @throws NotFoundHttpException
      */
-    public function actionNow($id = null)
+    public function actionNow($id = null, $url = null, $title = null, $provider = null, $key = null)
     {
         if (!request()->isAjax) {
             throw new NotFoundHttpException('Page not found.');
         }
-        $model = $this->findModel(hashids()->decode($id));
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-track-modal']);
 
         return $this->renderAjax('now', [
-            'model' => $model,
-            'embed' => $ripple->embed($model->url, $model->providerText, $model->provider_key),
+            'embed' => $ripple->embed($url, $provider, $key),
             'id' => $id,
+            'title' => $title,
+            'provider' => $provider,
         ]);
     }
 
@@ -158,7 +162,7 @@ class TrackController extends Controller
             'genre' => $genre ?: 'Genres',
             'status' => $status ?: 'Status',
             'search' => $search,
-            'embedUrl' => url(['now']),
+            'embedAction' => url(['now']),
         ]);
     }
 

@@ -15,7 +15,7 @@
  * @var string $provider
  * @var string $genre
  * @var string $search
- * @var string $embedUrl
+ * @var string $embedAction
  */
 
 use app\models\TrackGenre;
@@ -42,8 +42,12 @@ $this->title = app()->name;
                             'class' => 'lazyload img-responsive card-image',
                             'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
                             'data-src' => h($model->image),
-                            'data-url' => $embedUrl,
+                            'data-action' => $embedAction,
                             'data-id' => hashids()->encode($model->id),
+                            'data-url' => $model->url,
+                            'data-title' => $model->title,
+                            'data-provider' => $model->providerText,
+                            'data-key' => $model->provider_key,
                         ]) ?>
                         <div class="card-play"></div>
                     </div>
