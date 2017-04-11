@@ -67,7 +67,6 @@ $this->title = app()->name;
                         <?php endforeach ?>
                         <br>
                         <div class="hidden-xs text-right card-created-date">
-
                             <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div><!-- /.caption -->

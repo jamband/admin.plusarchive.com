@@ -56,7 +56,7 @@ module.exports = {
         use: 'file-loader'
       },
       {
-        test: /favicon\.ico|icon\.png$/,
+        test: /(favicon|apple-touch-icon)\.png$/,
         use: {
           loader: 'file-loader',
           options: {

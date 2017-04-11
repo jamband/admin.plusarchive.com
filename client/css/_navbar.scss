@@ -11,6 +11,11 @@
     }
   }
 }
+.navbar-right {
+  @media (max-width: $screen-xs-max) {
+    border-top: 1px solid lighten($gray-dark, 3%);
+  }
+}
 .navbar-collapse {
   border-top: none;
   box-shadow: none;

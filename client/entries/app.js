@@ -27,8 +27,8 @@ require('selectize/dist/js/standalone/selectize')
 require('../js/app.js')
 
 // app icon
-require('../images/favicon.ico')
-require('../images/icon.png')
+require('../images/favicon.png')
+require('../images/apple-touch-icon.png')
 
 // app.css
 require('../css/app.scss')

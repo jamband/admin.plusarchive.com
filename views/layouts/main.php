@@ -31,8 +31,8 @@ $this->render('/common/js/analytics-tracking');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= h($this->title) ?></title>
-    <link rel="shortcut icon" href="<?= asset('favicon.ico') ?>">
-    <link rel="apple-touch-icon" href="<?= asset('icon.png') ?>">
+    <link rel="icon" type="image/png" href="<?= asset('favicon.png') ?>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= asset('apple-touch-icon.png') ?>">
     <link rel="stylesheet" href="<?= asset('app.css')?>">
     <?php $this->head() ?>
 </head>
@@ -40,7 +40,7 @@ $this->render('/common/js/analytics-tracking');
 <?php $this->beginBody() ?>
     <?= ToastrNotification::widget() ?>
     <?php NavBar::begin([
-        'brandLabel' => '<i class="fa fa-fw fa-angle-up"></i> '.h(app()->name),
+        'brandLabel' => h(app()->name),
         'options' => ['class' => 'navbar-default'],
     ]) ?>
         <?= Nav::widget([
@@ -57,6 +57,8 @@ $this->render('/common/js/analytics-tracking');
         <?= Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
+                ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => 'About', 'url' => ['/site/about']],
                 ['label' => 'Signup', 'url' => ['/site/signup'], 'visible' => user()->can('admin')],
                 ['label' => 'Login', 'url' => ['/site/login'], 'visible' => false],
                 ['label' => 'Logout', 'url' => ['/site/logout'], 'visible' => user()->can('admin'),
@@ -68,9 +70,6 @@ $this->render('/common/js/analytics-tracking');
         <?= $content ?>
     </div>
     <footer class="footer">
-        <a href="<?= url(['/']) ?>">Home</a>
-        <a href="<?= url(['/site/about']) ?>">About</a>
-        <a href="<?= url(['/site/contact']) ?>">Contact</a>
         <a href="<?= url(['/site/privacy']) ?>">Privacy</a>
         <a href="<?= url(['/site/third-party-licenses']) ?>">Third-Party Licenses</a>
     </footer>

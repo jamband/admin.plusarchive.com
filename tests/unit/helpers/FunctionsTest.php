@@ -73,10 +73,10 @@ class FunctionsTest extends Unit
 
     public function testAsset()
     {
-        $this->assertTrue((bool)preg_match('#\A\/assets/app\-[0-9a-f]+\.css\z#', asset('app.css')));
-        $this->assertTrue((bool)preg_match('#\A\/assets/app\-[0-9a-f]+\.js\z#', asset('app.js')));
-        $this->assertTrue((bool)preg_match('#\A\/assets/icon\-[0-9a-f]+\.png\z#', asset('icon.png')));
-        $this->assertTrue((bool)preg_match('#\A\/assets/favicon\-[0-9a-f]+\.ico\z#', asset('favicon.ico')));
+        $this->assertTrue((bool)preg_match('#\A\/assets/app-[0-9a-f]+\.css\z#', asset('app.css')));
+        $this->assertTrue((bool)preg_match('#\A\/assets/app-[0-9a-f]+\.js\z#', asset('app.js')));
+        $this->assertTrue((bool)preg_match('#\A\/assets/favicon-[0-9a-f]+\.png\z#', asset('favicon.png')));
+        $this->assertTrue((bool)preg_match('#\A\/assets/apple-touch-icon-[0-9a-f]+\.png\z#', asset('apple-touch-icon.png')));
 
         $this->assertSame('/assets/foo.css', asset('foo.css'));
 
