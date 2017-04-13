@@ -1,95 +1,98 @@
-//== Colors
-$gray-base:         #000 !default;
-$gray-darker:       lighten($gray-base, 13.5%) !default;
-$gray-dark:         lighten($gray-base, 18%) !default;
-$gray-light:        lighten($gray-base, 46.7%) !default;
-$gray-lighter:      lighten($gray-base, 93.5%) !default;
-$brand-primary:     #cc6055 !default;
+// Font Awesome
+$fa-font-path: "~font-awesome/fonts";
 
-//== Scaffolding
-$body-bg:               $gray-darker !default;
-$link-color:            $brand-primary !default;
-$text-color:            lighten($gray-light, 30%) !default;
-$link-hover-color:      lighten($link-color, 5%) !default;
-$link-hover-decoration: none !default;
+// Colors
+$gray-base:         #000;
+$gray-darker:       lighten($gray-base, 13.5%);
+$gray-dark:         lighten($gray-base, 18%);
+$gray-light:        lighten($gray-base, 46.7%);
+$gray-lighter:      lighten($gray-base, 93.5%);
+$brand-primary:     #cc6055;
 
-//== Typography
-$font-family-base:        "Source Sans Pro", "游ゴシック体", "Yu Gothic", YuGothic sans-serif !default;
-$font-size-base:          14px !default;
-$line-height-base:        1.6 !default;
-$line-height-computed:    floor(($font-size-base * $line-height-base)) !default;
+// Scaffolding
+$body-bg:               $gray-darker;
+$link-color:            $brand-primary;
+$text-color:            lighten($gray-light, 30%);
+$link-hover-color:      lighten($link-color, 5%);
+$link-hover-decoration: none;
 
-//== Components
-$border-radius-base:    2px !default;
-$border-radius-large:   3px !default;
-$border-radius-small:   1px !default;
+// Typography
+$font-family-base:        "Source Sans Pro", "游ゴシック体", "Yu Gothic", YuGothic sans-serif;
+$font-size-base:          14px;
+$line-height-base:        1.6;
+$line-height-computed:    floor(($font-size-base * $line-height-base));
 
-//== Tables
+// Components
+$border-radius-base:    2px;
+$border-radius-large:   3px;
+$border-radius-small:   1px;
+
+// Tables
 $table-bg-accent:               #2a2a2a;
-$table-bg-active:               $gray-dark !default;
-$table-border-color:            $gray-dark !default;
+$table-bg-active:               $gray-dark;
+$table-border-color:            $gray-dark;
 
-$btn-default-color:              #aaa !default;
-$btn-default-bg:                 $gray-dark !default;
-$btn-default-border:             #444 !default;
+$btn-default-color:              #aaa;
+$btn-default-bg:                 $gray-dark;
+$btn-default-border:             #444;
 
-//== Forms
-$input-bg:                       darken($gray-darker, 1%) !default;
-$input-border:                   $gray-dark !default;
-$input-color:                    #aaa !default;
-$input-color-placeholder:        #666 !default;
+// Forms
+$input-bg:                       darken($gray-darker, 1%);
+$input-border:                   $gray-dark;
+$input-color:                    #aaa;
+$input-color-placeholder:        #666;
 
-//== Dropdowns
-$dropdown-bg:                    $gray-darker !default;
-$dropdown-link-color:            #999 !default;
-$dropdown-link-hover-color:      $gray-lighter !default;
-$dropdown-link-hover-bg:         $gray-dark !default;
-$dropdown-divider-bg:            $gray-dark !default;
+// Dropdowns
+$dropdown-bg:                    $gray-darker;
+$dropdown-link-color:            #999;
+$dropdown-link-hover-color:      $gray-lighter;
+$dropdown-link-hover-bg:         $gray-dark;
+$dropdown-divider-bg:            $gray-dark;
 
-//== Alerts
-$alert-info-bg:               $body-bg !default;
-$alert-info-border:           lighten($body-bg, 10%) !default;
-$alert-danger-bg:             $body-bg !default;
-$alert-danger-border:         lighten($body-bg, 10%) !default;
+// Alerts
+$alert-info-bg:               $body-bg;
+$alert-info-border:           lighten($body-bg, 10%);
+$alert-danger-bg:             $body-bg;
+$alert-danger-border:         lighten($body-bg, 10%);
 
-//== Labels
-$label-color:                 darken($text-color, 20%) !default;
-$label-default-bg:            transparent !default;
-$label-info-bg:               darken($gray-darker, 2%) !default;
-$label-link-hover-color:      #fff !default;
+// Labels
+$label-color:                 darken($text-color, 20%);
+$label-default-bg:            transparent;
+$label-info-bg:               darken($gray-darker, 2%);
+$label-link-hover-color:      #fff;
 
-//== Modals
-$modal-content-bg:                $gray-darker !default;
-$modal-header-border-color:       $gray-dark !default;
-$modal-backdrop-opacity:          .7 !default;
+// Modals
+$modal-content-bg:                $gray-darker;
+$modal-header-border-color:       $gray-dark;
+$modal-backdrop-opacity:          .7;
 
-//== Navbar
-$navbar-default-link-color:                 darken($text-color, 20%) !default;
-$navbar-default-link-active-color:          lighten($text-color, 10%) !default;
-$navbar-default-link-hover-color:           $text-color !default;
-$navbar-default-bg:                         $gray-dark !default;
-$navbar-default-link-hover-bg:              $gray-dark !default;
-$navbar-default-link-active-bg:             $gray-dark !default;
-$navbar-default-toggle-hover-bg:            $gray-dark !default;
-$navbar-default-toggle-icon-bar-bg:         darken($text-color, 20%) !default;
-$navbar-default-toggle-border-color:        $gray-dark !default;
-$navbar-default-brand-color:                lighten($text-color, 10%) !default;
-$navbar-default-brand-hover-color:          lighten($text-color, 10%) !default;
+// Navbar
+$navbar-default-link-color:                 darken($text-color, 20%);
+$navbar-default-link-active-color:          lighten($text-color, 10%);
+$navbar-default-link-hover-color:           $text-color;
+$navbar-default-bg:                         $gray-dark;
+$navbar-default-link-hover-bg:              $gray-dark;
+$navbar-default-link-active-bg:             $gray-dark;
+$navbar-default-toggle-hover-bg:            $gray-dark;
+$navbar-default-toggle-icon-bar-bg:         darken($text-color, 20%);
+$navbar-default-toggle-border-color:        $gray-dark;
+$navbar-default-brand-color:                lighten($text-color, 10%);
+$navbar-default-brand-hover-color:          lighten($text-color, 10%);
 
-//== Navs
-$nav-link-hover-bg:                         $gray-dark !default;
-$nav-pills-active-link-hover-bg:            $body-bg !default;
-$nav-pills-active-link-hover-color:         lighten($brand-primary, 10%) !default;
+// Navs
+$nav-link-hover-bg:                         $gray-dark;
+$nav-pills-active-link-hover-bg:            $body-bg;
+$nav-pills-active-link-hover-color:         lighten($brand-primary, 10%);
 
-//== Thumbnails
-$thumbnail-padding:           0 !default;
-$thumbnail-bg:                $gray-dark !default;
-$thumbnail-border:            none !default;
+// Thumbnails
+$thumbnail-padding:           0;
+$thumbnail-bg:                $gray-dark;
+$thumbnail-border:            none;
 
-//== Pagination
-$pagination-bg:                        transparent !default;
-$pagination-hover-bg:                  rgba(55,55,55,0.4) !default;
-$pagination-disabled-bg:               transparent !default;
+// Pagination
+$pagination-bg:                        transparent;
+$pagination-hover-bg:                  rgba(55,55,55,0.4);
+$pagination-disabled-bg:               transparent;
 
-//== Close
-$close-color:                 $gray-lighter !default;
+// Close
+$close-color:                 $gray-lighter;

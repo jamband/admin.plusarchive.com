@@ -1,19 +1,20 @@
-// Font
+// Fonts
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600");
 
+// Variables
+@import "variables";
+
 // Font Awesome
-$fa-font-path: "~font-awesome/fonts" !default;
 @import "~font-awesome/scss/font-awesome";
 
 // Mixins
 @import "mixins/icons";
 @import "mixins/text-truncate";
 
-// Twitter Bootstrap cores
-@import "variables";
+// Bootstrap
 @import "bootstrap";
 
-// Other
+// Components
 @import "layout";
 @import "scaffolding";
 @import "type";
@@ -37,7 +38,7 @@ $fa-font-path: "~font-awesome/fonts" !default;
 @import "~toastr/toastr";
 @import "toastr";
 
-// Selectize.js
+// Selectize
 @import "~selectize/dist/css/selectize.bootstrap3";
 @import "selectize";
 

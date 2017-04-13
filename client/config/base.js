@@ -1,17 +1,14 @@
 const path = require('path')
-const LicensePlugin = require('license-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin')
+const plugins = require('./plugins')
 
-module.exports = function() {
+module.exports = function (env) {
   return {
     entry: {
       app: './entries/app.js'
     },
     output: {
       path: path.resolve(__dirname, '../../web/assets'),
-      publicPath: '/assets/',
-      filename: '[name]-[hash].js'
+      publicPath: '/assets/'
     },
     resolve: {
       modules: [
@@ -24,54 +21,32 @@ module.exports = function() {
         {
           test: require.resolve('jquery'),
           use: [
-            {
-              loader: 'expose-loader',
-              options: 'jQuery'
-            },
-            {
-              loader: 'expose-loader',
-              options: '$'
-            }
+            { loader: 'expose-loader', options: 'jQuery' },
+            { loader: 'expose-loader', options: '$' }
           ]
         },
         {
           test: require.resolve('toastr'),
-          use: {
-            loader: 'expose-loader',
-            options: 'toastr'
-          }
+          use: { loader: 'expose-loader', options: 'toastr' }
         },
         {
           test: /\.scss$/,
-          use: ExtractTextPlugin.extract([
-            'css-loader',
-            'postcss-loader',
-            'sass-loader'
+          use: plugins.ExtractText.extract([
+            'css-loader', 'postcss-loader', 'sass-loader'
           ])
         },
         {
-          test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
+          test: /\.(eot|woff2?|svg|ttf)$/,
           use: 'file-loader'
         },
         {
           test: /(favicon|apple-touch-icon)\.png$/,
           use: {
             loader: 'file-loader',
-            options: {
-              name: '[name]-[hash].[ext]'
-            }
+            options: { name: env === 'dev' ? '[name].[ext]' : '[name]-[hash].[ext]' }
           }
         }
       ]
-    },
-    plugins: [
-      new LicensePlugin({
-        pattern: /^(.*)$/
-      }),
-      new ExtractTextPlugin({
-        filename: '[name]-[contenthash].css'
-      }),
-      new ManifestPlugin()
-    ]
+    }
   }
 }

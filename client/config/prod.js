@@ -1,13 +1,14 @@
+const baseConfig = require('./base')
+const plugins = require('./plugins')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-const CompressionPlugin = require('compression-webpack-plugin')
 
-module.exports = function() {
-  return merge(require('./base')(), {
+module.exports = function (env) {
+  return merge.smart(baseConfig(env), {
+    output: {
+      filename: '[name]-[hash].js'
+    },
     plugins: [
-      new webpack.EnvironmentPlugin({
-        NODE_ENV: 'prod'
-      }),
       new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false
@@ -17,7 +18,14 @@ module.exports = function() {
           comments: false
         }
       }),
-      new CompressionPlugin({
+      new plugins.ExtractText({
+        filename: '[name]-[contenthash].css'
+      }),
+      new plugins.License({
+        pattern: /^(.*)$/
+      }),
+      new plugins.Manifest(),
+      new plugins.Compression({
         test: /\.(js|css)/
       })
     ]

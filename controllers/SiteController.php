@@ -86,8 +86,12 @@ class SiteController extends Controller
      */
     public function actionThirdPartyLicenses()
     {
+        $path = Yii::getAlias('@app/web/assets/3rdpartylicenses.txt');
+
         return $this->render('third-party-licenses', [
-            'licenses' => file_get_contents(Yii::getAlias('@app/web/assets/3rdpartylicenses.txt')),
+            'licenses' => file_exists($path)
+                ? file_get_contents($path)
+                : 'Licenses file was not found.',
         ]);
     }
 

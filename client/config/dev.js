@@ -1,11 +1,15 @@
+const baseConfig = require('./base')
+const plugins = require('./plugins')
 const merge = require('webpack-merge')
-const webpack = require('webpack')
 
-module.exports = function() {
-  return merge(require('./base')(), {
+module.exports = function (env) {
+  return merge.smart(baseConfig(env), {
+    output: {
+      filename: '[name].js'
+    },
     plugins: [
-      new webpack.EnvironmentPlugin({
-        NODE_ENV: 'dev'
+      new plugins.ExtractText({
+        filename: '[name].css'
       })
     ]
   })
