@@ -53,7 +53,7 @@ class Formatter extends FormatterBase
      */
     private static function getBrandIcon($value, array $domains = [])
     {
-        $icons = array_merge($domains, [
+        $icons = $domains + [
             'bandcamp.com' => 'bandcamp',
             'facebook.com' => 'facebook-square',
             'plus.google.com' => 'google-plus-square',
@@ -67,7 +67,7 @@ class Formatter extends FormatterBase
             'tumblr.com' => 'tumblr-square',
             'vimeo.com' => 'vimeo-square',
             'youtube.com' => 'youtube-square',
-        ]);
+        ];
         foreach ($icons as $domain => $icon) {
             if (false !== strpos($value, $domain)) {
                 return '<i class="fa fa-'.$icon.' fa-fw fa-lg"></i>';
