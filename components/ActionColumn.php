@@ -27,36 +27,41 @@ class ActionColumn extends ActionColumnBase
      */
     protected function initDefaultButtons()
     {
-        if (!isset($this->buttons['view'])) {
-            $this->buttons['view'] = function ($url) {
+        $this->initDefaultButton('view', 'eye');
+        $this->initDefaultButton('update', 'pencil');
+        $this->initDefaultButton('delete', 'trash-o', [
+            'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
+            'data-method' => 'post',
+        ]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function initDefaultButton($name, $iconName, $additionalOptions = [])
+    {
+        if (!isset($this->buttons[$name]) && strpos($this->template, '{' . $name . '}') !== false) {
+            $this->buttons[$name] = function ($url) use ($name, $iconName, $additionalOptions) {
+                switch ($name) {
+                    case 'view':
+                        $title = Yii::t('yii', 'View');
+                        break;
+                    case 'update':
+                        $title = Yii::t('yii', 'Update');
+                        break;
+                    case 'delete':
+                        $title = Yii::t('yii', 'Delete');
+                        break;
+                    default:
+                        $title = ucfirst($name);
+                }
                 $options = array_merge([
-                    'title' => Yii::t('yii', 'View'),
-                    'aria-label' => Yii::t('yii', 'View'),
+                    'title' => $title,
+                    'aria-label' => $title,
                     'data-pjax' => '0',
-                ], $this->buttonOptions);
-                return Html::a('<i class="fa fa-fw fa-eye"></i>', $url, $options);
-            };
-        }
-        if (!isset($this->buttons['update'])) {
-            $this->buttons['update'] = function ($url) {
-                $options = array_merge([
-                    'title' => Yii::t('yii', 'Update'),
-                    'aria-label' => Yii::t('yii', 'Update'),
-                    'data-pjax' => '0',
-                ], $this->buttonOptions);
-                return Html::a('<i class="fa fa-fw fa-pencil"></i>', $url, $options);
-            };
-        }
-        if (!isset($this->buttons['delete'])) {
-            $this->buttons['delete'] = function ($url) {
-                $options = array_merge([
-                    'title' => Yii::t('yii', 'Delete'),
-                    'aria-label' => Yii::t('yii', 'Delete'),
-                    'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
-                    'data-method' => 'post',
-                    'data-pjax' => '0',
-                ], $this->buttonOptions);
-                return Html::a('<i class="fa fa-fw fa-trash-o"></i>', $url, $options);
+                ], $additionalOptions, $this->buttonOptions);
+                $icon = Html::tag('i', '', ['class' => "fa fa-fw fa-$iconName"]);
+                return Html::a($icon, $url, $options);
             };
         }
     }
