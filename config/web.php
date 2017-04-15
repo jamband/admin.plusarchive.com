@@ -124,9 +124,6 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['127.0.0.1', '::1'],
     ];
     $config['container']['definitions'] += [
-        yii\web\JqueryAsset::class => [
-            'sourcePath' => '@app/client/node_modules/jquery/dist',
-        ],
         yii\bootstrap\BootstrapAsset::class => [
             'sourcePath' => '@app/client/node_modules/bootstrap/dist',
         ],
@@ -135,6 +132,12 @@ if (YII_ENV_DEV) {
         ],
         yii\gii\TypeAheadAsset::class => [
             'sourcePath' => '@app/client/node_modules/typeahead.js/dist',
+        ],
+        yii\web\JqueryAsset::class => [
+            'sourcePath' => '@app/client/node_modules/jquery/dist',
+        ],
+        yii\widgets\PjaxAsset::class => [
+            'sourcePath' => '@app/client/node_modules/yii2-pjax',
         ],
     ];
 }
