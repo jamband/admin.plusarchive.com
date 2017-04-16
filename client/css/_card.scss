@@ -71,6 +71,7 @@
       }
       @media (max-width: $screen-xs-max) {
         .caption {
+          position: relative;
           padding-top: 0;
           &:first-child {
             width: 100%;
@@ -92,7 +93,16 @@
       }
       .card-created-date {
         color: darken($text-color, 40%);
-        font-size: 85%;
+        @media (min-width: $screen-sm-min) {
+          font-size: 85%;
+        }
+        @media (max-width: $screen-xs-max) {
+          position: absolute;
+          bottom: -4px;
+          right: 9px;
+          display: block;
+          font-size: 72%;
+        }
         &::before {
           @include app-icon($fa-var-clock-o);
         }

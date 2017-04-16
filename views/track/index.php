@@ -65,8 +65,7 @@ $this->title = app()->name;
                                 'class' => 'label label-default',
                             ]) ?>
                         <?php endforeach ?>
-                        <br>
-                        <div class="hidden-xs text-right card-created-date">
+                        <div class="text-right card-created-date">
                             <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div><!-- /.caption -->
