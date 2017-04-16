@@ -12,15 +12,11 @@
 /**
  * @var yii\web\View $this
  * @var string $content
- * @var yii\web\Controller $context
  */
 
 use app\widgets\ToastrNotification;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 
-$context = $this->context;
 $this->render('/common/js/analytics-tracking');
 ?>
 <?php $this->beginPage() ?>
@@ -40,33 +36,7 @@ $this->render('/common/js/analytics-tracking');
 <body>
 <?php $this->beginBody() ?>
     <?= ToastrNotification::widget() ?>
-    <?php NavBar::begin([
-        'brandLabel' => h(app()->name),
-        'options' => ['class' => 'navbar-default'],
-    ]) ?>
-        <?= Nav::widget([
-            'options' => ['class' => 'navbar-nav'],
-            'items' => [
-                ['label' => 'Admin', 'url' => ['/site/admin'], 'visible' => user()->can('admin')],
-                ['label' => 'Track', 'url' => ['/track/index'], 'active' => $context->id === 'track'],
-                ['label' => 'Playlist', 'url' => ['/playlist/index'], 'active' => $context->id === 'playlist'],
-                ['label' => 'Label', 'url' => ['/label/index'], 'active' => $context->id === 'label'],
-                ['label' => 'Store', 'url' => ['/store/index'], 'active' => $context->id === 'store'],
-                ['label' => 'Bookmark', 'url' => ['/bookmark/index'], 'active' => $context->id === 'bookmark'],
-            ],
-        ]) ?>
-        <?= Nav::widget([
-            'options' => ['class' => 'navbar-nav navbar-right'],
-            'items' => [
-                ['label' => 'Contact', 'url' => ['/site/contact']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Signup', 'url' => ['/site/signup'], 'visible' => user()->can('admin')],
-                ['label' => 'Login', 'url' => ['/site/login'], 'visible' => false],
-                ['label' => 'Logout', 'url' => ['/site/logout'], 'visible' => user()->can('admin'),
-                    'linkOptions' => ['data-method' => 'post']],
-            ],
-        ]) ?>
-    <?php NavBar::end() ?>
+    <?= $this->render('navbar') ?>
     <div class="container">
         <?= $content ?>
     </div>
