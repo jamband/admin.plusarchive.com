@@ -30,7 +30,7 @@ $aid = app()->controller->action->id;
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
                 <?php if (user()->can('admin')): ?>
-                    <li class="<?= 'admin' === $aid ? 'active' : '' ?>"><a href="<?= url(['/site/admin']) ?>">Admin</a></li>
+                    <li class="<?= 'site/admin' === "$cid/$aid" ? 'active' : '' ?>"><a href="<?= url(['/site/admin']) ?>">Admin</a></li>
                 <?php endif ?>
                 <li class="<?= 'track' === $cid ? 'active' : '' ?>"><a href="<?= url(['/track/index']) ?>">Track</a></li>
                 <li class="<?= 'playlist' === $cid ? 'active' : '' ?>"><a href="<?= url(['/playlist/index']) ?>">Playlist</a></li>
