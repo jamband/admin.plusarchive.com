@@ -91,6 +91,11 @@
           color: #fff;
         }
       }
+      .card-label {
+        @media (max-width: $screen-xs-max) {
+          margin-bottom: 5px;
+        }
+      }
       .card-created-date {
         color: darken($text-color, 40%);
         @media (min-width: $screen-sm-min) {

@@ -62,30 +62,31 @@ $this->title = 'Admin Tracks - '.app()->name;
                             'class' => 'card-title',
                             'data-pjax' => '0',
                         ]) ?>
-                        <?= Html::a(h($model->statusText), ['', 'status' => $model->statusText], [
-                            'class' => 'label label-default',
-                        ]) ?>
-                        <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
-                                'class' => 'label label-default',
-                        ]) ?>
-                        <?php /** @var TrackGenre $genre */ ?>
-                        <?php foreach ($model->trackGenres as $genre): ?>
-                            <?= Html::a(h($genre->name), ['', 'genre' => $genre->name], [
+                        <div class="card-label">
+                            <?= Html::a(h($model->statusText), ['', 'status' => $model->statusText], [
                                 'class' => 'label label-default',
                             ]) ?>
-                        <?php endforeach ?>
-                        <br>
-                        <?= Html::a('<i class="fa fa-fw fa-edit"></i> Update', ['update', 'id' => $model->id], [
-                            'class' => 'label label-default',
-                            'data-pjax' => '0',
-                        ]) ?>
-                        <?= Html::a('<i class="fa fa-fw fa-trash-o"></i> Delete', ['delete', 'id' => $model->id], [
-                            'class' => 'label label-default',
-                            'data-confirm' => 'Are you sure you want to delete this item?',
-                            'data-method' => 'post',
-                        ]) ?>
-                        <br>
-                        <div class="hidden-xs text-right card-created-date">
+                            <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
+                                    'class' => 'label label-default',
+                            ]) ?>
+                            <?php /** @var TrackGenre $genre */ ?>
+                            <?php foreach ($model->trackGenres as $genre): ?>
+                                <?= Html::a(h($genre->name), ['', 'genre' => $genre->name], [
+                                    'class' => 'label label-default',
+                                ]) ?>
+                            <?php endforeach ?>
+                            <br>
+                            <?= Html::a('<i class="fa fa-fw fa-edit"></i> Update', ['update', 'id' => $model->id], [
+                                'class' => 'label label-default',
+                                'data-pjax' => '0',
+                            ]) ?>
+                            <?= Html::a('<i class="fa fa-fw fa-trash-o"></i> Delete', ['delete', 'id' => $model->id], [
+                                'class' => 'label label-default',
+                                'data-confirm' => 'Are you sure you want to delete this item?',
+                                'data-method' => 'post',
+                            ]) ?>
+                        </div>
+                        <div class="text-right card-created-date">
                             <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div><!-- /.caption -->
