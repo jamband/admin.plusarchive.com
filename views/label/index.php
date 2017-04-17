@@ -58,7 +58,7 @@ $this->title = 'Labels - '.app()->name;
                                 <div class="label label-default">
                                     <?= h($model->getAttributeLabel('link')) ?>:
                                 </div>
-                                <?= formatter()->asSnsIconLink($model->link, "\n", custom_domains_for_as_sns_icon_link(), [
+                                <?= formatter()->asSnsIconLink($model->link, "\n", custom_domains(), [
                                     'rel' => 'noopener',
                                     'target' => '_blank',
                                 ]) ?>

@@ -82,8 +82,12 @@ if (!function_exists('asset')) {
             : '/assets/'.$file;
     }
 }
-if (!function_exists('custom_domains_for_as_sns_icon_link')) {
-    function custom_domains_for_as_sns_icon_link() {
-        return array_fill_keys(jamband\ripple\Bandcamp::$hosts, 'bandcamp');
+if (!function_exists('custom_domains')) {
+    function custom_domains() {
+        static $domains;
+        if (null === $domains) {
+            $domains = array_fill_keys(jamband\ripple\Bandcamp::$hosts, 'bandcamp');
+        }
+        return $domains;
     }
 }

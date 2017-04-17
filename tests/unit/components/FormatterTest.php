@@ -77,7 +77,7 @@ class FormatterTest extends Unit
         $expected = '<a href="http://music.botanicalhouse.net"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ';
         $expected .= '<a href="http://souterraine.biz"><i class="fa fa-bandcamp fa-fw fa-lg"></i></a> ';
 
-        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, null, custom_domains_for_as_sns_icon_link()));
+        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, null, custom_domains()));
     }
 
     public function testAsSnsIconLinkWithOptionsArgument()

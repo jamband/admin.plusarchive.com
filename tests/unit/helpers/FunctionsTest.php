@@ -82,10 +82,14 @@ class FunctionsTest extends Unit
 
     }
 
-    public function testCustomDomainsForAsSnsIconLink()
+    public function testCustomDomains()
     {
-        $this->assertArrayHasKey('bandcamp.com', custom_domains_for_as_sns_icon_link());
-        $this->assertArrayHasKey('botanicalhouse.net', custom_domains_for_as_sns_icon_link());
-        $this->assertArrayHasKey('mamabirdrecordingco.com', custom_domains_for_as_sns_icon_link());
+        $domains = custom_domains();
+        $this->assertArrayHasKey('bandcamp.com', $domains);
+        $this->assertArrayHasKey('botanicalhouse.net', $domains);
+        $this->assertArrayHasKey('mamabirdrecordingco.com', $domains);
+        $this->assertSame('bandcamp', $domains['bandcamp.com']);
+        $this->assertSame('bandcamp', $domains['botanicalhouse.net']);
+        $this->assertSame('bandcamp', $domains['mamabirdrecordingco.com']);
     }
 }
