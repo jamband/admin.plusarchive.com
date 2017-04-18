@@ -1,4 +1,3 @@
-const path = require('path')
 const plugins = require('./plugins')
 
 module.exports = function (env) {
@@ -7,13 +6,13 @@ module.exports = function (env) {
       app: './entries/app.js'
     },
     output: {
-      path: path.resolve(__dirname, '../../web/assets'),
+      path: `${__dirname}/../../web/assets`,
       publicPath: '/assets/'
     },
     resolve: {
       modules: [
         'node_modules',
-        path.resolve(__dirname, '../../vendor/yiisoft/yii2/assets')
+        `${__dirname}/../../vendor/yiisoft/yii2/assets`
       ]
     },
     module: {
