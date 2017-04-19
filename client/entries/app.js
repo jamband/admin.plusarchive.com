@@ -1,7 +1,6 @@
 // app.js
 require('jquery')
 
-require('bootstrap-sass/assets/javascripts/bootstrap/alert')
 require('bootstrap-sass/assets/javascripts/bootstrap/button')
 require('bootstrap-sass/assets/javascripts/bootstrap/collapse')
 require('bootstrap-sass/assets/javascripts/bootstrap/dropdown')
