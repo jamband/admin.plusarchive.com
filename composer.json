@@ -23,7 +23,7 @@
     "files": ["helpers/functions.php"]
   },
   "scripts": {
-    "start": "composer ins -q && cd client && yarn -s && yarn run build",
+    "dev": "composer ins -q && cd client && yarn -s && yarn run dev",
     "clean": "rm -rf client/node_modules runtime/* tests/_output/* vendor web/assets/*",
     "show-asset-version": "composer show -t | grep -o 'bower-asset.*' | sort | uniq"
   }

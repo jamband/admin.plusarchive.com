@@ -35,7 +35,7 @@
   ],
   "scripts": {
     "watch": "webpack -w --env=dev",
-    "build": "webpack --env=dev",
-    "build:prod": "webpack --env=prod"
+    "dev": "webpack --env=dev",
+    "build": "webpack --env=prod"
   }
 }
