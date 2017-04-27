@@ -34,8 +34,8 @@
     "last 2 versions"
   ],
   "scripts": {
-    "watch": "webpack -w --env=dev",
-    "dev": "webpack --env=dev",
-    "build": "webpack --env=prod"
+    "watch": "webpack -w --env=dev --hide-modules --progress",
+    "dev": "webpack --env=dev --hide-modules --progress",
+    "build": "webpack --env=prod --hide-modules"
   }
 }
