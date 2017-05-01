@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5f356d2df8d5a3d94011abbe05fc287",
+    "content-hash": "321db223dce331fa6f7a12859d0356fb",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -219,16 +219,16 @@
         },
         {
             "name": "jamband/ripple",
-            "version": "v0.4.3",
+            "version": "v0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jamband/ripple.git",
-                "reference": "21bfdee0e03f38c1dfda93f70e5a35ea447e8931"
+                "reference": "7a766e1c28c680f7c557dc3bc5cd430dc843eb74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jamband/ripple/zipball/21bfdee0e03f38c1dfda93f70e5a35ea447e8931",
-                "reference": "21bfdee0e03f38c1dfda93f70e5a35ea447e8931",
+                "url": "https://api.github.com/repos/jamband/ripple/zipball/7a766e1c28c680f7c557dc3bc5cd430dc843eb74",
+                "reference": "7a766e1c28c680f7c557dc3bc5cd430dc843eb74",
                 "shasum": ""
             },
             "require": {
@@ -255,7 +255,7 @@
                     "homepage": "https://jamband.github.io/"
                 }
             ],
-            "description": "Get track information from the URL.",
+            "description": "Get a track/album information from the URL.",
             "homepage": "https://github.com/jamband/ripple",
             "keywords": [
                 "bandcamp",
@@ -266,7 +266,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2017-04-09T15:01:18+00:00"
+            "time": "2017-05-01T15:15:46+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -628,16 +628,16 @@
         },
         {
             "name": "facebook/webdriver",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "3ea034c056189e11c0ce7985332a9f4b5b2b5db2"
+                "reference": "eadb0b7a7c3e6578185197fd40158b08c3164c83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/3ea034c056189e11c0ce7985332a9f4b5b2b5db2",
-                "reference": "3ea034c056189e11c0ce7985332a9f4b5b2b5db2",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/eadb0b7a7c3e6578185197fd40158b08c3164c83",
+                "reference": "eadb0b7a7c3e6578185197fd40158b08c3164c83",
                 "shasum": ""
             },
             "require": {
@@ -676,7 +676,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2017-03-22T10:56:03+00:00"
+            "time": "2017-04-28T14:54:49+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
