@@ -25,7 +25,7 @@ class BookmarkSearch extends Bookmark
             [['name', 'country', 'link'], 'trim'],
             [['name', 'country', 'link'], 'safe'],
 
-            ['status', 'in', 'range' => array_keys(Bookmark::STATUS_DATA)],
+            ['status', 'in', 'range' => array_keys(Bookmark::STATUSES)],
         ];
     }
 

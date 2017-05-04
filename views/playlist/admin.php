@@ -47,14 +47,14 @@ $this->title = 'Admin Playlists - '.app()->name;
                 'value' => function ($model) {
                     return $model->statusText;
                 },
-                'filter' => $search::STATUS_DATA,
+                'filter' => $search::STATUSES,
             ],
             [
                 'attribute' => 'provider',
                 'value' => function ($model) {
                     return $model->providerText;
                 },
-                'filter' => $search::PROVIDER_DATA,
+                'filter' => $search::PROVIDERS,
             ],
             'provider_key',
             'created_at:datetime',

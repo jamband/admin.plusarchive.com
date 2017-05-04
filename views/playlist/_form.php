@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
     <div class="col-xs-12 col-sm-5">
         <?php $form = ActiveForm::begin() ?>
         <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'status')->dropDownList($model::STATUS_DATA) ?>
+        <?= $form->field($model, 'status')->dropDownList($model::STATUSES) ?>
         <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
             <div class="form-group">

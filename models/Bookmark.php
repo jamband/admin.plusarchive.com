@@ -39,7 +39,7 @@ class Bookmark extends ActiveRecord
     const STATUS_PRIVATE_TEXT = 'Private';
     const STATUS_PUBLISH_TEXT = 'Publish';
 
-    const STATUS_DATA = [
+    const STATUSES = [
         self::STATUS_PRIVATE => self::STATUS_PRIVATE_TEXT,
         self::STATUS_PUBLISH => self::STATUS_PUBLISH_TEXT,
     ];
@@ -87,7 +87,7 @@ class Bookmark extends ActiveRecord
      */
     public function getStatusText()
     {
-        return self::STATUS_DATA[$this->status];
+        return self::STATUSES[$this->status];
     }
 
     /**
@@ -103,7 +103,7 @@ class Bookmark extends ActiveRecord
 
             ['url', 'url'],
             ['link', 'string', 'max' => 1000],
-            ['status', 'in', 'range' => array_keys(self::STATUS_DATA)],
+            ['status', 'in', 'range' => array_keys(self::STATUSES)],
             ['tagValues', 'safe'],
         ];
     }

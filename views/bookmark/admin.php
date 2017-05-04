@@ -59,7 +59,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                 'value' => function ($model) {
                     return h($model->statusText);
                 },
-                'filter' => $search::STATUS_DATA,
+                'filter' => $search::STATUSES,
             ],
             'created_at:datetime',
             'updated_at:datetime',

@@ -25,8 +25,8 @@ class PlaylistSearch extends Track
             [['provider_key', 'title'], 'trim'],
             [['status', 'provider', 'provider_key', 'title'], 'safe'],
 
-            ['status', 'in', 'range' => array_keys(self::STATUS_DATA)],
-            ['provider', 'in', 'range' => array_keys(self::PROVIDER_DATA)],
+            ['status', 'in', 'range' => array_keys(self::STATUSES)],
+            ['provider', 'in', 'range' => array_keys(self::PROVIDERS)],
         ];
     }
 

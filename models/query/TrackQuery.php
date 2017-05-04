@@ -36,7 +36,7 @@ class TrackQuery extends ActiveQuery
      */
     public function provider($provider)
     {
-        $provider = array_search($provider, Track::PROVIDER_DATA, true);
+        $provider = array_search($provider, Track::PROVIDERS, true);
         return false === $provider ? $this : $this->andWhere(['provider' => $provider]);
     }
 
@@ -46,7 +46,7 @@ class TrackQuery extends ActiveQuery
      */
     public function status($status)
     {
-        $status = array_search($status, Track::STATUS_DATA, true);
+        $status = array_search($status, Track::STATUSES, true);
         return false === $status ? $this : $this->andWhere(['status' => $status]);
     }
 
@@ -56,7 +56,7 @@ class TrackQuery extends ActiveQuery
      */
     public function type($type)
     {
-        $type = array_search($type, Track::TYPE_DATA, true);
+        $type = array_search($type, Track::TYPES, true);
         return false === $type ? $this : $this->andWhere(['type' => $type]);
     }
 

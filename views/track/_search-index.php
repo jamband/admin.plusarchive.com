@@ -37,7 +37,7 @@ use yii\helpers\Url;
                 <ul class="dropdown-menu">
                     <li><a href="<?= Url::currentPlus(['provider' => null, 'search' => null]) ?>">Reset</a></li>
                     <li role="separator" class="divider"></li>
-                    <?php foreach (Track::PROVIDER_DATA as $provider): ?>
+                    <?php foreach (Track::PROVIDERS as $provider): ?>
                         <li><a href="<?= Url::currentPlus(['provider' => $provider, 'search' => null]) ?>"><?= h($provider) ?></a></li>
                     <?php endforeach ?>
                 </ul>

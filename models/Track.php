@@ -44,7 +44,7 @@ class Track extends ActiveRecord
     const STATUS_PRIVATE_TEXT = 'Private';
     const STATUS_PUBLISH_TEXT = 'Publish';
 
-    const STATUS_DATA = [
+    const STATUSES = [
         self::STATUS_PRIVATE => self::STATUS_PRIVATE_TEXT,
         self::STATUS_PUBLISH => self::STATUS_PUBLISH_TEXT,
     ];
@@ -59,7 +59,7 @@ class Track extends ActiveRecord
     const PROVIDER_VIMEO_TEXT = 'Vimeo';
     const PROVIDER_YOUTUBE_TEXT = 'YouTube';
 
-    const PROVIDER_DATA = [
+    const PROVIDERS = [
         self::PROVIDER_BANDCAMP => self::PROVIDER_BANDCAMP_TEXT,
         self::PROVIDER_SOUNDCLOUD => self::PROVIDER_SOUNDCLOUD_TEXT,
         self::PROVIDER_VIMEO => self::PROVIDER_VIMEO_TEXT,
@@ -74,7 +74,7 @@ class Track extends ActiveRecord
     const TYPE_ALBUM_TEXT = 'Album';
     const TYPE_PLAYLIST_TEXT = 'Playlist';
 
-    const TYPE_DATA = [
+    const TYPES = [
         self::TYPE_TRACK => self::TYPE_TRACK_TEXT,
         self::TYPE_ALBUM => self::TYPE_ALBUM_TEXT,
         self::TYPE_PLAYLIST => self::TYPE_PLAYLIST_TEXT,
@@ -123,7 +123,7 @@ class Track extends ActiveRecord
      */
     public function getStatusText()
     {
-        return self::STATUS_DATA[$this->status];
+        return self::STATUSES[$this->status];
     }
 
     /**
@@ -132,7 +132,7 @@ class Track extends ActiveRecord
      */
     public function getProviderText()
     {
-        return self::PROVIDER_DATA[$this->provider];
+        return self::PROVIDERS[$this->provider];
     }
 
     /**
@@ -141,7 +141,7 @@ class Track extends ActiveRecord
      */
     public function getTypeText()
     {
-        return self::TYPE_DATA[$this->type];
+        return self::TYPES[$this->type];
     }
 
 
@@ -156,7 +156,7 @@ class Track extends ActiveRecord
         if ($ripple->isValidUrl()) {
             $ripple->request();
 
-            $provider = array_search($ripple->provider(), self::PROVIDER_DATA, true);
+            $provider = array_search($ripple->provider(), self::PROVIDERS, true);
             $this->provider = $provider ?: null;
             $this->provider_key = $ripple->id();
             $this->title = $this->title ?: $ripple->title();
@@ -178,9 +178,9 @@ class Track extends ActiveRecord
             ['url', 'unique'],
             ['url', 'validateUrl'],
             ['url', 'validateContent'],
-            ['status', 'in', 'range' => array_keys(self::STATUS_DATA)],
+            ['status', 'in', 'range' => array_keys(self::STATUSES)],
             ['title', 'string', 'max' => 200],
-            ['type', 'in', 'range' => array_keys(self::TYPE_DATA)],
+            ['type', 'in', 'range' => array_keys(self::TYPES)],
             ['tagValues', 'safe'],
         ];
     }
