@@ -18,17 +18,6 @@ module.exports = function (env) {
     module: {
       rules: [
         {
-          test: require.resolve('jquery'),
-          use: [
-            { loader: 'expose-loader', options: 'jQuery' },
-            { loader: 'expose-loader', options: '$' }
-          ]
-        },
-        {
-          test: require.resolve('toastr'),
-          use: { loader: 'expose-loader', options: 'toastr' }
-        },
-        {
           test: /\.scss$/,
           use: plugins.ExtractText.extract([
             'css-loader', 'postcss-loader', 'sass-loader'

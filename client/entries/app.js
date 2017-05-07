@@ -1,5 +1,5 @@
 // app.js
-require('jquery')
+window.$ = window.jQuery = require('jquery')
 
 require('bootstrap-sass/assets/javascripts/bootstrap/button')
 require('bootstrap-sass/assets/javascripts/bootstrap/collapse')
@@ -19,7 +19,7 @@ require('yii2-pjax/jquery.pjax.js')
 require('masonry-layout/dist/masonry.pkgd')
 require('lazysizes/lazysizes')
 
-require('toastr/toastr')
+window.toastr = require('toastr/toastr')
 
 require('selectize/dist/js/standalone/selectize')
 
