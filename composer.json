@@ -2,7 +2,7 @@
   "require": {
     "yiisoft/yii2": "2.0.11.2",
     "creocoder/yii2-taggable": "2.0.0",
-    "jamband/ripple": "0.4.4",
+    "jamband/ripple": "0.4.5",
     "hashids/hashids": "2.0.3"
   },
   "require-dev": {
