@@ -135,6 +135,9 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        if (!user()->isGuest) {
+            return $this->goHome();
+        }
         $model = new LoginForm;
 
         if ($model->load(request()->post()) && $model->login()) {

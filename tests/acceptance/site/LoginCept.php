@@ -38,3 +38,7 @@ $I->dontSeeElement('.error-summary');
 $I->seeCurrentUrlEquals('/index-test.php');
 $I->see('Logged in successfully.');
 $I->see('Logout', '.navbar');
+
+$I->amOnPage(url(['/site/login']));
+$I->wait(1);
+$I->seeCurrentUrlEquals('/index-test.php');
