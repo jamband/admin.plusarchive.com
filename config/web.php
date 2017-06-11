@@ -106,7 +106,7 @@ $config = [
             'Vimeo' => '&autoplay=1',
         ],
         'embed-playlist' => [
-            'SoundCloud' => '&show_comments=false&show_artwork=false&color=cc6055&show_playcount=false',
+            'SoundCloud' => '&show_comments=false&color=cc6055&show_playcount=false',
             'YouTube' => '&playsinline=1',
         ],
     ],
