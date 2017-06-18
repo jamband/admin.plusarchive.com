@@ -41,7 +41,7 @@ $this->title = 'Admin Tracks - '.app()->name;
             'search' => $search,
         ]) ?>
         <?php foreach ($data->models as $model): ?>
-            <div class="col-xs-12 col-sm-3 card">
+            <div class="col-xs-12 col-sm-4 col-md-3 card">
                 <div class="thumbnail clearfix">
                     <div class="card-image-wrap">
                         <?= Html::tag('img', '', [
