@@ -16,7 +16,6 @@ use app\models\form\SignupForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\web\Controller;
 use yii\web\ErrorAction;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;

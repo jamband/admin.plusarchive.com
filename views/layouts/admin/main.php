@@ -17,7 +17,6 @@
 use app\widgets\ToastrNotification;
 use yii\helpers\Html;
 
-$this->render('/common/js/analytics-tracking');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -45,6 +44,7 @@ $this->render('/common/js/analytics-tracking');
         <a href="<?= url(['/site/third-party-licenses']) ?>">Third-Party Licenses</a>
     </footer>
     <script src="<?= asset('vendor.js') ?>"></script>
+    <script src="<?= asset('admin.js') ?>"></script>
     <script src="<?= asset('app.js') ?>"></script>
 <?php $this->endBody() ?>
 </body>

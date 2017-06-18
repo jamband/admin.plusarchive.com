@@ -29,6 +29,7 @@ $aid = app()->controller->action->id;
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
+                <li class="<?= 'site/admin' === "$cid/$aid" ? 'active' : '' ?>"><a href="<?= url(['/site/admin']) ?>">Admin</a></li>
                 <li class="<?= 'track' === $cid ? 'active' : '' ?>"><a href="<?= url(['/track/index']) ?>">Track</a></li>
                 <li class="<?= 'playlist' === $cid ? 'active' : '' ?>"><a href="<?= url(['/playlist/index']) ?>">Playlist</a></li>
                 <li class="<?= 'label' === $cid ? 'active' : '' ?>"><a href="<?= url(['/label/index']) ?>">Label</a></li>
@@ -36,6 +37,8 @@ $aid = app()->controller->action->id;
                 <li class="<?= 'bookmark' === $cid ? 'active' : '' ?>"><a href="<?= url(['/bookmark/index']) ?>">Bookmark</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li class="<?= 'signup' === $aid ? 'active' : '' ?>"><a href="<?= url(['/site/signup']) ?>">Signup</a></li>
+                <li><a href="<?= url(['/site/logout']) ?>" data-method="post">Logout</a></li>
                 <li class="<?= 'contact' === $aid ? 'active' : '' ?>"><a href="<?= url(['/site/contact']) ?>">Contact</a></li>
                 <li class="<?= 'about' === $aid ? 'active' : '' ?>"><a href="<?= url(['/site/about']) ?>">About</a></li>
             </ul>

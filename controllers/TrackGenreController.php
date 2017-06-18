@@ -15,7 +15,6 @@ use app\models\search\TrackGenreSearch;
 use app\models\TrackGenre;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 

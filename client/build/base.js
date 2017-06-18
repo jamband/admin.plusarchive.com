@@ -1,19 +1,21 @@
 const plugins = require('./plugins')
+const webpack = require('webpack')
 
 module.exports = function (env) {
   return {
     entry: {
-      app: './entries/app.js'
+      vendor: './entries/vendor.js',
+      app: './entries/app.js',
+      admin: './entries/admin.js'
     },
     output: {
       path: `${__dirname}/../../web/assets`,
       publicPath: '/assets/'
     },
     resolve: {
-      modules: [
-        'node_modules',
-        `${__dirname}/../../vendor/yiisoft/yii2/assets`
-      ]
+      alias: {
+        '~yii': `${__dirname}/../../vendor/yiisoft/yii2/assets`
+      }
     },
     module: {
       rules: [
@@ -24,17 +26,19 @@ module.exports = function (env) {
           ])
         },
         {
-          test: /\.(eot|woff2?|svg|ttf)$/,
-          use: 'file-loader'
-        },
-        {
-          test: /(favicon|apple-touch-icon)\.png$/,
+          test: /\.(png|eot|woff|woff2|svg|ttf)$/,
           use: {
             loader: 'file-loader',
             options: { name: env === 'dev' ? '[name].[ext]' : '[name]-[hash].[ext]' }
           }
         }
       ]
-    }
+    },
+    plugins: [
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        chunks: ['app', 'admin']
+      })
+    ]
   }
 }
