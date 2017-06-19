@@ -26,7 +26,7 @@ module.exports = function (env) {
       }),
       new plugins.Manifest(),
       new plugins.Compression({
-        test: /\.(js|css)/
+        test: /\.(js|css)$/
       })
     ]
   })
