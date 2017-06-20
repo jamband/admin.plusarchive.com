@@ -35,6 +35,7 @@ module.exports = function (env) {
       ]
     },
     plugins: [
+      new webpack.optimize.ModuleConcatenationPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
         chunks: ['app', 'admin']
