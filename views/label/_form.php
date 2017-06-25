@@ -20,8 +20,7 @@ use yii\widgets\ActiveForm;
 
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-1"></div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'country')->textInput(['maxlength' => true]) ?>
@@ -33,13 +32,12 @@ use yii\widgets\ActiveForm;
             </div>
         <?php ActiveForm::end() ?>
     </div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5">
         <div class="alert alert-info">
             <i class="fa fa-info-circle"></i>
             <strong><?= h($model->getAttributeLabel('link')) ?></strong> が複数ある場合は改行で区切って入力してください。
         </div>
     </div>
-    <div class="col-xs-12 col-sm-1"></div>
 </div><!-- /.row -->
 
 <?= $this->render('/common/js/selectize', [

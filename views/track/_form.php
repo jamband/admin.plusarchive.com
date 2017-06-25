@@ -20,8 +20,7 @@ use yii\widgets\ActiveForm;
 
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-1"></div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'status')->dropDownList($model::STATUSES) ?>
@@ -33,7 +32,7 @@ use yii\widgets\ActiveForm;
             </div>
         <?php ActiveForm::end() ?>
     </div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5">
         <div class="alert alert-info">
             <i class="fa fa-info-circle"></i>
             <?= h($model->getAttributeLabel('title')) ?> と
@@ -42,7 +41,6 @@ use yii\widgets\ActiveForm;
             もし独自のものに変更したい場合は、フォームから直接入力することもできます。
         </div>
     </div>
-    <div class="col-xs-12 col-sm-1"></div>
 </div><!-- /.row -->
 
 <?= $this->render('/common/js/selectize', [

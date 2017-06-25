@@ -16,11 +16,9 @@
 $this->title = 'About - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-1"></div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
         <?= $this->render('_description') ?>
     </div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-1">
     </div>
-    <div class="col-xs-12 col-sm-1"></div>
 </div><!-- /.row -->

@@ -20,11 +20,10 @@ use yii\helpers\Html;
 $this->title = 'Playlists - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-1"></div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
         <h2>Playlists <small>via SoundCloud or YouTube</small></h2>
     </div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5">
         <ul class="playlist-title">
             <?php /** @var Track $model */ ?>
             <?php foreach ($data->models as $model): ?>
@@ -32,5 +31,4 @@ $this->title = 'Playlists - '.app()->name;
             <?php endforeach ?>
         </ul>
     </div>
-    <div class="col-xs-12 col-sm-1"></div>
 </div><!-- /.row -->

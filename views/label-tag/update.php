@@ -23,8 +23,7 @@ $this->title = "Update Bookmark Tags: $model->name - ".app()->name;
 <?= $this->render('/common/nav/update', ['model' => $model]) ?>
 
 <div class="row">
-    <div class="col-xs-12 col-sm-1"></div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
             <div class="form-group">
@@ -32,6 +31,6 @@ $this->title = "Update Bookmark Tags: $model->name - ".app()->name;
             </div>
         <?php ActiveForm::end() ?>
     </div>
-    <div class="col-xs-12 col-sm-5"></div>
-    <div class="col-xs-12 col-sm-1"></div>
+    <div class="col-xs-12 col-sm-6 col-md-5">
+    </div>
 </div><!-- /.row -->

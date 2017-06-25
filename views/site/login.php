@@ -21,11 +21,10 @@ use yii\helpers\Html;
 $this->title = 'Login - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-1"></div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
         <h2>Log in</h2>
     </div>
-    <div class="col-xs-12 col-sm-5">
+    <div class="col-xs-12 col-sm-6 col-md-5">
         <?php $form = ActiveForm::begin(['fieldConfig' => ['template' => "{label}\n{input}"]]) ?>
             <?= $form->errorSummary($model) ?>
             <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
@@ -36,5 +35,4 @@ $this->title = 'Login - '.app()->name;
             </div>
         <?php ActiveForm::end() ?>
     </div>
-    <div class="col-xs-12 col-sm-1"></div>
 </div><!-- /.row -->
