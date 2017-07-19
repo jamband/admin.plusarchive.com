@@ -1,0 +1,11 @@
+/*!
+ * Loaders.css (https://connoratherton.com/loaders)
+ * Copyright (c) 2016 Connor Atherton
+ * The MIT License (MIT)
+ */
+
+@import "~loaders.css/src/animations/line-scale";
+
+.line-scale > div {
+  background: $gray-light;
+}

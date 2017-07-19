@@ -11,38 +11,26 @@
 @import "mixins/icons";
 @import "mixins/text-truncate";
 
-// Bootstrap
-@import "bootstrap";
+// Vendor
+@import "vendor/bootstrap";
+@import "vendor/lazysizes";
+@import "vendor/toastr";
+@import "vendor/selectize";
+@import "vendor/loaders";
 
 // Components
-@import "layout";
-@import "scaffolding";
-@import "type";
-@import "buttons";
-@import "dropdowns";
-@import "forms";
-@import "labels";
-@import "navbar";
-@import "responsive-embed";
-@import "pagination";
-@import "views";
-@import "card";
-@import "now-playing";
-@import "playlist";
-@import "other";
-
-// lazysizes
-@import "lazysizes";
-
-// Toastr
-@import "~toastr/toastr";
-@import "toastr";
-
-// Selectize
-@import "~selectize/dist/css/selectize.bootstrap3";
-@import "selectize";
-
-// Loaders.css
-@import "loaders-license";
-@import "~loaders.css/src/animations/line-scale";
-@import "loaders";
+@import "components/layout";
+@import "components/scaffolding";
+@import "components/type";
+@import "components/buttons";
+@import "components/dropdowns";
+@import "components/forms";
+@import "components/labels";
+@import "components/navbar";
+@import "components/responsive-embed";
+@import "components/pagination";
+@import "components/views";
+@import "components/card";
+@import "components/now-playing";
+@import "components/playlist";
+@import "components/other";
