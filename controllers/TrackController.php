@@ -75,7 +75,10 @@ class TrackController extends Controller
         }
 
         return $this->render('index', [
-            'data' => new ActiveDataProvider(['query' => $query]),
+            'data' => new ActiveDataProvider([
+                'query' => $query,
+                'pagination' => ['pageSize' => 24],
+            ]),
             'provider' => $provider ?: 'Providers',
             'genre' => $genre ?: 'Genres',
             'search' => $search,
@@ -155,7 +158,10 @@ class TrackController extends Controller
         }
 
         return $this->render('admin', [
-            'data' => new ActiveDataProvider(['query' => $query]),
+            'data' => new ActiveDataProvider([
+                'query' => $query,
+                'pagination' => ['pageSize' => 24],
+            ]),
             'provider' => $provider ?: 'Providers',
             'sort' => $sort ?: 'Sort',
             'genre' => $genre ?: 'Genres',

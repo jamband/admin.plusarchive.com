@@ -2,5 +2,10 @@
   padding: .2em .3em .3em;
 }
 .label-default {
-  font-size: 90%;
+  @media (min-width: $screen-sm-min) {
+    font-size: 95%;
+  }
+  @media (max-width: $screen-xs-max) {
+    font-size: 90%;
+  }
 }

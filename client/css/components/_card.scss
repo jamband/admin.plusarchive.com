@@ -86,6 +86,9 @@
         font-weight: bold;
         color: $text-color;
         @include text-truncate();
+        @media (min-width: $screen-sm-min) {
+          font-size: 105%;
+        }
         &:hover,
         &:active {
           color: #fff;
