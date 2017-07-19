@@ -1,6 +1,6 @@
 require('bootstrap-hover-dropdown/bootstrap-hover-dropdown')
 
-require('~yii/yii.gridView')
+require('../../vendor/yiisoft/yii2/assets/yii.gridView')
 
 require('selectize/dist/js/standalone/selectize')
 

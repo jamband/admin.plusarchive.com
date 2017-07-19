@@ -6,9 +6,9 @@ require('bootstrap-sass/assets/javascripts/bootstrap/dropdown')
 require('bootstrap-sass/assets/javascripts/bootstrap/modal')
 require('bootstrap-sass/assets/javascripts/bootstrap/transition')
 
-require('~yii/yii')
-require('~yii/yii.activeForm')
-require('~yii/yii.validation')
+require('../../vendor/yiisoft/yii2/assets/yii')
+require('../../vendor/yiisoft/yii2/assets/yii.activeForm')
+require('../../vendor/yiisoft/yii2/assets/yii.validation')
 require('yii2-pjax/jquery.pjax')
 
 require('masonry-layout/dist/masonry.pkgd')

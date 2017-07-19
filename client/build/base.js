@@ -12,11 +12,6 @@ module.exports = function (env) {
       path: `${__dirname}/../../web/assets`,
       publicPath: '/assets/'
     },
-    resolve: {
-      alias: {
-        '~yii': `${__dirname}/../../vendor/yiisoft/yii2/assets`
-      }
-    },
     module: {
       rules: [
         {
