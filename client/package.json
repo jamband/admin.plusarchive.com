@@ -33,8 +33,8 @@
     "last 2 versions"
   ],
   "scripts": {
-    "watch": "webpack -w --env=dev --hide-modules --progress",
-    "dev": "webpack --env=dev --hide-modules --progress",
-    "build": "webpack --env=prod --hide-modules"
+    "watch": "NODE_ENV=development webpack -w --config build/dev.js --hide-modules",
+    "dev": "NODE_ENV=development webpack --config build/dev.js --hide-modules",
+    "build": "NODE_ENV=production webpack --config build/prod.js --hide-modules"
   }
 }
