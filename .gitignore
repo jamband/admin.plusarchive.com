@@ -1,5 +1,5 @@
 .env
 .idea
 /vendor
-/client/node_modules
+/node_modules
 /web/assets

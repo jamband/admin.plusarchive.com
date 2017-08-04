@@ -3,12 +3,12 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    vendor: './entries/vendor.js',
-    app: './entries/app.js',
-    admin: './entries/admin.js'
+    vendor: './client/entries/vendor.js',
+    app: './client/entries/app.js',
+    admin: './client/entries/admin.js'
   },
   output: {
-    path: `${__dirname}/../../web/assets`,
+    path: `${__dirname}/../web/assets`,
     publicPath: '/assets/',
     jsonpFunction: 'plusarchive'
   },
@@ -24,9 +24,10 @@ module.exports = {
         test: /\.(png|eot|woff|woff2|svg|ttf)$/,
         use: {
           loader: 'file-loader',
-          options: { name: process.env.NODE_ENV === 'production'
-            ? '[name]-[hash].[ext]'
-            : '[name].[ext]'
+          options: {
+            name: process.env.NODE_ENV === 'production'
+              ? '[name]-[hash].[ext]'
+              : '[name].[ext]'
           }
         }
       }

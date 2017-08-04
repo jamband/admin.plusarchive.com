@@ -125,19 +125,19 @@ if (YII_ENV_DEV) {
     ];
     $config['container']['definitions'] += [
         yii\bootstrap\BootstrapAsset::class => [
-            'sourcePath' => '@app/client/node_modules/bootstrap/dist',
+            'sourcePath' => '@app/node_modules/bootstrap/dist',
         ],
         yii\bootstrap\BootstrapPluginAsset::class => [
-            'sourcePath' => '@app/client/node_modules/bootstrap/dist',
+            'sourcePath' => '@app/node_modules/bootstrap/dist',
         ],
         yii\gii\TypeAheadAsset::class => [
-            'sourcePath' => '@app/client/node_modules/typeahead.js/dist',
+            'sourcePath' => '@app/node_modules/typeahead.js/dist',
         ],
         yii\web\JqueryAsset::class => [
-            'sourcePath' => '@app/client/node_modules/jquery/dist',
+            'sourcePath' => '@app/node_modules/jquery/dist',
         ],
         yii\widgets\PjaxAsset::class => [
-            'sourcePath' => '@app/client/node_modules/yii2-pjax',
+            'sourcePath' => '@app/node_modules/yii2-pjax',
         ],
     ];
 }
