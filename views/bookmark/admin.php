@@ -16,6 +16,7 @@
  */
 
 use app\components\ActionColumn;
+use app\models\BookmarkTag;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -53,7 +54,11 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                     'target' => '_blank',
                 ]],
             ],
-            'tagValues',
+            [
+                'attribute' => 'tag',
+                'value' => 'tagValues',
+                'filter' => array_combine($tags = BookmarkTag::getNames()->column(), $tags),
+            ],
             [
                 'attribute' => 'status',
                 'value' => function ($model) {

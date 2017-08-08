@@ -22,8 +22,8 @@ class PlaylistSearch extends Track
     public function rules()
     {
         return [
-            [['provider_key', 'title'], 'trim'],
-            [['status', 'provider', 'provider_key', 'title'], 'safe'],
+            [['title'], 'trim'],
+            [['status', 'provider', 'title'], 'safe'],
 
             ['status', 'in', 'range' => array_keys(self::STATUSES)],
             ['provider', 'in', 'range' => array_keys(self::PROVIDERS)],

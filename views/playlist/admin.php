@@ -45,14 +45,14 @@ $this->title = 'Admin Playlists - '.app()->name;
             [
                 'attribute' => 'status',
                 'value' => function ($model) {
-                    return $model->statusText;
+                    return h($model->statusText);
                 },
                 'filter' => $search::STATUSES,
             ],
             [
                 'attribute' => 'provider',
                 'value' => function ($model) {
-                    return $model->providerText;
+                    return h($model->providerText);
                 },
                 'filter' => $search::PROVIDERS,
             ],

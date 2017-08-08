@@ -13,17 +13,23 @@ namespace app\models\search;
 
 use yii\data\ActiveDataProvider;
 use app\models\Store;
+use app\models\StoreTag;
 
 class StoreSearch extends Store
 {
+    public $tag;
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['name', 'country', 'link'], 'trim'],
-            [['name', 'country', 'link'], 'safe'],
+            [['name', 'link'], 'trim'],
+            [['name', 'country', 'link', 'tag'], 'safe'],
+
+            ['country', 'in', 'range' => static::getCountries()],
+            ['tag', 'in', 'range' => StoreTag::getNames()->column()],
         ];
     }
 
@@ -46,9 +52,13 @@ class StoreSearch extends Store
             ],
         ]);
         if ($this->load($params) && $this->validate()) {
-            $query->andFilterWhere(['like', 'name', $this->name])
+            $query->andFilterWhere(['like', static::tableName().'.name', $this->name])
                 ->andFilterWhere(['country' => $this->country])
                 ->andFilterWhere(['like', 'link', $this->link]);
+
+            if ('' !== $this->tag) {
+                $query->allTagValues($this->tag);
+            }
         }
 
         return $data;

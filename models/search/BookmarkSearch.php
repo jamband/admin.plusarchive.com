@@ -11,21 +11,26 @@
 
 namespace app\models\search;
 
-use yii\data\ActiveDataProvider;
 use app\models\Bookmark;
+use app\models\BookmarkTag;
+use yii\data\ActiveDataProvider;
 
 class BookmarkSearch extends Bookmark
 {
+    public $tag;
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['name', 'country', 'link'], 'trim'],
-            [['name', 'country', 'link'], 'safe'],
+            [['name', 'link'], 'trim'],
+            [['name', 'country', 'link', 'status', 'tag'], 'safe'],
 
-            ['status', 'in', 'range' => array_keys(Bookmark::STATUSES)],
+            ['country', 'in', 'range' => static::getCountries()],
+            ['status', 'in', 'range' => array_keys(self::STATUSES)],
+            ['tag', 'in', 'range' => BookmarkTag::getNames()->column()],
         ];
     }
 
@@ -48,10 +53,14 @@ class BookmarkSearch extends Bookmark
             ],
         ]);
         if ($this->load($params) && $this->validate()) {
-            $query->andFilterWhere(['like', 'name', $this->name])
+            $query->andFilterWhere(['like', static::tableName().'.name', $this->name])
                 ->andFilterWhere(['country' => $this->country])
                 ->andFilterWhere(['like', 'link', $this->link])
                 ->andFilterWhere(['status' => $this->status]);
+
+            if ('' !== $this->tag) {
+                $query->allTagValues($this->tag);
+            }
         }
 
         return $data;

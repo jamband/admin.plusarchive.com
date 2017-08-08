@@ -16,6 +16,7 @@
  */
 
 use app\components\ActionColumn;
+use app\models\LabelTag;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -53,7 +54,11 @@ $this->title = 'Admin Labels - '.app()->name;
                     'target' => '_blank',
                 ]],
             ],
-            'tagValues',
+            [
+                'attribute' => 'tag',
+                'value' => 'tagValues',
+                'filter' => array_combine($tags = LabelTag::getNames()->column(), $tags),
+            ],
             'created_at:datetime',
             'updated_at:datetime',
             ['class' => ActionColumn::class],
