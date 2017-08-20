@@ -24,7 +24,7 @@
     "files": ["helpers/functions.php"]
   },
   "scripts": {
-    "dev": "composer ins -q && yarn -s && npm run dev",
+    "dev": "composer ins -q && npm i -s && npm run dev",
     "clean": "rm -rf node_modules runtime/* tests/_output/* vendor web/assets/*",
     "show-asset-version": "composer show -t | grep -o 'bower-asset.*' | sort | uniq"
   }

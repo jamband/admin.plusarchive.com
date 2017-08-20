@@ -21,7 +21,8 @@ module.exports = merge.smart(baseConfig, {
       filename: '[name]-[contenthash].css'
     }),
     new plugins.License({
-      pattern: /^(.*)$/
+      pattern: /^(.*)$/,
+      perChunkOutput: false
     }),
     new plugins.Manifest(),
     new plugins.Compression({
