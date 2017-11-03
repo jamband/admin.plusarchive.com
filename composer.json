@@ -1,10 +1,10 @@
 {
   "require": {
     "php": ">= 7.0.0",
-    "yiisoft/yii2": "2.0.12",
+    "yiisoft/yii2": "2.0.13",
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.4.5",
-    "hashids/hashids": "2.0.3"
+    "hashids/hashids": "2.0.4"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "2.0.12",
@@ -14,7 +14,7 @@
   },
   "provide": {
     "bower-asset/jquery": "*",
-    "bower-asset/jquery.inputmask": "*",
+    "bower-asset/inputmask": "*",
     "bower-asset/bootstrap": "*",
     "bower-asset/punycode": "*",
     "bower-asset/yii2-pjax": "*",
