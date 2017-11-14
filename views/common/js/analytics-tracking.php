@@ -23,7 +23,7 @@ JS
 , yii\web\View::POS_HEAD);
 
 $this->registerJs(<<<'JS'
-$(document).on('pjax:end', function() {
+$(document).on('pjax:end', function () {
     ga('set', 'location', window.location.href);
     ga('send', 'pageview');
 });

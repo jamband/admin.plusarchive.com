@@ -14,7 +14,7 @@
  */
 
 $this->registerJs(<<<'JS'
-$(document).on('click', '.card-image', function() {
+$(document).on('click', '.card-image', function () {
     var $this = $(this);
     $.ajax($this.attr('data-action'), {
         timeout: 10000,
@@ -25,9 +25,9 @@ $(document).on('click', '.card-image', function() {
           provider: $this.attr('data-provider'),
           key: $this.attr('data-key')
         }
-    }).done(function(data) {
+    }).done(function (data) {
         $('#now-playing').hide().html(data).fadeIn();
-    }).fail(function(data) {
+    }).fail(function (data) {
         alert('Request failure.');
     });
 });

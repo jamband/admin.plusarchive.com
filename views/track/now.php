@@ -54,14 +54,14 @@ if (/^(Vimeo|YouTube)$/.test($iframe.attr('data-provider'))) {
 }
 $modal.modal('show');
 
-$iframe.load(function() {
+$iframe.on('load', function () {
     $('.now-playing-loading').fadeOut();
 });
-$(document).on('click', '.now-playing-title', function() {
+$(document).on('click', '.now-playing-title', function () {
     $('#track-modal').modal('show');
 });
-$(document).on('click', '.now-playing-clear', function() {
-    $('#now-playing').children().fadeOut(function() {
+$(document).on('click', '.now-playing-clear', function () {
+    $('#now-playing').children().fadeOut(function () {
         $(this).remove();
     });
 });

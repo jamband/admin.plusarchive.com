@@ -14,11 +14,13 @@
  */
 
 $this->registerJs(<<<'JS'
-$(document).on('ready pjax:success', function() {
+var card = function () {
     var $card = $('.card-container').masonry({ transitionDuration: 0 });
-    $(window).load(function() {
+    $(window).on('load', function () {
         $card.masonry('layout');
     });
-});
+}
+$(card);
+$(document).on('pjax:success', card);
 JS
 );

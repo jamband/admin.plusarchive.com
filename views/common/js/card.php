@@ -14,19 +14,21 @@
  */
 
 $this->registerJs(<<<'JS'
-$(document).on('ready pjax:success', function() {
+var card = function () {
     var $container = $('.card-container');
-    $container.each(function() {
-        this.addEventListener('load', function() {
+    $container.each(function () {
+        this.addEventListener('load', function () {
             $container.masonry({transitionDuration: 0});
         }, true);
     });
-    $(document).on('lazybeforeunveil', function(){
+    $(document).on('lazybeforeunveil', function () {
         $container.find('.card-play').css({
             'opacity': .6,
             'transition': 'opacity 200ms'
         });
     });
-});
+}
+$(card);
+$(document).on('pjax:success', card);
 JS
 );

@@ -56,7 +56,7 @@ $I->see('track2', '.thumbnail');
 $I->click('#search-status');
 $I->click('Private', '#search-status + .dropdown-menu');
 $I->wait(1);
-$I->seeCurrentUrlEquals('/index-test.php/track/admin?&status=Private');
+$I->seeCurrentUrlEquals('/index-test.php/track/admin?status=Private');
 $I->see('Admin: 1', '#menu-action');
 $I->see('track5', '.thumbnail');
 $I->dontSee('track1', '.thumbnail');

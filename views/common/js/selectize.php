@@ -24,15 +24,15 @@ $('$id').selectize({
     searchField: 'name',
     create: true,
     plugins: ['remove_button'],
-    load: function(query, callback) {
+    load: function (query, callback) {
         if (!query.length) {
             return callback();
         }
         $.getJSON('$url', {
             query: query
-        }).done(function(data) {
+        }).done(function (data) {
             callback(data);
-        }).fail(function() {
+        }).fail(function () {
             alert('Request failure');
         });
     }
