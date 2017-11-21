@@ -15,6 +15,7 @@ use app\models\Track;
 use jamband\ripple\Ripple;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
+use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -46,6 +47,10 @@ class TrackController extends Controller
                 'actions' => [
                     'delete' => ['post'],
                 ],
+            ],
+            [
+                'class' => AjaxFilter::class,
+                'only' => ['now'],
             ],
         ];
     }
@@ -94,13 +99,9 @@ class TrackController extends Controller
      * @param string $provider
      * @param string $key provider key
      * @return string
-     * @throws NotFoundHttpException
      */
     public function actionNow($id = null, $url = null, $title = null, $provider = null, $key = null)
     {
-        if (!request()->isAjax) {
-            throw new NotFoundHttpException('Page not found.');
-        }
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-track-modal']);
 

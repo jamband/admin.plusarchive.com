@@ -15,4 +15,4 @@ $I = new AcceptanceTester($scenario);
 $I->haveFixtures(['tracks' => app\tests\acceptance\fixtures\TrackFixture::class]);
 
 $I->wantTo('ensure that track/now works');
-$I->seePageNotFound(['/track/now', 'id' => 1]);
+$I->seeBadRequest(['/track/now', 'id' => 1]);

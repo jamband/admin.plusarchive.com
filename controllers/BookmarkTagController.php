@@ -14,6 +14,7 @@ namespace app\controllers;
 use app\models\BookmarkTag;
 use app\models\search\BookmarkTagSearch;
 use yii\filters\AccessControl;
+use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -46,6 +47,10 @@ class BookmarkTagController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            [
+                'class' => AjaxFilter::class,
+                'only' => ['list'],
+            ],
         ];
     }
 
@@ -64,13 +69,9 @@ class BookmarkTagController extends Controller
     /**
      * Returns all tag names.
      * @return Response
-     * @throws NotFoundHttpException
      */
     public function actionList()
     {
-        if (!request()->isAjax) {
-            throw new NotFoundHttpException('Page not found.');
-        }
         return $this->asJson(BookmarkTag::getNames()->all());
     }
 

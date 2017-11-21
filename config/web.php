@@ -52,11 +52,18 @@ $config = [
     ],
     'container' => [
         'definitions' => [
+            yii\captcha\Captcha::class => [
+                'template' => '<p>{image} <span class="captcha-refresh label label-default">'.
+                    '<i class="fa fa-fw fa-refresh"></i> Refresh</span></p>'."\n{input}",
+            ],
             yii\data\Pagination::class => [
                 'pageSizeParam' => false,
             ],
             yii\data\Sort::class => [
                 'class' => app\components\Sort::class,
+            ],
+            yii\filters\AjaxFilter::class => [
+                'errorMessage' => 'Invalid request.',
             ],
             yii\grid\GridView::class => [
                 'layout' => '{items}',
@@ -79,10 +86,6 @@ $config = [
             ],
             yii\widgets\Pjax::class => [
                 'scrollTo' => 0,
-            ],
-            yii\captcha\Captcha::class => [
-                'template' => '<p>{image} <span class="captcha-refresh label label-default">'.
-                    '<i class="fa fa-fw fa-refresh"></i> Refresh</span></p>'."\n{input}",
             ],
             app\widgets\ToastrNotification::class => [
                 'options' => [

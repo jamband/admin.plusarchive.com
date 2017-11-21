@@ -41,6 +41,16 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @param array|string $url
      */
+    public function seeBadRequest($url)
+    {
+        $I = $this;
+        $I->amOnPage(url($url));
+        $I->see('Invalid request.');
+    }
+
+    /**
+     * @param array|string $url
+     */
     public function seePageNotFound($url)
     {
         $I = $this;
@@ -55,6 +65,6 @@ class AcceptanceTester extends \Codeception\Actor
     {
         $I = $this;
         $I->amOnPage(url($url));
-        $I->see('Method Not Allowed.');
+        $I->see('Method not allowed.');
     }
 }

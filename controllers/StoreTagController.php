@@ -14,6 +14,7 @@ namespace app\controllers;
 use app\models\search\StoreTagSearch;
 use app\models\StoreTag;
 use yii\filters\AccessControl;
+use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -46,6 +47,10 @@ class StoreTagController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+            [
+                'class' => AjaxFilter::class,
+                'only' => ['list'],
+            ],
         ];
     }
 
@@ -64,13 +69,9 @@ class StoreTagController extends Controller
     /**
      * Returns all tag name.
      * @return Response
-     * @throws NotFoundHttpException
      */
     public function actionList()
     {
-        if (!request()->isAjax) {
-            throw new NotFoundHttpException('Page not found.');
-        }
         return $this->asJson(StoreTag::getNames()->all());
     }
 
