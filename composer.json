@@ -7,10 +7,10 @@
     "hashids/hashids": "2.0.4"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "2.0.12",
-    "yiisoft/yii2-gii": "2.0.5",
+    "yiisoft/yii2-debug": "2.0.13",
+    "yiisoft/yii2-gii": "2.0.6",
     "vlucas/phpdotenv": "2.4.0",
-    "codeception/codeception": "2.3.6"
+    "codeception/codeception": "2.3.7"
   },
   "provide": {
     "bower-asset/jquery": "*",
