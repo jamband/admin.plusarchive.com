@@ -28,9 +28,9 @@ class Toastr extends Widget
     public $message;
 
     /**
-     * @var array
+     * @var string
      */
-    public $options = [];
+    public $options;
 
     private $_allowedTypes = [
         'info',
