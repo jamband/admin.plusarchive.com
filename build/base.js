@@ -1,3 +1,4 @@
+const path = require('path')
 const plugins = require('./plugins')
 const webpack = require('webpack')
 
@@ -8,7 +9,7 @@ module.exports = {
     admin: './client/entries/admin.js'
   },
   output: {
-    path: `${__dirname}/../web/assets`,
+    path: path.resolve(__dirname, '../web/assets'),
     publicPath: '/assets/',
     jsonpFunction: 'plusarchive'
   },
