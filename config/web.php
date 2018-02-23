@@ -128,10 +128,10 @@ if (YII_ENV_DEV) {
     ];
     $config['container']['definitions'] += [
         yii\bootstrap\BootstrapAsset::class => [
-            'sourcePath' => '@app/node_modules/bootstrap/dist',
+            'sourcePath' => '@vendor/twbs/bootstrap/dist',
         ],
         yii\bootstrap\BootstrapPluginAsset::class => [
-            'sourcePath' => '@app/node_modules/bootstrap/dist',
+            'sourcePath' => '@vendor/twbs/bootstrap/dist',
         ],
         yii\gii\TypeAheadAsset::class => [
             'sourcePath' => '@app/node_modules/typeahead.js/dist',

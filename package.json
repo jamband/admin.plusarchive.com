@@ -1,7 +1,6 @@
 {
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "bootstrap-hover-dropdown": "^2.2.1",
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.7.0",
