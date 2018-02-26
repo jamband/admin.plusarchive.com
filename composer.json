@@ -1,7 +1,7 @@
 {
   "require": {
     "php": ">= 7.0.0",
-    "yiisoft/yii2": "2.0.14",
+    "yiisoft/yii2": "2.0.14.1",
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.4.5",
     "hashids/hashids": "2.0.4"
