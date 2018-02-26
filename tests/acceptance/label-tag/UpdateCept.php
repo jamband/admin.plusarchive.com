@@ -29,7 +29,7 @@ $I->seeInField('#labeltag-name', 'tag1');
 $I->fillField('#labeltag-name', '');
 $I->click('button[type=submit]');
 $I->wait(1);
-$I->seeElement('.has-error');
+$I->seeElement('.is-invalid');
 
 $I->fillField('#labeltag-name', 'tag-one');
 $I->click('button[type=submit]');
@@ -43,12 +43,11 @@ $I->dontSee('tag1', '.grid-view');
 $I->click('//*[@id="grid-view-label-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/label-tag/update/1');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->seeInPopup('Are you sure you want to delete this item?');
 $I->cancelPopup();
 
-$I->moveMouseOver('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->acceptPopup();
 $I->seeCurrentUrlEquals('/index-test.php/label-tag/admin');

@@ -1,128 +1,93 @@
-.card-search {
-  .thumbnail {
-    @media (min-width: $screen-sm-min) {
-      box-shadow: 1px 1px 1px rgba(0,0,0,.2);
-    }
-    @media (max-width: $screen-xs-max) {
-      border: none;
-      background: none;
-    }
-  }
-}
+@import "../variables/body";
+@import "../variables/components";
+@import "~font-awesome/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../mixins/icons";
+
 .card-container {
   .card {
-    @media (max-width: $screen-xs-max) {
-      &:first-child {
-        .thumbnail {
-          border: none;
-          .caption {
-            overflow: visible;
-          }
-        }
-      }
+    position: relative;
+
+    @include media-breakpoint-only(xs) {
+      flex-direction: row;
+      background-color: $body-bg;
     }
-    .thumbnail {
-      .card-image-wrap {
-        position: relative;
-        @media (max-width: $screen-xs-max) {
-          width: 30%;
-          height: 30%;
+
+    @include media-breakpoint-up(sm) {
+      display: block;
+      background-color: $gray-800;
+      box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+    }
+
+    .card-img-wrap {
+      position: relative;
+
+      @include media-breakpoint-only(xs) {
+        width: 30%;
+        height: 30%;
+      }
+
+      .card-img-top {
+        cursor: pointer;
+
+        @include media-breakpoint-only(xs) {
+          border-radius: $border-radius-sm;
         }
       }
-      @media (min-width: $screen-sm-min) {
-        box-shadow: 2px 2px 3px rgba(0, 0, 0, .2);
-      }
-      @media (max-width: $screen-xs-max) {
-        display: flex;
-        margin-bottom: 11px;
-        padding-bottom: 11px;
-        border-bottom: 1px solid $gray-dark;
-        background: none;
-      }
-      .card-image {
-        width: 100%;
-        @media (min-width: $screen-sm-min) {
-          border-radius: $border-radius-base $border-radius-base 0 0;
-          cursor: pointer;
-        }
-        @media (max-width: $screen-xs-max) {
-          margin-right: 15px;
-          border-radius: $border-radius-base;
-          box-shadow: 1px 1px 2px rgba(0,0,0,.2);
-        }
-      }
+
       .card-play {
         opacity: 0;
+
         &::before {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          color: #fff;
+          color: $white;
           pointer-events: none;
           @include app-icon($fa-var-play-circle-o);
-          @media (min-width: $screen-sm-min) {
+
+          @include media-breakpoint-up(sm) {
             font-size: 250%;
           }
-          @media (max-width: $screen-xs-max) {
+          @include media-breakpoint-only(xs) {
             font-size: 150%;
           }
         }
       }
-      @media (max-width: $screen-xs-max) {
-        .caption {
-          position: relative;
-          padding-top: 0;
-          &:first-child {
-            width: 100%;
-          }
-          &:not(:first-child) {
-            width: 70%;
-          }
-        }
-      }
-      .card-title {
-        display: block;
-        font-weight: bold;
-        color: $text-color;
-        @include text-truncate();
-        @media (min-width: $screen-sm-min) {
-          font-size: 105%;
-        }
-        &:hover,
-        &:active {
-          color: #fff;
-        }
-      }
-      .card-label {
-        @media (max-width: $screen-xs-max) {
-          margin-bottom: 5px;
-        }
-      }
-      .card-created-date {
-        color: darken($text-color, 40%);
-        @media (min-width: $screen-sm-min) {
-          font-size: 85%;
-        }
-        @media (max-width: $screen-xs-max) {
-          position: absolute;
-          bottom: -4px;
-          right: 9px;
-          display: block;
-          font-size: 72%;
-        }
-        &::before {
-          @include app-icon($fa-var-clock-o);
-        }
-      }
     }
-  }
-  .list {
-    .thumbnail {
-      background: none;
-      border-bottom: 1px solid $gray-dark;
-      i {
-        color: darken($text-color, 10%);
+
+    .card-body {
+      @include media-breakpoint-only(xs) {
+        width: 70%;
+        padding-top: 0;
+      }
+
+      .card-title {
+        margin-bottom: 0;
+      }
+
+      @include media-breakpoint-only(xs) {
+        .card-text {
+          padding-bottom: 10px;
+        }
+      }
+
+      .card-date {
+        color: $gray-600;
+        text-align: right;
+
+        @include media-breakpoint-up(sm) {
+          padding-top: 10px;
+          font-size: 80%;
+        }
+
+        @include media-breakpoint-only(xs) {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          font-size: 75%;
+        }
       }
     }
   }

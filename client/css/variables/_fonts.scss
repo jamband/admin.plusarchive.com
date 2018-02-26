@@ -1,0 +1,19 @@
+@import "spacing";
+@import "system-color";
+
+$font-family-sans-serif:      "Source Sans Pro", "游ゴシック体", "Yu Gothic", YuGothic sans-serif;
+$font-family-base:            $font-family-sans-serif;
+
+$font-size-base:              1rem;
+$font-size-lg:                ($font-size-base * 1.25);
+$font-size-sm:                ($font-size-base * .875);
+
+$font-weight-light:           300;
+$font-weight-normal:          400;
+$font-weight-bold:            700;
+$font-weight-base:            $font-weight-normal;
+
+$text-muted:                  $gray-600;
+
+$hr-border-color:             rgba($white, .08);
+$hr-margin-y:                 $spacer / 2;

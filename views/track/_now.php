@@ -14,7 +14,7 @@
  */
 
 $this->registerJs(<<<'JS'
-$(document).on('click', '.card-image', function () {
+$(document).on('click', '.card-img-top', function () {
     var $this = $(this);
     $.ajax($this.attr('data-action'), {
         timeout: 10000,

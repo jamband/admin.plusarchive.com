@@ -1,9 +1,10 @@
+@import "../variables/components";
 @import "~toastr/toastr";
 
 #toast-container {
   > div,
   > div:hover {
-    border-radius: $border-radius-base;
+    border-radius: $border-radius;
     box-shadow: none;
   }
 }

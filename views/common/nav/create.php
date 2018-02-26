@@ -17,17 +17,16 @@ use yii\helpers\Html;
 
 $context = $this->context;
 ?>
-<div class="text-center">
+<div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
     <span class="dropdown">
         <?= Html::a(ucfirst($context->action->id), '#', [
             'id' => 'menu-action',
-            'class' => 'dropdown-toggle dropdown-hover label label-default',
+            'class' => 'dropdown-toggle badge badge-secondary',
             'data-toggle' => 'dropdown',
         ]) ?>
-        <ul class="dropdown-menu">
-            <li><a href="<?= url(['admin']) ?>">Admin</a></li>
-        </ul>
-    </span><!-- /.dropdown -->
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="<?= url(['admin']) ?>">Admin</a>
+        </div>
+    </span>
 </div>
-<p class="clearfix"></p>

@@ -16,31 +16,46 @@
 $cid = app()->controller->id;
 $aid = app()->controller->action->id;
 ?>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Menu</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="<?= app()->homeUrl ?>"><?= h(app()->name) ?></a>
-        </div>
+        <a class="navbar-brand" href="<?= app()->homeUrl ?>"><?= h(app()->name) ?></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="<?= 'site/admin' === "$cid/$aid" ? 'active' : '' ?>"><a href="<?= url(['/site/admin']) ?>">Admin</a></li>
-                <li class="<?= 'track' === $cid ? 'active' : '' ?>"><a href="<?= url(['/track/index']) ?>">Track</a></li>
-                <li class="<?= 'playlist' === $cid ? 'active' : '' ?>"><a href="<?= url(['/playlist/index']) ?>">Playlist</a></li>
-                <li class="<?= 'label' === $cid ? 'active' : '' ?>"><a href="<?= url(['/label/index']) ?>">Label</a></li>
-                <li class="<?= 'store' === $cid ? 'active' : '' ?>"><a href="<?= url(['/store/index']) ?>">Store</a></li>
-                <li class="<?= 'bookmark' === $cid ? 'active' : '' ?>"><a href="<?= url(['/bookmark/index']) ?>">Bookmark</a></li>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item<?= 'site/admin' === "$cid/$aid" ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/site/admin']) ?>">Admin</a>
+                </li>
+                <li class="nav-item<?= 'track' === $cid ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/track/index']) ?>">Track</a>
+                </li>
+                <li class="nav-item<?= 'playlist' === $cid ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/playlist/index']) ?>">Playlist</a>
+                </li>
+                <li class="nav-item<?= 'label' === $cid ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/label/index']) ?>">Label</a>
+                </li>
+                <li class="nav-item<?= 'store' === $cid ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/store/index']) ?>">Store</a>
+                </li>
+                <li class="nav-item<?= 'bookmark' === $cid ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/bookmark/index']) ?>">Bookmark</a>
+                </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="<?= 'signup' === $aid ? 'active' : '' ?>"><a href="<?= url(['/site/signup']) ?>">Signup</a></li>
-                <li><a href="<?= url(['/site/logout']) ?>" data-method="post">Logout</a></li>
-                <li class="<?= 'contact' === $aid ? 'active' : '' ?>"><a href="<?= url(['/site/contact']) ?>">Contact</a></li>
-                <li class="<?= 'about' === $aid ? 'active' : '' ?>"><a href="<?= url(['/site/about']) ?>">About</a></li>
+            <ul class="navbar-nav">
+                <li class="nav-item<?= 'signup' === $aid ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/site/signup']) ?>">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= url(['/site/logout']) ?>" data-method="post">Logout</a>
+                </li>
+                <li class="nav-item<?= 'contact' === $aid ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/site/contact']) ?>">Contact</a>
+                </li>
+                <li class="nav-item<?= 'about' === $aid ? ' active' : '' ?>">
+                    <a class="nav-link" href="<?= url(['/site/about']) ?>">About</a>
+                </li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,7 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.nav-item {
+  @include media-breakpoint-up(sm) {
+    font-size: 85%;
+  }
+}

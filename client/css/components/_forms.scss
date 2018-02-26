@@ -1,38 +1,19 @@
-.form-control {
-  @media (max-width: $screen-xs-max) {
-    font-size: 16px;
-  }
-}
-input[readonly].form-control {
-    background-color: $gray-darker;
-}
+@import "../variables/alert";
+@import "../variables/body";
+@import "../variables/components";
+
 .required {
   > label::after {
     content: " *";
-    color: darken($brand-primary, 10%);
+    color: $danger;
   }
 }
-.hint-block {
-  color: $gray-light;
-}
+
 .error-summary {
-  color: $state-danger-text;
+  color: $danger;
   background: $body-bg;
-  border: 1px solid $gray-dark;
-  padding: $alert-padding;
-  border-radius: $alert-border-radius;
+  border: 1px solid $gray-800;
+  padding: $alert-padding-y $alert-padding-x;
+  border-radius: $border-radius;
   margin: 0 0 15px 0;
-}
-.form-search {
-  margin-top: 5px;
-  .form-group {
-    margin-bottom: 0;
-  }
-  .form-control-feedback {
-    pointer-events: auto;
-  }
-  .btn-default {
-    background-color: transparent;
-    border: none;
-  }
 }

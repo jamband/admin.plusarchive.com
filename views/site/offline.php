@@ -16,11 +16,11 @@
 $this->title = 'Currently in maintenance - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+    <div class="col-md-5 offset-md-1">
         <h2>Currently in maintenance</h2>
         Please wait until the restoration. Thank you.<br>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-5">
+    <div class="col-md-5">
         <?= $this->render('_description') ?>
     </div>
-</div><!-- /.row -->
+</div>

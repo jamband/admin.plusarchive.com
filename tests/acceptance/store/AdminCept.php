@@ -33,7 +33,7 @@ $I->see('store3', '.grid-view');
 $I->dontSee('store1', '.grid-view');
 $I->dontSee('store2', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->see('Admin: 3', '#menu-action');
 $I->see('store1', '.grid-view');
@@ -47,7 +47,7 @@ $I->see('Japan', '.grid-view');
 $I->dontSee('store2', '.grid-view');
 $I->dontSee('store3', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 
 $I->fillField('input[name="StoreSearch[link]"]', 'you');

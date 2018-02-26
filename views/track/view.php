@@ -25,21 +25,20 @@ $this->title = "$model->title - ".app()->name;
 <?php else: ?>
     <div class="embed-responsive embed-responsive-1by1-half">
 <?php endif ?>
-    <iframe class="embed-responsive-item" src="<?= h($embed) ?>" frameborder="0" allowfullscreen></iframe>
-</div>
+        <iframe class="embed-responsive-item" src="<?= h($embed) ?>" frameborder="0" allowfullscreen></iframe>
+    </div>
 <div class="text-center">
-    <h4><?= h($model->title) ?></h4>
+    <h5 class="pt-3"><?= h($model->title) ?></h5>
     <?= Html::a(h($model->providerText), ['index', 'provider' => $model->providerText], [
-        'class' => 'label label-default',
+        'class' => 'badge badge-secondary',
     ]) ?>
     <?php /** @var TrackGenre $genre */ ?>
     <?php foreach ($model->trackGenres as $genre): ?>
         <?= Html::a(h($genre->name), ['index', 'genre' => $genre->name], [
-            'class' => 'label label-default',
+            'class' => 'badge badge-secondary',
         ]) ?>
     <?php endforeach ?>
+    <div class="text-center small py-2">
+        <a href="<?= url(['index']) ?>"><i class="fa fa-fw fa-angle-left"></i> Back to tracks</a>
+    </div>
 </div>
-<p class="clearfix"></p>
-<p class="text-center">
-    <a href="<?= url(['index']) ?>"><i class="fa fa-fw fa-angle-left"></i> Back to tracks</a>
-</p>

@@ -23,21 +23,19 @@ if (!isset($enableCreate)) {
 }
 $context = $this->context;
 ?>
-<div class="text-center">
+<div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
-
     <span class="dropdown">
         <?= Html::a(ucfirst($context->action->id).': '.number_format($total), '#', [
             'id' => 'menu-action',
-            'class' => 'dropdown-toggle dropdown-hover label label-default',
+            'class' => 'dropdown-toggle badge badge-secondary',
             'data-toggle' => 'dropdown',
         ]) ?>
-        <ul class="dropdown-menu">
-            <li><a href="<?= url(['admin']) ?>" data-pjax="0">Admin</a></li>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="<?= url(['admin']) ?>" data-pjax="0">Admin</a>
             <?php if ($enableCreate): ?>
-                <li><a href="<?= url(['create']) ?>" data-pjax="0">Create</a></li>
+                <a class="dropdown-item" href="<?= url(['create']) ?>" data-pjax="0">Create</a>
             <?php endif ?>
-        </ul>
-    </span><!-- /.dropdown -->
+        </div>
+    </span>
 </div>
-<p class="clearfix"></p>

@@ -24,12 +24,12 @@ $I->seeCurrentUrlEquals('/index-test.php/store/update/1');
 $I->see('Store', '#menu-controller');
 $I->see('Update', '#menu-action');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/store/admin');
 $I->moveBack();
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/store/create');
 $I->moveBack();
@@ -42,7 +42,7 @@ $I->seeInField('#store-link', "https://twitter.com/store1\nhttps://soundcloud.co
 $I->fillField('#store-name', '');
 $I->click('button[type=submit]');
 $I->wait(1);
-$I->seeElement('.has-error');
+$I->seeElement('.is-invalid');
 
 $I->fillField('#store-name', 'store-one');
 $I->click('button[type=submit]');
@@ -50,7 +50,7 @@ $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/store/1');
 $I->see('Store has been updated.');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->see('Admin: 3', '#menu-action');
 $I->see('store-one', '.grid-view');
@@ -59,12 +59,11 @@ $I->dontSee('store1', '.grid-view');
 $I->click('//*[@id="grid-view-store"]/table/tbody/tr[1]/td[7]/a[2]/i');
 $I->seeCurrentUrlEquals('/index-test.php/store/update/1');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->seeInPopup('Are you sure you want to delete this item?');
 $I->cancelPopup();
 
-$I->moveMouseOver('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->acceptPopup();
 $I->seeCurrentUrlEquals('/index-test.php/store/admin');

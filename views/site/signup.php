@@ -21,17 +21,15 @@ use yii\helpers\Html;
 $this->title = 'Sign up - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+    <div class="col-md-5 offset-md-1">
         <h2>Sign up</h2>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-5">
+    <div class="col-md-5">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'username') ?>
             <?= $form->field($model, 'email') ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
-            <div class="form-group">
-                <?= Html::submitButton('Sign up', ['class' => 'btn btn-primary']) ?>
-            </div>
+            <?= Html::submitButton('Sign up', ['class' => 'btn btn-primary']) ?>
         <?php ActiveForm::end() ?>
     </div>
-</div><!-- /.row -->
+</div>

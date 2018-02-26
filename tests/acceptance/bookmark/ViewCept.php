@@ -26,27 +26,26 @@ $I->see('View', '#menu-action');
 $I->see('bookmark1', '.detail-view');
 $I->see('Publish', '.detail-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/admin');
 $I->moveBack();
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
 $I->moveBack();
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Update', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/update/1');
 $I->moveBack();
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->seeInPopup('Are you sure you want to delete this item?');
 $I->cancelPopup();
 
-$I->moveMouseOver('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->acceptPopup();
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/admin');

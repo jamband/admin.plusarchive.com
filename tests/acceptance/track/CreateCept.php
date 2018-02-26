@@ -19,7 +19,7 @@ $I->seePageNotFound(['/track/create']);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/track/admin']));
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/track/create');
 $I->see('Track', '#menu-controller');
@@ -27,4 +27,4 @@ $I->see('Create', '#menu-action');
 $I->seeOptionIsSelected('#track-status', 'Private');
 $I->click('button[type=submit]');
 $I->wait(1);
-$I->seeElement('.has-error');
+$I->seeElement('.is-invalid');

@@ -25,12 +25,12 @@ $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
 $I->see('Playlist', '#menu-controller');
 $I->see('Update', '#menu-action');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
 $I->moveBack();
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
 $I->moveBack();
@@ -41,7 +41,7 @@ $I->seeOptionIsSelected('#track-status', 'Publish');
 // $I->fillField('#track-title', '');
 $I->click('button[type=submit]');
 $I->wait(1);
-$I->seeElement('.has-error');
+$I->seeElement('.is-invalid');
 
 //$I->fillField('#track-title', 'playlist-one');
 //$I->click('button[type=submit]');
@@ -49,17 +49,17 @@ $I->seeElement('.has-error');
 //$I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
 //$I->see('Playlist has been updated.');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->click('//*[@id="grid-view-playlist"]/table/tbody/tr[1]/td[7]/a[1]/i'); // Update link
 $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->seeInPopup('Are you sure you want to delete this item?');
 $I->cancelPopup();
 
-$I->moveMouseOver('#menu-action');
+//$I->click('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->acceptPopup();
 $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');

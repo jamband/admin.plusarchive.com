@@ -24,12 +24,12 @@ $I->loginAsAdmin();
 // $I->see('Track', '#menu-controller');
 // $I->see('Update', '#menu-action');
 
-// $I->moveMouseOver('#menu-action');
+// $I->click('#menu-action');
 // $I->click('Admin', '#menu-action + .dropdown-menu');
 // $I->seeCurrentUrlEquals('/index-test.php/track/admin');
 // $I->moveBack();
 
-// $I->moveMouseOver('#menu-action');
+// $I->click('#menu-action');
 // $I->click('Create', '#menu-action + .dropdown-menu');
 // $I->seeCurrentUrlEquals('/index-test.php/track/create');
 // $I->moveBack();

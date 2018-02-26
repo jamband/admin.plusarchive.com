@@ -1,21 +1,31 @@
+@import "../variables/body";
+@import "~font-awesome/scss/variables";
+@import "../mixins/icons";
+
 .external-link {
   font-weight: bold;
+
   &::before {
     @include app-icon($fa-var-external-link);
   }
 }
+
 .refresh-link {
-  color: $text-color;
+  color: $body-color;
+
   &:hover,
   &:active {
-    color: #fff;
+    color: $white;
   }
+
   &::before {
     @include app-icon($fa-var-repeat);
   }
 }
+
 .total-count {
-  margin-top: 5px;
-  color: darken($text-color, 25%);
-  font-size: 85%;
+  padding-top: 5px;
+  text-align: right;
+  color: $gray-600;
+  font-size: 80%;
 }

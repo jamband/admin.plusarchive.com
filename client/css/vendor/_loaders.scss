@@ -4,8 +4,9 @@
  * The MIT License (MIT)
  */
 
+@import "../variables/system-color";
 @import "~loaders.css/src/animations/line-scale";
 
 .line-scale > div {
-  background: $gray-light;
+  background: $gray-500;
 }

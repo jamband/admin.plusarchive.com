@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/hover";
+
+@mixin badge-variant($bg) {
+  color: $bg;
+  background-color: transparent;
+
+  &[href] {
+    @include hover-focus {
+      color: color-yiq($bg);
+      text-decoration: none;
+      background-color: transparent;
+    }
+  }
+}

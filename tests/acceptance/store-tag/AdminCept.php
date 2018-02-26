@@ -33,7 +33,7 @@ $I->see('tag3', '.grid-view');
 $I->dontSee('tag1', '.grid-view');
 $I->dontSee('tag2', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->see('Admin: 3', '#menu-action');
 $I->see('tag1', '.grid-view');

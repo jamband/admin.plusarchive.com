@@ -1,16 +1,21 @@
+@import "../variables/body";
+@import "~font-awesome/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "../mixins/icons";
+
 .playlist-title {
-  padding-left: 0;
   > li {
-    @media (min-width: $screen-sm-min) {
-      font-size: 130%;
+    @include media-breakpoint-only(xs) {
+      font-size: 115%;
     }
-    @media (max-width: $screen-xs-max) {
-      font-size: 110%;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 120%;
     }
+
     a::after {
       @include app-icon($fa-var-angle-right);
-      color: darken($link-color, 5%);
+      color: darken($primary, 5%);
     }
-    @include text-truncate();
   }
 }

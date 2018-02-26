@@ -29,7 +29,7 @@ $I->seeInField('#bookmarktag-name', 'tag1');
 $I->fillField('#bookmarktag-name', '');
 $I->click('button[type=submit]');
 $I->wait(1);
-$I->seeElement('.has-error');
+$I->seeElement('.is-invalid');
 
 $I->fillField('#bookmarktag-name', 'tag-one');
 $I->click('button[type=submit]');
@@ -43,12 +43,12 @@ $I->dontSee('tag1', '.grid-view');
 $I->click('//*[@id="grid-view-bookmark-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark-tag/update/1');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
+$I->wait(1);
 $I->seeInPopup('Are you sure you want to delete this item?');
 $I->cancelPopup();
-
-$I->moveMouseOver('#menu-action');
+//
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->acceptPopup();
 $I->seeCurrentUrlEquals('/index-test.php/bookmark-tag/admin');

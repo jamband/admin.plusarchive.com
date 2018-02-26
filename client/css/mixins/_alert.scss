@@ -1,0 +1,14 @@
+@import "../variables/system-color";
+
+@mixin alert-variant($background, $border, $color) {
+  color: $color;
+  border-color: $gray-800;
+
+  hr {
+    border-top-color: $gray-800;
+  }
+
+  .alert-link {
+    color: darken($color, 10%);
+  }
+}

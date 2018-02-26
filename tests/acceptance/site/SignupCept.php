@@ -27,7 +27,7 @@ $I->see('Sign up', 'h2');
 
 $I->click('button[type=submit]');
 $I->wait(1);
-$I->seeElement('.has-error');
+$I->seeElement('.is-invalid');
 
 $I->fillField('#signupform-username', 'newuser');
 $I->fillField('#signupform-email', 'newuser@example.com');

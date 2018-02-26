@@ -1,10 +1,9 @@
 window.$ = window.jQuery = require('jquery')
 
-require('bootstrap-sass/assets/javascripts/bootstrap/button')
-require('bootstrap-sass/assets/javascripts/bootstrap/collapse')
-require('bootstrap-sass/assets/javascripts/bootstrap/dropdown')
-require('bootstrap-sass/assets/javascripts/bootstrap/modal')
-require('bootstrap-sass/assets/javascripts/bootstrap/transition')
+require('bootstrap/js/dist/button')
+require('bootstrap/js/dist/collapse')
+require('bootstrap/js/dist/dropdown')
+require('bootstrap/js/dist/modal')
 
 require('../../vendor/yiisoft/yii2/assets/yii')
 require('../../vendor/yiisoft/yii2/assets/yii.activeForm')

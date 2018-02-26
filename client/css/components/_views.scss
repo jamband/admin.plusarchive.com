@@ -1,54 +1,62 @@
-.list-view {
-  .sorter {
-    text-align: center;
-    margin: 10px 0 10px;
-    li {
-      display: inline-block;
-      padding: 0 15px;
-    }
-  }
-}
+@import "../variables/body";
+@import "~font-awesome/scss/variables";
+@import "../mixins/icons";
+
 .grid-view {
+  font-size: 85%;
+
   th {
     white-space: nowrap;
   }
+
   td {
     max-width: 200px;
     word-wrap: break-word;
   }
+
   table {
     i {
-      color: lighten($text-color, 10%);
+      color: lighten($body-color, 10%);
     }
   }
 }
+
 .detail-view {
+  font-size: 85%;
+
   i {
-      color: lighten($text-color, 10%);
+      color: lighten($body-color, 10%);
   }
 }
+
 .not-set {
   color: #c55;
   font-style: italic;
 }
+
 a.asc::after {
   @include app-icon($fa-var-sort-alpha-asc);
 }
+
 a.desc::after {
   @include app-icon($fa-var-sort-alpha-desc);
 }
+
 .sort-numerical {
   a.asc::after {
     @include app-icon($fa-var-sort-numeric-asc);
   }
+
   a.desc::after {
     @include app-icon($fa-var-sort-numeric-desc);
   }
 }
+
 .sort-ordinal {
   a.asc::after {
     @include app-icon($fa-var-sort-asc);
   }
+
   a.desc::after {
     @include app-icon($fa-var-sort-desc);
   }

@@ -23,8 +23,8 @@ $I->see('Track', '#menu-controller');
 $I->see('Providers', '#search-provider');
 $I->see('Genres', '#search-genre');
 $I->see('Admin: 5', '#menu-action');
-$I->see('track1', '.thumbnail');
-$I->see('track2', '.thumbnail');
+$I->see('track1', '.card-title');
+$I->see('track2', '.card-title');
 
 $I->click('#search-provider');
 $I->click('Bandcamp', '#search-provider + .dropdown-menu');
@@ -33,8 +33,8 @@ $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=Bandcamp');
 $I->dontSee('Providers', '#search-provider');
 $I->see('Bandcamp', '#search-provider');
 $I->see('Admin: 1', '#menu-action');
-$I->see('track1', '.thumbnail');
-$I->dontSee('track2', '.thumbnail');
+$I->see('track1', '.card-title');
+$I->dontSee('track2', '.card-title');
 
 $I->click('#search-genre');
 $I->click('genre1', '#search-genre + .dropdown-menu');
@@ -44,35 +44,35 @@ $I->see('Admin: 0', '#menu-action');
 $I->dontSee('Genres', '#search-genre');
 $I->see('genre1', '#search-genre');
 
-$I->click('Reset All', '.thumbnail');
+$I->click('Reset All', '.card-body');
 $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/track/admin');
 $I->see('Providers', '#search-provider');
 $I->dontSee('Bandcamp', '#search-provider');
 $I->see('Admin: 5', '#menu-action');
-$I->see('track1', '.thumbnail');
-$I->see('track2', '.thumbnail');
+$I->see('track1', '.card-title');
+$I->see('track2', '.card-title');
 
 $I->click('#search-status');
 $I->click('Private', '#search-status + .dropdown-menu');
 $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/track/admin?status=Private');
 $I->see('Admin: 1', '#menu-action');
-$I->see('track5', '.thumbnail');
-$I->dontSee('track1', '.thumbnail');
+$I->see('track5', '.card-title');
+$I->dontSee('track1', '.card-title');
 
-$I->click('YouTube', '.card-image-wrap + .caption');
+$I->click('YouTube', '.card-img-wrap + .card-body');
 $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=YouTube');
 $I->see('YouTube', '.dropdown-toggle');
 $I->see('Admin: 2', '#menu-action');
-$I->see('track4', '.thumbnail');
-$I->see('track5', '.thumbnail');
-$I->dontSee('track1', '.thumbnail');
+$I->see('track4', '.card-title');
+$I->see('track5', '.card-title');
+$I->dontSee('track1', '.card-title');
 
 $I->fillField(['name' => 'search'], '3');
-$I->click('.form-search button');
+$I->pressKey('input[name=search]', WebDriverKeys::ENTER);
 $I->wait(1);
 $I->seeInField(['name' => 'search'], '3');
 $I->see('Admin: 1', '#menu-action');
-$I->see('track3', '.thumbnail');
+$I->see('track3', '.card-title');

@@ -35,13 +35,13 @@ $I->see('playlist3', '.grid-view');
 $I->dontSee('playlist1', '.grid-view');
 $I->dontSee('playlist2', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->see('Admin: 3', '#menu-action');
 $I->see('playlist1', '.grid-view');
 $I->see('playlist2', '.grid-view');
 $I->see('playlist3', '.grid-view');
-//
+
 $I->selectOption('select[name="PlaylistSearch[status]"]', 'Private');
 $I->wait(1);
 $I->see('Admin: 1', '#menu-action');

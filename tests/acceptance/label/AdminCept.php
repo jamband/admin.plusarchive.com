@@ -33,8 +33,9 @@ $I->see('label3', '.grid-view');
 $I->dontSee('label1', '.grid-view');
 $I->dontSee('label2', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
+$I->wait(1);
 $I->see('Admin: 3', '#menu-action');
 $I->see('label1', '.grid-view');
 $I->see('label2', '.grid-view');
@@ -47,8 +48,9 @@ $I->see('Japan', '.grid-view');
 $I->dontSee('label2', '.grid-view');
 $I->dontSee('label3', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
+$I->wait(1);
 
 $I->fillField('input[name="LabelSearch[link]"]', 'you');
 $I->pressKey(['name' => 'LabelSearch[link]'], WebDriverKeys::ENTER);

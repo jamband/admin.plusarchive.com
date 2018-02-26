@@ -27,7 +27,7 @@ $this->title = 'Bookmarks - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <div class="row">
-        <div class="col-xs-12 col-sm-4 card-search">
+        <div class="col-sm-4">
             <?= $this->render('_search', [
                 'sort' => $sort,
                 'country' => $country,
@@ -35,48 +35,44 @@ $this->title = 'Bookmarks - '.app()->name;
                 'search' => $search,
                 'total' => $data->totalCount,
             ]) ?>
-            <h2>Bookmarks</h2>
+            <h2 class="my-2">Bookmarks</h2>
         </div>
-        <div class="col-xs-12 col-sm-8">
+        <div class="col-sm-8">
             <div class="row card-container">
                 <?php /** @var Bookmark $model */ ?>
                 <?php foreach ($data->models as $model): ?>
-                    <div class="col-xs-12 col-sm-6 list">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <?= Html::a(h($model->name), h($model->url), [
-                                    'class' => 'external-link',
-                                    'rel' => 'noopener',
-                                    'target' => '_blank',
-                                ]) ?>
-                                <br>
-                                <div class="label label-default">
-                                    <?= h($model->getAttributeLabel('country')) ?>:
-                                </div>
-                                <?= h($model->country) ?>
-                                <br>
-                                <div class="label label-default"><?= h($model->getAttributeLabel('link')) ?>:</div>
-                                <?= formatter()->asSnsIconLink($model->link, "\n", [], [
-                                    'rel' => 'noopener',
-                                    'target' => '_blank',
-                                ]) ?>
-                                <br>
-                                <span class="label label-default"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
-                                <?php /** @var BookmarkTag $tag */ ?>
-                                <?php foreach ($model->bookmarkTags as $tag): ?>
-                                    <?= Html::a(h($tag->name), ['', 'tag' => $tag->name], [
-                                        'class' => 'label label-default',
-                                    ]) ?>
-                                <?php endforeach ?>
-                            </div>
+                    <div class="col-sm-6 mb-4">
+                        <?= Html::a(h($model->name), h($model->url), [
+                            'class' => 'external-link',
+                            'rel' => 'noopener',
+                            'target' => '_blank',
+                        ]) ?>
+                        <br>
+                        <div class="badge badge-secondary">
+                            <?= h($model->getAttributeLabel('country')) ?>:
                         </div>
+                        <?= h($model->country) ?>
+                        <br>
+                        <div class="badge badge-secondary"><?= h($model->getAttributeLabel('link')) ?>:</div>
+                        <?= formatter()->asSnsIconLink($model->link, "\n", [], [
+                            'class' => 'text-secondary',
+                            'rel' => 'noopener',
+                            'target' => '_blank',
+                        ]) ?>
+                        <br>
+                        <span class="badge badge-secondary"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
+                        <?php /** @var BookmarkTag $tag */ ?>
+                        <?php foreach ($model->bookmarkTags as $tag): ?>
+                            <?= Html::a(h($tag->name), ['', 'tag' => $tag->name], [
+                                'class' => 'badge badge-secondary',
+                            ]) ?>
+                        <?php endforeach ?>
+                        <hr>
                     </div>
                 <?php endforeach ?>
-            </div><!-- /.row -->
-
+            </div>
             <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
         </div>
-    </div><!-- /.row -->
+    </div>
 <?php Pjax::end() ?>
-
 <?= $this->render('/common/js/card-list') ?>

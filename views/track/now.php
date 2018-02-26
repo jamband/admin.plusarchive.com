@@ -23,24 +23,28 @@ use yii\helpers\Html;
 ?>
 <div id="track-modal" class="modal fade">
     <div class="text-center modal-dialog">
-        <?= Html::tag('iframe', '', [
-            'src' => h($embed),
-            'data-provider' => h($provider),
-            'frameborder' => '0',
-            'allowfullscreen' => true,
-        ]) ?>
-        <?= Html::a('View <i class="fa fa-fw fa-angle-right"></i>', ['view', 'id' => $id], [
-            'class' => 'label label-default',
-        ]) ?>
+        <div class="modal-content">
+            <div class="modal-body">
+                <?= Html::tag('iframe', '', [
+                    'src' => h($embed),
+                    'data-provider' => h($provider),
+                    'frameborder' => '0',
+                    'allowfullscreen' => true,
+                ]) ?>
+                <?= Html::a('View <i class="fa fa-fw fa-angle-right"></i>', ['view', 'id' => $id], [
+                    'class' => 'badge badge-secondary',
+                ]) ?>
+            </div>
+        </div>
         <div class="now-playing-loading">
             <div class="line-scale"><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     </div>
 </div>
-<p class="now-playing-title">
+<div class="now-playing-title mb-2">
     <?= h($title) ?>
     <span class="now-playing-clear"></span>
-</p>
+</div>
 
 <?php
 $this->registerJs(<<<'JS'

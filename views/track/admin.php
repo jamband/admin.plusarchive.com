@@ -27,7 +27,6 @@ use yii\widgets\Pjax;
 $this->title = 'Admin Tracks - '.app()->name;
 ?>
 <div id="now-playing" class="text-center"></div>
-
 <?php Pjax::begin(['id' => 'track-pjax']) ?>
     <?= $this->render('/common/nav/admin', [
         'total' => $data->totalCount,
@@ -41,11 +40,11 @@ $this->title = 'Admin Tracks - '.app()->name;
             'search' => $search,
         ]) ?>
         <?php foreach ($data->models as $model): ?>
-            <div class="col-xs-12 col-sm-4 card">
-                <div class="thumbnail clearfix">
-                    <div class="card-image-wrap">
+            <div class="col-sm-6 col-md-4 mb-sm-4">
+                <div class="card">
+                    <div class="card-img-wrap">
                         <?= Html::tag('img', '', [
-                            'class' => 'lazyload img-responsive card-image',
+                            'class' => 'lazyload card-img-top',
                             'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
                             'data-src' => h($model->image),
                             'data-action' => $embedAction,
@@ -57,46 +56,47 @@ $this->title = 'Admin Tracks - '.app()->name;
                         ]) ?>
                         <div class="card-play"></div>
                     </div>
-                    <div class="caption">
-                        <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
-                            'class' => 'card-title',
-                            'data-pjax' => '0',
-                        ]) ?>
-                        <div class="card-label">
+                    <div class="card-body">
+                        <h6 class="card-title text-truncate">
+                            <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
+                                'class' => 'text-white',
+                                'data-pjax' => '0',
+                            ]) ?>
+                        </h6>
+                        <div class="card-text">
                             <?= Html::a(h($model->statusText), ['', 'status' => $model->statusText], [
-                                'class' => 'label label-default',
+                                'class' => 'badge badge-secondary',
                             ]) ?>
                             <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
-                                    'class' => 'label label-default',
+                                'class' => 'badge badge-secondary',
                             ]) ?>
                             <?php /** @var TrackGenre $genre */ ?>
                             <?php foreach ($model->trackGenres as $genre): ?>
                                 <?= Html::a(h($genre->name), ['', 'genre' => $genre->name], [
-                                    'class' => 'label label-default',
+                                    'class' => 'badge badge-secondary',
                                 ]) ?>
                             <?php endforeach ?>
                             <br>
                             <?= Html::a('<i class="fa fa-fw fa-edit"></i> Update', ['update', 'id' => $model->id], [
-                                'class' => 'label label-default',
+                                'class' => 'badge badge-secondary',
                                 'data-pjax' => '0',
                             ]) ?>
                             <?= Html::a('<i class="fa fa-fw fa-trash-o"></i> Delete', ['delete', 'id' => $model->id], [
-                                'class' => 'label label-default',
+                                'class' => 'badge badge-secondary',
                                 'data-confirm' => 'Are you sure you want to delete this item?',
                                 'data-method' => 'post',
                             ]) ?>
                         </div>
-                        <div class="text-right card-created-date">
-                            <?= formatter()->asDate($model->created_at) ?>
+                        <div class="card-date">
+                            <i class="fa fa-fw fa-clock-o"></i> <?= formatter()->asDate($model->created_at) ?>
                         </div>
-                    </div><!-- /.caption -->
-                </div><!-- /.thumbnail -->
-            </div><!-- /.card -->
+                    </div>
+                </div>
+                <hr class="d-sm-none">
+            </div>
         <?php endforeach ?>
-    </div><!-- /.row -->
-
+    </div>
     <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
 <?php Pjax::end() ?>
-
 <?= $this->render('/common/js/card') ?>
 <?= $this->render('_now') ?>

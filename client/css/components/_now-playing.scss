@@ -1,22 +1,31 @@
+@import "../variables/body";
+@import "~font-awesome/scss/variables";
+@import "../mixins/icons";
+
 .now-playing-clear {
   cursor: pointer;
+
   &::before {
     @include app-icon($fa-var-close);
   }
 }
+
 .now-playing-title {
   display: inline-block;
   cursor: pointer;
   font-weight: bold;
+
   &:hover,
   &:active {
-    color: #fff;
+    color: $white;
   }
+
   &::before {
     @include app-icon($fa-var-volume-up);
   }
 }
+
 .now-playing-loading {
   margin-top: 3px;
-  color: $gray-light;
+  color: $gray-800;
 }

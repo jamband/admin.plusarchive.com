@@ -2,14 +2,25 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600");
 
 // Variables
-@import "variables";
+@import "variables/alert";
+@import "variables/body";
+@import "variables/badge";
+@import "variables/card";
+@import "variables/components";
+@import "variables/dropdown";
+@import "variables/font-awesome";
+@import "variables/fonts";
+@import "variables/forms";
+@import "variables/modal";
+@import "variables/navbar";
+@import "variables/options";
+@import "variables/pagination";
+@import "variables/spacing";
+@import "variables/system-color";
+@import "variables/tables";
 
 // Font Awesome
 @import "~font-awesome/scss/font-awesome";
-
-// Mixins
-@import "mixins/icons";
-@import "mixins/text-truncate";
 
 // Vendor
 @import "vendor/bootstrap";
@@ -18,14 +29,15 @@
 @import "vendor/selectize";
 @import "vendor/loaders";
 
+// Mixins
+@import "mixins/icons";
+
 // Components
 @import "components/layout";
-@import "components/scaffolding";
 @import "components/type";
-@import "components/buttons";
 @import "components/dropdowns";
 @import "components/forms";
-@import "components/labels";
+@import "components/nav";
 @import "components/navbar";
 @import "components/responsive-embed";
 @import "components/pagination";

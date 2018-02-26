@@ -19,22 +19,22 @@ use yii\helpers\Html;
 
 $context = $this->context;
 ?>
-<div class="text-center">
+<div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
     <span class="dropdown">
         <?= Html::a(ucfirst($context->action->id), '#', [
             'id' => 'menu-action',
-            'class' => 'dropdown-toggle dropdown-hover label label-default',
+            'class' => 'dropdown-toggle badge badge-secondary',
             'data-toggle' => 'dropdown',
         ]) ?>
-        <ul class="dropdown-menu">
-            <li><a href="<?= url(['admin']) ?>">Admin</a></li>
-            <li><a href="<?= url(['create']) ?>">Create</a></li>
-            <li><?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="<?= url(['admin']) ?>">Admin</a>
+            <a class="dropdown-item" href="<?= url(['create']) ?>">Create</a>
+            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                'class' => 'dropdown-item',
                 'data-confirm' => 'Are you sure you want to delete this item?',
                 'data-method' => 'post',
-            ]) ?></li>
-        </ul>
-    </span><!-- /.dropdown -->
+            ]) ?>
+        </div>
+    </span>
 </div>
-<p class="clearfix"></p>

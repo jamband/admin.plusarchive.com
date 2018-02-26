@@ -33,7 +33,7 @@ $I->see('genre3', '.grid-view');
 $I->dontSee('genre1', '.grid-view');
 $I->dontSee('genre2', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->see('Admin: 5', '#menu-action');
 $I->see('genre1', '.grid-view');

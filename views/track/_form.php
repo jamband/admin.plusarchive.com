@@ -20,19 +20,7 @@ use yii\widgets\ActiveForm;
 
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
-        <?php $form = ActiveForm::begin() ?>
-            <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'status')->dropDownList($model::STATUSES) ?>
-            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'tagValues') ?>
-            <div class="form-group">
-                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
-            </div>
-        <?php ActiveForm::end() ?>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-5">
+    <div class="col-md-5">
         <div class="alert alert-info">
             <i class="fa fa-info-circle"></i>
             <?= h($model->getAttributeLabel('title')) ?> と
@@ -41,8 +29,17 @@ use yii\widgets\ActiveForm;
             もし独自のものに変更したい場合は、フォームから直接入力することもできます。
         </div>
     </div>
-</div><!-- /.row -->
-
+    <div class="col-md-5 offset-md-1 order-md-first mb-3">
+        <?php $form = ActiveForm::begin() ?>
+            <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'status')->dropDownList($model::STATUSES) ?>
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'tagValues') ?>
+            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
+        <?php ActiveForm::end() ?>
+    </div>
+</div>
 <?= $this->render('/common/js/selectize', [
     'id' => '#track-tagvalues',
     'url' => url(['track-genre/list']),

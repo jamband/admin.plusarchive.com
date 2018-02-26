@@ -21,18 +21,16 @@ use yii\helpers\Html;
 $this->title = 'Login - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+    <div class="col-sm-6 col-md-5 offset-md-1">
         <h2>Log in</h2>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-5">
+    <div class="col-sm-6 col-md-5">
         <?php $form = ActiveForm::begin(['fieldConfig' => ['template' => "{label}\n{input}"]]) ?>
             <?= $form->errorSummary($model) ?>
             <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
             <?= $form->field($model, 'rememberMe')->checkbox() ?>
-            <div class="form-group">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
-            </div>
+            <?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
         <?php ActiveForm::end() ?>
     </div>
-</div><!-- /.row -->
+</div>

@@ -24,56 +24,49 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
-<div class="thumbnail">
-    <div class="caption">
-        <?= Html::a('Reset All', [''], ['class' => 'refresh-link']) ?>
-        <br>
-        <span class="dropdown">
-            <?= Html::a(h($sort), '#', [
-                'class' => 'dropdown-toggle label label-default',
-                'data-toggle' => 'dropdown',
-            ]) ?>
-            <ul class="dropdown-menu">
-                <li><a href="<?= Url::currentPlus(['sort' => null, 'search' => null]) ?>">Reset</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="<?= Url::currentPlus(['sort' => 'Name', 'search' => null]) ?>">Name</a></li>
-                <li><a href="<?= Url::currentPlus(['sort' => 'Latest', 'search' => null]) ?>">Latest</a></li>
-            </ul>
-        </span><!-- /.dropdown -->
-
-        <span class="dropdown">
-            <?= Html::a(h($country), '#', [
-                'class' => 'dropdown-toggle label label-default',
-                'data-toggle' => 'dropdown',
-            ]) ?>
-            <ul class="dropdown-menu scrollable-menu">
-                <li><a href="<?= Url::currentPlus(['country' => null, 'search' => null]) ?>">Reset</a></li>
-                <li role="separator" class="divider"></li>
-                <?php foreach (Bookmark::getCountries() as $country): ?>
-                    <li><a href="<?= Url::currentPlus(['country' => $country, 'search' => null]) ?>"><?= h($country) ?></a></li>
-                <?php endforeach ?>
-            </ul>
-        </span><!-- /.dropdown -->
-
-        <span class="dropdown">
-            <?= Html::a(h($tag), '#', [
-                'class' => 'dropdown-toggle label label-default',
-                'data-toggle' => 'dropdown',
-            ]) ?>
-            <ul class="dropdown-menu scrollable-menu">
-                <li><a href="<?= Url::currentPlus(['tag' => null, 'search' => null]) ?>">Reset</a></li>
-                <li role="separator" class="divider"></li>
-                <?php foreach (BookmarkTag::getNames()->column() as $tag): ?>
-                    <li><a href="<?= Url::currentPlus(['tag' => $tag, 'search' => null]) ?>"><?= h($tag) ?></a></li>
-                <?php endforeach ?>
-            </ul>
-        </span><!-- /.dropdown -->
-
-        <?= $this->render('/common/form/search', [
-            'search' => $search,
-            'placeholder' => 'name or link ...',
-        ]) ?>
-
-        <div class="text-right total-count"><?= h(number_format($total)) ?> results</div>
-    </div><!-- /.caption -->
-</div><!-- /.thumbnail -->
+<?= Html::a('Reset All', [''], ['class' => 'refresh-link']) ?>
+<br>
+<span class="dropdown">
+    <?= Html::a(h($sort), '#', [
+        'class' => 'dropdown-toggle badge badge-secondary',
+        'data-toggle' => 'dropdown',
+    ]) ?>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => null, 'search' => null]) ?>">Reset</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => 'Name', 'search' => null]) ?>">Name</a>
+        <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => 'Latest', 'search' => null]) ?>">Latest</a>
+    </div>
+</span>
+<span class="dropdown">
+    <?= Html::a(h($country), '#', [
+        'id' => 'search-country',
+        'class' => 'dropdown-toggle badge badge-secondary',
+        'data-toggle' => 'dropdown',
+    ]) ?>
+    <div class="dropdown-menu scrollable-menu">
+        <a class="dropdown-item" href="<?= Url::currentPlus(['country' => null, 'search' => null]) ?>">Reset</a>
+        <div class="dropdown-divider"></div>
+        <?php foreach (Bookmark::getCountries() as $country): ?>
+            <a class="dropdown-item" href="<?= Url::currentPlus(['country' => $country, 'search' => null]) ?>"><?= h($country) ?></a>
+        <?php endforeach ?>
+    </div>
+</span>
+<span class="dropdown">
+    <?= Html::a(h($tag), '#', [
+        'class' => 'dropdown-toggle badge badge-secondary',
+        'data-toggle' => 'dropdown',
+    ]) ?>
+    <div class="dropdown-menu scrollable-menu">
+        <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => null, 'search' => null]) ?>">Reset</a>
+        <div class="dropdown-divider"></div>
+        <?php foreach (BookmarkTag::getNames()->column() as $tag): ?>
+            <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => $tag, 'search' => null]) ?>"><?= h($tag) ?></a>
+        <?php endforeach ?>
+    </div>
+</span>
+<?= $this->render('/common/form/search', [
+    'search' => $search,
+    'placeholder' => 'name or link ...',
+]) ?>
+<div class="total-count"><?= h(number_format($total)) ?> results</div>

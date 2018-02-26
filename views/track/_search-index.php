@@ -23,47 +23,44 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
-<div class="col-xs-12 col-sm-4 card card-search">
-    <div class="thumbnail">
-        <div class="caption">
+<div class="col-sm-6 col-md-4 mb-4">
+    <div class="card">
+        <div class="card-body">
             <a class="refresh-link" href="<?= url(['']) ?>">Reset All</a>
             <br>
             <span class="dropdown">
                 <?= Html::a(h($provider), '#', [
                     'id' => 'search-provider',
-                    'class' => 'dropdown-toggle label label-default',
+                    'class' => 'dropdown-toggle badge badge-secondary',
                     'data-toggle' => 'dropdown',
                 ]) ?>
-                <ul class="dropdown-menu">
-                    <li><a href="<?= Url::currentPlus(['provider' => null, 'search' => null]) ?>">Reset</a></li>
-                    <li role="separator" class="divider"></li>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="<?= Url::currentPlus(['provider' => null, 'search' => null]) ?>">Reset</a>
+                    <div class="dropdown-divider"></div>
                     <?php foreach (Track::PROVIDERS as $provider): ?>
-                        <li><a href="<?= Url::currentPlus(['provider' => $provider, 'search' => null]) ?>"><?= h($provider) ?></a></li>
+                        <a class="dropdown-item" href="<?= Url::currentPlus(['provider' => $provider, 'search' => null]) ?>"><?= h($provider) ?></a>
                     <?php endforeach ?>
-                </ul>
-            </span><!-- /.dropdown -->
-
+                </div>
+            </span>
             <span class="dropdown">
                 <?= Html::a(h($genre), '#', [
                     'id' => 'search-genre',
-                    'class' => 'dropdown-toggle label label-default',
+                    'class' => 'dropdown-toggle badge badge-secondary',
                     'data-toggle' => 'dropdown',
                 ]) ?>
-                <ul class="dropdown-menu dropdown-menu-right scrollable-menu">
-                    <li><a href="<?= Url::currentPlus(['genre' => null, 'search' => null]) ?>">Reset</a></li>
-                    <li role="separator" class="divider"></li>
+                <div class="dropdown-menu scrollable-menu">
+                    <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => null, 'search' => null]) ?>">Reset</a>
+                    <div class="dropdown-divider"></div>
                     <?php foreach (TrackGenre::getNames()->column() as $genre): ?>
-                        <li><a href="<?= Url::currentPlus(['genre' => $genre, 'search' => null]) ?>"><?= h($genre) ?></a></li>
+                        <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => $genre, 'search' => null]) ?>"><?= h($genre) ?></a>
                     <?php endforeach ?>
-                </ul>
-            </span><!-- /.dropdown -->
-
+                </div>
+            </span>
             <?= $this->render('/common/form/search', [
                 'search' => $search,
                 'placeholder' => 'Search artist or title ...',
             ]) ?>
-
-            <div class="text-right total-count"><?= h(number_format($total)) ?> results</div>
-        </div><!-- /.caption -->
-    </div><!-- /.thumbnail -->
-</div><!-- /.card -->
+            <div class="total-count"><?= h(number_format($total)) ?> results</div>
+        </div>
+    </div>
+</div>

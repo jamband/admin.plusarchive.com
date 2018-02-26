@@ -37,8 +37,9 @@ $I->dontSee('bookmark1', '.grid-view');
 $I->dontSee('bookmark2', '.grid-view');
 $I->dontSee('bookmark3', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
+$I->wait(1);
 $I->see('Admin: 4', '#menu-action');
 $I->see('bookmark1', '.grid-view');
 $I->see('bookmark2', '.grid-view');
@@ -52,9 +53,8 @@ $I->see('Japan', '.grid-view');
 $I->dontSee('bookmark2', '.grid-view');
 $I->dontSee('bookmark3', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
-
 $I->fillField('input[name="BookmarkSearch[link]"]', 'you');
 $I->pressKey(['name' => 'BookmarkSearch[link]'], WebDriverKeys::ENTER);
 $I->wait(1);
@@ -65,8 +65,9 @@ $I->dontSee('bookmark1', '.grid-view');
 $I->dontSee('bookmark2', '.grid-view');
 $I->dontSee('bookmark3', '.grid-view');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
+$I->wait(1);
 $I->see('Admin: 4', '#menu-action');
 $I->see('bookmark1', '.grid-view');
 $I->see('bookmark2', '.grid-view');

@@ -1,10 +1,14 @@
+@import "../variables/system-color";
+
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   margin-bottom: 50px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -14,11 +18,13 @@ body {
   padding: 15px;
   white-space: nowrap;
   text-align: center;
-  font-size: 90%;
-  background-color: $gray-dark;
+  font-size: 80%;
+  background-color: $gray-800;
+
   a {
     padding: 5px;
-    color: lighten($gray-light, 10%);
+    color: $gray-500;
+
     &:hover {
       color: #fff;
     }

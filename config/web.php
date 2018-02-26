@@ -65,11 +65,22 @@ $config = [
             yii\filters\AjaxFilter::class => [
                 'errorMessage' => 'Invalid request.',
             ],
+            yii\widgets\DetailView::class => [
+                'options' => ['class' => 'table table-striped table-bordered table-dark detail-view'],
+            ],
             yii\grid\GridView::class => [
                 'layout' => '{items}',
+                'tableOptions' => ['class' => 'table table-striped table-bordered table-dark'],
+
+            ],
+            yii\widgets\ActiveField::class => [
+                'errorOptions' => ['class' => 'invalid-feedback'],
             ],
             yii\widgets\ActiveForm::class => [
                 'validateOnBlur' => false,
+                'validationStateOn' => yii\widgets\ActiveForm::VALIDATION_STATE_ON_INPUT,
+                'errorCssClass' => 'is-invalid',
+                'successCssClass' => 'is-valid',
             ],
             yii\widgets\LinkPager::class => [
                 'maxButtonCount' => false,
@@ -77,12 +88,14 @@ $config = [
                 'nextPageLabel' => '<i class="fa fa-angle-right"></i>',
                 'firstPageLabel' => '<i class="fa fa-angle-double-left"></i>',
                 'lastPageLabel' => '<i class="fa fa-angle-double-right"></i>',
-                'firstPageCssClass' => 'first btn-group',
+                'firstPageCssClass' => 'first page-item w-25',
                 'hideOnSinglePage' => false,
-                'nextPageCssClass' => 'next btn-group',
-                'prevPageCssClass' => 'prev btn-group',
-                'lastPageCssClass' => 'last btn-group',
-                'options' => ['class' => 'pagination btn-group btn-group-justified'],
+                'nextPageCssClass' => 'next page-item w-25',
+                'prevPageCssClass' => 'prev page-item w-25',
+                'lastPageCssClass' => 'last page-item w-25',
+                'linkOptions' => ['class' => 'page-link text-center'],
+                'disabledListItemSubTagOptions' => ['tag' => 'span', 'class' => 'page-link text-center'],
+                'options' => ['class' => 'pagination my-4'],
             ],
             yii\widgets\Pjax::class => [
                 'scrollTo' => 0,

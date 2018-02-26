@@ -17,27 +17,29 @@ $I->haveFixtures(['labels' => app\tests\acceptance\fixtures\LabelFixture::class]
 $I->wantTo('ensure that labels works');
 $I->amOnPage(url(['/']));
 $I->click('Label', '.navbar');
+$I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/labels');
-$I->waitForText('Labels', 1, 'h2');
-$I->see('label1', '.caption');
-$I->see('label2', '.caption');
-$I->see('label3', '.caption');
+$I->see('Labels', 'h2');
+
+$I->see('label1', '.card-container');
+$I->see('label2', '.card-container');
+$I->see('label3', '.card-container');
 $I->seeElement('.fa-soundcloud');
 $I->seeElement('.fa-youtube-square');
 $I->seeElement('.fa-twitter-square');
 $I->see('3 results', '.total-count');
-
-$I->click('Countries', '.caption');
+//
+$I->click('Countries', '.col-sm-4');
 $I->wait(1);
-$I->click('Japan', '.caption');
+$I->click('Japan', '.col-sm-4');
 $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/labels?country=Japan');
-$I->see('label1', '.caption');
-$I->dontSee('label2', '.caption');
-$I->dontSee('label3', '.caption');
+$I->see('label1', '.card-container');
+$I->dontSee('label2', '.card-container');
+$I->dontSee('label3', '.card-container');
 $I->see('1 results', '.total-count');
 
-$I->click('Reset All', '.caption');
+$I->click('Reset All', '.col-sm-4');
 $I->seeCurrentUrlEquals('/index-test.php/labels');
 $I->wait(1);
 $I->see('3 results', '.total-count');

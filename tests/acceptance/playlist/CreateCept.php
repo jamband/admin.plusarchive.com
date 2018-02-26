@@ -21,11 +21,11 @@ $I->loginAsAdmin();
 $I->amOnPage(url(['/playlist/admin']));
 $I->see('Admin: 3', '#menu-action');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
 
 $I->click('button[type=submit]');
 $I->wait(1);
-$I->seeElement('.has-error');
+$I->seeElement('.is-invalid');
 

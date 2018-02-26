@@ -1,3 +1,5 @@
+@import "~font-awesome/scss/mixins";
+
 @mixin app-icon($content, $provider: "fa") {
   @if $provider == "fa" {
     @include fa-icon();

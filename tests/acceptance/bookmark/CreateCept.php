@@ -21,13 +21,10 @@ $I->loginAsAdmin();
 $I->amOnPage(url(['/bookmark/admin']));
 $I->see('Admin: 4', '#menu-action');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Create', '#menu-action + .dropdown-menu');
-$I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
-
-$I->click('button[type=submit]');
 $I->wait(1);
-$I->seeElement('.has-error');
+$I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
 
 $I->fillField('#bookmark-name', 'newbookmark');
 $I->fillField('#bookmark-url', 'http://newbookmark.example.com');
@@ -36,11 +33,9 @@ $I->wait(1);
 $I->see('Bookmark has been added.');
 $I->seeCurrentUrlEquals('/index-test.php/bookmark/5');
 
-$I->moveMouseOver('#menu-action');
+$I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
-$I->wait(1);
 $I->see('Admin: 5', '#menu-action');
 
 $I->click('Bookmark', '.navbar');
-$I->wait(1);
 $I->see('3 results', '.total-count');

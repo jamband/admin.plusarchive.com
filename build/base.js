@@ -35,6 +35,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      Popper: ['popper.js', 'default'],
+      Util: 'exports-loader?Util!bootstrap/js/dist/util'
+    }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',

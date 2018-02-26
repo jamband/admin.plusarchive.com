@@ -23,14 +23,12 @@ $this->title = "Update Bookmark Tags: $model->name - ".app()->name;
 <?= $this->render('/common/nav/update', ['model' => $model]) ?>
 
 <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+    <div class="col-md-5">
+    </div>
+    <div class="col-md-5 offset-md-1 order-md-first mb-3">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-            <div class="form-group">
-                <?= Html::submitButton('Update', ['class' => 'btn btn-primary']) ?>
-            </div>
+            <?= Html::submitButton('Update', ['class' => 'btn btn-primary']) ?>
         <?php ActiveForm::end() ?>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-5">
-    </div>
-</div><!-- /.row -->
+</div>
