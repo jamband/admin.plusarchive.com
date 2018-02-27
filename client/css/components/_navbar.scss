@@ -3,14 +3,14 @@
 
 .navbar-nav {
   .active a {
-    @include media-breakpoint-up(sm) {
-      border-bottom: 3px solid darken($primary, 15%);
-      padding-bottom: 5px;
-    }
-
-    @include media-breakpoint-only(xs) {
+    @include media-breakpoint-down(sm) {
       border-left: 3px solid darken($primary, 15%);
       padding-left: 5px;
+    }
+
+    @include media-breakpoint-up(md) {
+      border-bottom: 3px solid darken($primary, 15%);
+      padding-bottom: 5px;
     }
   }
 }
