@@ -24,7 +24,7 @@ var card = function () {
     $(document).on('lazybeforeunveil', function () {
         $container.find('.card-play').css({
             'opacity': .6,
-            'transition': 'opacity 200ms'
+            'transition': 'opacity 500ms'
         });
     });
 }
