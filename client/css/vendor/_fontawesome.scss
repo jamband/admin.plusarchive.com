@@ -1,0 +1,50 @@
+@import '~@fortawesome/fontawesome-free-webfonts/scss/variables';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/mixins';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/core';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/larger';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/fixed-width';
+//@import '~@fortawesome/fontawesome-free-webfonts/scss/list';
+//@import '~@fortawesome/fontawesome-free-webfonts/scss/bordered-pulled';
+//@import '~@fortawesome/fontawesome-free-webfonts/scss/animated';
+//@import '~@fortawesome/fontawesome-free-webfonts/scss/rotated-flipped';
+//@import '~@fortawesome/fontawesome-free-webfonts/scss/stacked';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-brands';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-solid';
+//@import '~@fortawesome/fontawesome-free-webfonts/scss/icons';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/screen-reader';
+
+// icons
+.#{$fa-css-prefix}-angle-double-down:before { content: fa-content($fa-var-angle-double-down); }
+.#{$fa-css-prefix}-angle-double-left:before { content: fa-content($fa-var-angle-double-left); }
+.#{$fa-css-prefix}-angle-double-right:before { content: fa-content($fa-var-angle-double-right); }
+.#{$fa-css-prefix}-angle-double-up:before { content: fa-content($fa-var-angle-double-up); }
+.#{$fa-css-prefix}-angle-down:before { content: fa-content($fa-var-angle-down); }
+.#{$fa-css-prefix}-angle-left:before { content: fa-content($fa-var-angle-left); }
+.#{$fa-css-prefix}-angle-right:before { content: fa-content($fa-var-angle-right); }
+.#{$fa-css-prefix}-angle-up:before { content: fa-content($fa-var-angle-up); }
+.#{$fa-css-prefix}-bandcamp:before { content: fa-content($fa-var-bandcamp); }
+.#{$fa-css-prefix}-clock:before { content: fa-content($fa-var-clock); }
+.#{$fa-css-prefix}-edit:before { content: fa-content($fa-var-edit); }
+.#{$fa-css-prefix}-external-link-alt:before { content: fa-content($fa-var-external-link-alt); }
+.#{$fa-css-prefix}-eye:before { content: fa-content($fa-var-eye); }
+.#{$fa-css-prefix}-facebook-square:before { content: fa-content($fa-var-facebook-square); }
+.#{$fa-css-prefix}-github:before { content: fa-content($fa-var-github); }
+.#{$fa-css-prefix}-google-plus-square:before { content: fa-content($fa-var-google-plus-square); }
+.#{$fa-css-prefix}-info-circle:before { content: fa-content($fa-var-info-circle); }
+.#{$fa-css-prefix}-instagram:before { content: fa-content($fa-var-instagram); }
+.#{$fa-css-prefix}-lastfm-square:before { content: fa-content($fa-var-lastfm-square); }
+.#{$fa-css-prefix}-mixcloud:before { content: fa-content($fa-var-mixcloud); }
+.#{$fa-css-prefix}-pinterest-square:before { content: fa-content($fa-var-pinterest-square); }
+.#{$fa-css-prefix}-play-circle:before { content: fa-content($fa-var-play-circle); }
+.#{$fa-css-prefix}-redo-alt:before { content: fa-content($fa-var-redo-alt); }
+.#{$fa-css-prefix}-soundcloud:before { content: fa-content($fa-var-soundcloud); }
+.#{$fa-css-prefix}-spotify:before { content: fa-content($fa-var-spotify); }
+.#{$fa-css-prefix}-sync:before { content: fa-content($fa-var-sync); }
+.#{$fa-css-prefix}-times:before { content: fa-content($fa-var-times); }
+.#{$fa-css-prefix}-trash:before { content: fa-content($fa-var-trash-alt); }
+.#{$fa-css-prefix}-tumblr-square:before { content: fa-content($fa-var-tumblr-square); }
+.#{$fa-css-prefix}-twitter:before { content: fa-content($fa-var-twitter); }
+.#{$fa-css-prefix}-twitter-square:before { content: fa-content($fa-var-twitter-square); }
+.#{$fa-css-prefix}-vimeo-square:before { content: fa-content($fa-var-vimeo-square); }
+.#{$fa-css-prefix}-volume-up:before { content: fa-content($fa-var-volume-up); }
+.#{$fa-css-prefix}-youtube-square:before { content: fa-content($fa-var-youtube-square); }

@@ -19,8 +19,8 @@ $this->title = 'Contact - '.app()->name;
     <div class="col-md-5 offset-md-1">
         <h2>Contact <small class="text-muted">for bugs and question</small></h2>
         Please to the message via
-        <a href="https://twitter.com/livejam_db" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a> or
-        <a href="https://github.com/jamband/plusarchive.com/issues" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub Issues</a>. Thank you.
+        <a href="https://twitter.com/livejam_db" rel="noopener" target="_blank"><i class="fab fa-fw fa-twitter"></i>Twitter</a> or
+        <a href="https://github.com/jamband/plusarchive.com/issues" rel="noopener" target="_blank"><i class="fab fa-fw fa-github"></i>GitHub Issues</a>. Thank you.
     </div>
     <div class="col-md-5">
     </div>

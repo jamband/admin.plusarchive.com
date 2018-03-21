@@ -1,6 +1,5 @@
 @import "../variables/body";
-@import "~font-awesome/scss/variables";
-@import "../mixins/icons";
+@import "../variables/system-color";
 
 .grid-view {
   font-size: 85%;
@@ -25,7 +24,7 @@
   font-size: 85%;
 
   i {
-      color: lighten($body-color, 10%);
+    color: lighten($body-color, 10%);
   }
 }
 
@@ -35,29 +34,23 @@
 }
 
 a.asc::after {
-  @include app-icon($fa-var-sort-alpha-asc);
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid $gray-600;
+
 }
 
 a.desc::after {
-  @include app-icon($fa-var-sort-alpha-desc);
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid $gray-600;
 }
 
-.sort-numerical {
-  a.asc::after {
-    @include app-icon($fa-var-sort-numeric-asc);
-  }
-
-  a.desc::after {
-    @include app-icon($fa-var-sort-numeric-desc);
-  }
-}
-
-.sort-ordinal {
-  a.asc::after {
-    @include app-icon($fa-var-sort-asc);
-  }
-
-  a.desc::after {
-    @include app-icon($fa-var-sort-desc);
-  }
-}

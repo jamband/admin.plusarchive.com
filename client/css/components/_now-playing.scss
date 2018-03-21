@@ -1,13 +1,7 @@
 @import "../variables/body";
-@import "~font-awesome/scss/variables";
-@import "../mixins/icons";
 
 .now-playing-clear {
   cursor: pointer;
-
-  &::before {
-    @include app-icon($fa-var-close);
-  }
 }
 
 .now-playing-title {
@@ -18,10 +12,6 @@
   &:hover,
   &:active {
     color: $white;
-  }
-
-  &::before {
-    @include app-icon($fa-var-volume-up);
   }
 }
 

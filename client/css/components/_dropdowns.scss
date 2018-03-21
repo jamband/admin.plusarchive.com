@@ -1,11 +1,4 @@
-@import "~font-awesome/scss/variables";
-@import "../mixins/icons";
-
 .dropdown {
-  > .dropdown-toggle::after {
-    @include app-icon($fa-var-angle-down);
-  }
-
   .scrollable-menu {
     height: auto;
     max-height: 352px;

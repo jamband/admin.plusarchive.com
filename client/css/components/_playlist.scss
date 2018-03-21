@@ -1,7 +1,5 @@
 @import "../variables/body";
-@import "~font-awesome/scss/variables";
 @import "~bootstrap/scss/mixins/breakpoints";
-@import "../mixins/icons";
 
 .playlist-title {
   > li {
@@ -11,11 +9,6 @@
 
     @include media-breakpoint-up(sm) {
       font-size: 120%;
-    }
-
-    a::after {
-      @include app-icon($fa-var-angle-right);
-      color: darken($primary, 5%);
     }
   }
 }

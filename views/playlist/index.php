@@ -27,7 +27,7 @@ $this->title = 'Playlists - '.app()->name;
         <ul class="list-unstyled playlist-title text-truncate">
             <?php /** @var Track $model */ ?>
             <?php foreach ($data->models as $model): ?>
-                <li><?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)]) ?></li>
+                <li><?= Html::a(h($model->title).' <i class="fas fa-fw fa-angle-right"></i>', ['view', 'id' => hashids()->encode($model->id)]) ?></li>
             <?php endforeach ?>
         </ul>
     </div>

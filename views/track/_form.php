@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 <div class="row">
     <div class="col-md-5">
         <div class="alert alert-info">
-            <i class="fa fa-info-circle"></i>
+            <i class="fas fa-info-circle"></i>
             <?= h($model->getAttributeLabel('title')) ?> と
             <?= h($model->getAttributeLabel('image')) ?> は
             <?= h($model->getAttributeLabel('url')) ?> の値から自動取得されます。

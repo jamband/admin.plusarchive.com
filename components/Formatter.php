@@ -70,9 +70,9 @@ class Formatter extends FormatterBase
         ];
         foreach ($icons as $domain => $icon) {
             if (false !== strpos($value, $domain)) {
-                return '<i class="fa fa-'.$icon.' fa-fw fa-lg"></i>';
+                return '<i class="fab fa-'.$icon.' fa-fw fa-lg"></i>';
             }
         }
-        return '<i class="fa fa-external-link fa-fw fa-lg"></i>';
+        return '<i class="fas fa-external-link-alt fa-fw fa-lg"></i>';
     }
 }

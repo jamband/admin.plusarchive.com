@@ -42,7 +42,7 @@ $this->title = 'Bookmarks - '.app()->name;
                 <?php /** @var Bookmark $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-sm-6 mb-4">
-                        <?= Html::a(h($model->name), h($model->url), [
+                        <?= Html::a('<i class="fas fa-fw fa-external-link-alt"></i> '.h($model->name), h($model->url), [
                             'class' => 'external-link',
                             'rel' => 'noopener',
                             'target' => '_blank',

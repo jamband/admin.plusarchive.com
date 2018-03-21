@@ -31,7 +31,7 @@ use yii\helpers\Html;
                     'frameborder' => '0',
                     'allowfullscreen' => true,
                 ]) ?>
-                <?= Html::a('View <i class="fa fa-fw fa-angle-right"></i>', ['view', 'id' => $id], [
+                <?= Html::a('View <i class="fas fa-fw fa-angle-right"></i>', ['view', 'id' => $id], [
                     'class' => 'badge badge-secondary',
                 ]) ?>
             </div>
@@ -42,8 +42,8 @@ use yii\helpers\Html;
     </div>
 </div>
 <div class="now-playing-title mb-2">
-    <?= h($title) ?>
-    <span class="now-playing-clear"></span>
+    <i class="fas fa-fw fa-volume-up"></i> <?= h($title) ?>
+    <span class="now-playing-clear"><i class="fas fa-fw fa-times"></i></span>
 </div>
 
 <?php

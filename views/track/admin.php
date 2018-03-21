@@ -54,7 +54,7 @@ $this->title = 'Admin Tracks - '.app()->name;
                             'data-provider' => $model->providerText,
                             'data-key' => $model->provider_key,
                         ]) ?>
-                        <div class="card-play"></div>
+                        <i class="fas fa-play-circle card-play"></i>
                     </div>
                     <div class="card-body">
                         <h6 class="card-title text-truncate">
@@ -77,18 +77,18 @@ $this->title = 'Admin Tracks - '.app()->name;
                                 ]) ?>
                             <?php endforeach ?>
                             <br>
-                            <?= Html::a('<i class="fa fa-fw fa-edit"></i> Update', ['update', 'id' => $model->id], [
+                            <?= Html::a('<i class="fas fa-fw fa-edit"></i> Update', ['update', 'id' => $model->id], [
                                 'class' => 'badge badge-secondary',
                                 'data-pjax' => '0',
                             ]) ?>
-                            <?= Html::a('<i class="fa fa-fw fa-trash-o"></i> Delete', ['delete', 'id' => $model->id], [
+                            <?= Html::a('<i class="fas fa-fw fa-trash"></i> Delete', ['delete', 'id' => $model->id], [
                                 'class' => 'badge badge-secondary',
                                 'data-confirm' => 'Are you sure you want to delete this item?',
                                 'data-method' => 'post',
                             ]) ?>
                         </div>
                         <div class="card-date">
-                            <i class="fa fa-fw fa-clock-o"></i> <?= formatter()->asDate($model->created_at) ?>
+                            <i class="fas fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div>
                 </div>

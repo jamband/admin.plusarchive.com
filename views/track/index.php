@@ -48,7 +48,7 @@ $this->title = app()->name;
                             'data-provider' => $model->providerText,
                             'data-key' => $model->provider_key,
                         ]) ?>
-                        <div class="card-play"></div>
+                        <i class="fas fa-play-circle card-play"></i>
                     </div>
                     <div class="card-body">
                         <h6 class="card-title text-truncate">
@@ -69,7 +69,7 @@ $this->title = app()->name;
                             <?php endforeach ?>
                         </div>
                         <div class="card-date">
-                            <i class="fa fa-fw fa-clock-o"></i> <?= formatter()->asDate($model->created_at) ?>
+                            <i class="fa fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div>
                 </div>

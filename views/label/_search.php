@@ -24,10 +24,10 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
-<?= Html::a('Reset All', [''], ['class' => 'refresh-link']) ?>
+<?= Html::a('<i class="fas fa-fw fa-redo-alt"></i> Reset All', [''], ['class' => 'refresh-link']) ?>
 <br>
 <span class="dropdown">
-    <?= Html::a(h($sort), '#', [
+    <?= Html::a(h($sort).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
         'class' => 'dropdown-toggle badge badge-secondary',
         'data-toggle' => 'dropdown',
     ]) ?>
@@ -39,7 +39,7 @@ use yii\helpers\Url;
     </div>
 </span>
 <span class="dropdown">
-    <?= Html::a(h($country), '#', [
+    <?= Html::a(h($country).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
         'class' => 'dropdown-toggle badge badge-secondary',
         'data-toggle' => 'dropdown',
     ]) ?>
@@ -52,7 +52,7 @@ use yii\helpers\Url;
     </ul>
 </span>
 <span class="dropdown">
-    <?= Html::a(h($tag), '#', [
+    <?= Html::a(h($tag).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
         'class' => 'dropdown-toggle badge badge-secondary',
         'data-toggle' => 'dropdown',
     ]) ?>

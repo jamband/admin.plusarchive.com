@@ -26,10 +26,10 @@ use yii\helpers\Url;
 <div class="col-sm-6 col-md-4 mb-4">
     <div class="card">
         <div class="card-body">
-            <a class="refresh-link" href="<?= url(['']) ?>">Reset All</a>
+            <a class="refresh-link" href="<?= url(['']) ?>"><i class="fas fa-fw fa-redo-alt"></i> Reset All</a>
             <br>
             <span class="dropdown">
-                <?= Html::a(h($provider), '#', [
+                <?= Html::a(h($provider).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
                     'id' => 'search-provider',
                     'class' => 'dropdown-toggle badge badge-secondary',
                     'data-toggle' => 'dropdown',
@@ -43,7 +43,7 @@ use yii\helpers\Url;
                 </div>
             </span>
             <span class="dropdown">
-                <?= Html::a(h($genre), '#', [
+                <?= Html::a(h($genre).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
                     'id' => 'search-genre',
                     'class' => 'dropdown-toggle badge badge-secondary',
                     'data-toggle' => 'dropdown',

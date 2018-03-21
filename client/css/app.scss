@@ -8,7 +8,7 @@
 @import "variables/card";
 @import "variables/components";
 @import "variables/dropdown";
-@import "variables/font-awesome";
+@import "variables/fontawesome";
 @import "variables/fonts";
 @import "variables/forms";
 @import "variables/modal";
@@ -19,10 +19,8 @@
 @import "variables/system-color";
 @import "variables/tables";
 
-// Font Awesome
-@import "~font-awesome/scss/font-awesome";
-
 // Vendor
+@import "vendor/fontawesome";
 @import "vendor/bootstrap";
 @import "vendor/lazysizes";
 @import "vendor/toastr";
@@ -30,7 +28,7 @@
 @import "vendor/loaders";
 
 // Mixins
-@import "mixins/icons";
+//@import "mixins/...";
 
 // Components
 @import "components/layout";

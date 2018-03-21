@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 <div class="row">
     <div class="col-md-5">
         <div class="alert alert-info">
-            <i class="fa fa-info-circle"></i>
+            <i class="fas fa-info-circle"></i>
             <strong><?= h($model->getAttributeLabel('link')) ?></strong>
             が複数ある場合は改行で区切って入力してください。
         </div>

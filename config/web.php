@@ -54,7 +54,7 @@ $config = [
         'definitions' => [
             yii\captcha\Captcha::class => [
                 'template' => '<p>{image} <span class="captcha-refresh label label-default">'.
-                    '<i class="fa fa-fw fa-refresh"></i> Refresh</span></p>'."\n{input}",
+                    '<i class="fas fa-fw fa-sync"></i> Refresh</span></p>'."\n{input}",
             ],
             yii\data\Pagination::class => [
                 'pageSizeParam' => false,
@@ -84,10 +84,10 @@ $config = [
             ],
             yii\widgets\LinkPager::class => [
                 'maxButtonCount' => false,
-                'prevPageLabel' => '<i class="fa fa-angle-left"></i>',
-                'nextPageLabel' => '<i class="fa fa-angle-right"></i>',
-                'firstPageLabel' => '<i class="fa fa-angle-double-left"></i>',
-                'lastPageLabel' => '<i class="fa fa-angle-double-right"></i>',
+                'prevPageLabel' => '<i class="fas fa-angle-left"></i>',
+                'nextPageLabel' => '<i class="fas fa-angle-right"></i>',
+                'firstPageLabel' => '<i class="fas fa-angle-double-left"></i>',
+                'lastPageLabel' => '<i class="fas fa-angle-double-right"></i>',
                 'firstPageCssClass' => 'first page-item w-25',
                 'hideOnSinglePage' => false,
                 'nextPageCssClass' => 'next page-item w-25',

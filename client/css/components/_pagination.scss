@@ -14,13 +14,13 @@
   z-index: -1;
   color: $gray-700;
 
-  @include media-breakpoint-up(sm) {
-    font-size: 85%;
-    bottom: 50px;
-  }
-
   @include media-breakpoint-only(xs) {
     font-size: 75%;
     bottom: 48px;
+  }
+
+  @include media-breakpoint-up(sm) {
+    font-size: 85%;
+    bottom: 50px;
   }
 }

@@ -1,13 +1,7 @@
 @import "../variables/body";
-@import "~font-awesome/scss/variables";
-@import "../mixins/icons";
 
 .external-link {
   font-weight: bold;
-
-  &::before {
-    @include app-icon($fa-var-external-link);
-  }
 }
 
 .refresh-link {
@@ -16,10 +10,6 @@
   &:hover,
   &:active {
     color: $white;
-  }
-
-  &::before {
-    @include app-icon($fa-var-repeat);
   }
 }
 

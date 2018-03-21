@@ -20,7 +20,7 @@ use yii\helpers\Inflector;
 $context = $this->context;
 ?>
 <span class="dropdown">
-    <?= Html::a(Inflector::id2camel($context->id), '#', [
+    <?= Html::a(Inflector::id2camel($context->id).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
         'id' => 'menu-controller',
         'class' => 'dropdown-toggle badge badge-secondary',
         'data-toggle' => 'dropdown',
