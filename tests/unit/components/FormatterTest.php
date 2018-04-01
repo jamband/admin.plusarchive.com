@@ -24,7 +24,7 @@ class FormatterTest extends Unit
         $expected = '<a href="https://plus.google.com/+foo"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
         $expected .= '<a href="https://www.facebook.com/foo"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
 
-        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value));
+        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value));
     }
 
     /**
@@ -34,7 +34,7 @@ class FormatterTest extends Unit
      */
     public function testAsSnsIconLinks($expected, $value)
     {
-        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value));
+        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value));
     }
 
     public function asSnsIconLinkProvider()
@@ -57,8 +57,8 @@ class FormatterTest extends Unit
 
     public function testAsSnsIconLinkEmptyValue()
     {
-        $this->assertNull(Yii::$app->formatter->asSnsIconLink(null));
-        $this->assertNull(Yii::$app->formatter->asSnsIconLink(''));
+        $this->assertNull(Yii::$app->formatter->asBrandIconLink(null));
+        $this->assertNull(Yii::$app->formatter->asBrandIconLink(''));
     }
 
     public function testAsSnsIconLinkWithSeparatorArgument()
@@ -67,7 +67,7 @@ class FormatterTest extends Unit
         $expected = '<a href="https://plus.google.com/+foo"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
         $expected .= '<a href="https://www.facebook.com/foo"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
 
-        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, '|'));
+        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, '|'));
     }
 
     public function testAsSnsIconLinkWithDomainsArgument()
@@ -77,7 +77,7 @@ class FormatterTest extends Unit
         $expected = '<a href="http://music.botanicalhouse.net"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ';
         $expected .= '<a href="http://souterraine.biz"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ';
 
-        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, null, custom_domains()));
+        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, null, custom_domains()));
     }
 
     public function testAsSnsIconLinkWithOptionsArgument()
@@ -87,6 +87,6 @@ class FormatterTest extends Unit
         $expected = '<a href="https://plus.google.com/+foo" target="_blank"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
         $expected .= '<a href="https://www.facebook.com/foo" target="_blank"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
 
-        $this->assertSame($expected, Yii::$app->formatter->asSnsIconLink($value, null, [], ['target' => '_blank']));
+        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, null, [], ['target' => '_blank']));
     }
 }

@@ -34,7 +34,7 @@ $this->title = "View Bookmark: $model->name - ".app()->name;
                 'target' => '_blank',
             ]],
         ],
-        'link:snsIconLink',
+        'link:brandIconLink',
         'tagValues',
         [
             'attribute' => 'status',

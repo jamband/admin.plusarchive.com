@@ -56,7 +56,7 @@ $this->title = 'Labels - '.app()->name;
                         <div class="badge badge-secondary">
                             <?= h($model->getAttributeLabel('link')) ?>:
                         </div>
-                        <?= formatter()->asSnsIconLink($model->link, "\n", custom_domains(), [
+                        <?= formatter()->asBrandIconLink($model->link, "\n", custom_domains(), [
                             'class' => 'text-secondary',
                             'rel' => 'noopener',
                             'target' => '_blank',

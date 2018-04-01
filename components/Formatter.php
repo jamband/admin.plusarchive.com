@@ -27,7 +27,7 @@ class Formatter extends FormatterBase
      * @param array $options the tag options in terms of name-value pairs. See [[Html::a()]].
      * @return null|string the formatted result.
      */
-    public function asSnsIconLink($value, $separator = null, array $domains = [], array $options = [])
+    public function asBrandIconLink($value, $separator = null, array $domains = [], array $options = [])
     {
         if (null === $value || '' === $value) {
             return null;

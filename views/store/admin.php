@@ -49,7 +49,7 @@ $this->title = 'Admin Stores - '.app()->name;
             ],
             [
                 'attribute' => 'link',
-                'format' => ['snsIconLink', null, [], [
+                'format' => ['brandIconLink', null, [], [
                     'rel' => 'noopener',
                     'target' => '_blank',
                 ]],

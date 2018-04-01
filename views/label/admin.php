@@ -49,7 +49,7 @@ $this->title = 'Admin Labels - '.app()->name;
             ],
             [
                 'attribute' => 'link',
-                'format' => ['snsIconLink', null, custom_domains(), [
+                'format' => ['brandIconLink', null, custom_domains(), [
                     'rel' => 'noopener',
                     'target' => '_blank',
                 ]],

@@ -54,7 +54,7 @@ $this->title = 'Bookmarks - '.app()->name;
                         <?= h($model->country) ?>
                         <br>
                         <div class="badge badge-secondary"><?= h($model->getAttributeLabel('link')) ?>:</div>
-                        <?= formatter()->asSnsIconLink($model->link, "\n", [], [
+                        <?= formatter()->asBrandIconLink($model->link, "\n", [], [
                             'class' => 'text-secondary',
                             'rel' => 'noopener',
                             'target' => '_blank',

@@ -34,7 +34,7 @@ $this->title = "View Store: $model->name - ".app()->name;
         ],
         [
             'attribute' => 'link',
-            'format' => ['snsIconLink', null, [], [
+            'format' => ['brandIconLink', null, [], [
                 'rel' => 'noopener',
                 'target' => '_blank',
             ]],
