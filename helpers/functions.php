@@ -78,7 +78,7 @@ if (!function_exists('asset')) {
             : new stdClass;
 
         return property_exists($manifest, $file)
-            ? '/assets/'.$manifest->$file
+            ? $manifest->$file
             : '/assets/'.$file;
     }
 }
