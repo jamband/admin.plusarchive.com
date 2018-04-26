@@ -12,13 +12,13 @@
 namespace app\components;
 
 use Hashids\Hashids as HashidsBase;
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * Yii 2 wrapper for the Hashids.
  * @link https://github.com/lichunqiang/hashids
  */
-class Hashids extends Object
+class Hashids extends BaseObject
 {
     /**
      * @var string
