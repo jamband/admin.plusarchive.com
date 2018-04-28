@@ -33,6 +33,7 @@
     "last 2 versions"
   ],
   "scripts": {
+    "postinstall": "./client/scripts/postinstall.sh",
     "watch": "NODE_ENV=development webpack -w --config build/dev.js --hide-modules",
     "dev": "NODE_ENV=development webpack --config build/dev.js --hide-modules",
     "build": "NODE_ENV=production webpack --config build/prod.js --hide-modules"
