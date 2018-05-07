@@ -41,12 +41,9 @@ class Track extends ActiveRecord
     const STATUS_PRIVATE = 0;
     const STATUS_PUBLISH = 1;
 
-    const STATUS_PRIVATE_TEXT = 'Private';
-    const STATUS_PUBLISH_TEXT = 'Publish';
-
     const STATUSES = [
-        self::STATUS_PRIVATE => self::STATUS_PRIVATE_TEXT,
-        self::STATUS_PUBLISH => self::STATUS_PUBLISH_TEXT,
+        self::STATUS_PRIVATE => 'Private',
+        self::STATUS_PUBLISH => 'Publish',
     ];
 
     const PROVIDER_BANDCAMP = 1;
@@ -54,30 +51,21 @@ class Track extends ActiveRecord
     const PROVIDER_VIMEO = 3;
     const PROVIDER_YOUTUBE = 4;
 
-    const PROVIDER_BANDCAMP_TEXT = 'Bandcamp';
-    const PROVIDER_SOUNDCLOUD_TEXT = 'SoundCloud';
-    const PROVIDER_VIMEO_TEXT = 'Vimeo';
-    const PROVIDER_YOUTUBE_TEXT = 'YouTube';
-
     const PROVIDERS = [
-        self::PROVIDER_BANDCAMP => self::PROVIDER_BANDCAMP_TEXT,
-        self::PROVIDER_SOUNDCLOUD => self::PROVIDER_SOUNDCLOUD_TEXT,
-        self::PROVIDER_VIMEO => self::PROVIDER_VIMEO_TEXT,
-        self::PROVIDER_YOUTUBE => self::PROVIDER_YOUTUBE_TEXT,
+        self::PROVIDER_BANDCAMP => 'Bandcamp',
+        self::PROVIDER_SOUNDCLOUD => 'SoundCloud',
+        self::PROVIDER_VIMEO => 'Vimeo',
+        self::PROVIDER_YOUTUBE => 'YouTube',
     ];
 
     const TYPE_TRACK = 1;
     const TYPE_ALBUM = 2;
     const TYPE_PLAYLIST = 3;
 
-    const TYPE_TRACK_TEXT = 'Track';
-    const TYPE_ALBUM_TEXT = 'Album';
-    const TYPE_PLAYLIST_TEXT = 'Playlist';
-
     const TYPES = [
-        self::TYPE_TRACK => self::TYPE_TRACK_TEXT,
-        self::TYPE_ALBUM => self::TYPE_ALBUM_TEXT,
-        self::TYPE_PLAYLIST => self::TYPE_PLAYLIST_TEXT,
+        self::TYPE_TRACK => 'Track',
+        self::TYPE_ALBUM => 'Album',
+        self::TYPE_PLAYLIST => 'Playlist',
     ];
 
     /**

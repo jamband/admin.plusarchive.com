@@ -36,12 +36,9 @@ class Bookmark extends ActiveRecord
     const STATUS_PRIVATE = 0;
     const STATUS_PUBLISH = 1;
 
-    const STATUS_PRIVATE_TEXT = 'Private';
-    const STATUS_PUBLISH_TEXT = 'Publish';
-
     const STATUSES = [
-        self::STATUS_PRIVATE => self::STATUS_PRIVATE_TEXT,
-        self::STATUS_PUBLISH => self::STATUS_PUBLISH_TEXT,
+        self::STATUS_PRIVATE => 'Private',
+        self::STATUS_PUBLISH => 'Publish',
     ];
 
     /**

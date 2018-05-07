@@ -66,9 +66,9 @@ class TrackController extends Controller
     {
         $query = Track::find()
             ->with(['trackGenres'])
-            ->status(Track::STATUS_PUBLISH_TEXT)
+            ->status(Track::STATUSES[Track::STATUS_PUBLISH])
             ->provider($provider)
-            ->type(Track::TYPE_TRACK_TEXT);
+            ->type(Track::TYPES[Track::TYPE_TRACK]);
 
         if (null !== $search) {
             $query->search($search);
@@ -121,7 +121,7 @@ class TrackController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel(
-            hashids()->decode($id), Track::STATUS_PUBLISH_TEXT
+            hashids()->decode($id), Track::STATUSES[Track::STATUS_PUBLISH]
         );
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-track']);
@@ -145,7 +145,7 @@ class TrackController extends Controller
     {
         $query = Track::find()
             ->with(['trackGenres'])
-            ->type(Track::TYPE_TRACK_TEXT);
+            ->type(Track::TYPES[Track::TYPE_TRACK]);
 
         if (null !== $search) {
             $query->search($search);
@@ -233,7 +233,7 @@ class TrackController extends Controller
         $model = Track::find()
             ->andWhere(['id' => $id])
             ->status($status)
-            ->type(Track::TYPE_TRACK_TEXT)
+            ->type(Track::TYPES[Track::TYPE_TRACK])
             ->one();
 
         if (null === $model) {

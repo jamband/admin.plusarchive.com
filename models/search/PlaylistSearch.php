@@ -38,7 +38,7 @@ class PlaylistSearch extends Track
     public function search(array $params = [])
     {
         $query = Track::find()
-            ->type(Track::TYPE_PLAYLIST_TEXT);
+            ->type(Track::TYPES[Track::TYPE_PLAYLIST]);
 
         $data = new ActiveDataProvider([
             'query' => $query,

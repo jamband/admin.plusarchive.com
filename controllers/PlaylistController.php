@@ -60,8 +60,8 @@ class PlaylistController extends Controller
         return $this->render('index', [
             'data' => new ActiveDataProvider([
                 'query' => Track::find()
-                    ->status(Track::STATUS_PUBLISH_TEXT)
-                    ->type(Track::TYPE_PLAYLIST_TEXT)
+                    ->status(Track::STATUSES[Track::STATUS_PUBLISH])
+                    ->type(Track::TYPES[Track::TYPE_PLAYLIST])
                     ->orderBy(['created_at' => SORT_DESC]),
                 'pagination' => false,
             ]),
@@ -160,7 +160,7 @@ class PlaylistController extends Controller
         $model = Track::find()
             ->andWhere(['id' => $id])
             ->status($status)
-            ->type(Track::TYPE_PLAYLIST_TEXT)
+            ->type(Track::TYPES[Track::TYPE_PLAYLIST])
             ->one();
 
         if (null === $model) {
