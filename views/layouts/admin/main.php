@@ -43,8 +43,8 @@ use yii\helpers\Html;
         <a href="<?= url(['/site/third-party-licenses']) ?>">Third-Party Licenses</a>
     </footer>
     <script src="<?= asset('vendor.js') ?>"></script>
-    <script src="<?= asset('admin.js') ?>"></script>
     <script src="<?= asset('app.js') ?>"></script>
+    <script src="<?= asset('admin.js') ?>"></script>
 <?php $this->endBody() ?>
 </body>
 </html>
