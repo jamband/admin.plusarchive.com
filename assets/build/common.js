@@ -4,9 +4,9 @@ const webpack = require('webpack')
 
 module.exports = {
   entry: {
-    vendor: './client/entries/vendor.js',
-    app: './client/entries/app.js',
-    admin: './client/entries/admin.js'
+    vendor: './assets/entries/vendor.js',
+    app: './assets/entries/app.js',
+    admin: './assets/entries/admin.js'
   },
   output: {
     path: path.resolve(__dirname, '../../web/assets'),
@@ -26,7 +26,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               config: {
-                path: './client/build/postcss.config.js'
+                path: './assets/build/postcss.config.js'
               }
             }
           },

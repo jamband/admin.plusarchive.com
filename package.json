@@ -35,9 +35,9 @@
     "last 2 versions"
   ],
   "scripts": {
-    "postinstall": "./client/scripts/postinstall.sh",
-    "watch": "webpack -w --config client/build/dev.js --hide-modules",
-    "dev": "webpack --config client/build/dev.js --hide-modules",
-    "build": "webpack --config client/build/prod.js --hide-modules"
+    "postinstall": "./assets/scripts/postinstall.sh",
+    "watch": "webpack -w --config assets/build/dev.js --hide-modules",
+    "dev": "webpack --config assets/build/dev.js --hide-modules",
+    "build": "webpack --config assets/build/prod.js --hide-modules"
   }
 }
