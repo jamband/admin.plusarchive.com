@@ -17,7 +17,12 @@
 use app\widgets\ToastrNotification;
 use yii\helpers\Html;
 
-$this->render('/common/js/analytics-tracking');
+
+if (Yii::$app->session->has('privacy-consent')) {
+    $this->render('/common/js/analytics-tracking');
+} else {
+    $this->render('/common/js/privacy-consent');
+}
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

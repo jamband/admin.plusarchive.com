@@ -104,7 +104,7 @@ $config = [
                 'options' => [
                     'escapeHtml' => true,
                     'timeOut' => 3600,
-                    'positionClass' => 'toast-bottom-left',
+                    'positionClass' => 'toast-bottom-full-width',
                 ],
             ],
         ],

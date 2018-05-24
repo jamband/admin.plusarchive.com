@@ -15,6 +15,7 @@ use app\models\form\LoginForm;
 use app\models\form\SignupForm;
 use Yii;
 use yii\filters\AccessControl;
+use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\ErrorAction;
 use yii\web\NotFoundHttpException;
@@ -48,6 +49,10 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+            [
+                'class' => AjaxFilter::class,
+                'only' => ['privacy-consent'],
+            ],
         ];
     }
 
@@ -77,6 +82,19 @@ class SiteController extends Controller
     public function actionPrivacy()
     {
         return $this->render('privacy');
+    }
+
+    /**
+     * Privacy consent
+     * @return void
+     */
+    public function actionPrivacyConsent()
+    {
+        $session = Yii::$app->session;
+
+        if (!$session->has('privacy-consent')) {
+            $session->set('privacy-consent', 'ok');
+        }
     }
 
     /**

@@ -1,4 +1,5 @@
 @import "../variables/components";
+@import "../variables/fonts";
 @import "~toastr/toastr";
 
 #toast-container {
@@ -6,5 +7,13 @@
   > div:hover {
     border-radius: $border-radius;
     box-shadow: none;
+    font-size: $font-size-sm;
   }
+}
+
+.toast-close-button {
+  position: static;
+  font-size: $font-size-base;
+  font-weight: normal;
+  text-shadow: none;
 }
