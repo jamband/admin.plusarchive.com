@@ -11,6 +11,12 @@
   }
 }
 
+.toast-message {
+  a {
+    text-decoration: underline;
+  }
+}
+
 .toast-close-button {
   position: static;
   font-size: $font-size-base;
