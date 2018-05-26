@@ -11,9 +11,10 @@
 
 /**
  * @var yii\web\View $this
+ * @var string $url
  */
 
-$this->registerJs(<<<'JS'
+$this->registerJs(<<<JS
 toastr.options = {
   timeOut: 0,
   extendedTimeOut: 0,
@@ -22,7 +23,7 @@ toastr.options = {
   closeButton: true,
   closeHtml: '<button type="button">OK</button>',
   onCloseClick: function () {
-    $.ajax({
+    jQuery.ajax({
       url: 'privacy-consent'
     }).done(function () {
       // ...
@@ -31,6 +32,6 @@ toastr.options = {
     });
   }
 };
-toastr.info('We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with <a href="https://plusarchive.com/privacy">Privacy Policy</a>.');
+toastr.info('We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with <a href="$url">Privacy Policy</a>.');
 JS
 );

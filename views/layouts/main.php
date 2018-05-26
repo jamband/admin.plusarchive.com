@@ -20,7 +20,7 @@ use yii\helpers\Html;
 if (Yii::$app->session->has('privacy-consent')) {
     $this->render('/common/js/analytics-tracking');
 } else {
-    $this->render('/common/js/privacy-consent');
+    $this->render('/common/js/privacy-consent', ['url' => url(['/site/privacy'])]);
 }
 ?>
 <?php $this->beginPage() ?>
