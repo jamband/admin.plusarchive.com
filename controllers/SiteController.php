@@ -51,7 +51,7 @@ class SiteController extends Controller
             ],
             [
                 'class' => AjaxFilter::class,
-                'only' => ['privacy-consent'],
+                'only' => ['privacy-consent', 'privacy-opt-out'],
             ],
         ];
     }
@@ -90,10 +90,19 @@ class SiteController extends Controller
      */
     public function actionPrivacyConsent()
     {
-        $session = Yii::$app->session;
+        if (!session()->has('privacy-consent')) {
+            session()->set('privacy-consent', 'ok');
+        }
+    }
 
-        if (!$session->has('privacy-consent')) {
-            $session->set('privacy-consent', 'ok');
+    /**
+     * Privacy policy opt-out
+     * @return void
+     */
+    public function actionPrivacyOptOut()
+    {
+        if (session()->has('privacy-consent')) {
+            session()->remove('privacy-consent');
         }
     }
 

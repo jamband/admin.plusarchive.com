@@ -32,6 +32,6 @@ toastr.options = {
     });
   }
 };
-toastr.info('We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with <a href="$url">Privacy Policy</a>.');
+toastr.info('This site uses cookies to provide better experience. If you continue to use this site we will assume that you are happy with <a href="$url">Privacy Policy</a>.');
 JS
 );
