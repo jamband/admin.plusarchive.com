@@ -22,13 +22,18 @@ $this->registerJs(<<<'JS'
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-  gtag('config', 'UA-77180716-1');
+  gtag('config', 'UA-77180716-1', {
+    'anonymize_ip': true
+  });
 JS
 , yii\web\View::POS_HEAD);
 
 $this->registerJs(<<<'JS'
 $(document).on('pjax:end', function () {
-    gtag('config', 'UA-77180716-1', { 'page_path': window.location.pathname+window.location.search });
+    gtag('config', 'UA-77180716-1', {
+      'anonymize_ip': true,
+      'page_path': window.location.pathname + window.location.search
+    });
 });
 JS
 );
