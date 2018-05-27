@@ -15,7 +15,7 @@
 
 $this->registerJsFile('https://www.googletagmanager.com/gtag/js?id=UA-77180716-1', [
     'async' => true,
-    'position' => yii\web\View::POS_HEAD,
+    'position' => $this::POS_HEAD,
 ]);
 
 $this->registerJs(<<<'JS'
@@ -26,7 +26,7 @@ $this->registerJs(<<<'JS'
     'anonymize_ip': true
   });
 JS
-, yii\web\View::POS_HEAD);
+, $this::POS_HEAD);
 
 $this->registerJs(<<<'JS'
 $(document).on('pjax:end', function () {
