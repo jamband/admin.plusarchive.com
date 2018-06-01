@@ -11,8 +11,12 @@
 
 /**
  * @var yii\web\View $this
- * @var string $url
+ * @var string $privacyUrl
+ * @var string $privacyConsentUrl
  */
+
+$privacyUrl = url(['/site/privacy']);
+$privacyConsentUrl = url(['/site/privacy-consent']);
 
 $this->registerJs(<<<JS
 toastr.options = {
@@ -24,7 +28,7 @@ toastr.options = {
   closeHtml: '<button type="button">OK</button>',
   onCloseClick: function () {
     jQuery.ajax({
-      url: 'privacy-consent'
+      url: '$privacyConsentUrl'
     }).done(function () {
       // ...
     }).fail(function () {
@@ -32,6 +36,6 @@ toastr.options = {
     });
   }
 };
-toastr.info('This site uses cookies to provide better experience. If you continue to use this site we will assume that you are happy with <a href="$url">Privacy Policy</a>.');
+toastr.info('This site uses cookies to provide better experience. If you continue to use this site we will assume that you are happy with <a href="$privacyUrl">Privacy Policy</a>.');
 JS
 );
