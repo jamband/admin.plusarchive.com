@@ -13,6 +13,9 @@ namespace app\models\query;
 
 use yii\db\ActiveQuery;
 
+/**
+ * @see \app\models\Playlist
+ */
 class PlaylistQuery extends ActiveQuery
 {
     /**

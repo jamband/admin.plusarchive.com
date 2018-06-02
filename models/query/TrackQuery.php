@@ -17,6 +17,8 @@ use yii\db\ActiveQuery;
 
 /**
  * @method $this allTagValues($values, $attribute = null)
+ *
+ * @see \app\models\Track
  */
 class TrackQuery extends ActiveQuery
 {

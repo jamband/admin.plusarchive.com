@@ -19,15 +19,6 @@ use yii\web\Request;
 class Sort extends SortBase
 {
     /**
-     * Returns the page parameter.
-     * @return string
-     */
-    public function getPageParam()
-    {
-        return (new Pagination)->pageParam;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function createUrl($attribute, $absolute = false)
@@ -38,9 +29,13 @@ class Sort extends SortBase
             $request = Yii::$app->getRequest();
             $params = $request instanceof Request ? $request->getQueryParams() : [];
         }
-        if (isset($params[$this->getPageParam()])) {
-            unset($params[$this->getPageParam()]);
+
+        $pagination = new Pagination;
+
+        if (isset($params[$pagination->pageParam])) {
+            unset($params[$pagination->pageParam]);
         }
+
         $params[$this->sortParam] = $this->createSortParam($attribute);
 
         $params[0] = null === $this->route

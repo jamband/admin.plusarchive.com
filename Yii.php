@@ -9,17 +9,13 @@
  * file that was distributed with this source code.
  */
 
-class Yii extends \yii\BaseYii
+class Yii extends yii\BaseYii
 {
     /**
      * @var BaseApplication|WebApplication|ConsoleApplication
      */
     public static $app;
 }
-
-spl_autoload_register(['Yii', 'autoload'], true, true);
-Yii::$classMap = require __DIR__.'/vendor/yiisoft/yii2/classes.php';
-Yii::$container = new yii\di\Container;
 
 /**
  *

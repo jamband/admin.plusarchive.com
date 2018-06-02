@@ -24,6 +24,8 @@ use yii\web\IdentityInterface;
  * @property string $auto_key
  * @property int $created_at
  * @property int $updated_at
+ *
+ * @property string $authKey
  */
 class User extends ActiveRecord implements IdentityInterface
 {

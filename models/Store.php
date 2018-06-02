@@ -26,6 +26,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $link
  * @property int $created_at
  * @property int $updated_at
+ *
  * @property StoreTag[] $storeTags
  */
 class Store extends ActiveRecord

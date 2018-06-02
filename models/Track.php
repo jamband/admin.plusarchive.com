@@ -31,7 +31,14 @@ use yii\db\ActiveRecord;
  * @property int $type
  * @property int $created_at
  * @property int $updated_at
+ *
  * @property string $tagValues
+ *
+ * @property trackGenre[] $trackGenres
+ *
+ * @property string $statusText
+ * @property string $providerText
+ * @property string $typeText
  */
 class Track extends ActiveRecord
 {

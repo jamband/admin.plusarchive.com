@@ -8,6 +8,6 @@ if (php_uname('n') !== 'plusarchive.com') {
     defined('YII_ENV') or define('YII_ENV', 'dev');
     (new Dotenv\Dotenv(__DIR__))->load();
 }
-require __DIR__.'/Yii.php';
+require __DIR__.'/vendor/yiisoft/yii2/Yii.php';
 
 exit((new yii\console\Application(require __DIR__.'/config/console.php'))->run());

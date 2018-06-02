@@ -28,6 +28,8 @@ use yii\db\ActiveRecord;
  * @property int $created_at
  * @property int $updated_at
  * @property BookmarkTag[] $bookmarkTags
+ *
+ * @property string $statusText
  */
 class Bookmark extends ActiveRecord
 {

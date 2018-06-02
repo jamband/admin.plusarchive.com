@@ -26,6 +26,7 @@ use yii\db\ActiveRecord;
  * @property string $link
  * @property int $created_at
  * @property int $updated_at
+ *
  * @property LabelTag[] $labelTags
  */
 class Label extends ActiveRecord

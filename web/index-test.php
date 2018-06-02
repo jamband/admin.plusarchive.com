@@ -19,6 +19,6 @@ if (preg_match('/\A(localhost|dev.plusarchive)\z/', $_SERVER['SERVER_NAME'])) {
     defined('YII_ENV') or define('YII_ENV', 'test');
     (new Dotenv\Dotenv(dirname(__DIR__)))->load();
 }
-require __DIR__.'/../Yii.php';
+require __DIR__.'/../vendor/yiisoft/yii2/Yii.php';
 
 (new yii\web\Application(require __DIR__.'/../config/test.php'))->run();

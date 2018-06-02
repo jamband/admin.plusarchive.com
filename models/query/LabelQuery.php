@@ -16,6 +16,8 @@ use yii\db\ActiveQuery;
 
 /**
  * @method $this allTagValues($values, $attribute = null)
+ *
+ * @see \app\models\Label
  */
 class LabelQuery extends ActiveQuery
 {
