@@ -15,7 +15,6 @@
  */
 
 use app\widgets\ToastrNotification;
-use yii\helpers\Html;
 
 if (session()->has('privacy-consent')) {
     $this->render('/common/js/analytics-tracking');
@@ -29,7 +28,7 @@ if (session()->has('privacy-consent')) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
+    <?= $this->registerCsrfMetaTags() ?>
     <title><?= h($this->title) ?></title>
     <link rel="icon" type="image/png" href="<?= asset('favicon.png') ?>">
     <link rel="apple-touch-icon" sizes="152x152" href="<?= asset('apple-touch-icon.png') ?>">
