@@ -26,5 +26,9 @@ $I->dontSee('playlist2', '.playlist-title');
 $I->click('playlist1', '.playlist-title');
 $I->seeCurrentUrlEquals('/index-test.php/playlist/'.hashids()->encode(1));
 
-$I->click('Back to playlist');
+// close privacy consent popup
+$I->click('.toast-close-button');
+$I->wait(1);
+
+$I->click('Back to playlists');
 $I->seeCurrentUrlEquals('/index-test.php/playlists');
