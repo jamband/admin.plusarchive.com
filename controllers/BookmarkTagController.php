@@ -86,8 +86,10 @@ class BookmarkTagController extends Controller
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Bookmark tag has been updated.');
+
             return $this->redirect(['admin']);
         }
+
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -115,9 +117,11 @@ class BookmarkTagController extends Controller
     protected function findModel($id)
     {
         $model = BookmarkTag::findOne($id);
+
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');
         }
+
         return $model;
     }
 }

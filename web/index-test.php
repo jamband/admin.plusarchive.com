@@ -12,6 +12,7 @@
 if (!in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
     die('You are not allowed to access this file.');
 }
+
 require __DIR__.'/../vendor/autoload.php';
 
 if (preg_match('/\A(localhost|dev.plusarchive)\z/', $_SERVER['SERVER_NAME'])) {
@@ -19,6 +20,7 @@ if (preg_match('/\A(localhost|dev.plusarchive)\z/', $_SERVER['SERVER_NAME'])) {
     defined('YII_ENV') or define('YII_ENV', 'test');
     (new Dotenv\Dotenv(dirname(__DIR__)))->load();
 }
+
 require __DIR__.'/../vendor/yiisoft/yii2/Yii.php';
 
 (new yii\web\Application(require __DIR__.'/../config/test.php'))->run();

@@ -157,6 +157,7 @@ class Track extends ActiveRecord
             $this->title = $this->title ?: $ripple->title();
             $this->image = $this->image ?: $ripple->image();
         }
+
         return $this;
     }
 

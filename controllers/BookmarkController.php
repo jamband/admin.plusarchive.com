@@ -70,6 +70,7 @@ class BookmarkController extends Controller
             $query->country($country)
                 ->sort($sort);
         }
+
         if (null !== $tag) {
             $query->allTagValues($tag);
         }
@@ -121,8 +122,10 @@ class BookmarkController extends Controller
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Bookmark has been added.');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
+
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -139,8 +142,10 @@ class BookmarkController extends Controller
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Bookmark has been updated.');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
+
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -168,9 +173,11 @@ class BookmarkController extends Controller
     protected function findModel($id)
     {
         $model = Bookmark::findOne($id);
+
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');
         }
+
         return $model;
     }
 }

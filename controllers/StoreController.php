@@ -69,6 +69,7 @@ class StoreController extends Controller
             $query->country($country)
                 ->sort($sort);
         }
+
         if (null !== $tag) {
             $query->allTagValues($tag);
         }
@@ -119,8 +120,10 @@ class StoreController extends Controller
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Store has been added.');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
+
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -137,8 +140,10 @@ class StoreController extends Controller
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Store has been updated.');
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
+
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -166,9 +171,11 @@ class StoreController extends Controller
     protected function findModel($id)
     {
         $model = Store::findOne($id);
+
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');
         }
+
         return $model;
     }
 }

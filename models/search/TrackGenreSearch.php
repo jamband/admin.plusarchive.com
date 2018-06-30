@@ -44,6 +44,7 @@ class TrackGenreSearch extends TrackGenre
                 ]
             ],
         ]);
+
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', 'name', $this->name]);
         }

@@ -23,6 +23,7 @@ class ToastrNotification extends Toastr
             foreach ((array)$messages as $message) {
                 Toastr::widget(compact('type', 'message', 'options'));
             }
+
             $session->removeFlash($type);
         }
     }

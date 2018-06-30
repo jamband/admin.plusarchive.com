@@ -32,16 +32,20 @@ class Formatter extends FormatterBase
         if (null === $value || '' === $value) {
             return null;
         }
+
         if (null === $separator) {
             $separator = "\n";
         }
+
         $values = explode($separator, $value);
         sort($values, SORT_STRING);
 
         $urls = '';
+
         foreach ($values as $v) {
             $urls .= Html::a(static::getBrandIcon($v, $domains), $v, $options).' ';
         }
+
         return $urls;
     }
 
@@ -68,11 +72,13 @@ class Formatter extends FormatterBase
             'vimeo.com' => 'vimeo-square',
             'youtube.com' => 'youtube-square',
         ];
+
         foreach ($icons as $domain => $icon) {
             if (false !== strpos($value, $domain)) {
                 return '<i class="fab fa-'.$icon.' fa-fw fa-lg"></i>';
             }
         }
+
         return '<i class="fas fa-external-link-alt fa-fw fa-lg"></i>';
     }
 }

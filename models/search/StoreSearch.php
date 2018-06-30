@@ -51,6 +51,7 @@ class StoreSearch extends Store
                 ],
             ],
         ]);
+
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', static::tableName().'.name', $this->name])
                 ->andFilterWhere(['country' => $this->country])

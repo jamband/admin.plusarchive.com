@@ -48,6 +48,7 @@ class PlaylistSearch extends Track
                 ],
             ],
         ]);
+
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', 'title', $this->title])
                 ->andFilterWhere(['like', 'provider_key', $this->provider_key])

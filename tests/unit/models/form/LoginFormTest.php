@@ -51,6 +51,7 @@ class LoginFormTest extends Unit
             'username' => 'wrong_username',
             'password' => 'wrong_password',
         ]);
+
         $this->assertFalse($model->login());
         $this->assertNotEmpty($model->errors);
         $this->assertTrue(user()->isGuest);
@@ -62,6 +63,7 @@ class LoginFormTest extends Unit
             'username' => $this->users['user1']['username'],
             'password' => str_repeat($this->users['user1']['username'], 2),
         ]);
+
         $this->assertTrue($model->login());
         $this->assertEmpty($model->errors);
         $this->assertFalse(user()->isGuest);

@@ -58,6 +58,7 @@ class Hashids extends BaseObject
         if (method_exists($this->_hashids, $name)) {
             return call_user_func_array([$this->_hashids, $name], $params);
         }
+
         return parent::__call($name, $params);
     }
 
@@ -68,9 +69,11 @@ class Hashids extends BaseObject
     public function decode($id)
     {
         $id = $this->_hashids->decode($id);
+
         if (1 === count($id)) {
             return $id[0];
         }
+
         return $id;
     }
 }

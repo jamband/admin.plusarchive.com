@@ -140,6 +140,7 @@ class SiteController extends Controller
         if (null === app()->catchAll) {
             throw new NotFoundHttpException('page not found.');
         }
+
         db()->schema->refresh();
         response()->statusCode = 503;
 
@@ -164,12 +165,15 @@ class SiteController extends Controller
         if (!user()->isGuest) {
             return $this->goHome();
         }
+
         $model = new LoginForm;
 
         if ($model->load(request()->post()) && $model->login()) {
             session()->setFlash('success', 'Logged in successfully.');
+
             return $this->goBack();
         }
+
         return $this->render('login', [
             'model' => $model,
         ]);
@@ -200,9 +204,11 @@ class SiteController extends Controller
 
             if (null !== $user && user()->login($user)) {
                 session()->setFlash('success', 'Signed up successfully.');
+
                 return $this->goBack();
             }
         }
+
         return $this->render('signup', [
             'model' => $model,
         ]);

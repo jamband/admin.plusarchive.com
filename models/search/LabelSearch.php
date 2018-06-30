@@ -51,6 +51,7 @@ class LabelSearch extends Label
                 ],
             ],
         ]);
+
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', static::tableName().'.name', $this->name])
                 ->andFilterWhere(['country' => $this->country])
@@ -60,6 +61,7 @@ class LabelSearch extends Label
                 $query->allTagValues($this->tag);
             }
         }
+
         return $data;
     }
 }

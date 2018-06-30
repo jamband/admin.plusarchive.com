@@ -75,6 +75,7 @@ class TrackController extends Controller
         } else {
             $query->orderBy(['created_at' => SORT_DESC]);
         }
+
         if (null !== $genre) {
             $query->allTagValues($genre);
         }
@@ -123,6 +124,7 @@ class TrackController extends Controller
         $model = $this->findModel(
             hashids()->decode($id), Track::STATUSES[Track::STATUS_PUBLISH]
         );
+
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-track']);
 
@@ -154,6 +156,7 @@ class TrackController extends Controller
                 ->provider($provider)
                 ->sort($sort);
         }
+
         if (null !== $genre) {
             $query->allTagValues($genre);
         }
@@ -183,8 +186,10 @@ class TrackController extends Controller
 
         if ($model->load(request()->post()) && $model->setContents()->save()) {
             session()->setFlash('success', 'New track has been added.');
+
             return $this->redirect(['admin']);
         }
+
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -201,8 +206,10 @@ class TrackController extends Controller
 
         if ($model->load(request()->post()) && $model->setContents()->save()) {
             session()->setFlash('success', 'Track has been updated.');
+
             return $this->redirect(['admin']);
         }
+
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -239,6 +246,7 @@ class TrackController extends Controller
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');
         }
+
         return $model;
     }
 }

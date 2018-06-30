@@ -55,12 +55,15 @@ class ActionColumn extends ActionColumnBase
                     default:
                         $title = ucfirst($name);
                 }
+
                 $options = array_merge([
                     'title' => $title,
                     'aria-label' => $title,
                     'data-pjax' => '0',
                 ], $additionalOptions, $this->buttonOptions);
+
                 $icon = Html::tag('i', '', ['class' => "fas fa-fw fa-$iconName"]);
+
                 return Html::a($icon, $url, $options);
             };
         }

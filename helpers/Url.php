@@ -25,6 +25,7 @@ class Url extends BaseUrl
     public static function currentPlus(array $params = [], $scheme = false)
     {
         $params = array_merge($params, [(new Pagination)->pageParam => null]);
+
         return static::current($params, $scheme);
     }
 }

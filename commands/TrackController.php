@@ -30,6 +30,7 @@ class TrackController extends Controller
     public function init()
     {
         parent::init();
+
         Yii::setAlias('@dump', Yii::getAlias('@runtime/dump'));
     }
 
@@ -43,6 +44,7 @@ class TrackController extends Controller
         foreach (Ripple::providers() as $provider) {
             static::dump($provider, Track::find()->select(['id', 'url']));
         }
+
         $this->stdout('All data has been dumped in '.Yii::getAlias('@dump').".\n");
     }
 

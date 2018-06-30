@@ -46,6 +46,7 @@ class SignupFormTest extends Unit
             'email' => 'newuser@example.com',
             'password' => 'newusernewuser',
         ]);
+
         $this->assertInstanceOf(User::class, $model->signup());
         $this->assertEmpty($model->errors);
     }

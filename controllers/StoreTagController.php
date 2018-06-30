@@ -86,8 +86,10 @@ class StoreTagController extends Controller
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Store tag has been updated.');
+
             return $this->redirect(['admin']);
         }
+
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -115,9 +117,11 @@ class StoreTagController extends Controller
     protected function findModel($id)
     {
         $model = StoreTag::findOne($id);
+
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');
         }
+
         return $model;
     }
 }

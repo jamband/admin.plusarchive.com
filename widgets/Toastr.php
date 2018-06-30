@@ -57,6 +57,7 @@ class Toastr extends Widget
         if (!in_array($this->type, $this->_allowedTypes, true)) {
             throw new InvalidParamException(self::class.'::type property must be either '.implode('|', $this->_allowedTypes));
         }
+
         $this->registerClientScript();
     }
 

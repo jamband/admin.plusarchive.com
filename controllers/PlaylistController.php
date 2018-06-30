@@ -78,6 +78,7 @@ class PlaylistController extends Controller
         $model = $this->findModel(
             hashids()->decode($id), Track::STATUS_PUBLISH
         );
+
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-playlist']);
 
@@ -110,8 +111,10 @@ class PlaylistController extends Controller
 
         if ($model->load(request()->post()) && $model->setContents()->save()) {
             session()->setFlash('success', 'Playlist has been added.');
+
             return $this->redirect(['admin']);
         }
+
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -128,8 +131,10 @@ class PlaylistController extends Controller
 
         if ($model->load(request()->post()) && $model->setContents()->save()) {
             session()->setFlash('success', 'Playlist has been updated.');
+
             return $this->redirect(['admin']);
         }
+
         return $this->render('update', [
             'model' => $model,
         ]);
@@ -166,6 +171,7 @@ class PlaylistController extends Controller
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');
         }
+
         return $model;
     }
 }

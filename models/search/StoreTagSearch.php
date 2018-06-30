@@ -42,6 +42,7 @@ class StoreTagSearch extends StoreTag
                 'defaultOrder' => ['created_at' => SORT_DESC],
             ],
         ]);
+
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', 'name', $this->name]);
         }

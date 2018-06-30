@@ -23,9 +23,11 @@ class Controller extends BaseController
         if (!parent::beforeAction($action)) {
             return false;
         }
+
         if (user()->can('admin')) {
             $this->layout = 'admin/main';
         }
+
         return true;
     }
 }
