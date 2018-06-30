@@ -2,7 +2,7 @@
 
 namespace app\widgets;
 
-use yii\base\InvalidParamException;
+use yii\base\InvalidArgumentException;
 use yii\base\Widget;
 use yii\helpers\Json;
 
@@ -50,12 +50,12 @@ class Toastr extends Widget
 
     /**
      * {@inheritdoc}
-     * @throws InvalidParamException
+     * @throws InvalidArgumentException
      */
     public function run()
     {
         if (!in_array($this->type, $this->_allowedTypes, true)) {
-            throw new InvalidParamException(self::class.'::type property must be either '.implode('|', $this->_allowedTypes));
+            throw new InvalidArgumentException(self::class.'::type property must be either '.implode('|', $this->_allowedTypes));
         }
 
         $this->registerClientScript();
