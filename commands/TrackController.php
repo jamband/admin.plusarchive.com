@@ -16,7 +16,9 @@ use app\models\Track;
 use jamband\ripple\Ripple;
 use SplFileObject;
 use Yii;
+use yii\base\Exception;
 use yii\console\Controller;
+use yii\console\ExitCode;
 use yii\helpers\FileHelper;
 
 /**
@@ -36,24 +38,20 @@ class TrackController extends Controller
 
     /**
      * Creates some csv files for each provider.
+     * @return int
+     * @throws Exception
      */
     public function actionDump()
     {
-        static::createDumpDirectory();
+        FileHelper::createDirectory(Yii::getAlias('@dump'));
 
         foreach (Ripple::providers() as $provider) {
             static::dump($provider, Track::find()->select(['id', 'url']));
         }
 
         $this->stdout('All data has been dumped in '.Yii::getAlias('@dump').".\n");
-    }
 
-    /**
-     * Creates a dump directory.
-     */
-    private static function createDumpDirectory()
-    {
-        FileHelper::createDirectory(Yii::getAlias('@dump'));
+        return ExitCode::OK;
     }
 
     /**
