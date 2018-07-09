@@ -10,7 +10,7 @@ module.exports = merge.smart(common, {
   module: {
     rules: [
       {
-        test: /\.(png|eot|woff|woff2|svg|ttf)$/,
+        test: /\.(png|woff|woff2)$/,
         use: {
           loader: 'file-loader',
           options: {
