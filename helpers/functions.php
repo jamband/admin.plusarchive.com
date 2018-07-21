@@ -97,7 +97,7 @@ if (!function_exists('custom_domains')) {
         static $domains;
 
         if (null === $domains) {
-            $domains = array_fill_keys(jamband\ripple\Bandcamp::$hosts, 'bandcamp');
+            $domains = array_fill_keys(jamband\ripple\Bandcamp::DOMAINS, 'bandcamp');
         }
 
         return $domains;

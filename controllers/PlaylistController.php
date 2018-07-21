@@ -84,7 +84,7 @@ class PlaylistController extends Controller
 
         return $this->render('view', [
             'model' => $model,
-            'embed' => $ripple->embed($model->url, $model->providerText, $model->provider_key),
+            'embed' => $ripple->embed($model->url, $model->provider_key),
         ]);
     }
 

@@ -107,7 +107,7 @@ class TrackController extends Controller
         $ripple->setEmbedParams(app()->params['embed-track-modal']);
 
         return $this->renderAjax('now', [
-            'embed' => $ripple->embed($url, $provider, $key),
+            'embed' => $ripple->embed($url, $key),
             'id' => $id,
             'title' => $title,
             'provider' => $provider,
@@ -130,7 +130,7 @@ class TrackController extends Controller
 
         return $this->render('view', [
             'model' => $model,
-            'embed' => $ripple->embed($model->url, $model->providerText, $model->provider_key),
+            'embed' => $ripple->embed($model->url, $model->provider_key),
         ]);
     }
 
