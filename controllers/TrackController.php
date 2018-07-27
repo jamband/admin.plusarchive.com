@@ -79,7 +79,7 @@ class TrackController extends Controller
             $query->orderBy(['created_at' => SORT_DESC]);
         }
 
-        if (null !== $genre) {
+        if (null !== $genre && '' !== $genre) {
             $query->allTagValues($genre);
         }
 
@@ -163,7 +163,7 @@ class TrackController extends Controller
                 ->sort($sort);
         }
 
-        if (null !== $genre) {
+        if (null !== $genre && '' !== $genre) {
             $query->allTagValues($genre);
         }
 
