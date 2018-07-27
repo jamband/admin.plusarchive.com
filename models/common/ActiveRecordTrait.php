@@ -9,8 +9,11 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\common;
 
+use yii\base\Action;
 use yii\db\ActiveQuery;
 
 /**
@@ -20,9 +23,10 @@ trait ActiveRecordTrait
 {
     /**
      * Returns all name attribute values.
+     *
      * @return ActiveQuery
      */
-    public static function getNames()
+    public static function getNames(): ActiveQuery
     {
         return static::find()
             ->select('name')
@@ -31,9 +35,10 @@ trait ActiveRecordTrait
 
     /**
      * Returns all countries.
+     *
      * @return array
      */
-    public static function getCountries()
+    public static function getCountries(): array
     {
         return static::find()
             ->select('country')
@@ -44,9 +49,10 @@ trait ActiveRecordTrait
 
     /**
      * Returns all ids.
+     *
      * @return array
      */
-    public static function getIds()
+    public static function getIds(): array
     {
         return static::find()
             ->select('id')

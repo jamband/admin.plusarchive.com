@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use yii\helpers\Html;
 use yii\i18n\Formatter as FormatterBase;
 
-/**
- * {@inheritdoc}
- */
 class Formatter extends FormatterBase
 {
     /**
      * Formats the value as some hyperlink.
-     * @param mixed $value the value to be formatted.
-     * @param string $separator
+     *
+     * @param null|string $value the value to be formatted.
+     * @param null|string $separator
      * @param string[] $domains some custom domain
      * @param array $options the tag options in terms of name-value pairs. See [[Html::a()]].
      * @return null|string the formatted result.
      */
-    public function asBrandIconLink($value, $separator = null, array $domains = [], array $options = [])
+    public function asBrandIconLink(?string $value, ?string $separator = null, array $domains = [], array $options = []): ?string
     {
         if (null === $value || '' === $value) {
             return null;
@@ -51,11 +51,12 @@ class Formatter extends FormatterBase
 
     /**
      * Get the brand icon for Font Awesome.
+     *
      * @param string $value
      * @param string[] $domains
      * @return string
      */
-    private static function getBrandIcon($value, array $domains = [])
+    private static function getBrandIcon(string $value, array $domains = []): string
     {
         $icons = $domains + [
             'bandcamp.com' => 'bandcamp',

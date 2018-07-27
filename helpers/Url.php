@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace yii\helpers;
 
 use yii\data\Pagination;
@@ -17,12 +19,13 @@ class Url extends BaseUrl
 {
     /**
      * Url::current() removing current page index.
+     *
      * @param array $params
      * @param bool|string $scheme
      * @return string
-     * @see current()
+     * @see \yii\helpers\Url::current()
      */
-    public static function currentPlus(array $params = [], $scheme = false)
+    public static function currentPlus(array $params = [], $scheme = false): string
     {
         $params = array_merge($params, [(new Pagination)->pageParam => null]);
 

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\Store;
@@ -22,10 +24,10 @@ use yii\web\Response;
 class StoreController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return array
      * @throws NotFoundHttpException
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -52,13 +54,14 @@ class StoreController extends Controller
 
     /**
      * Lists all Store models.
-     * @param string $sort
-     * @param string $country
-     * @param string $tag
-     * @param string $search
+     *
+     * @param null|string $sort
+     * @param null|string $country
+     * @param null|string $tag
+     * @param null|string $search
      * @return string
      */
-    public function actionIndex($sort = null, $country = null, $tag = null, $search = null)
+    public function actionIndex(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): string
     {
         $query = Store::find()
             ->with(['storeTags']);
@@ -88,9 +91,10 @@ class StoreController extends Controller
 
     /**
      * Manages all Store models.
+     *
      * @return string
      */
-    public function actionAdmin()
+    public function actionAdmin(): string
     {
         return $this->render('admin', [
             'search' => $searchModel = new StoreSearch,
@@ -100,10 +104,11 @@ class StoreController extends Controller
 
     /**
      * Displays a single Store model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string
      */
-    public function actionView($id)
+    public function actionView(string $id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -112,6 +117,7 @@ class StoreController extends Controller
 
     /**
      * Creates a new Store model.
+     *
      * @return string|Response
      */
     public function actionCreate()
@@ -131,10 +137,11 @@ class StoreController extends Controller
 
     /**
      * Updates an existing Store model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string|Response
      */
-    public function actionUpdate($id)
+    public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
 
@@ -151,10 +158,11 @@ class StoreController extends Controller
 
     /**
      * Deletes an existing Store model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string|Response
      */
-    public function actionDelete($id)
+    public function actionDelete(string $id)
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Store has been deleted.');
@@ -164,11 +172,12 @@ class StoreController extends Controller
 
     /**
      * Finds the Store model based on its primary key value.
-     * @param int $id
+     *
+     * @param string $id
      * @return Store
      * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    protected function findModel(string $id): Store
     {
         $model = Store::findOne($id);
 

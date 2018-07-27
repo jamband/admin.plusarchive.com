@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -28,7 +30,7 @@ class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
-    public function loginAsAdmin()
+    public function loginAsAdmin(): void
     {
         $I = $this;
         $I->amOnPage(url(['/site/login']));
@@ -41,7 +43,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @param array|string $url
      */
-    public function seeBadRequest($url)
+    public function seeBadRequest($url): void
     {
         $I = $this;
         $I->amOnPage(url($url));
@@ -51,7 +53,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @param array|string $url
      */
-    public function seePageNotFound($url)
+    public function seePageNotFound($url): void
     {
         $I = $this;
         $I->amOnPage(url($url));
@@ -61,7 +63,7 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * @param array|string $url
      */
-    public function seeMethodNotAllowed($url)
+    public function seeMethodNotAllowed($url): void
     {
         $I = $this;
         $I->amOnPage(url($url));

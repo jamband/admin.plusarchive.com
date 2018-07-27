@@ -15,16 +15,16 @@ use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
 /**
- * @method $this allTagValues($values, $attribute = null)
+ * @method LabelQuery allTagValues($values, $attribute = null)
  *
  * @see \app\models\Label
  */
 class LabelQuery extends ActiveQuery
 {
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TaggableQueryBehavior::class,
@@ -32,19 +32,19 @@ class LabelQuery extends ActiveQuery
     }
 
     /**
-     * @param string $country
-     * @return $this
+     * @param null|string $country
+     * @return LabelQuery
      */
-    public function country($country)
+    public function country(?string $country): LabelQuery
     {
         return $this->andFilterWhere(['country' => $country]);
     }
 
     /**
-     * @param string $sort
-     * @return $this
+     * @param null|string $sort
+     * @return LabelQuery
      */
-    public function sort($sort)
+    public function sort($sort): LabelQuery
     {
         switch ($sort) {
             case 'Name':
@@ -58,9 +58,9 @@ class LabelQuery extends ActiveQuery
 
     /**
      * @param string $search
-     * @return $this
+     * @return LabelQuery
      */
-    public function search($search)
+    public function search(string $search): LabelQuery
     {
         return $this->andFilterWhere(['or',
             ['like', 'name', $search],

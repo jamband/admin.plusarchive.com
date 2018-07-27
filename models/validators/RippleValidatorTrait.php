@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\validators;
 
 use jamband\ripple\Ripple;
@@ -17,9 +19,11 @@ trait RippleValidatorTrait
 {
     /**
      * Validates whether a valid URL.
+     *
      * @param string $attribute
+     * @return void
      */
-    public function validateUrl($attribute)
+    public function validateUrl(string $attribute): void
     {
         if (!(new Ripple($this->$attribute))->isValidUrl()) {
             $this->addError($attribute, 'The track URL is not valid.');
@@ -28,9 +32,11 @@ trait RippleValidatorTrait
 
     /**
      * Validates whether have a content.
+     *
      * @param string $attribute
+     * @return void
      */
-    public function validateContent($attribute)
+    public function validateContent(string $attribute): void
     {
         if (null === $this->provider_key) {
             $this->addError($attribute, 'Unable to retrieve the contents from the URL.');

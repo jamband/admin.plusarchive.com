@@ -9,16 +9,20 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
+use yii\base\Action;
 use yii\web\Controller as BaseController;
 
 class Controller extends BaseController
 {
     /**
-     * {@inheritdoc}
+     * @param Action $action
+     * @return bool
      */
-    public function beforeAction($action)
+    public function beforeAction($action): bool
     {
         if (!parent::beforeAction($action)) {
             return false;

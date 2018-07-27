@@ -1,6 +1,6 @@
 {
   "require": {
-    "php": ">= 7.0.0",
+    "php": ">= 7.1.0",
     "yiisoft/yii2": "2.0.15.1",
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.5.0",
@@ -25,8 +25,8 @@
     "files": ["helpers/functions.php"]
   },
   "scripts": {
-    "dev": "composer ins -q && npm i -s && npm run dev",
+    "dev": "composer install --quiet && npm install --slient && npm run dev",
     "clean": "rm -rf node_modules runtime/* tests/_output/* vendor web/assets/*",
-    "show-asset-version": "composer show -t | grep -o 'bower-asset.*' | sort | uniq"
+    "show-asset-version": "composer show --tree | grep -o 'bower-asset.*' | sort | uniq"
   }
 }

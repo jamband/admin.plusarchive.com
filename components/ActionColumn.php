@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use Yii;
@@ -18,14 +20,14 @@ use yii\grid\ActionColumn as ActionColumnBase;
 class ActionColumn extends ActionColumnBase
 {
     /**
-     * {@inheritdoc}
+     * @var array
      */
     public $buttonOptions = [];
 
     /**
-     * {@inheritdoc}
+     * @return void
      */
-    protected function initDefaultButtons()
+    protected function initDefaultButtons(): void
     {
         $this->initDefaultButton('view', 'eye');
         $this->initDefaultButton('update', 'edit');
@@ -36,12 +38,15 @@ class ActionColumn extends ActionColumnBase
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $name
+     * @param string $iconName
+     * @param array $additionalOptions
+     * @return void
      */
-    protected function initDefaultButton($name, $iconName, $additionalOptions = [])
+    protected function initDefaultButton($name, $iconName, $additionalOptions = []): void
     {
         if (!isset($this->buttons[$name]) && strpos($this->template, '{' . $name . '}') !== false) {
-            $this->buttons[$name] = function ($url) use ($name, $iconName, $additionalOptions) {
+            $this->buttons[$name] = function (string $url) use ($name, $iconName, $additionalOptions): string {
                 switch ($name) {
                     case 'view':
                         $title = Yii::t('yii', 'View');

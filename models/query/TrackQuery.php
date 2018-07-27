@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\query;
 
 use app\models\Track;
@@ -16,16 +18,16 @@ use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
 /**
- * @method $this allTagValues($values, $attribute = null)
+ * @method TrackQuery allTagValues($values, $attribute = null)
  *
  * @see \app\models\Track
  */
 class TrackQuery extends ActiveQuery
 {
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TaggableQueryBehavior::class,
@@ -33,10 +35,10 @@ class TrackQuery extends ActiveQuery
     }
 
     /**
-     * @param string $provider
-     * @return $this
+     * @param null|string $provider
+     * @return TrackQuery
      */
-    public function provider($provider)
+    public function provider(?string $provider): TrackQuery
     {
         $provider = array_search($provider, Track::PROVIDERS, true);
 
@@ -44,10 +46,10 @@ class TrackQuery extends ActiveQuery
     }
 
     /**
-     * @param string $status
-     * @return $this
+     * @param null|string $status
+     * @return TrackQuery
      */
-    public function status($status)
+    public function status(?string $status): TrackQuery
     {
         $status = array_search($status, Track::STATUSES, true);
 
@@ -55,10 +57,10 @@ class TrackQuery extends ActiveQuery
     }
 
     /**
-     * @param string $type
-     * @return $this
+     * @param null|string $type
+     * @return TrackQuery
      */
-    public function type($type)
+    public function type(?string $type): TrackQuery
     {
         $type = array_search($type, Track::TYPES, true);
 
@@ -67,19 +69,19 @@ class TrackQuery extends ActiveQuery
 
     /**
      * @param string $search
-     * @return $this
+     * @return TrackQuery
      */
-    public function search($search)
+    public function search(string $search): TrackQuery
     {
         return $this->andFilterWhere(['like', 'title', trim($search)])
             ->orderBy(['title' => SORT_ASC]);
     }
 
     /**
-     * @param string $sort
-     * @return $this
+     * @param null|string $sort
+     * @return TrackQuery
      */
-    public function sort($sort)
+    public function sort(?string $sort): TrackQuery
     {
         switch ($sort) {
             case 'Title':

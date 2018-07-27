@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
@@ -34,17 +36,17 @@ class Label extends ActiveRecord
     use ActiveRecordTrait;
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'label';
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'tagValues' => 'Tag',
@@ -52,10 +54,9 @@ class Label extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
      * @return LabelQuery
      */
-    public static function find()
+    public static function find(): LabelQuery
     {
         return new LabelQuery(static::class);
     }
@@ -63,7 +64,7 @@ class Label extends ActiveRecord
     /**
      * @return ActiveQuery
      */
-    public function getLabelTags()
+    public function getLabelTags(): ActiveQuery
     {
         return $this->hasMany(LabelTag::class, ['id' => 'label_tag_id'])
             ->viaTable('label_tag_assn', ['label_id' => 'id'])
@@ -71,9 +72,9 @@ class Label extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name', 'url'], 'required'],
@@ -88,9 +89,9 @@ class Label extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,
@@ -102,9 +103,9 @@ class Label extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function transactions()
+    public function transactions(): array
     {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,

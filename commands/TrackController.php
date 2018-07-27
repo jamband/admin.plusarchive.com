@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\commands;
 
 use app\models\query\TrackQuery;
@@ -27,9 +29,9 @@ use yii\helpers\FileHelper;
 class TrackController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return void
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -41,7 +43,7 @@ class TrackController extends Controller
      * @return int
      * @throws Exception
      */
-    public function actionDump()
+    public function actionDump(): int
     {
         FileHelper::createDirectory(Yii::getAlias('@dump'));
 
@@ -57,8 +59,9 @@ class TrackController extends Controller
     /**
      * @param string $provider
      * @param TrackQuery $query
+     * @return void
      */
-    private static function dump($provider, TrackQuery $query)
+    private static function dump(string $provider, TrackQuery $query): void
     {
         $file = new SplFileObject(Yii::getAlias("@dump/$provider.csv"), 'w');
 

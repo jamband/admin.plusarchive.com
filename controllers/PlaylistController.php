@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\search\PlaylistSearch;
@@ -23,10 +25,10 @@ use yii\web\Response;
 class PlaylistController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return array
      * @throws NotFoundHttpException
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -53,9 +55,10 @@ class PlaylistController extends Controller
 
     /**
      * Lists all playlists of Track models.
+     *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         return $this->render('index', [
             'data' => new ActiveDataProvider([
@@ -70,13 +73,14 @@ class PlaylistController extends Controller
 
     /**
      * Displays a specific playlist of Track model.
+     *
      * @param string $id the hashed playlist id
      * @return string
      */
-    public function actionView($id)
+    public function actionView(string $id): string
     {
         $model = $this->findModel(
-            hashids()->decode($id), Track::STATUS_PUBLISH
+            (string)hashids()->decode($id), (string)Track::STATUS_PUBLISH
         );
 
         $ripple = new Ripple;
@@ -90,9 +94,10 @@ class PlaylistController extends Controller
 
     /**
      * Manages all playlists of Track model.
+     *
      * @return string
      */
-    public function actionAdmin()
+    public function actionAdmin(): string
     {
         return $this->render('admin', [
             'search' => $searchModel = new PlaylistSearch,
@@ -102,6 +107,7 @@ class PlaylistController extends Controller
 
     /**
      * Creates a new playlist of Track model.
+     *
      * @return string|Response
      */
     public function actionCreate()
@@ -122,10 +128,11 @@ class PlaylistController extends Controller
 
     /**
      * Updates an existing playlist of Track model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string|Response
      */
-    public function actionUpdate($id)
+    public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
 
@@ -142,10 +149,11 @@ class PlaylistController extends Controller
 
     /**
      * Deletes an existing playlist of Track model.
-     * @param int $id
+     *
+     * @param string $id
      * @return Response
      */
-    public function actionDelete($id)
+    public function actionDelete(string $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Playlist has been deleted.');
@@ -155,12 +163,13 @@ class PlaylistController extends Controller
 
     /**
      * Finds the playlist of Track model based on its primary key value.
-     * @param int $id
-     * @param int $status
-     * @return Track|array
+     *
+     * @param string $id
+     * @param null|string $status
+     * @return Track
      * @throws NotFoundHttpException
      */
-    protected function findModel($id, $status = null)
+    protected function findModel(string $id, ?string $status = null): Track
     {
         $model = Track::find()
             ->andWhere(['id' => $id])

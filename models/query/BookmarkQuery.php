@@ -9,22 +9,24 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\query;
 
 use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
 /**
- * @method $this allTagValues($values, $attribute = null)
+ * @method BookmarkQuery allTagValues($values, $attribute = null)
  *
  * @see \app\models\Bookmark
  */
 class BookmarkQuery extends ActiveQuery
 {
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TaggableQueryBehavior::class,
@@ -32,28 +34,28 @@ class BookmarkQuery extends ActiveQuery
     }
 
     /**
-     * @param string $country
-     * @return $this
+     * @param null|string $country
+     * @return BookmarkQuery
      */
-    public function country($country)
+    public function country(?string $country): BookmarkQuery
     {
         return $this->andFilterWhere(['country' => $country]);
     }
 
     /**
      * @param int $status
-     * @return $this
+     * @return BookmarkQuery
      */
-    public function status($status)
+    public function status(int $status): BookmarkQuery
     {
         return $this->andWhere(['status' => $status]);
     }
 
     /**
      * @param string $search
-     * @return $this
+     * @return BookmarkQuery
      */
-    public function search($search)
+    public function search(string $search): BookmarkQuery
     {
         return $this->andFilterWhere(['or',
             ['like', 'bookmark.name', trim($search)],
@@ -62,10 +64,10 @@ class BookmarkQuery extends ActiveQuery
     }
 
     /**
-     * @param string $sort
-     * @return $this
+     * @param null|string $sort
+     * @return BookmarkQuery
      */
-    public function sort($sort)
+    public function sort(?string $sort): BookmarkQuery
     {
         switch ($sort) {
             case 'Name':

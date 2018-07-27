@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\tests\unit\components;
 
 use Yii;
@@ -16,7 +18,7 @@ use Codeception\Test\Unit;
 
 class FormatterTest extends Unit
 {
-    public function testAsSnsIconLink()
+    public function testAsSnsIconLink(): void
     {
         $value = "https://www.facebook.com/foo\n";
         $value .= "https://plus.google.com/+foo";
@@ -30,14 +32,15 @@ class FormatterTest extends Unit
     /**
      * @param string $expected
      * @param string $value
+     * @return void
      * @dataProvider asSnsIconLinkProvider
      */
-    public function testAsSnsIconLinks($expected, $value)
+    public function testAsSnsIconLinks(string $expected, string $value): void
     {
         $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value));
     }
 
-    public function asSnsIconLinkProvider()
+    public function asSnsIconLinkProvider(): array
     {
         return [
             ['<a href="https://foo.bandcamp.com"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://foo.bandcamp.com'],
@@ -55,13 +58,13 @@ class FormatterTest extends Unit
         ];
     }
 
-    public function testAsSnsIconLinkEmptyValue()
+    public function testAsSnsIconLinkEmptyValue(): void
     {
         $this->assertNull(Yii::$app->formatter->asBrandIconLink(null));
         $this->assertNull(Yii::$app->formatter->asBrandIconLink(''));
     }
 
-    public function testAsSnsIconLinkWithSeparatorArgument()
+    public function testAsSnsIconLinkWithSeparatorArgument(): void
     {
         $value = 'https://www.facebook.com/foo|https://plus.google.com/+foo';
         $expected = '<a href="https://plus.google.com/+foo"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
@@ -70,7 +73,7 @@ class FormatterTest extends Unit
         $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, '|'));
     }
 
-    public function testAsSnsIconLinkWithDomainsArgument()
+    public function testAsSnsIconLinkWithDomainsArgument(): void
     {
         $value = "http://music.botanicalhouse.net\n";
         $value .= "http://souterraine.biz";
@@ -80,7 +83,7 @@ class FormatterTest extends Unit
         $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, null, custom_domains()));
     }
 
-    public function testAsSnsIconLinkWithOptionsArgument()
+    public function testAsSnsIconLinkWithOptionsArgument(): void
     {
         $value = "https://www.facebook.com/foo\n";
         $value .= "https://plus.google.com/+foo";

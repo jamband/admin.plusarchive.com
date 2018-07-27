@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\tests\unit\components;
 
 use Yii;
@@ -20,17 +22,17 @@ class HashidsTest extends Unit
     const HASH_ID = 'Xzr1XkpY';
     const MIN_HASH_LENGTH = 8;
 
-    public function testMinHashLength()
+    public function testMinHashLength(): void
     {
         $this->assertSame(self::MIN_HASH_LENGTH, strlen(Yii::$app->hashids->encode(self::ID)));
     }
 
-    public function testEncode()
+    public function testEncode(): void
     {
         $this->assertSame(self::HASH_ID, Yii::$app->hashids->encode(self::ID));
     }
 
-    public function testDecode()
+    public function testDecode(): void
     {
         $this->assertSame(self::ID, Yii::$app->hashids->decode(self::HASH_ID));
     }

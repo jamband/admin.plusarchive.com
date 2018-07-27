@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
@@ -45,46 +47,46 @@ class Track extends ActiveRecord
     use ActiveRecordTrait;
     use RippleValidatorTrait;
 
-    const STATUS_PRIVATE = 0;
-    const STATUS_PUBLISH = 1;
+    public const STATUS_PRIVATE = 0;
+    public const STATUS_PUBLISH = 1;
 
-    const STATUSES = [
+    public const STATUSES = [
         self::STATUS_PRIVATE => 'Private',
         self::STATUS_PUBLISH => 'Publish',
     ];
 
-    const PROVIDER_BANDCAMP = 1;
-    const PROVIDER_SOUNDCLOUD = 2;
-    const PROVIDER_VIMEO = 3;
-    const PROVIDER_YOUTUBE = 4;
+    public const PROVIDER_BANDCAMP = 1;
+    public const PROVIDER_SOUNDCLOUD = 2;
+    public const PROVIDER_VIMEO = 3;
+    public const PROVIDER_YOUTUBE = 4;
 
-    const PROVIDERS = [
+    public const PROVIDERS = [
         self::PROVIDER_BANDCAMP => 'Bandcamp',
         self::PROVIDER_SOUNDCLOUD => 'SoundCloud',
         self::PROVIDER_VIMEO => 'Vimeo',
         self::PROVIDER_YOUTUBE => 'YouTube',
     ];
 
-    const TYPE_TRACK = 1;
-    const TYPE_ALBUM = 2;
-    const TYPE_PLAYLIST = 3;
+    public const TYPE_TRACK = 1;
+    public const TYPE_ALBUM = 2;
+    public const TYPE_PLAYLIST = 3;
 
-    const TYPES = [
+    public const TYPES = [
         self::TYPE_TRACK => 'Track',
         self::TYPE_ALBUM => 'Album',
         self::TYPE_PLAYLIST => 'Playlist',
     ];
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'track';
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
     public function attributeLabels()
     {
@@ -94,10 +96,9 @@ class Track extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
      * @return TrackQuery
      */
-    public static function find()
+    public static function find(): TrackQuery
     {
         return new TrackQuery(static::class);
     }
@@ -105,7 +106,7 @@ class Track extends ActiveRecord
     /**
      * @return ActiveQuery
      */
-    public function getTrackGenres()
+    public function getTrackGenres(): ActiveQuery
     {
         return $this->hasMany(TrackGenre::class, ['id' => 'track_genre_id'])
             ->viaTable('track_genre_assn', ['track_id' => 'id'])
@@ -114,27 +115,30 @@ class Track extends ActiveRecord
 
     /**
      * Transformation of status attribute.
+     *
      * @return string
      */
-    public function getStatusText()
+    public function getStatusText(): string
     {
         return self::STATUSES[$this->status];
     }
 
     /**
      * Transformation of provider attribute.
+     *
      * @return string
      */
-    public function getProviderText()
+    public function getProviderText(): string
     {
         return self::PROVIDERS[$this->provider];
     }
 
     /**
      * Transformation of type attribute.
+     *
      * @return string
      */
-    public function getTypeText()
+    public function getTypeText(): string
     {
         return self::TYPES[$this->type];
     }
@@ -142,9 +146,10 @@ class Track extends ActiveRecord
 
     /**
      * Sets some attributes. (provider, provider_key, title, image)
-     * @return $this
+     *
+     * @return Track
      */
-    public function setContents()
+    public function setContents(): Track
     {
         $ripple = new Ripple($this->url);
 
@@ -162,9 +167,9 @@ class Track extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['url'], 'required'],
@@ -182,9 +187,9 @@ class Track extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,
@@ -196,9 +201,9 @@ class Track extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function transactions()
+    public function transactions(): array
     {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,

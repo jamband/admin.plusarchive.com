@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\Label;
@@ -22,10 +24,10 @@ use yii\web\Response;
 class LabelController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return array
      * @throws NotFoundHttpException
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -52,13 +54,14 @@ class LabelController extends Controller
 
     /**
      * Lists all Label models.
-     * @param string $sort
-     * @param string $country
-     * @param string $tag
-     * @param string $search
+     *
+     * @param null|string $sort
+     * @param null|string $country
+     * @param null|string $tag
+     * @param null|string $search
      * @return string
      */
-    public function actionIndex($sort = null, $country = null, $tag = null, $search = null)
+    public function actionIndex(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): string
     {
         $query = Label::find()
             ->with(['labelTags']);
@@ -88,9 +91,10 @@ class LabelController extends Controller
 
     /**
      * Manages all Label models.
+     *
      * @return string
      */
-    public function actionAdmin()
+    public function actionAdmin(): string
     {
         return $this->render('admin', [
             'search' => $searchModel = new LabelSearch,
@@ -100,10 +104,11 @@ class LabelController extends Controller
 
     /**
      * Displays a single Label model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string
      */
-    public function actionView($id)
+    public function actionView(string $id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -112,6 +117,7 @@ class LabelController extends Controller
 
     /**
      * Creates a new Label model.
+     *
      * @return string|Response
      */
     public function actionCreate()
@@ -131,10 +137,11 @@ class LabelController extends Controller
 
     /**
      * Updates an existing Label model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string|Response
      */
-    public function actionUpdate($id)
+    public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
 
@@ -151,10 +158,10 @@ class LabelController extends Controller
 
     /**
      * Deletes an existing Label model.
-     * @param int $id
+     * @param string $id
      * @return Response
      */
-    public function actionDelete($id)
+    public function actionDelete(string $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Label has been deleted.');
@@ -164,11 +171,12 @@ class LabelController extends Controller
 
     /**
      * Finds the Label model based on its primary key value.
-     * @param int $id
+     *
+     * @param string $id
      * @return Label
      * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    protected function findModel(string $id): Label
     {
         $model = Label::findOne($id);
 

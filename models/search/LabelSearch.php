@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\search;
 
 use yii\data\ActiveDataProvider;
@@ -20,9 +22,9 @@ class LabelSearch extends Label
     public $tag;
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name', 'link'], 'trim'],
@@ -35,10 +37,11 @@ class LabelSearch extends Label
 
     /**
      * Creates data provider instance with search query applied.
+     *
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search(array $params = [])
+    public function search(array $params = []): ActiveDataProvider
     {
         $query = Label::find()
             ->with(['labelTags']);

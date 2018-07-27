@@ -1,5 +1,16 @@
 <?php
 
+/*
+ * This file is part of the plusarchive.com
+ *
+ * (c) Tomoki Morita <tmsongbooks215@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
 namespace app\widgets;
 
 use yii\base\InvalidArgumentException;
@@ -40,19 +51,20 @@ class Toastr extends Widget
     ];
 
     /**
-     * {@inheritdoc}
+     * @return void
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
+
         $this->options = Json::htmlEncode($this->options);
     }
 
     /**
-     * {@inheritdoc}
+     * @return void
      * @throws InvalidArgumentException
      */
-    public function run()
+    public function run(): void
     {
         if (!in_array($this->type, $this->_allowedTypes, true)) {
             throw new InvalidArgumentException(self::class.'::type property must be either '.implode('|', $this->_allowedTypes));
@@ -63,8 +75,10 @@ class Toastr extends Widget
 
     /**
      * Registers the needed JavaScript.
+     *
+     * @return void
      */
-    public function registerClientScript()
+    public function registerClientScript(): void
     {
         $view = $this->getView();
         $view->registerJs("toastr.options = $this->options;");

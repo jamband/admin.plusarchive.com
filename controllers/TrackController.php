@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\Track;
@@ -23,10 +25,10 @@ use yii\web\Response;
 class TrackController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return array
      * @throws NotFoundHttpException
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -57,12 +59,13 @@ class TrackController extends Controller
 
     /**
      * Lists all Track models.
-     * @param string $provider
-     * @param string $genre
-     * @param string $search
+     *
+     * @param null|string $provider
+     * @param null|string $genre
+     * @param null|string $search
      * @return string
      */
-    public function actionIndex($provider = null, $genre = null, $search = null)
+    public function actionIndex(?string $provider = null, ?string $genre = null, ?string $search = null): string
     {
         $query = Track::find()
             ->with(['trackGenres'])
@@ -94,14 +97,15 @@ class TrackController extends Controller
 
     /**
      * Renders the HTML of the now playing track.
-     * @param string $id the hashed track id
-     * @param string $url
-     * @param string $title
-     * @param string $provider
-     * @param string $key provider key
+     *
+     * @param null|string $id the hashed track id
+     * @param null|string $url
+     * @param null|string $title
+     * @param null|string $provider
+     * @param null|string $key provider key
      * @return string
      */
-    public function actionNow($id = null, $url = null, $title = null, $provider = null, $key = null)
+    public function actionNow(?string $id = null, ?string $url = null, ?string $title = null, ?string $provider = null, ?string $key = null): string
     {
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-track-modal']);
@@ -116,13 +120,14 @@ class TrackController extends Controller
 
     /**
      * Displays a single Track model.
+     *
      * @param string $id the hashed track id
      * @return string
      */
-    public function actionView($id)
+    public function actionView(string $id): string
     {
         $model = $this->findModel(
-            hashids()->decode($id), Track::STATUSES[Track::STATUS_PUBLISH]
+            (string)hashids()->decode($id), Track::STATUSES[Track::STATUS_PUBLISH]
         );
 
         $ripple = new Ripple;
@@ -136,14 +141,15 @@ class TrackController extends Controller
 
     /**
      * Manages all Track models.
-     * @param int $status
-     * @param string $provider
-     * @param string $sort
-     * @param string $genre
-     * @param string $search
+     *
+     * @param null|string $status
+     * @param null|string $provider
+     * @param null|string $sort
+     * @param null|string $genre
+     * @param null|string $search
      * @return string
      */
-    public function actionAdmin($status = null, $provider = null, $sort = null, $genre = null, $search = null)
+    public function actionAdmin(?string $status = null, ?string $provider = null, ?string $sort = null, ?string $genre = null, ?string $search = null): string
     {
         $query = Track::find()
             ->with(['trackGenres'])
@@ -177,6 +183,7 @@ class TrackController extends Controller
 
     /**
      * Creates a new Track model.
+     *
      * @return string|Response
      */
     public function actionCreate()
@@ -197,10 +204,11 @@ class TrackController extends Controller
 
     /**
      * Updates an existing Track model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string|Response
      */
-    public function actionUpdate($id)
+    public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
 
@@ -217,10 +225,11 @@ class TrackController extends Controller
 
     /**
      * Deletes an existing Track model.
-     * @param int $id
-     * @return string
+     *
+     * @param string $id
+     * @return Response
      */
-    public function actionDelete($id)
+    public function actionDelete(string $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Track has been deleted.');
@@ -230,12 +239,13 @@ class TrackController extends Controller
 
     /**
      * Finds the Track model based on its primary key value.
-     * @param int $id
-     * @param int $status
-     * @return Track|array
+     *
+     * @param string $id
+     * @param null|string $status
+     * @return Track
      * @throws NotFoundHttpException
      */
-    protected function findModel($id, $status = null)
+    protected function findModel(string $id, ?string $status = null): Track
     {
         $model = Track::find()
             ->andWhere(['id' => $id])

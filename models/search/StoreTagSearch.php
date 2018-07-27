@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\search;
 
 use app\models\StoreTag;
@@ -17,9 +19,9 @@ use yii\data\ActiveDataProvider;
 class StoreTagSearch extends StoreTag
 {
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             ['name', 'trim'],
@@ -29,10 +31,11 @@ class StoreTagSearch extends StoreTag
 
     /**
      * Creates data provider instance with search query applied
+     *
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search(array $params = [])
+    public function search(array $params = []): ActiveDataProvider
     {
         $query = StoreTag::find();
 

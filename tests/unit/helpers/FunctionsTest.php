@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\tests\unit\helpers;
 
 use Yii;
@@ -16,62 +18,62 @@ use Codeception\Test\Unit;
 
 class FunctionsTest extends Unit
 {
-    public function testApp()
+    public function testApp(): void
     {
         $this->assertSame(Yii::$app, app());
     }
 
-    public function testDb()
+    public function testDb(): void
     {
         $this->assertSame(Yii::$app->getDb(), db());
     }
 
-    public function testFormatter()
+    public function testFormatter(): void
     {
         $this->assertSame(Yii::$app->getFormatter(), formatter());
     }
 
-    public function testRequest()
+    public function testRequest(): void
     {
         $this->assertSame(Yii::$app->getRequest(), request());
     }
 
-    public function testResponse()
+    public function testResponse(): void
     {
         $this->assertSame(Yii::$app->getResponse(), response());
     }
 
-    public function testSession()
+    public function testSession(): void
     {
         $this->assertSame(Yii::$app->getSession(), session());
     }
 
-    public function testSecurity()
+    public function testSecurity(): void
     {
         $this->assertSame(Yii::$app->getSecurity(), security());
     }
 
-    public function testUser()
+    public function testUser(): void
     {
         $this->assertSame(Yii::$app->getUser(), user());
     }
 
-    public function testHashids()
+    public function testHashids(): void
     {
         $this->assertSame(Yii::$app->hashids, hashids());
     }
 
-    public function testUrl()
+    public function testUrl(): void
     {
         $this->assertSame('/index-test.php/foo/index?q=bar', url(['/foo/index', 'q' => 'bar']));
     }
 
-    public function testH()
+    public function testH(): void
     {
         $this->assertSame('&lt;script&gt;alert(&#039;xss&#039;);&lt;/script&gt;', h("<script>alert('xss');</script>"));
     }
 
-    public function testAsset()
+    public function testAsset(): void
     {
         $this->assertTrue((bool)preg_match('#\A\/assets/app-[0-9a-f]+\.css\z#', asset('app.css')));
         $this->assertTrue((bool)preg_match('#\A\/assets/app-[0-9a-f]+\.js\z#', asset('app.js')));
@@ -82,7 +84,7 @@ class FunctionsTest extends Unit
 
     }
 
-    public function testCustomDomains()
+    public function testCustomDomains(): void
     {
         $domains = custom_domains();
         $this->assertArrayHasKey('bandcamp.com', $domains);

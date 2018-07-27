@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\search\TrackGenreSearch;
@@ -22,10 +24,10 @@ use yii\web\Response;
 class TrackGenreController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return array
      * @throws NotFoundHttpException
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -56,9 +58,10 @@ class TrackGenreController extends Controller
 
     /**
      * Manages all TrackGenre models.
+     *
      * @return string
      */
-    public function actionAdmin()
+    public function actionAdmin(): string
     {
         return $this->render('admin', [
             'search' => $searchModel = new TrackGenreSearch,
@@ -68,19 +71,21 @@ class TrackGenreController extends Controller
 
     /**
      * Returns all genres name.
+     *
      * @return Response
      */
-    public function actionList()
+    public function actionList(): Response
     {
         return $this->asJson(TrackGenre::getNames()->all());
     }
 
     /**
      * Updates an existing TrackGenre model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string|Response
      */
-    public function actionUpdate($id)
+    public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
 
@@ -97,10 +102,11 @@ class TrackGenreController extends Controller
 
     /**
      * Deletes an existing TrackGenre model.
-     * @param int $id
+     *
+     * @param string $id
      * @return Response
      */
-    public function actionDelete($id)
+    public function actionDelete(string $id): Response
     {
         $this->findModel($id)->delete();
 
@@ -110,11 +116,12 @@ class TrackGenreController extends Controller
 
     /**
      * Finds the TrackGenre model based on its primary key value.
-     * @param int $id
+     *
+     * @param string $id
      * @return TrackGenre
      * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    protected function findModel(string $id): TrackGenre
     {
         $model = TrackGenre::findOne($id);
 

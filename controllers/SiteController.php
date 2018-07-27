@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\form\LoginForm;
@@ -24,10 +26,10 @@ use yii\web\Response;
 class SiteController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return array
      * @throws NotFoundHttpException
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -57,9 +59,9 @@ class SiteController extends Controller
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function actions()
+    public function actions(): array
     {
         return [
             'error' => ErrorAction::class,
@@ -68,27 +70,30 @@ class SiteController extends Controller
 
     /**
      * Site contact.
+     *
      * @return string
      */
-    public function actionContact()
+    public function actionContact(): string
     {
         return $this->render('contact');
     }
 
     /**
      * Privacy policy page.
+     *
      * @return string
      */
-    public function actionPrivacy()
+    public function actionPrivacy(): string
     {
         return $this->render('privacy');
     }
 
     /**
-     * Privacy consent
+     * Privacy consent.
+     *
      * @return void
      */
-    public function actionPrivacyConsent()
+    public function actionPrivacyConsent(): void
     {
         if (!session()->has('privacy-consent')) {
             session()->set('privacy-consent', 'ok');
@@ -96,10 +101,11 @@ class SiteController extends Controller
     }
 
     /**
-     * Privacy policy opt-out
+     * Privacy policy opt-out.
+     *
      * @return void
      */
-    public function actionPrivacyOptOut()
+    public function actionPrivacyOptOut(): void
     {
         if (session()->has('privacy-consent')) {
             session()->remove('privacy-consent');
@@ -108,9 +114,10 @@ class SiteController extends Controller
 
     /**
      * Third-Party Licenses page.
+     *
      * @return string
      */
-    public function actionThirdPartyLicenses()
+    public function actionThirdPartyLicenses(): string
     {
         $path = Yii::getAlias('@app/web/assets/licenses.txt');
 
@@ -123,19 +130,21 @@ class SiteController extends Controller
 
     /**
      * Site about.
+     *
      * @return string
      */
-    public function actionAbout()
+    public function actionAbout(): string
     {
         return $this->render('about');
     }
 
     /**
      * Maintenance page.
+     *
      * @return string
      * @throws NotFoundHttpException If not in maintenance mode
      */
-    public function actionOffline()
+    public function actionOffline(): string
     {
         if (null === app()->catchAll) {
             throw new NotFoundHttpException('page not found.');
@@ -149,15 +158,17 @@ class SiteController extends Controller
 
     /**
      * Site admin.
+     *
      * @return string
      */
-    public function actionAdmin()
+    public function actionAdmin(): string
     {
         return $this->render('admin');
     }
 
     /**
      * User login.
+     *
      * @return string|Response
      */
     public function actionLogin()
@@ -181,9 +192,10 @@ class SiteController extends Controller
 
     /**
      * User logout.
+     *
      * @return Response
      */
-    public function actionLogout()
+    public function actionLogout(): Response
     {
         user()->logout();
         session()->setFlash('success', 'Logged out successfully.');
@@ -193,6 +205,7 @@ class SiteController extends Controller
 
     /**
      * User signup.
+     *
      * @return string|Response
      */
     public function actionSignup()

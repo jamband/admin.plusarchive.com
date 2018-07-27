@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\controllers;
 
 use app\models\BookmarkTag;
@@ -22,10 +24,10 @@ use yii\web\Response;
 class BookmarkTagController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return array
      * @throws NotFoundHttpException
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -56,9 +58,10 @@ class BookmarkTagController extends Controller
 
     /**
      * Manages all BookmarkTag models.
+     *
      * @return string
      */
-    public function actionAdmin()
+    public function actionAdmin(): string
     {
         return $this->render('admin', [
             'search' => $searchModel = new BookmarkTagSearch,
@@ -68,19 +71,21 @@ class BookmarkTagController extends Controller
 
     /**
      * Returns all tag names.
+     *
      * @return Response
      */
-    public function actionList()
+    public function actionList(): Response
     {
         return $this->asJson(BookmarkTag::getNames()->all());
     }
 
     /**
      * Updates an existing BookmarkTag model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string|Response
      */
-    public function actionUpdate($id)
+    public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
 
@@ -97,10 +102,11 @@ class BookmarkTagController extends Controller
 
     /**
      * Deletes an existing BookmarkTag model.
-     * @param int $id
+     *
+     * @param string $id
      * @return Response
      */
-    public function actionDelete($id)
+    public function actionDelete(string $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Bookmark tag has been deleted.');
@@ -110,11 +116,12 @@ class BookmarkTagController extends Controller
 
     /**
      * Finds the BookmarkTag model based on its primary key value.
-     * @param int $id
+     *
+     * @param string $id
      * @return BookmarkTag
      * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    protected function findModel(string $id): BookmarkTag
     {
         $model = BookmarkTag::findOne($id);
 

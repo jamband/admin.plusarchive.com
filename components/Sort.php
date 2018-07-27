@@ -9,9 +9,12 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\data\Sort as SortBase;
 use yii\data\Pagination;
 use yii\web\Request;
@@ -19,7 +22,10 @@ use yii\web\Request;
 class Sort extends SortBase
 {
     /**
-     * {@inheritdoc}
+     * @param string $attribute
+     * @param bool $absolute
+     * @return string
+     * @throws InvalidConfigException
      */
     public function createUrl($attribute, $absolute = false)
     {

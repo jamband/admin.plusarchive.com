@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\search;
 
 use yii\data\ActiveDataProvider;
@@ -17,9 +19,9 @@ use app\models\Track;
 class PlaylistSearch extends Track
 {
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['title'], 'trim'],
@@ -32,10 +34,11 @@ class PlaylistSearch extends Track
 
     /**
      * Creates data provider instance with search query applied.
+     *
      * @param array $params
      * @return ActiveDataProvider
      */
-    public function search(array $params = [])
+    public function search(array $params = []): ActiveDataProvider
     {
         $query = Track::find()
             ->type(Track::TYPES[Track::TYPE_PLAYLIST]);

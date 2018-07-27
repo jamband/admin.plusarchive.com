@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the plusarchive.com
  *
@@ -22,10 +24,10 @@ use yii\web\Response;
 class StoreTagController extends Controller
 {
     /**
-     * {@inheritdoc}
+     * @return array
      * @throws NotFoundHttpException
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -56,9 +58,10 @@ class StoreTagController extends Controller
 
     /**
      * Manages all StoreTag models.
+     *
      * @return string
      */
-    public function actionAdmin()
+    public function actionAdmin(): string
     {
         return $this->render('admin', [
             'search' => $searchModel = new StoreTagSearch,
@@ -68,19 +71,21 @@ class StoreTagController extends Controller
 
     /**
      * Returns all tag name.
+     *
      * @return Response
      */
-    public function actionList()
+    public function actionList(): Response
     {
         return $this->asJson(StoreTag::getNames()->all());
     }
 
     /**
      * Updates an existing StoreTag model.
-     * @param int $id
+     *
+     * @param string $id
      * @return string|Response
      */
-    public function actionUpdate($id)
+    public function actionUpdate(string $id)
     {
         $model = $this->findModel($id);
 
@@ -97,10 +102,11 @@ class StoreTagController extends Controller
 
     /**
      * Deletes an existing StoreTag model.
-     * @param int $id
+     *
+     * @param string $id
      * @return Response
      */
-    public function actionDelete($id)
+    public function actionDelete(string $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Store tag has been deleted.');
@@ -110,11 +116,12 @@ class StoreTagController extends Controller
 
     /**
      * Finds the StoreTag model based on its primary key value.
-     * @param int $id
+     *
+     * @param string $id
      * @return StoreTag
      * @throws NotFoundHttpException
      */
-    protected function findModel($id)
+    protected function findModel(string $id): StoreTag
     {
         $model = StoreTag::findOne($id);
 

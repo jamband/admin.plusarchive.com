@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\components;
 
 use Hashids\Hashids as HashidsBase;
@@ -37,9 +39,9 @@ class Hashids extends BaseObject
     private $_hashids;
 
     /**
-     * {@inheritdoc}
+     * @return void
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -51,7 +53,9 @@ class Hashids extends BaseObject
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $name
+     * @param array $params
+     * @return mixed
      */
     public function __call($name, $params)
     {
@@ -66,7 +70,7 @@ class Hashids extends BaseObject
      * @param string $id
      * @return int|int[]
      */
-    public function decode($id)
+    public function decode(string $id)
     {
         $id = $this->_hashids->decode($id);
 

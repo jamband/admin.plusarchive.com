@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\tests\unit\models\form;
 
 use app\models\form\SignupForm;
@@ -23,7 +25,7 @@ class SignupFormTest extends Unit
      */
     protected $tester;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -32,14 +34,14 @@ class SignupFormTest extends Unit
         ]);
     }
 
-    public function testSignupFailure()
+    public function testSignupFailure(): void
     {
         $model = new SignupForm();
         $this->assertNull($model->signup());
         $this->assertNotEmpty($model->errors);
     }
 
-    public function testSignupSuccess()
+    public function testSignupSuccess(): void
     {
         $model = new SignupForm([
             'username' => 'newuser',

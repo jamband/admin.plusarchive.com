@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use yii\base\NotSupportedException;
@@ -30,23 +32,25 @@ use yii\web\IdentityInterface;
 class User extends ActiveRecord implements IdentityInterface
 {
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'user';
     }
 
     /**
-     * {@inheritdoc}
+     * @param int|string $id
+     * @return null|static
      */
-    public static function findIdentity($id)
+    public static function findIdentity($id): ?self
     {
         return static::findOne(['id' => $id]);
     }
 
     /**
-     * {@inheritdoc}
+     * @param mixed $token
+     * @param null $type
      * @throws NotSupportedException
      */
     public static function findIdentityByAccessToken($token, $type = null)
@@ -56,16 +60,17 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * Finds user by username.
+     *
      * @param string $username
-     * @return static|null
+     * @return null|static
      */
-    public static function findByUsername($username)
+    public static function findByUsername(string $username): ?self
     {
         return static::findOne(['username' => $username]);
     }
 
     /**
-     * {@inheritdoc}
+     * @return int|mixed|string
      */
     public function getId()
     {
@@ -73,7 +78,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return mixed|string
      */
     public function getAuthKey()
     {
@@ -81,44 +86,50 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param string $authKey
+     * @return bool
      */
-    public function validateAuthKey($authKey)
+    public function validateAuthKey($authKey): bool
     {
         return $this->getAuthKey() === $authKey;
     }
 
     /**
      * Validates password.
+     *
      * @param string $password
      * @return bool
      */
-    public function validatePassword($password)
+    public function validatePassword(string $password): bool
     {
         return security()->validatePassword($password, $this->password);
     }
 
     /**
      * Sets password.
+     *
      * @param string $password
+     * @return void
      */
-    public function setPassword($password)
+    public function setPassword(string $password): void
     {
         $this->password = security()->generatePasswordHash($password);
     }
 
     /**
      * Sets auth_key.
+     *
+     * @return void
      */
-    public function setAuthKey()
+    public function setAuthKey(): void
     {
         $this->auth_key = security()->generateRandomString();
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,

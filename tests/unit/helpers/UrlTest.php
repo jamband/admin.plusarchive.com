@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\tests\unit\helpers;
 
 use Yii;
@@ -19,7 +21,7 @@ use Codeception\Test\Unit;
 
 class UrlTest extends Unit
 {
-    public function testCurrentPlus()
+    public function testCurrentPlus(): void
     {
         Yii::$app->controller = new Controller('foo', Yii::$app);
         $controller = Yii::$app->controller;

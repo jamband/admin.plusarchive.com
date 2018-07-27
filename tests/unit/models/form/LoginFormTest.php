@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\tests\unit\models\form;
 
 use app\models\form\LoginForm;
@@ -24,7 +26,7 @@ class LoginFormTest extends Unit
 
     private $users;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -39,13 +41,13 @@ class LoginFormTest extends Unit
         $this->users = $fixtures['users'];
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         app()->user->logout();
         parent::tearDown();
     }
 
-    public function testLoginFailure()
+    public function testLoginFailure(): void
     {
         $model = new LoginForm([
             'username' => 'wrong_username',
@@ -57,7 +59,7 @@ class LoginFormTest extends Unit
         $this->assertTrue(user()->isGuest);
     }
 
-    public function testLoginSuccess()
+    public function testLoginSuccess(): void
     {
         $model = new LoginForm([
             'username' => $this->users['user1']['username'],

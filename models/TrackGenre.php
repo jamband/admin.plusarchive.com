@@ -9,10 +9,13 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
@@ -27,25 +30,25 @@ class TrackGenre extends ActiveRecord
     use ActiveRecordTrait;
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'track_genre';
     }
 
     /**
-     * {@inheritdoc}
+     * @return ActiveQuery
      */
-    public static function find()
+    public static function find(): ActiveQuery
     {
         return parent::find();
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             ['name', 'required'],
@@ -55,9 +58,9 @@ class TrackGenre extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,

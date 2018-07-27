@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\form;
 
 use app\models\User;
@@ -21,9 +23,9 @@ class SignupForm extends Model
     public $password;
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['username', 'email', 'password'], 'required'],
@@ -39,9 +41,10 @@ class SignupForm extends Model
 
     /**
      * Signup user.
+     *
      * @return null|User
      */
-    public function signup()
+    public function signup(): ?User
     {
         if (!$this->validate()) {
             return null;

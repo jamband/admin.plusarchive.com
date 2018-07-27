@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
@@ -34,17 +36,17 @@ class Store extends ActiveRecord
     use ActiveRecordTrait;
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'store';
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'tagValues' => 'Tag',
@@ -52,10 +54,9 @@ class Store extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
      * @return StoreQuery
      */
-    public static function find()
+    public static function find(): StoreQuery
     {
         return new StoreQuery(static::class);
     }
@@ -63,7 +64,7 @@ class Store extends ActiveRecord
     /**
      * @return ActiveQuery
      */
-    public function getStoreTags()
+    public function getStoreTags(): ActiveQuery
     {
         return $this->hasMany(StoreTag::class, ['id' => 'store_tag_id'])
             ->viaTable('store_tag_assn', ['store_id' => 'id'])
@@ -71,9 +72,9 @@ class Store extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name', 'url'], 'required'],
@@ -88,9 +89,9 @@ class Store extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,
@@ -102,9 +103,9 @@ class Store extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function transactions()
+    public function transactions(): array
     {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,

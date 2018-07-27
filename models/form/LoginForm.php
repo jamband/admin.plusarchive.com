@@ -9,12 +9,17 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models\form;
 
 use app\models\User;
 use Yii;
 use yii\base\Model;
 
+/**
+ * @property null|User $user
+ */
 class LoginForm extends Model
 {
     public $username;
@@ -24,9 +29,9 @@ class LoginForm extends Model
     private $_user = false;
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'rememberMe' => 'Remember Me',
@@ -34,9 +39,9 @@ class LoginForm extends Model
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['username', 'password'], 'required'],
@@ -48,8 +53,10 @@ class LoginForm extends Model
 
     /**
      * Validates the password.
+     *
+     * @return void
      */
-    public function validatePassword()
+    public function validatePassword(): void
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
@@ -62,9 +69,10 @@ class LoginForm extends Model
 
     /**
      * Logs in a user using the provided username and password.
+     *
      * @return bool whether the user is logged in successfully
      */
-    public function login()
+    public function login(): bool
     {
         if ($this->validate()) {
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
@@ -77,9 +85,10 @@ class LoginForm extends Model
 
     /**
      * Finds user by username.
+     *
      * @return null|User
      */
-    protected function getUser()
+    protected function getUser(): ?User
     {
         if (!$this->_user) {
             $this->_user = User::findByUsername($this->username);

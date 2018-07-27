@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
@@ -35,26 +37,26 @@ class Bookmark extends ActiveRecord
 {
     use ActiveRecordTrait;
 
-    const STATUS_PRIVATE = 0;
-    const STATUS_PUBLISH = 1;
+    public const STATUS_PRIVATE = 0;
+    public const STATUS_PUBLISH = 1;
 
-    const STATUSES = [
+    public const STATUSES = [
         self::STATUS_PRIVATE => 'Private',
         self::STATUS_PUBLISH => 'Publish',
     ];
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return 'bookmark';
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'tagValues' => 'Tag',
@@ -62,10 +64,9 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
      * @return BookmarkQuery
      */
-    public static function find()
+    public static function find(): BookmarkQuery
     {
         return new BookmarkQuery(static::class);
     }
@@ -73,7 +74,7 @@ class Bookmark extends ActiveRecord
     /**
      * @return ActiveQuery
      */
-    public function getBookmarkTags()
+    public function getBookmarkTags(): ActiveQuery
     {
         return $this->hasMany(BookmarkTag::class, ['id' => 'bookmark_tag_id'])
             ->viaTable('bookmark_tag_assn', ['bookmark_id' => 'id'])
@@ -82,17 +83,18 @@ class Bookmark extends ActiveRecord
 
     /**
      * Transformation of status attribute.
+     *
      * @return string
      */
-    public function getStatusText()
+    public function getStatusText(): string
     {
         return self::STATUSES[$this->status];
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             [['name', 'url'], 'required'],
@@ -108,9 +110,9 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,
@@ -122,9 +124,9 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @return array
      */
-    public function transactions()
+    public function transactions(): array
     {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,
