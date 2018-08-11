@@ -4,6 +4,10 @@ modules:
         - WebDriver:
             url: http://localhost:8080/
             browser: chrome
+            capabilities:
+                chromeOptions:
+                    args: [--headless, --disable-gpu, window-size=1920x1080]
+
         - Yii2:
             part: [orm, fixtures]
             entryScript: index-test.php
