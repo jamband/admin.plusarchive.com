@@ -68,9 +68,9 @@ class Hashids extends BaseObject
 
     /**
      * @param string $id
-     * @return int|int[]
+     * @return int
      */
-    public function decode(string $id)
+    public function decode(string $id): int
     {
         $id = $this->_hashids->decode($id);
 
@@ -78,6 +78,6 @@ class Hashids extends BaseObject
             return $id[0];
         }
 
-        return $id;
+        return 0;
     }
 }

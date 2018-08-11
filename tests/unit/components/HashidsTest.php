@@ -18,22 +18,19 @@ use Codeception\Test\Unit;
 
 class HashidsTest extends Unit
 {
-    const ID = 1;
-    const HASH_ID = 'Xzr1XkpY';
-    const MIN_HASH_LENGTH = 8;
-
     public function testMinHashLength(): void
     {
-        $this->assertSame(self::MIN_HASH_LENGTH, strlen(Yii::$app->hashids->encode(self::ID)));
+        $this->assertSame(8, strlen(Yii::$app->hashids->encode(1)));
     }
 
     public function testEncode(): void
     {
-        $this->assertSame(self::HASH_ID, Yii::$app->hashids->encode(self::ID));
+        $this->assertSame('Xzr1XkpY', Yii::$app->hashids->encode(1));
     }
 
     public function testDecode(): void
     {
-        $this->assertSame(self::ID, Yii::$app->hashids->decode(self::HASH_ID));
+        $this->assertSame(0, Yii::$app->hashids->decode('fakeHash'));
+        $this->assertSame(1, Yii::$app->hashids->decode('Xzr1XkpY'));
     }
 }
