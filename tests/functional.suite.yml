@@ -1,5 +1,6 @@
 class_name: FunctionalTester
+
 modules:
-    enabled:
-      - Filesystem
-      - Yii2
+  enabled:
+    - Filesystem
+    - Yii2
