@@ -1,4 +1,3 @@
-const path = require('path')
 const plugins = require('./plugins')
 const webpack = require('webpack')
 
@@ -9,7 +8,7 @@ module.exports = {
     admin: './assets/entries/admin.js'
   },
   output: {
-    path: path.resolve(__dirname, '../../web/assets'),
+    path: __dirname + '/../../web/assets',
     publicPath: '/assets/',
     jsonpFunction: 'plusarchive'
   },
@@ -25,9 +24,10 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              config: {
-                path: './assets/build/postcss.config.js'
-              }
+              plugins: [
+                require('postcss-flexbugs-fixes')(),
+                require('autoprefixer')()
+              ]
             }
           },
           {
