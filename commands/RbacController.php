@@ -23,6 +23,7 @@ class RbacController extends Controller
 {
     /**
      * Initialization.
+     *
      * @return int
      */
     public function actionInit(): int
