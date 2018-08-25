@@ -27,7 +27,7 @@ class Sort extends SortBase
      * @return string
      * @throws InvalidConfigException
      */
-    public function createUrl($attribute, $absolute = false)
+    public function createUrl($attribute, $absolute = false): string
     {
         $params = $this->params;
 
