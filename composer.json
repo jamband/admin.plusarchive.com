@@ -3,7 +3,7 @@
     "php": ">= 7.1.0",
     "yiisoft/yii2": "2.0.15.1",
     "creocoder/yii2-taggable": "2.0.0",
-    "jamband/ripple": "0.5.0",
+    "jamband/ripple": "0.5.1",
     "hashids/hashids": "3.0.0"
   },
   "require-dev": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "224f8784e2b096d3620524e7c3223f44",
+    "content-hash": "c90d296cdbc490880c4871b3aed9dc9f",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -222,16 +222,16 @@
         },
         {
             "name": "jamband/ripple",
-            "version": "v0.5.0",
+            "version": "v0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jamband/ripple.git",
-                "reference": "08bf3c880dfde0e92d93e13bf4ffaf6d99d6af52"
+                "reference": "be3e089aef6f731239913f7a8a0a5e3fbfe6b88b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jamband/ripple/zipball/08bf3c880dfde0e92d93e13bf4ffaf6d99d6af52",
-                "reference": "08bf3c880dfde0e92d93e13bf4ffaf6d99d6af52",
+                "url": "https://api.github.com/repos/jamband/ripple/zipball/be3e089aef6f731239913f7a8a0a5e3fbfe6b88b",
+                "reference": "be3e089aef6f731239913f7a8a0a5e3fbfe6b88b",
                 "shasum": ""
             },
             "require": {
@@ -268,7 +268,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2018-07-21T06:14:25+00:00"
+            "time": "2018-08-27T13:00:46+00:00"
         },
         {
             "name": "yiisoft/yii2",
