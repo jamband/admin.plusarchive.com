@@ -43,8 +43,8 @@ if (session()->has('privacy-consent')) {
         <?= $content ?>
     </div>
     <footer class="footer">
-        <a href="<?= url(['/site/privacy']) ?>">Privacy</a>
-        <a href="<?= url(['/site/third-party-licenses']) ?>">Third-Party Licenses</a>
+        <a href="<?= url(['/site/privacy/index']) ?>">Privacy</a>
+        <a href="<?= url(['/site/third-party-licenses/index']) ?>">Third-Party Licenses</a>
     </footer>
     <script src="<?= asset('vendor.js') ?>"></script>
     <script src="<?= asset('app.js') ?>"></script>

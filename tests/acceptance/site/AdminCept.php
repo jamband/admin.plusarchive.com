@@ -18,7 +18,7 @@ $I->wantTo('ensure that admin works');
 $I->amOnPage(url(['/']));
 $I->dontSee('Admin', '.navbar');
 
-$I->seePageNotFound(['/site/admin']);
+$I->seePageNotFound(['/site/admin/index']);
 $I->loginAsAdmin();
 $I->wait(1);
 

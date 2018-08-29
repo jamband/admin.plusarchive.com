@@ -13,9 +13,9 @@
 
 $I = new AcceptanceTester($scenario);
 $I->wantTo('ensure that privacy opt-out works');
-$I->seeBadRequest(['/site/privacy-opt-out']);
+$I->seeBadRequest(['/site/privacy-opt-out/index']);
 
-$I->amOnPage(url(['/privacy']));
+$I->amOnPage(url(['/site/privacy/index']));
 $I->see('Privacy Policy', '.toast-message');
 $I->click('.toast-message a');
 //

@@ -13,5 +13,5 @@
 
 $I = new AcceptanceTester($scenario);
 $I->wantTo('ensure that privacy works');
-$I->amOnPage(url(['/site/privacy']));
+$I->amOnPage(url(['/site/privacy/index']));
 $I->see('Privacy Policy', 'h2');

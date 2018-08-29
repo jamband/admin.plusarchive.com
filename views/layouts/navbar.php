@@ -42,10 +42,10 @@ $aid = app()->controller->action->id;
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item<?= 'contact' === $aid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/site/contact']) ?>">Contact</a>
+                    <a class="nav-link" href="<?= url(['/site/contact/index']) ?>">Contact</a>
                 </li>
                 <li class="nav-item<?= 'about' === $aid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/site/about']) ?>">About</a>
+                    <a class="nav-link" href="<?= url(['/site/about/index']) ?>">About</a>
                 </li>
             </ul>
         </div>

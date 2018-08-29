@@ -15,7 +15,7 @@ $I = new AcceptanceTester($scenario);
 $I->haveFixtures(['users' => app\tests\acceptance\fixtures\UserFixture::class]);
 
 $I->wantTo('ensure that logout works');
-$I->amOnPage(url(['/site/login']));
+$I->amOnPage(url(['/auth/login/index']));
 $I->see('Log in', 'h2');
 $I->dontSee('Logout');
 

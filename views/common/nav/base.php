@@ -11,16 +11,14 @@
 
 /**
  * @var yii\web\View $this
- * @var yii\web\Controller $context
  */
 
 use yii\helpers\Html;
 use yii\helpers\Inflector;
 
-$context = $this->context;
 ?>
 <span class="dropdown">
-    <?= Html::a(Inflector::id2camel($context->id).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
+    <?= Html::a(preg_replace('#/[a-z/]+\z#', '', Inflector::id2camel(app()->controller->id)).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
         'id' => 'menu-controller',
         'class' => 'dropdown-toggle badge badge-secondary',
         'data-toggle' => 'dropdown',

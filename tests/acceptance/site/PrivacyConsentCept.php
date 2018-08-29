@@ -13,7 +13,7 @@
 
 $I = new AcceptanceTester($scenario);
 $I->wantTo('ensure that privacy consent works');
-$I->seeBadRequest(['/site/privacy-consent']);
+$I->seeBadRequest(['/site/privacy-consent/index']);
 
 $I->amOnPage(url(['/']));
 $I->see('Privacy Policy', '.toast-message');

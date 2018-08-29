@@ -13,4 +13,4 @@
 
 $I = new AcceptanceTester($scenario);
 $I->wantTo('ensure that offline works');
-$I->seePageNotFound(['/site/offline']);
+$I->seePageNotFound(['/site/offline/index']);

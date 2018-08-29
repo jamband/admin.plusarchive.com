@@ -13,6 +13,6 @@
 
 $I = new AcceptanceTester($scenario);
 $I->wantTo('ensure that third-party-licenses works');
-$I->amOnPage(url(['/site/third-party-licenses']));
+$I->amOnPage(url(['/site/third-party-licenses/index']));
 $I->see('Third-Party Licenses', 'h2');
 $I->see('jquery');

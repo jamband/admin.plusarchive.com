@@ -18,7 +18,7 @@ $I->wantTo('ensure that signup works');
 $I->amOnPage(url(['/']));
 $I->dontSee('Sign up', '.navbar');
 
-$I->seePageNotFound(['/site/signup']);
+$I->seePageNotFound(['/auth/signup/index']);
 $I->loginAsAdmin();
 
 $I->seeCurrentUrlEquals('/index-test.php');

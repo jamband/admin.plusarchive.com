@@ -18,7 +18,7 @@ $I->wantTo('ensure that login works');
 $I->amOnPage(url(['/']));
 $I->dontSee('Login', '.navbar');
 
-$I->amOnPage(url(['/site/login']));
+$I->amOnPage(url(['/auth/login/index']));
 $I->see('Log in', 'h2');
 
 $I->click('button[type=submit]');
@@ -39,6 +39,6 @@ $I->seeCurrentUrlEquals('/index-test.php');
 $I->see('Logged in successfully.');
 $I->see('Logout', '.navbar');
 
-$I->amOnPage(url(['/site/login']));
+$I->amOnPage(url(['/auth/login/index']));
 $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php');

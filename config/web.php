@@ -12,7 +12,7 @@
 $config = [
     'id' => 'plusarchive',
     'defaultRoute' => 'track',
-    // 'catchAll' => ['site/offline'],
+    // 'catchAll' => ['site/offline/index'],
     'components' => [
         'request' => [
             'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
@@ -27,7 +27,8 @@ $config = [
             'enableStrictParsing' => true,
             'rules' => [
                 '<controller:(track|playlist|label|store|bookmark)>s' => '<controller>/index',
-                '<action:[\w-]+>' => 'site/<action>',
+                '<controller:(login|logout|signup)>' => 'auth/<controller>/index',
+                '<controller:(about|admin|contact|offline|privacy|privacy-consent|privacy-opt-out|third-party-licenses)>' => 'site/<controller>/index',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:[\w-]+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:[\w-]+>/<action:(admin|create|now|list)>' => '<controller>/<action>',
@@ -36,7 +37,7 @@ $config = [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'site/error/index',
         ],
         'formatter' => [
             'class' => app\components\Formatter::class,
@@ -71,7 +72,6 @@ $config = [
             yii\grid\GridView::class => [
                 'layout' => '{items}',
                 'tableOptions' => ['class' => 'table table-striped table-bordered table-dark'],
-
             ],
             yii\widgets\ActiveField::class => [
                 'errorOptions' => ['class' => 'invalid-feedback'],
@@ -133,11 +133,13 @@ if (YII_ENV_DEV) {
         'class' => yii\debug\Module::class,
         'allowedIPs' => ['127.0.0.1', '::1'],
     ];
+
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => yii\gii\Module::class,
         'allowedIPs' => ['127.0.0.1', '::1'],
     ];
+
     $config['container']['definitions'] += [
         yii\bootstrap\BootstrapAsset::class => [
             'sourcePath' => '@vendor/twbs/bootstrap/dist',

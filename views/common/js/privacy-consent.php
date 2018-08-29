@@ -15,8 +15,8 @@
  * @var string $privacyConsentUrl
  */
 
-$privacyUrl = url(['/site/privacy']);
-$privacyConsentUrl = url(['/site/privacy-consent']);
+$privacyUrl = url(['/site/privacy/index']);
+$privacyConsentUrl = url(['/site/privacy-consent/index']);
 
 $this->registerJs(<<<JS
 toastr.options = {

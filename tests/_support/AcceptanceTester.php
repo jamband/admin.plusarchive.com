@@ -33,7 +33,7 @@ class AcceptanceTester extends \Codeception\Actor
     public function loginAsAdmin(): void
     {
         $I = $this;
-        $I->amOnPage(url(['/site/login']));
+        $I->amOnPage(url(['/auth/login/index']));
         $I->fillField('#loginform-username', 'admin');
         $I->fillField('#loginform-password', 'adminadmin');
         $I->click('button[type=submit]');

@@ -30,6 +30,7 @@ $this->title = 'Admin Tracks - '.app()->name;
 <?php Pjax::begin(['id' => 'track-pjax']) ?>
     <?= $this->render('/common/nav/admin', [
         'total' => $data->totalCount,
+        'enableCreate' => true,
     ]) ?>
     <div class="row text-center card-container">
         <?= $this->render('_search-admin', [

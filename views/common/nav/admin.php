@@ -13,20 +13,15 @@
  * @var yii\web\View $this
  * @var bool $enableCreate
  * @var int $total
- * @var yii\web\Controller $context
  */
 
 use yii\helpers\Html;
 
-if (!isset($enableCreate)) {
-    $enableCreate = true;
-}
-$context = $this->context;
 ?>
 <div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
     <span class="dropdown">
-        <?= Html::a(ucfirst($context->action->id).': '.number_format($total).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
+        <?= Html::a(ucfirst(app()->controller->action->id).': '.number_format($total).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
             'id' => 'menu-action',
             'class' => 'dropdown-toggle badge badge-secondary',
             'data-toggle' => 'dropdown',

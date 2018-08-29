@@ -25,6 +25,7 @@ $this->title = 'Admin Playlists - '.app()->name;
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [
         'total' => $data->totalCount,
+        'enableCreate' => true,
     ]) ?>
     <?= GridView::widget([
         'id' => 'grid-view-playlist',

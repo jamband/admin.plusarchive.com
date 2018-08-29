@@ -13,5 +13,5 @@
 
 $I = new AcceptanceTester($scenario);
 $I->wantTo('ensure that about works');
-$I->amOnPage(url(['/site/about']));
+$I->amOnPage(url(['/site/about/index']));
 $I->see('About', 'h2');

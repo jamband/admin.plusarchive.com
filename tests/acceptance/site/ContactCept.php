@@ -13,5 +13,5 @@
 
 $I = new AcceptanceTester($scenario);
 $I->wantTo('ensure that contact works');
-$I->amOnPage(url(['/site/contact']));
+$I->amOnPage(url(['/site/contact/index']));
 $I->see('Contact', 'h2');

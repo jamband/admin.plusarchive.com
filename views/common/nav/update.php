@@ -12,17 +12,15 @@
 /**
  * @var yii\web\View $this
  * @var yii\db\ActiveRecord $model
- * @var yii\web\Controller $context
  */
 
 use yii\helpers\Html;
 
-$context = $this->context;
 ?>
 <div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
     <span class="dropdown">
-        <?= Html::a(ucfirst($context->action->id).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
+        <?= Html::a(ucfirst(app()->controller->action->id).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
             'id' => 'menu-action',
             'class' => 'dropdown-toggle badge badge-secondary',
             'data-toggle' => 'dropdown',

@@ -25,7 +25,7 @@ $aid = app()->controller->action->id;
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item<?= 'site/admin' === "$cid/$aid" ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/site/admin']) ?>">Admin</a>
+                    <a class="nav-link" href="<?= url(['/site/admin/index']) ?>">Admin</a>
                 </li>
                 <li class="nav-item<?= 'track' === $cid ? ' active' : '' ?>">
                     <a class="nav-link" href="<?= url(['/track/index']) ?>">Track</a>
@@ -45,16 +45,16 @@ $aid = app()->controller->action->id;
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item<?= 'signup' === $aid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/site/signup']) ?>">Signup</a>
+                    <a class="nav-link" href="<?= url(['/auth/signup/index']) ?>">Signup</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= url(['/site/logout']) ?>" data-method="post">Logout</a>
+                    <a class="nav-link" href="<?= url(['/auth/logout/index']) ?>" data-method="post">Logout</a>
                 </li>
                 <li class="nav-item<?= 'contact' === $aid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/site/contact']) ?>">Contact</a>
+                    <a class="nav-link" href="<?= url(['/site/contact/index']) ?>">Contact</a>
                 </li>
                 <li class="nav-item<?= 'about' === $aid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/site/about']) ?>">About</a>
+                    <a class="nav-link" href="<?= url(['/site/about/index']) ?>">About</a>
                 </li>
             </ul>
         </div>

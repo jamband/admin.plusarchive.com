@@ -14,7 +14,7 @@
 $I = new AcceptanceTester($scenario);
 $I->haveFixtures(['bookmarks' => app\tests\acceptance\fixtures\BookmarkFixture::class]);
 
-$I->wantTo('ensure that bookmark/view works');
+$I->wantTo('ensure that bookmark/delete works');
 $I->seePageNotFound(['/bookmark/delete', 'id' => 1]);
 $I->loginAsAdmin();
 $I->seeMethodNotAllowed(['/bookmark/delete', 'id' => 1]);

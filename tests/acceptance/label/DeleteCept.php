@@ -14,7 +14,7 @@
 $I = new AcceptanceTester($scenario);
 $I->haveFixtures(['labels' => app\tests\acceptance\fixtures\LabelFixture::class]);
 
-$I->wantTo('ensure that label/view works');
+$I->wantTo('ensure that label/delete works');
 $I->seePageNotFound(['/label/delete', 'id' => 1]);
 $I->loginAsAdmin();
 $I->seeMethodNotAllowed(['/label/delete', 'id' => 1]);
