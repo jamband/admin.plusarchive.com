@@ -30,7 +30,7 @@ class PrivacyOptOutController extends Controller
     }
 
     /**
-     * Privacy consent.
+     * Privacy opt-out.
      *
      * @return void
      */
