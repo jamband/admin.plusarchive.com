@@ -14,10 +14,9 @@ declare(strict_types=1);
 namespace app\controllers\auth;
 
 use app\controllers\Controller;
+use app\filters\AccessControl;
 use app\models\form\SignupForm;
-use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
-use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class SignupController extends Controller
@@ -36,9 +35,6 @@ class SignupController extends Controller
                         'roles' => ['admin'],
                     ],
                 ],
-                'denyCallback' => function () {
-                    throw new NotFoundHttpException('Page not found.');
-                }
             ],
         ]);
     }

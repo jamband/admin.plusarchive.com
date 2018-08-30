@@ -26,7 +26,7 @@ trait RippleValidatorTrait
     public function validateUrl(string $attribute): void
     {
         if (!(new Ripple($this->$attribute))->isValidUrl()) {
-            $this->addError($attribute, 'The track URL is not valid.');
+            $this->addError($attribute, 'The URL is not valid.');
         }
     }
 

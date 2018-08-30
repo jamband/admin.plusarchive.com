@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\filters\AccessControl;
 use app\models\Bookmark;
 use app\models\search\BookmarkSearch;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
@@ -25,7 +25,6 @@ class BookmarkController extends Controller
 {
     /**
      * @return array
-     * @throws NotFoundHttpException
      */
     public function behaviors(): array
     {
@@ -39,9 +38,6 @@ class BookmarkController extends Controller
                         'roles' => ['admin'],
                     ],
                 ],
-                'denyCallback' => function () {
-                    throw new NotFoundHttpException('Page not found.');
-                }
             ],
             'verbs' => [
                 'class' => VerbFilter::class,

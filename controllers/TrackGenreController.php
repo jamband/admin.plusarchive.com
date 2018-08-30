@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\filters\AccessControl;
 use app\models\search\TrackGenreSearch;
 use app\models\TrackGenre;
-use yii\filters\AccessControl;
 use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
@@ -25,7 +25,6 @@ class TrackGenreController extends Controller
 {
     /**
      * @return array
-     * @throws NotFoundHttpException
      */
     public function behaviors(): array
     {
@@ -39,9 +38,6 @@ class TrackGenreController extends Controller
                         'roles' => ['admin'],
                     ],
                 ],
-                'denyCallback' => function () {
-                    throw new NotFoundHttpException('Page not found.');
-                }
             ],
             'verbs' => [
                 'class' => VerbFilter::class,

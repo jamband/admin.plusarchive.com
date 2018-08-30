@@ -14,9 +14,8 @@ declare(strict_types=1);
 namespace app\controllers\site;
 
 use app\controllers\Controller;
-use yii\filters\AccessControl;
+use app\filters\AccessControl;
 use yii\helpers\ArrayHelper;
-use yii\web\NotFoundHttpException;
 
 class AdminController extends Controller
 {
@@ -34,10 +33,7 @@ class AdminController extends Controller
                         'roles' => ['admin'],
                     ],
                 ],
-                'denyCallback' => function () {
-                    throw new NotFoundHttpException('Page not found.');
-                }
-            ]
+            ],
         ]);
     }
 

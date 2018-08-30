@@ -143,29 +143,6 @@ class Track extends ActiveRecord
         return self::TYPES[$this->type];
     }
 
-
-    /**
-     * Sets some attributes. (provider, provider_key, title, image)
-     *
-     * @return Track
-     */
-    public function setContents(): Track
-    {
-        $ripple = new Ripple($this->url);
-
-        if ($ripple->isValidUrl()) {
-            $ripple->request();
-
-            $provider = array_search($ripple->provider(), self::PROVIDERS, true);
-            $this->provider = $provider ?: null;
-            $this->provider_key = $ripple->id();
-            $this->title = $this->title ?: $ripple->title();
-            $this->image = $this->image ?: $ripple->image();
-        }
-
-        return $this;
-    }
-
     /**
      * @return array
      */
@@ -198,6 +175,22 @@ class Track extends ActiveRecord
                 'tagRelation' => 'trackGenres',
             ],
         ];
+    }
+
+    /**
+     * @return bool
+     */
+    public function beforeValidate(): bool
+    {
+        $ripple = new Ripple($this->url);
+        $ripple->request();
+
+        $this->provider = array_search($ripple->provider(), self::PROVIDERS, true) ?: null;
+        $this->provider_key = $ripple->id();
+        $this->title = $this->title ?: $ripple->title();
+        $this->image = $this->image ?: $ripple->image();
+
+        return parent::beforeValidate();
     }
 
     /**

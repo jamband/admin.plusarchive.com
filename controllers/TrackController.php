@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\filters\AccessControl;
 use app\models\Track;
 use jamband\ripple\Ripple;
 use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
 use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
@@ -26,7 +26,6 @@ class TrackController extends Controller
 {
     /**
      * @return array
-     * @throws NotFoundHttpException
      */
     public function behaviors(): array
     {
@@ -40,9 +39,6 @@ class TrackController extends Controller
                         'roles' => ['admin'],
                     ],
                 ],
-                'denyCallback' => function () {
-                    throw new NotFoundHttpException('Page not found.');
-                }
             ],
             'verbs' => [
                 'class' => VerbFilter::class,
@@ -191,7 +187,7 @@ class TrackController extends Controller
         $model = new Track;
         $model->loadDefaultValues();
 
-        if ($model->load(request()->post()) && $model->setContents()->save()) {
+        if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'New track has been added.');
 
             return $this->redirect(['admin']);
@@ -212,7 +208,7 @@ class TrackController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->setContents()->save()) {
+        if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Track has been updated.');
 
             return $this->redirect(['admin']);
@@ -242,10 +238,10 @@ class TrackController extends Controller
      *
      * @param string $id
      * @param null|string $status
-     * @return Track
+     * @return Track|array
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id, ?string $status = null): Track
+    protected function findModel(string $id, ?string $status = null)
     {
         $model = Track::find()
             ->andWhere(['id' => $id])

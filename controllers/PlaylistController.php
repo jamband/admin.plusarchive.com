@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\filters\AccessControl;
 use app\models\search\PlaylistSearch;
 use app\models\Track;
 use jamband\ripple\Ripple;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
@@ -26,7 +26,6 @@ class PlaylistController extends Controller
 {
     /**
      * @return array
-     * @throws NotFoundHttpException
      */
     public function behaviors(): array
     {
@@ -40,9 +39,6 @@ class PlaylistController extends Controller
                         'roles' => ['admin'],
                     ],
                 ],
-                'denyCallback' => function () {
-                    throw new NotFoundHttpException('Page not found.');
-                }
             ],
             'verbs' => [
                 'class' => VerbFilter::class,
@@ -115,7 +111,7 @@ class PlaylistController extends Controller
         $model = new Track;
         $model->type = Track::TYPE_PLAYLIST;
 
-        if ($model->load(request()->post()) && $model->setContents()->save()) {
+        if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Playlist has been added.');
 
             return $this->redirect(['admin']);
@@ -136,7 +132,7 @@ class PlaylistController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->setContents()->save()) {
+        if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Playlist has been updated.');
 
             return $this->redirect(['admin']);
@@ -166,10 +162,10 @@ class PlaylistController extends Controller
      *
      * @param string $id
      * @param null|string $status
-     * @return Track
+     * @return Track|array
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id, ?string $status = null): Track
+    protected function findModel(string $id, ?string $status = null)
     {
         $model = Track::find()
             ->andWhere(['id' => $id])

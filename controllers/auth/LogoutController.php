@@ -14,10 +14,9 @@ declare(strict_types=1);
 namespace app\controllers\auth;
 
 use app\controllers\Controller;
-use yii\filters\AccessControl;
+use app\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
-use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class LogoutController extends Controller
@@ -36,9 +35,6 @@ class LogoutController extends Controller
                         'roles' => ['admin'],
                     ],
                 ],
-                'denyCallback' => function () {
-                    throw new NotFoundHttpException('Page not found.');
-                }
             ],
             'verbs' => [
                 'class' => VerbFilter::class,

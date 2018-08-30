@@ -20,6 +20,7 @@ $config = [
         'user' => [
             'identityClass' => app\models\User::class,
             'enableAutoLogin' => true,
+            'loginUrl' => ['auth/login/index'],
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,

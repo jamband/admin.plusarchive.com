@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use app\filters\AccessControl;
 use app\models\Label;
 use app\models\search\LabelSearch;
 use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -25,7 +25,6 @@ class LabelController extends Controller
 {
     /**
      * @return array
-     * @throws NotFoundHttpException
      */
     public function behaviors(): array
     {
@@ -39,9 +38,6 @@ class LabelController extends Controller
                         'roles' => ['admin'],
                     ],
                 ],
-                'denyCallback' => function () {
-                    throw new NotFoundHttpException('Page not found.');
-                }
             ],
             'verbs' => [
                 'class' => VerbFilter::class,
@@ -158,6 +154,7 @@ class LabelController extends Controller
 
     /**
      * Deletes an existing Label model.
+     *
      * @param string $id
      * @return Response
      */
