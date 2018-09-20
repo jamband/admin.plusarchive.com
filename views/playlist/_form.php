@@ -25,7 +25,6 @@ use yii\widgets\ActiveForm;
     <div class="col-md-5 offset-md-1 order-md-first mb-3">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'status')->dropDownList($model::STATUSES) ?>
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
             <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>

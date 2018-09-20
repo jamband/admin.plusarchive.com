@@ -65,7 +65,6 @@ class TrackController extends Controller
     {
         $query = Track::find()
             ->with(['trackGenres'])
-            ->status(Track::STATUSES[Track::STATUS_PUBLISH])
             ->provider($provider)
             ->type(Track::TYPES[Track::TYPE_TRACK]);
 
@@ -123,7 +122,7 @@ class TrackController extends Controller
     public function actionView(string $id): string
     {
         $model = $this->findModel(
-            (string)hashids()->decode($id), Track::STATUSES[Track::STATUS_PUBLISH]
+            (string)hashids()->decode($id)
         );
 
         $ripple = new Ripple;
@@ -138,14 +137,13 @@ class TrackController extends Controller
     /**
      * Manages all Track models.
      *
-     * @param null|string $status
      * @param null|string $provider
      * @param null|string $sort
      * @param null|string $genre
      * @param null|string $search
      * @return string
      */
-    public function actionAdmin(?string $status = null, ?string $provider = null, ?string $sort = null, ?string $genre = null, ?string $search = null): string
+    public function actionAdmin(?string $provider = null, ?string $sort = null, ?string $genre = null, ?string $search = null): string
     {
         $query = Track::find()
             ->with(['trackGenres'])
@@ -154,8 +152,7 @@ class TrackController extends Controller
         if (null !== $search) {
             $query->search($search);
         } else {
-            $query->status($status)
-                ->provider($provider)
+            $query->provider($provider)
                 ->sort($sort);
         }
 
@@ -171,7 +168,6 @@ class TrackController extends Controller
             'provider' => $provider ?: 'Providers',
             'sort' => $sort ?: 'Sort',
             'genre' => $genre ?: 'Genres',
-            'status' => $status ?: 'Status',
             'search' => $search,
             'embedAction' => url(['now']),
         ]);
@@ -237,15 +233,13 @@ class TrackController extends Controller
      * Finds the Track model based on its primary key value.
      *
      * @param string $id
-     * @param null|string $status
      * @return Track|array
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id, ?string $status = null)
+    protected function findModel(string $id)
     {
         $model = Track::find()
             ->andWhere(['id' => $id])
-            ->status($status)
             ->type(Track::TYPES[Track::TYPE_TRACK])
             ->one();
 

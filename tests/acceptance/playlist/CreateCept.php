@@ -28,4 +28,3 @@ $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
 $I->click('button[type=submit]');
 $I->wait(1);
 $I->seeElement('.is-invalid');
-

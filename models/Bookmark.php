@@ -26,7 +26,6 @@ use yii\db\ActiveRecord;
  * @property string $country
  * @property string $url
  * @property string $link
- * @property int $status
  * @property int $created_at
  * @property int $updated_at
  * @property BookmarkTag[] $bookmarkTags
@@ -36,14 +35,6 @@ use yii\db\ActiveRecord;
 class Bookmark extends ActiveRecord
 {
     use ActiveRecordTrait;
-
-    public const STATUS_PRIVATE = 0;
-    public const STATUS_PUBLISH = 1;
-
-    public const STATUSES = [
-        self::STATUS_PRIVATE => 'Private',
-        self::STATUS_PUBLISH => 'Publish',
-    ];
 
     /**
      * @return string
@@ -82,16 +73,6 @@ class Bookmark extends ActiveRecord
     }
 
     /**
-     * Transformation of status attribute.
-     *
-     * @return string
-     */
-    public function getStatusText(): string
-    {
-        return self::STATUSES[$this->status];
-    }
-
-    /**
      * @return array
      */
     public function rules(): array
@@ -104,7 +85,6 @@ class Bookmark extends ActiveRecord
 
             ['url', 'url'],
             ['link', 'string', 'max' => 1000],
-            ['status', 'in', 'range' => array_keys(self::STATUSES)],
             ['tagValues', 'safe'],
         ];
     }

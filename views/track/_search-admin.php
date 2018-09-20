@@ -14,7 +14,6 @@
  * @var string $provider
  * @var string $genre
  * @var string $sort
- * @var string $status
  * @var string $search
  */
 
@@ -43,21 +42,6 @@ use yii\helpers\Url;
                     <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => 'Update', 'search' => null]) ?>">Updated</a>
                 </div>
             </span>
-            <span class="dropdown">
-                <?= Html::a(h($status).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-                    'id' => 'search-status',
-                    'class' => 'dropdown-toggle badge badge-secondary',
-                    'data-toggle' => 'dropdown',
-                ]) ?>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?= Url::currentPlus(['status' => null, 'search' => null]) ?>">Reset</a>
-                    <div class="dropdown-divider"></div>
-                    <?php foreach (Track::STATUSES as $status): ?>
-                        <a class="dropdown-item" href="<?= Url::currentPlus(['status' => $status, 'search' => null]) ?>"><?= h($status) ?></a>
-                    <?php endforeach ?>
-                </div>
-            </span>
-            <br>
             <span class="dropdown">
                 <?= Html::a(h($provider).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
                     'id' => 'search-provider',

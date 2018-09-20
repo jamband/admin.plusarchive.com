@@ -19,7 +19,7 @@ $I->seePageNotFound(['/playlist/update', 'id' => 1]);
 $I->loginAsAdmin();
 
 $I->amOnPage(url(['/playlist/admin']));
-$I->click('//*[@id="grid-view-playlist"]/table/tbody/tr[1]/td[7]/a[1]/i'); // Update link
+$I->click('//*[@id="grid-view-playlist"]/table/tbody/tr[1]/td[6]/a[1]/i'); // Update link
 $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
 
 $I->see('Playlist', '#menu-controller');
@@ -36,22 +36,21 @@ $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
 $I->moveBack();
 
 $I->seeInField('#track-title', 'playlist1');
-$I->seeOptionIsSelected('#track-status', 'Publish');
 
 // $I->fillField('#track-title', '');
 $I->click('button[type=submit]');
 $I->wait(1);
 $I->seeElement('.is-invalid');
 
-//$I->fillField('#track-title', 'playlist-one');
-//$I->click('button[type=submit]');
-//$I->wait(1);
-//$I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
-//$I->see('Playlist has been updated.');
+// $I->fillField('#track-title', 'playlist-one');
+// $I->click('button[type=submit]');
+// $I->wait(1);
+// $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
+// $I->see('Playlist has been updated.');
 
 $I->click('#menu-action');
 $I->click('Admin', '#menu-action + .dropdown-menu');
-$I->click('//*[@id="grid-view-playlist"]/table/tbody/tr[1]/td[7]/a[1]/i'); // Update link
+$I->click('//*[@id="grid-view-playlist"]/table/tbody/tr[1]/td[6]/a[1]/i'); // Update link
 $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
 
 $I->click('#menu-action');
@@ -59,7 +58,7 @@ $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->seeInPopup('Are you sure you want to delete this item?');
 $I->cancelPopup();
 
-//$I->click('#menu-action');
+// $I->click('#menu-action');
 $I->click('Delete', '#menu-action + .dropdown-menu');
 $I->acceptPopup();
 $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');

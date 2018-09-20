@@ -44,13 +44,6 @@ $this->title = 'Admin Playlists - '.app()->name;
                 },
             ],
             [
-                'attribute' => 'status',
-                'value' => function ($model) {
-                    return h($model->statusText);
-                },
-                'filter' => $search::STATUSES,
-            ],
-            [
                 'attribute' => 'provider',
                 'value' => function ($model) {
                     return h($model->providerText);

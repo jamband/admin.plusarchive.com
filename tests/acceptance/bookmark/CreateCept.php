@@ -38,4 +38,4 @@ $I->click('Admin', '#menu-action + .dropdown-menu');
 $I->see('Admin: 5', '#menu-action');
 
 $I->click('Bookmark', '.navbar');
-$I->see('3 results', '.total-count');
+$I->see('5 results', '.total-count');

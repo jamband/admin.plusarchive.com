@@ -43,15 +43,6 @@ class BookmarkQuery extends ActiveQuery
     }
 
     /**
-     * @param int $status
-     * @return BookmarkQuery
-     */
-    public function status(int $status): BookmarkQuery
-    {
-        return $this->andWhere(['status' => $status]);
-    }
-
-    /**
      * @param string $search
      * @return BookmarkQuery
      */

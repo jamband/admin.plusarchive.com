@@ -3,7 +3,6 @@
 return [
     'track1' => [
         'url' => 'https://example.bandcamp.com/track/track1',
-        'status' => 1,
         'provider' => 1,
         'provider_key' => 'track1',
         'title' => 'track1',
@@ -14,7 +13,6 @@ return [
     ],
     'track2' => [
         'url' => 'https://soundcloud.com/account_name/track2',
-        'status' => 1,
         'provider' => 2,
         'provider_key' => 'track2',
         'title' => 'track2',
@@ -25,7 +23,6 @@ return [
     ],
     'track3' => [
         'url' => 'https://vimeo/3',
-        'status' => 1,
         'provider' => 3,
         'provider_key' => '3',
         'title' => 'track3',
@@ -36,7 +33,6 @@ return [
     ],
     'track4' => [
         'url' => 'https://www.youtube.com/watch?v=track4',
-        'status' => 1,
         'provider' => 4,
         'provider_key' => 'track4',
         'title' => 'track4',
@@ -47,7 +43,6 @@ return [
     ],
     'track5' => [
         'url' => 'https://www.youtube.com/watch?v=track5',
-        'status' => 0,
         'provider' => 4,
         'provider_key' => 'track5',
         'title' => 'track5',

@@ -24,7 +24,6 @@ $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/track/create');
 $I->see('Track', '#menu-controller');
 $I->see('Create', '#menu-action');
-$I->seeOptionIsSelected('#track-status', 'Private');
 $I->click('button[type=submit]');
 $I->wait(1);
 $I->seeElement('.is-invalid');

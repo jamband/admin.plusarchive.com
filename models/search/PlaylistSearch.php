@@ -25,9 +25,8 @@ class PlaylistSearch extends Track
     {
         return [
             [['title'], 'trim'],
-            [['status', 'provider', 'title'], 'safe'],
+            [['provider', 'title'], 'safe'],
 
-            ['status', 'in', 'range' => array_keys(self::STATUSES)],
             ['provider', 'in', 'range' => array_keys(self::PROVIDERS)],
         ];
     }
@@ -55,7 +54,6 @@ class PlaylistSearch extends Track
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', 'title', $this->title])
                 ->andFilterWhere(['like', 'provider_key', $this->provider_key])
-                ->andFilterWhere(['status' => $this->status])
                 ->andFilterWhere(['provider' => $this->provider]);
         }
 

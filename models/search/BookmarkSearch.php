@@ -31,7 +31,6 @@ class BookmarkSearch extends Bookmark
             [['name', 'country', 'link', 'status', 'tag'], 'safe'],
 
             ['country', 'in', 'range' => static::getCountries()],
-            ['status', 'in', 'range' => array_keys(self::STATUSES)],
             ['tag', 'in', 'range' => BookmarkTag::getNames()->column()],
         ];
     }
@@ -59,8 +58,7 @@ class BookmarkSearch extends Bookmark
         if ($this->load($params) && $this->validate()) {
             $query->andFilterWhere(['like', static::tableName().'.name', $this->name])
                 ->andFilterWhere(['country' => $this->country])
-                ->andFilterWhere(['like', 'link', $this->link])
-                ->andFilterWhere(['status' => $this->status]);
+                ->andFilterWhere(['like', 'link', $this->link]);
 
             if ('' !== $this->tag) {
                 $query->allTagValues($this->tag);

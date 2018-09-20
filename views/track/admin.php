@@ -14,7 +14,6 @@
  * @var yii\data\ActiveDataProvider $data
  * @var string $provider
  * @var string $genre
- * @var string $status
  * @var string $sort
  * @var string $search
  * @var string $embedAction
@@ -37,7 +36,6 @@ $this->title = 'Admin Tracks - '.app()->name;
             'provider' => $provider,
             'genre' => $genre,
             'sort' => $sort,
-            'status' => $status,
             'search' => $search,
         ]) ?>
         <?php foreach ($data->models as $model): ?>
@@ -65,9 +63,6 @@ $this->title = 'Admin Tracks - '.app()->name;
                             ]) ?>
                         </h6>
                         <div class="card-text">
-                            <?= Html::a(h($model->statusText), ['', 'status' => $model->statusText], [
-                                'class' => 'badge badge-secondary',
-                            ]) ?>
                             <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
                                 'class' => 'badge badge-secondary',
                             ]) ?>

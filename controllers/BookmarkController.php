@@ -60,8 +60,7 @@ class BookmarkController extends Controller
     public function actionIndex(?string $sort = null, ?string $country = null, ?string $search = null, ?string $tag = null): string
     {
         $query = Bookmark::find()
-            ->with(['bookmarkTags'])
-            ->status(Bookmark::STATUS_PUBLISH);
+            ->with(['bookmarkTags']);
 
         if (null !== $search) {
             $query->search($search);

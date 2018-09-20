@@ -59,7 +59,6 @@ class PlaylistController extends Controller
         return $this->render('index', [
             'data' => new ActiveDataProvider([
                 'query' => Track::find()
-                    ->status(Track::STATUSES[Track::STATUS_PUBLISH])
                     ->type(Track::TYPES[Track::TYPE_PLAYLIST])
                     ->orderBy(['created_at' => SORT_DESC]),
                 'pagination' => false,
@@ -76,7 +75,7 @@ class PlaylistController extends Controller
     public function actionView(string $id): string
     {
         $model = $this->findModel(
-            (string)hashids()->decode($id), (string)Track::STATUS_PUBLISH
+            (string)hashids()->decode($id)
         );
 
         $ripple = new Ripple;
@@ -161,15 +160,13 @@ class PlaylistController extends Controller
      * Finds the playlist of Track model based on its primary key value.
      *
      * @param string $id
-     * @param null|string $status
      * @return Track|array
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id, ?string $status = null)
+    protected function findModel(string $id)
     {
         $model = Track::find()
             ->andWhere(['id' => $id])
-            ->status($status)
             ->type(Track::TYPES[Track::TYPE_PLAYLIST])
             ->one();
 

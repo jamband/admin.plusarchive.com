@@ -33,7 +33,6 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'link')->textarea(['rows' => 6]) ?>
             <?= $form->field($model, 'tagValues') ?>
-            <?= $form->field($model, 'status')->DropdownList($model::STATUSES) ?>
             <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
         <?php ActiveForm::end() ?>
     </div>

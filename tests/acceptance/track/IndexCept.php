@@ -18,7 +18,7 @@ $I->wantTo('ensure that tracks works');
 $I->amOnPage(url(['/track/index']));
 $I->see('Providers', '.dropdown-toggle');
 $I->see('Genres', '.dropdown-toggle');
-$I->see('4 results', '.total-count');
+$I->see('5 results', '.total-count');
 $I->see('track1', '.card-title');
 $I->see('track2', '.card-title');
 
@@ -42,7 +42,7 @@ $I->click('Reset All', '.card-body');
 $I->wait(1);
 $I->seeCurrentUrlEquals('/index-test.php/tracks');
 $I->see('Providers', '#search-provider');
-$I->see('4 results', '.total-count');
+$I->see('5 results', '.total-count');
 $I->see('track1', '.card-title');
 $I->see('track2', '.card-title');
 

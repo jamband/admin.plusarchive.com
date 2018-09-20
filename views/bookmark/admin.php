@@ -60,13 +60,6 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                 'value' => 'tagValues',
                 'filter' => array_combine($tags = BookmarkTag::getNames()->column(), $tags),
             ],
-            [
-                'attribute' => 'status',
-                'value' => function ($model) {
-                    return h($model->statusText);
-                },
-                'filter' => $search::STATUSES,
-            ],
             'created_at:datetime',
             'updated_at:datetime',
             ['class' => ActionColumn::class],

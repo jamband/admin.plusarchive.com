@@ -53,13 +53,12 @@ $I->see('Admin: 5', '#menu-action');
 $I->see('track1', '.card-title');
 $I->see('track2', '.card-title');
 
-$I->click('#search-status');
-$I->click('Private', '#search-status + .dropdown-menu');
+$I->fillField(['name' => 'search'], '5');
+$I->pressKey('input[name=search]', WebDriverKeys::ENTER);
 $I->wait(1);
-$I->seeCurrentUrlEquals('/index-test.php/track/admin?status=Private');
+$I->seeInField(['name' => 'search'], '5');
 $I->see('Admin: 1', '#menu-action');
 $I->see('track5', '.card-title');
-$I->dontSee('track1', '.card-title');
 
 $I->click('YouTube', '.card-img-wrap + .card-body');
 $I->wait(1);
@@ -69,10 +68,3 @@ $I->see('Admin: 2', '#menu-action');
 $I->see('track4', '.card-title');
 $I->see('track5', '.card-title');
 $I->dontSee('track1', '.card-title');
-
-$I->fillField(['name' => 'search'], '3');
-$I->pressKey('input[name=search]', WebDriverKeys::ENTER);
-$I->wait(1);
-$I->seeInField(['name' => 'search'], '3');
-$I->see('Admin: 1', '#menu-action');
-$I->see('track3', '.card-title');

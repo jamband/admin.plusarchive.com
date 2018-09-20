@@ -46,17 +46,6 @@ class TrackQuery extends ActiveQuery
     }
 
     /**
-     * @param null|string $status
-     * @return TrackQuery
-     */
-    public function status(?string $status): TrackQuery
-    {
-        $status = array_search($status, Track::STATUSES, true);
-
-        return false === $status ? $this : $this->andWhere(['status' => $status]);
-    }
-
-    /**
      * @param null|string $type
      * @return TrackQuery
      */

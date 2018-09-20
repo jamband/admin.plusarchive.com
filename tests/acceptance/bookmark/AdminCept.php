@@ -25,8 +25,6 @@ $I->see('bookmark1', '.grid-view');
 $I->see('bookmark2', '.grid-view');
 $I->see('bookmark3', '.grid-view');
 $I->see('bookmark4', '.grid-view');
-$I->see('Private', '.grid-view');
-$I->see('Publish', '.grid-view');
 
 $I->fillField('input[name="BookmarkSearch[name]"]', 4);
 $I->pressKey(['name' => 'BookmarkSearch[name]'], WebDriverKeys::ENTER);
@@ -73,11 +71,3 @@ $I->see('bookmark1', '.grid-view');
 $I->see('bookmark2', '.grid-view');
 $I->see('bookmark3', '.grid-view');
 $I->see('bookmark4', '.grid-view');
-
-$I->selectOption('select[name="BookmarkSearch[status]"]', 'Private');
-$I->wait(1);
-$I->see('Admin: 1', '#menu-action');
-$I->see('bookmark4', '.grid-view');
-$I->dontSee('bookmark1', '.grid-view');
-$I->dontSee('bookmark2', '.grid-view');
-$I->dontSee('bookmark3', '.grid-view');

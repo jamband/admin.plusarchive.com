@@ -35,6 +35,5 @@ $I->loginAsAdmin();
 // $I->moveBack();
 
 // $I->seeInField('#track-url', 'https://example.bandcamp.com/track/track1');
-// $I->seeOptionIsSelected('#track-status', 'Publish');
 // $I->seeInField('#track-title', 'track1');
 // $I->seeInField('#track-image', 'track1.jpg');

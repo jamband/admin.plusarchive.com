@@ -25,7 +25,6 @@ use yii\db\ActiveRecord;
 /**
  * @property int $id
  * @property string $url
- * @property int $status
  * @property int $provider
  * @property string $provider_key
  * @property string $title
@@ -38,7 +37,6 @@ use yii\db\ActiveRecord;
  *
  * @property trackGenre[] $trackGenres
  *
- * @property string $statusText
  * @property string $providerText
  * @property string $typeText
  */
@@ -46,14 +44,6 @@ class Track extends ActiveRecord
 {
     use ActiveRecordTrait;
     use RippleValidatorTrait;
-
-    public const STATUS_PRIVATE = 0;
-    public const STATUS_PUBLISH = 1;
-
-    public const STATUSES = [
-        self::STATUS_PRIVATE => 'Private',
-        self::STATUS_PUBLISH => 'Publish',
-    ];
 
     public const PROVIDER_BANDCAMP = 1;
     public const PROVIDER_SOUNDCLOUD = 2;
@@ -114,16 +104,6 @@ class Track extends ActiveRecord
     }
 
     /**
-     * Transformation of status attribute.
-     *
-     * @return string
-     */
-    public function getStatusText(): string
-    {
-        return self::STATUSES[$this->status];
-    }
-
-    /**
      * Transformation of provider attribute.
      *
      * @return string
@@ -156,7 +136,6 @@ class Track extends ActiveRecord
             ['url', 'unique'],
             ['url', 'validateUrl'],
             ['url', 'validateContent'],
-            ['status', 'in', 'range' => array_keys(self::STATUSES)],
             ['title', 'string', 'max' => 200],
             ['type', 'in', 'range' => array_keys(self::TYPES)],
             ['tagValues', 'safe'],

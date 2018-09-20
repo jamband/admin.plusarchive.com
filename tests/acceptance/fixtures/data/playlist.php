@@ -3,7 +3,6 @@
 return [
     'playlist1' => [
         'url' => 'https://soundcloud.com/account/sets/playlist1',
-        'status' => 1,
         'provider' => 2,
         'provider_key' => '123',
         'title' => 'playlist1',
@@ -14,7 +13,6 @@ return [
     ],
     'playlist2' => [
         'url' => 'https://soundcloud.com/account/sets/playlist2',
-        'status' => 0,
         'provider' => 2,
         'provider_key' => '123',
         'title' => 'playlist2',
@@ -25,7 +23,6 @@ return [
     ],
     'playlist3' => [
         'url' => 'https://www.youtube.com/playlist?list=123',
-        'status' => 1,
         'provider' => 4,
         'provider_key' => '123',
         'title' => 'playlist3',
