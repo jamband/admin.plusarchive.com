@@ -15,7 +15,6 @@ namespace app\models;
 
 use app\models\common\ActiveRecordTrait;
 use app\models\query\TrackQuery;
-use app\models\validators\RippleValidatorTrait;
 use creocoder\taggable\TaggableBehavior;
 use jamband\ripple\Ripple;
 use yii\behaviors\TimestampBehavior;
@@ -43,7 +42,6 @@ use yii\db\ActiveRecord;
 class Track extends ActiveRecord
 {
     use ActiveRecordTrait;
-    use RippleValidatorTrait;
 
     public const PROVIDER_BANDCAMP = 1;
     public const PROVIDER_SOUNDCLOUD = 2;
@@ -134,12 +132,34 @@ class Track extends ActiveRecord
             [['url', 'image'], 'url'],
 
             ['url', 'unique'],
-            ['url', 'validateUrl'],
-            ['url', 'validateContent'],
+            ['url', 'validateValidUrl'],
+            ['url', 'validateHasContent'],
             ['title', 'string', 'max' => 200],
             ['type', 'in', 'range' => array_keys(self::TYPES)],
             ['tagValues', 'safe'],
         ];
+    }
+
+    /**
+     * @param string $attribute
+     * @return void
+     */
+    public function validateValidUrl(string $attribute): void
+    {
+        if (!(new Ripple($this->$attribute))->isValidUrl()) {
+            $this->addError($attribute, 'The URL is not valid.');
+        }
+    }
+
+    /**
+     * @param string $attribute
+     * @return void
+     */
+    public function validateHasContent(string $attribute): void
+    {
+        if (null === $this->provider_key) {
+            $this->addError($attribute, 'Unable to retrieve the contents from the URL.');
+        }
     }
 
     /**
