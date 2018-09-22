@@ -78,10 +78,10 @@ class LabelTagController extends Controller
     /**
      * Updates an existing LabelTag model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -99,10 +99,10 @@ class LabelTagController extends Controller
     /**
      * Deletes an existing LabelTag model.
      *
-     * @param string $id
+     * @param int $id
      * @return Response
      */
-    public function actionDelete(string $id): Response
+    public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Label tag has been deleted.');
@@ -113,11 +113,11 @@ class LabelTagController extends Controller
     /**
      * Finds the Bookmark model based on its primary key value.
      *
-     * @param string $id
+     * @param int $id
      * @return LabelTag
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id): LabelTag
+    protected function findModel(int $id): LabelTag
     {
         $model = LabelTag::findOne($id);
 
