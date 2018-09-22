@@ -78,10 +78,10 @@ class StoreTagController extends Controller
     /**
      * Updates an existing StoreTag model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -99,10 +99,10 @@ class StoreTagController extends Controller
     /**
      * Deletes an existing StoreTag model.
      *
-     * @param string $id
+     * @param int $id
      * @return Response
      */
-    public function actionDelete(string $id): Response
+    public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Store tag has been deleted.');
@@ -113,11 +113,11 @@ class StoreTagController extends Controller
     /**
      * Finds the StoreTag model based on its primary key value.
      *
-     * @param string $id
+     * @param int $id
      * @return StoreTag
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id): StoreTag
+    protected function findModel(int $id): StoreTag
     {
         $model = StoreTag::findOne($id);
 
