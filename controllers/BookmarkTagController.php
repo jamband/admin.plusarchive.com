@@ -78,10 +78,10 @@ class BookmarkTagController extends Controller
     /**
      * Updates an existing BookmarkTag model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -99,10 +99,10 @@ class BookmarkTagController extends Controller
     /**
      * Deletes an existing BookmarkTag model.
      *
-     * @param string $id
+     * @param int $id
      * @return Response
      */
-    public function actionDelete(string $id): Response
+    public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Bookmark tag has been deleted.');
@@ -113,11 +113,11 @@ class BookmarkTagController extends Controller
     /**
      * Finds the BookmarkTag model based on its primary key value.
      *
-     * @param string $id
+     * @param int $id
      * @return BookmarkTag
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id): BookmarkTag
+    protected function findModel(int $id): BookmarkTag
     {
         $model = BookmarkTag::findOne($id);
 
