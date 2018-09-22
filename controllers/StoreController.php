@@ -16,7 +16,6 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\Store;
 use app\models\search\StoreSearch;
-use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -59,25 +58,8 @@ class StoreController extends Controller
      */
     public function actionIndex(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): string
     {
-        $query = Store::find()
-            ->with(['storeTags']);
-
-        if (null !== $search) {
-            $query->search($search);
-        } else {
-            $query->country($country)
-                ->sort($sort);
-        }
-
-        if (null !== $tag) {
-            $query->allTagValues($tag);
-        }
-
         return $this->render('index', [
-            'data' => new ActiveDataProvider([
-                'query' => $query,
-                'pagination' => ['pageSize' => 8],
-            ]),
+            'data' => Store::all($sort, $country, $tag, $search),
             'sort' => $sort ?: 'Sort',
             'country' => $country ?: 'Countries',
             'tag' => $tag ?: 'Tags',
@@ -101,10 +83,10 @@ class StoreController extends Controller
     /**
      * Displays a single Store model.
      *
-     * @param string $id
+     * @param int $id
      * @return string
      */
-    public function actionView(string $id): string
+    public function actionView(int $id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -134,10 +116,10 @@ class StoreController extends Controller
     /**
      * Updates an existing Store model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -155,10 +137,10 @@ class StoreController extends Controller
     /**
      * Deletes an existing Store model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionDelete(string $id)
+    public function actionDelete(int $id)
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Store has been deleted.');
@@ -169,11 +151,11 @@ class StoreController extends Controller
     /**
      * Finds the Store model based on its primary key value.
      *
-     * @param string $id
+     * @param int $id
      * @return Store
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id): Store
+    protected function findModel(int $id): Store
     {
         $model = Store::findOne($id);
 

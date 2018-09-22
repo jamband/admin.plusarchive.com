@@ -23,6 +23,8 @@ use yii\db\ActiveQuery;
  */
 class StoreQuery extends ActiveQuery
 {
+    use ActiveQueryTrait;
+
     /**
      * @return array
      */
@@ -43,30 +45,36 @@ class StoreQuery extends ActiveQuery
     }
 
     /**
-     * @param null|string $sort
-     * @return StoreQuery
-     */
-    public function sort(?string $sort): StoreQuery
-    {
-        switch ($sort) {
-            case 'Name':
-                return $this->orderBy(['name' => SORT_ASC]);
-            case 'Latest':
-                return $this->orderBy(['created_at' => SORT_DESC]);
-            default:
-                return $this->orderBy(['created_at' => SORT_DESC]);
-        }
-    }
-
-    /**
      * @param string $search
      * @return StoreQuery
      */
     public function search(string $search): StoreQuery
     {
         return $this->andFilterWhere(['or',
-            ['like', 'name', $search],
-            ['like', 'link', $search],
-        ])->orderBy(['name' => SORT_ASC]);
+            ['like', 'name', trim($search)],
+            ['like', 'link', trim($search)],
+        ]);
     }
+
+    /**
+     * @return StoreQuery
+     */
+    public function inNameOrder(): StoreQuery
+    {
+        return $this->orderBy(['name' => SORT_ASC]);
+    }
+
+    /**
+     * @param null|string $sort
+     * @return StoreQuery
+     */
+    public function sort(?string $sort): StoreQuery
+    {
+        if ('Name' === $sort) {
+            return $this->inNameOrder();
+        }
+
+        return $this->latest();
+    }
+
 }
