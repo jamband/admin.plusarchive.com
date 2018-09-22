@@ -73,14 +73,13 @@ class Store extends ActiveRecord
     }
 
     /**
-     * @param null|string $sort
-     * @param null|string $country
-     * @param null|string $tag
-     * @param null|string $search
+     * @param null|string ...$params
      * @return ActiveDataProvider
      */
-    public static function all(?string $sort, ?string $country, ?string $tag, ?string $search): ActiveDataProvider
+    public static function all(?string ...$params): ActiveDataProvider
     {
+        list($sort, $country, $tag, $search) = $params;
+
         $query = static::find()
             ->with(['storeTags']);
 
