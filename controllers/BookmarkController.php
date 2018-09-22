@@ -16,7 +16,6 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\Bookmark;
 use app\models\search\BookmarkSearch;
-use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -53,31 +52,14 @@ class BookmarkController extends Controller
      *
      * @param null|string $sort
      * @param null|string $country
-     * @param null|string $search
      * @param null|string $tag
+     * @param null|string $search
      * @return string
      */
-    public function actionIndex(?string $sort = null, ?string $country = null, ?string $search = null, ?string $tag = null): string
+    public function actionIndex(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): string
     {
-        $query = Bookmark::find()
-            ->with(['bookmarkTags']);
-
-        if (null !== $search) {
-            $query->search($search);
-        } else {
-            $query->country($country)
-                ->sort($sort);
-        }
-
-        if (null !== $tag) {
-            $query->allTagValues($tag);
-        }
-
         return $this->render('index', [
-            'data' => new ActiveDataProvider([
-                'query' => $query,
-                'pagination' => ['pageSize' => 8],
-            ]),
+            'data' => Bookmark::all($sort, $country, $tag, $search),
             'sort' => $sort ?: 'Sort',
             'country' => $country ?: 'Countries',
             'tag' => $tag ?: 'Tags',
@@ -101,10 +83,10 @@ class BookmarkController extends Controller
     /**
      * Displays a single Bookmark model.
      *
-     * @param string $id
+     * @param int $id
      * @return string
      */
-    public function actionView(string $id): string
+    public function actionView(int $id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -135,10 +117,10 @@ class BookmarkController extends Controller
     /**
      * Updates an existing Bookmark model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -156,10 +138,10 @@ class BookmarkController extends Controller
     /**
      * Deletes an existing Bookmark model.
      *
-     * @param string $id
+     * @param int $id
      * @return Response
      */
-    public function actionDelete(string $id): Response
+    public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Bookmark has been deleted.');
@@ -170,11 +152,11 @@ class BookmarkController extends Controller
     /**
      * Finds the Bookmark model based on its primary key value.
      *
-     * @param string $id
+     * @param int $id
      * @return Bookmark
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id): Bookmark
+    protected function findModel(int $id): Bookmark
     {
         $model = Bookmark::findOne($id);
 

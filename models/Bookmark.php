@@ -17,6 +17,7 @@ use app\models\common\ActiveRecordTrait;
 use app\models\query\BookmarkQuery;
 use creocoder\taggable\TaggableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -70,6 +71,38 @@ class Bookmark extends ActiveRecord
         return $this->hasMany(BookmarkTag::class, ['id' => 'bookmark_tag_id'])
             ->viaTable('bookmark_tag_assn', ['bookmark_id' => 'id'])
             ->orderBy(['name' => SORT_ASC]);
+    }
+
+    /**
+     * @param null|string $sort
+     * @param null|string $country
+     * @param null|string $tag
+     * @param null|string $search
+     * @return ActiveDataProvider
+     */
+    public static function all(?string $sort, ?string $country, ?string $tag, ?string $search): ActiveDataProvider
+    {
+        $query = static::find()
+            ->with(['bookmarkTags']);
+
+        if (null === $search) {
+            $query->country($country)
+                ->sort($sort);
+        } else {
+            $query->search($search)
+                ->inNameOrder();
+        }
+
+        if (null !== $tag) {
+            $query->allTagValues($tag);
+        }
+
+        return new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 8,
+            ],
+        ]);
     }
 
     /**

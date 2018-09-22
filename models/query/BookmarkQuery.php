@@ -23,6 +23,8 @@ use yii\db\ActiveQuery;
  */
 class BookmarkQuery extends ActiveQuery
 {
+    use ActiveQueryTrait;
+
     /**
      * @return array
      */
@@ -51,7 +53,15 @@ class BookmarkQuery extends ActiveQuery
         return $this->andFilterWhere(['or',
             ['like', 'bookmark.name', trim($search)],
             ['like', 'link', trim($search)],
-        ])->orderBy(['bookmark.name' => SORT_ASC]);
+        ]);
+    }
+
+    /**
+     * @return BookmarkQuery
+     */
+    public function inNameOrder(): BookmarkQuery
+    {
+        return $this->orderBy(['bookmark.name' => SORT_ASC]);
     }
 
     /**
@@ -60,13 +70,10 @@ class BookmarkQuery extends ActiveQuery
      */
     public function sort(?string $sort): BookmarkQuery
     {
-        switch ($sort) {
-            case 'Name':
-                return $this->orderBy(['name' => SORT_ASC]);
-            case 'Latest':
-                return $this->orderBy(['created_at' => SORT_DESC]);
-            default:
-                return $this->orderBy(['created_at' => SORT_DESC]);
+        if ('Name' === $sort) {
+            return $this->inNameOrder();
         }
+
+        return $this->latest();
     }
 }
