@@ -16,7 +16,6 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\Label;
 use app\models\search\LabelSearch;
-use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -59,25 +58,8 @@ class LabelController extends Controller
      */
     public function actionIndex(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): string
     {
-        $query = Label::find()
-            ->with(['labelTags']);
-
-        if (null !== $search) {
-            $query->search($search);
-        } else {
-            $query->country($country)
-                ->sort($sort);
-        }
-
-        if (null !== $tag) {
-            $query->allTagValues($tag);
-        }
-
         return $this->render('index', [
-            'data' => new ActiveDataProvider([
-                'query' => $query,
-                'pagination' => ['pageSize' => 8],
-            ]),
+            'data' => Label::all($sort, $country, $tag, $search),
             'sort' => $sort ?: 'Sort',
             'country' => $country ?: 'Countries',
             'tag' => $tag ?: 'Tags',
@@ -101,10 +83,10 @@ class LabelController extends Controller
     /**
      * Displays a single Label model.
      *
-     * @param string $id
+     * @param int $id
      * @return string
      */
-    public function actionView(string $id): string
+    public function actionView(int $id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -134,10 +116,10 @@ class LabelController extends Controller
     /**
      * Updates an existing Label model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -155,10 +137,10 @@ class LabelController extends Controller
     /**
      * Deletes an existing Label model.
      *
-     * @param string $id
+     * @param int $id
      * @return Response
      */
-    public function actionDelete(string $id): Response
+    public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Label has been deleted.');
@@ -169,11 +151,11 @@ class LabelController extends Controller
     /**
      * Finds the Label model based on its primary key value.
      *
-     * @param string $id
+     * @param int $id
      * @return Label
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id): Label
+    protected function findModel(int $id): Label
     {
         $model = Label::findOne($id);
 

@@ -21,6 +21,8 @@ use yii\db\ActiveQuery;
  */
 class LabelQuery extends ActiveQuery
 {
+    use ActiveQueryTrait;
+
     /**
      * @return array
      */
@@ -41,30 +43,35 @@ class LabelQuery extends ActiveQuery
     }
 
     /**
-     * @param null|string $sort
-     * @return LabelQuery
-     */
-    public function sort($sort): LabelQuery
-    {
-        switch ($sort) {
-            case 'Name':
-                return $this->orderBy(['name' => SORT_ASC]);
-            case 'Latest':
-                return $this->orderBy(['created_at' => SORT_DESC]);
-            default:
-                return $this->orderBy(['created_at' => SORT_DESC]);
-        }
-    }
-
-    /**
      * @param string $search
      * @return LabelQuery
      */
     public function search(string $search): LabelQuery
     {
         return $this->andFilterWhere(['or',
-            ['like', 'name', $search],
-            ['like', 'link', $search],
-        ])->orderBy(['name' => SORT_ASC]);
+            ['like', 'name', trim($search)],
+            ['like', 'link', trim($search)],
+        ]);
+    }
+
+    /**
+     * @return LabelQuery
+     */
+    public function inNameOrder(): LabelQuery
+    {
+        return $this->orderBy(['name' => SORT_ASC]);
+    }
+
+    /**
+     * @param null|string $sort
+     * @return LabelQuery
+     */
+    public function sort(?string $sort): LabelQuery
+    {
+        if ('Name' === $sort) {
+            return $this->inNameOrder();
+        }
+
+        return $this->latest();
     }
 }
