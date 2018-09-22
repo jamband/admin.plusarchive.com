@@ -12,9 +12,9 @@
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $data
+ * @var string $sort
  * @var string $provider
  * @var string $genre
- * @var string $sort
  * @var string $search
  * @var string $embedAction
  */

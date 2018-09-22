@@ -18,6 +18,7 @@ use app\models\query\TrackQuery;
 use creocoder\taggable\TaggableBehavior;
 use jamband\ripple\Ripple;
 use yii\behaviors\TimestampBehavior;
+use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -99,6 +100,114 @@ class Track extends ActiveRecord
         return $this->hasMany(TrackGenre::class, ['id' => 'track_genre_id'])
             ->viaTable('track_genre_assn', ['track_id' => 'id'])
             ->orderBy(['name' => SORT_ASC]);
+    }
+
+    /**
+     * @param null|string $provider
+     * @param null|string $genre
+     * @param null|string $search
+     * @return ActiveDataProvider
+     */
+    public static function all(?string $provider, ?string $genre, ?string $search): ActiveDataProvider
+    {
+        $query = static::find()
+            ->with(['trackGenres'])
+            ->track();
+
+        if (null !== $provider) {
+            $query->provider($provider);
+        }
+
+        if (null === $search) {
+            $query->latest();
+        } else {
+            $query->search($search)
+                ->inTitleOrder();
+        }
+
+        if (null !== $genre && '' !== $genre) {
+            $query->allTagValues($genre);
+        }
+
+        return new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 24,
+            ],
+        ]);
+    }
+
+    /**
+     * @param null|string $sort
+     * @param null|string $provider
+     * @param null|string $genre
+     * @param null|string $search
+     * @return ActiveDataProvider
+     */
+    public static function allAsAdmin(?string $sort, ?string $provider, ?string $genre, ?string $search): ActiveDataProvider
+    {
+        $query = static::find()
+            ->with(['trackGenres'])
+            ->track();
+
+        if (null !== $provider) {
+            $query->provider($provider);
+        }
+
+        if (null === $search) {
+            $query->sort($sort);
+        } else {
+            $query->search($search)
+                ->inTitleOrder();
+        }
+
+        if (null !== $genre && '' !== $genre) {
+            $query->allTagValues($genre);
+        }
+
+        return new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 24,
+            ],
+        ]);
+    }
+
+    /**
+     * @return ActiveDataProvider
+     */
+    public static function allPlaylists(): ActiveDataProvider
+    {
+        return new ActiveDataProvider([
+            'query' => static::find()
+                ->playlist()
+                ->latest(),
+            'pagination' => false,
+        ]);
+    }
+
+    /**
+     * @param int $id
+     * @return array|null|Track
+     */
+    public static function one(int $id)
+    {
+        return static::find()
+            ->andWhere(['id' => $id])
+            ->track()
+            ->one();
+    }
+
+    /**
+     * @param int $id
+     * @return array|null|Track
+     */
+    public static function onePlaylist(int $id)
+    {
+        return static::find()
+            ->andWhere(['id' => $id])
+            ->playlist()
+            ->one();
     }
 
     /**

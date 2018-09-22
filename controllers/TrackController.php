@@ -16,7 +16,6 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\Track;
 use jamband\ripple\Ripple;
-use yii\data\ActiveDataProvider;
 use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
@@ -63,26 +62,8 @@ class TrackController extends Controller
      */
     public function actionIndex(?string $provider = null, ?string $genre = null, ?string $search = null): string
     {
-        $query = Track::find()
-            ->with(['trackGenres'])
-            ->provider($provider)
-            ->type(Track::TYPES[Track::TYPE_TRACK]);
-
-        if (null !== $search) {
-            $query->search($search);
-        } else {
-            $query->orderBy(['created_at' => SORT_DESC]);
-        }
-
-        if (null !== $genre && '' !== $genre) {
-            $query->allTagValues($genre);
-        }
-
         return $this->render('index', [
-            'data' => new ActiveDataProvider([
-                'query' => $query,
-                'pagination' => ['pageSize' => 24],
-            ]),
+            'data' => Track::all($provider, $genre, $search),
             'provider' => $provider ?: 'Providers',
             'genre' => $genre ?: 'Genres',
             'search' => $search,
@@ -93,14 +74,14 @@ class TrackController extends Controller
     /**
      * Renders the HTML of the now playing track.
      *
-     * @param null|string $id the hashed track id
-     * @param null|string $url
-     * @param null|string $title
-     * @param null|string $provider
-     * @param null|string $key provider key
+     * @param string $id the hashed track id
+     * @param string $url
+     * @param string $title
+     * @param string $provider
+     * @param string $key provider key
      * @return string
      */
-    public function actionNow(?string $id = null, ?string $url = null, ?string $title = null, ?string $provider = null, ?string $key = null): string
+    public function actionNow(string $id, string $url, string $title, string $provider, string $key): string
     {
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-track-modal']);
@@ -121,9 +102,7 @@ class TrackController extends Controller
      */
     public function actionView(string $id): string
     {
-        $model = $this->findModel(
-            (string)hashids()->decode($id)
-        );
+        $model = $this->findModel(hashids()->decode($id));
 
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-track']);
@@ -137,36 +116,18 @@ class TrackController extends Controller
     /**
      * Manages all Track models.
      *
-     * @param null|string $provider
      * @param null|string $sort
+     * @param null|string $provider
      * @param null|string $genre
      * @param null|string $search
      * @return string
      */
-    public function actionAdmin(?string $provider = null, ?string $sort = null, ?string $genre = null, ?string $search = null): string
+    public function actionAdmin(?string $sort = null, ?string $provider = null, ?string $genre = null, ?string $search = null): string
     {
-        $query = Track::find()
-            ->with(['trackGenres'])
-            ->type(Track::TYPES[Track::TYPE_TRACK]);
-
-        if (null !== $search) {
-            $query->search($search);
-        } else {
-            $query->provider($provider)
-                ->sort($sort);
-        }
-
-        if (null !== $genre && '' !== $genre) {
-            $query->allTagValues($genre);
-        }
-
         return $this->render('admin', [
-            'data' => new ActiveDataProvider([
-                'query' => $query,
-                'pagination' => ['pageSize' => 24],
-            ]),
-            'provider' => $provider ?: 'Providers',
+            'data' => Track::allAsAdmin($sort, $provider, $genre, $search),
             'sort' => $sort ?: 'Sort',
+            'provider' => $provider ?: 'Providers',
             'genre' => $genre ?: 'Genres',
             'search' => $search,
             'embedAction' => url(['now']),
@@ -197,10 +158,10 @@ class TrackController extends Controller
     /**
      * Updates an existing Track model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -218,10 +179,10 @@ class TrackController extends Controller
     /**
      * Deletes an existing Track model.
      *
-     * @param string $id
+     * @param int $id
      * @return Response
      */
-    public function actionDelete(string $id): Response
+    public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Track has been deleted.');
@@ -232,16 +193,13 @@ class TrackController extends Controller
     /**
      * Finds the Track model based on its primary key value.
      *
-     * @param string $id
-     * @return Track|array
+     * @param int $id
+     * @return array|Track
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id)
+    protected function findModel(int $id)
     {
-        $model = Track::find()
-            ->andWhere(['id' => $id])
-            ->type(Track::TYPES[Track::TYPE_TRACK])
-            ->one();
+        $model = Track::one($id);
 
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');

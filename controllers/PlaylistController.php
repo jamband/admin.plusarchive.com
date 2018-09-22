@@ -17,7 +17,6 @@ use app\filters\AccessControl;
 use app\models\search\PlaylistSearch;
 use app\models\Track;
 use jamband\ripple\Ripple;
-use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -57,12 +56,7 @@ class PlaylistController extends Controller
     public function actionIndex(): string
     {
         return $this->render('index', [
-            'data' => new ActiveDataProvider([
-                'query' => Track::find()
-                    ->type(Track::TYPES[Track::TYPE_PLAYLIST])
-                    ->orderBy(['created_at' => SORT_DESC]),
-                'pagination' => false,
-            ]),
+            'data' => Track::allPlaylists(),
         ]);
     }
 
@@ -74,9 +68,7 @@ class PlaylistController extends Controller
      */
     public function actionView(string $id): string
     {
-        $model = $this->findModel(
-            (string)hashids()->decode($id)
-        );
+        $model = $this->findModel(hashids()->decode($id));
 
         $ripple = new Ripple;
         $ripple->setEmbedParams(app()->params['embed-playlist']);
@@ -124,10 +116,10 @@ class PlaylistController extends Controller
     /**
      * Updates an existing playlist of Track model.
      *
-     * @param string $id
+     * @param int $id
      * @return string|Response
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(int $id)
     {
         $model = $this->findModel($id);
 
@@ -145,10 +137,10 @@ class PlaylistController extends Controller
     /**
      * Deletes an existing playlist of Track model.
      *
-     * @param string $id
+     * @param int $id
      * @return Response
      */
-    public function actionDelete(string $id): Response
+    public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('success', 'Playlist has been deleted.');
@@ -159,16 +151,13 @@ class PlaylistController extends Controller
     /**
      * Finds the playlist of Track model based on its primary key value.
      *
-     * @param string $id
-     * @return Track|array
+     * @param int $id
+     * @return array|Track
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id)
+    protected function findModel(int $id)
     {
-        $model = Track::find()
-            ->andWhere(['id' => $id])
-            ->type(Track::TYPES[Track::TYPE_PLAYLIST])
-            ->one();
+        $model = Track::onePlaylist($id);
 
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');

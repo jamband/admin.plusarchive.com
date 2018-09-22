@@ -24,6 +24,8 @@ use yii\db\ActiveQuery;
  */
 class TrackQuery extends ActiveQuery
 {
+    use ActiveQueryTrait;
+
     /**
      * @return array
      */
@@ -42,18 +44,23 @@ class TrackQuery extends ActiveQuery
     {
         $provider = array_search($provider, Track::PROVIDERS, true);
 
-        return false === $provider ? $this : $this->andWhere(['provider' => $provider]);
+        return $this->andWhere(['provider' => false !== $provider ? $provider : '']);
     }
 
     /**
-     * @param null|string $type
      * @return TrackQuery
      */
-    public function type(?string $type): TrackQuery
+    public function track(): TrackQuery
     {
-        $type = array_search($type, Track::TYPES, true);
+        return $this->andWhere(['type' => Track::TYPE_TRACK]);
+    }
 
-        return false === $type ? $this : $this->andWhere(['type' => $type]);
+    /**
+     * @return TrackQuery
+     */
+    public function playlist(): TrackQuery
+    {
+        return $this->andWhere(['type' => Track::TYPE_PLAYLIST]);
     }
 
     /**
@@ -62,8 +69,23 @@ class TrackQuery extends ActiveQuery
      */
     public function search(string $search): TrackQuery
     {
-        return $this->andFilterWhere(['like', 'title', trim($search)])
-            ->orderBy(['title' => SORT_ASC]);
+        return $this->andFilterWhere(['like', 'title', trim($search)]);
+    }
+
+    /**
+     * @return TrackQuery
+     */
+    public function inTitleOrder(): TrackQuery
+    {
+        return $this->orderBy(['title' => SORT_ASC]);
+    }
+
+    /**
+     * @return TrackQuery
+     */
+    public function inUpdateOrder(): TrackQuery
+    {
+        return $this->orderBy(['updated_at' => SORT_DESC]);
     }
 
     /**
@@ -72,15 +94,13 @@ class TrackQuery extends ActiveQuery
      */
     public function sort(?string $sort): TrackQuery
     {
-        switch ($sort) {
-            case 'Title':
-                return $this->orderBy(['title' => SORT_ASC]);
-            case 'Latest':
-                return $this->orderBy(['created_at' => SORT_DESC]);
-            case 'Update':
-                return $this->orderBy(['updated_at' => SORT_DESC]);
-            default:
-                return $this->orderBy(['created_at' => SORT_DESC]);
+        if ('Title' === $sort) {
+            return $this->inTitleOrder();
+
+        } elseif ('Update' === $sort) {
+            return $this->inUpdateOrder();
         }
+
+        return $this->latest();
     }
 }
