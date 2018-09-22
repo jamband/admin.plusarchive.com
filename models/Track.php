@@ -85,9 +85,9 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @return TrackQuery
+     * @return ActiveQuery
      */
-    public static function find(): TrackQuery
+    public static function find(): ActiveQuery
     {
         return new TrackQuery(static::class);
     }
@@ -103,16 +103,16 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @param null|string $provider
-     * @param null|string $genre
-     * @param null|string $search
+     * @param null|string ...$params
      * @return ActiveDataProvider
      */
-    public static function all(?string $provider, ?string $genre, ?string $search): ActiveDataProvider
+    public static function all(?string ...$params): ActiveDataProvider
     {
+        list($provider, $genre, $search) = $params;
+
+        /** @var TrackQuery $query */
         $query = static::find()
-            ->with(['trackGenres'])
-            ->track();
+            ->with(['trackGenres']);
 
         if (null !== $provider) {
             $query->provider($provider);
@@ -138,17 +138,16 @@ class Track extends ActiveRecord
     }
 
     /**
-     * @param null|string $sort
-     * @param null|string $provider
-     * @param null|string $genre
-     * @param null|string $search
+     * @param null|string ...$params
      * @return ActiveDataProvider
      */
-    public static function allAsAdmin(?string $sort, ?string $provider, ?string $genre, ?string $search): ActiveDataProvider
+    public static function allAsAdmin(?string ...$params): ActiveDataProvider
     {
+        list($sort, $provider, $genre, $search) = $params;
+
+        /** @var TrackQuery $query */
         $query = static::find()
-            ->with(['trackGenres'])
-            ->track();
+            ->with(['trackGenres']);
 
         if (null !== $provider) {
             $query->provider($provider);
@@ -171,43 +170,6 @@ class Track extends ActiveRecord
                 'pageSize' => 24,
             ],
         ]);
-    }
-
-    /**
-     * @return ActiveDataProvider
-     */
-    public static function allPlaylists(): ActiveDataProvider
-    {
-        return new ActiveDataProvider([
-            'query' => static::find()
-                ->playlist()
-                ->latest(),
-            'pagination' => false,
-        ]);
-    }
-
-    /**
-     * @param int $id
-     * @return array|null|Track
-     */
-    public static function one(int $id)
-    {
-        return static::find()
-            ->andWhere(['id' => $id])
-            ->track()
-            ->one();
-    }
-
-    /**
-     * @param int $id
-     * @return array|null|Track
-     */
-    public static function onePlaylist(int $id)
-    {
-        return static::find()
-            ->andWhere(['id' => $id])
-            ->playlist()
-            ->one();
     }
 
     /**

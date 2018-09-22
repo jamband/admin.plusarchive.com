@@ -15,7 +15,7 @@ namespace app\controllers;
 
 use app\filters\AccessControl;
 use app\models\search\PlaylistSearch;
-use app\models\Track;
+use app\models\Playlist;
 use jamband\ripple\Ripple;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
@@ -49,19 +49,19 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Lists all playlists of Track models.
+     * Lists all Playlist models.
      *
      * @return string
      */
     public function actionIndex(): string
     {
         return $this->render('index', [
-            'data' => Track::allPlaylists(),
+            'data' => Playlist::all(),
         ]);
     }
 
     /**
-     * Displays a specific playlist of Track model.
+     * Displays a specific Playlist model.
      *
      * @param string $id the hashed playlist id
      * @return string
@@ -80,7 +80,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Manages all playlists of Track model.
+     * Manages all Playlist models.
      *
      * @return string
      */
@@ -93,14 +93,14 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Creates a new playlist of Track model.
+     * Creates a new Playlist model.
      *
      * @return string|Response
      */
     public function actionCreate()
     {
-        $model = new Track;
-        $model->type = Track::TYPE_PLAYLIST;
+        $model = new Playlist;
+        $model->type = Playlist::TYPE_PLAYLIST;
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Playlist has been added.');
@@ -114,7 +114,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Updates an existing playlist of Track model.
+     * Updates an existing Playlist model.
      *
      * @param int $id
      * @return string|Response
@@ -135,7 +135,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Deletes an existing playlist of Track model.
+     * Deletes an existing Playlist model.
      *
      * @param int $id
      * @return Response
@@ -149,15 +149,15 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Finds the playlist of Track model based on its primary key value.
+     * Finds the Playlist model based on its primary key value.
      *
      * @param int $id
-     * @return array|Track
+     * @return array|Playlist
      * @throws NotFoundHttpException
      */
     protected function findModel(int $id)
     {
-        $model = Track::onePlaylist($id);
+        $model = Playlist::findOne($id);
 
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');

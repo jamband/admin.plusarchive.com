@@ -35,14 +35,14 @@ $I->click('Create', '#menu-action + .dropdown-menu');
 $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
 $I->moveBack();
 
-$I->seeInField('#track-title', 'playlist1');
+$I->seeInField('#playlist-title', 'playlist1');
 
-// $I->fillField('#track-title', '');
+// $I->fillField('#playlist-title', '');
 $I->click('button[type=submit]');
 $I->wait(1);
 $I->seeElement('.is-invalid');
 
-// $I->fillField('#track-title', 'playlist-one');
+// $I->fillField('#playlist-title', 'playlist-one');
 // $I->click('button[type=submit]');
 // $I->wait(1);
 // $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');

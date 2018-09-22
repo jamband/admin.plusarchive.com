@@ -16,6 +16,7 @@
  */
 
 use app\components\ActionColumn;
+use app\models\Playlist;
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
@@ -48,7 +49,7 @@ $this->title = 'Admin Playlists - '.app()->name;
                 'value' => function ($model) {
                     return h($model->providerText);
                 },
-                'filter' => $search::PROVIDERS,
+                'filter' => Playlist::PROVIDERS,
             ],
             'provider_key',
             'created_at:datetime',

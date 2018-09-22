@@ -199,7 +199,7 @@ class TrackController extends Controller
      */
     protected function findModel(int $id)
     {
-        $model = Track::one($id);
+        $model = Track::findOne($id);
 
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');

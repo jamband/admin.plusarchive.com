@@ -27,6 +27,16 @@ class TrackQuery extends ActiveQuery
     use ActiveQueryTrait;
 
     /**
+     * @return void
+     */
+    public function init(): void
+    {
+        parent::init();
+
+        $this->where(['type' => Track::TYPE_TRACK]);
+    }
+
+    /**
      * @return array
      */
     public function behaviors(): array
@@ -45,22 +55,6 @@ class TrackQuery extends ActiveQuery
         $provider = array_search($provider, Track::PROVIDERS, true);
 
         return $this->andWhere(['provider' => false !== $provider ? $provider : '']);
-    }
-
-    /**
-     * @return TrackQuery
-     */
-    public function track(): TrackQuery
-    {
-        return $this->andWhere(['type' => Track::TYPE_TRACK]);
-    }
-
-    /**
-     * @return TrackQuery
-     */
-    public function playlist(): TrackQuery
-    {
-        return $this->andWhere(['type' => Track::TYPE_PLAYLIST]);
     }
 
     /**

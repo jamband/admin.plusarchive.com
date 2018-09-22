@@ -11,7 +11,7 @@
 
 /**
  * @var yii\web\View $this
- * @var app\models\Track $model
+ * @var app\models\Playlist $model
  * @var yii\widgets\ActiveForm $form
  */
 

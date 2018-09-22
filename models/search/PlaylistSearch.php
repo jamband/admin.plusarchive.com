@@ -14,9 +14,10 @@ declare(strict_types=1);
 namespace app\models\search;
 
 use yii\data\ActiveDataProvider;
-use app\models\Track;
+use app\models\Playlist;
+use app\models\query\PlaylistQuery;
 
-class PlaylistSearch extends Track
+class PlaylistSearch extends Playlist
 {
     /**
      * @return array
@@ -27,7 +28,7 @@ class PlaylistSearch extends Track
             [['title'], 'trim'],
             [['provider', 'title'], 'safe'],
 
-            ['provider', 'in', 'range' => array_keys(self::PROVIDERS)],
+            ['provider', 'in', 'range' => array_keys(Playlist::PROVIDERS)],
         ];
     }
 
@@ -39,8 +40,8 @@ class PlaylistSearch extends Track
      */
     public function search(array $params = []): ActiveDataProvider
     {
-        $query = Track::find()
-            ->playlist();
+        /** @var PlaylistQuery $query */
+        $query = static::find();
 
         $data = new ActiveDataProvider([
             'query' => $query,

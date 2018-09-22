@@ -14,7 +14,7 @@
  * @var yii\data\ActiveDataProvider $data
  */
 
-use app\models\Track;
+use app\models\Playlist;
 use yii\helpers\Html;
 
 $this->title = 'Playlists - '.app()->name;
@@ -25,7 +25,7 @@ $this->title = 'Playlists - '.app()->name;
     </div>
     <div class="col-md-6">
         <ul class="list-unstyled playlist-title text-truncate">
-            <?php /** @var Track $model */ ?>
+            <?php /** @var Playlist $model */ ?>
             <?php foreach ($data->models as $model): ?>
                 <li><?= Html::a(h($model->title).' <i class="fas fa-fw fa-angle-right"></i>', ['view', 'id' => hashids()->encode($model->id)]) ?></li>
             <?php endforeach ?>
