@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace app\tests\unit\models\form;
 
 use app\models\form\LoginForm;
-use app\tests\unit\fixtures\UserFixture;
+use app\tests\unit\fixtures\LoginFormFixture;
 use Codeception\Test\Unit;
 
 class LoginFormTest extends Unit
@@ -24,47 +24,27 @@ class LoginFormTest extends Unit
      */
     protected $tester;
 
-    private $users;
-
-    protected function setUp(): void
+    public function testLogin(): void
     {
-        parent::setUp();
-
         $this->tester->haveFixtures([
-            'users' => [
-                'class' => UserFixture::class,
-                'dataFile' => '@fixture/login.php',
-            ]
+            'users' => LoginFormFixture::class,
         ]);
 
-        $fixtures = $this->tester->grabFixtures();
-        $this->users = $fixtures['users'];
-    }
+        $users = $this->tester->grabFixture('users');
 
-    protected function tearDown(): void
-    {
-        app()->user->logout();
-        parent::tearDown();
-    }
-
-    public function testLoginFailure(): void
-    {
-        $model = new LoginForm([
-            'username' => 'wrong_username',
-            'password' => 'wrong_password',
-        ]);
+        // failure
+        $model = new LoginForm;
+        $model->username = 'foo';
+        $model->password = 'bar';
 
         $this->assertFalse($model->login());
         $this->assertNotEmpty($model->errors);
         $this->assertTrue(user()->isGuest);
-    }
 
-    public function testLoginSuccess(): void
-    {
-        $model = new LoginForm([
-            'username' => $this->users['user1']['username'],
-            'password' => str_repeat($this->users['user1']['username'], 2),
-        ]);
+        // success
+        $model = new LoginForm;
+        $model->username = $users['user1']['username'];
+        $model->password = str_repeat($users['user1']['username'], 2);
 
         $this->assertTrue($model->login());
         $this->assertEmpty($model->errors);

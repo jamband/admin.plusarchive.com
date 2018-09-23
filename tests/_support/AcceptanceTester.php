@@ -34,8 +34,8 @@ class AcceptanceTester extends \Codeception\Actor
     {
         $I = $this;
         $I->amOnPage(url(['/auth/login/index']));
-        $I->fillField('#loginform-username', 'admin');
-        $I->fillField('#loginform-password', 'adminadmin');
+        $I->fillField('#loginform-username', app()->params['admin-username']);
+        $I->fillField('#loginform-password', app()->params['admin-password']);
         $I->click('button[type=submit]');
         $I->wait(1);
     }

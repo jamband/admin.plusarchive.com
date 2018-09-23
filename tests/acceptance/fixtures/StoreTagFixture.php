@@ -18,9 +18,31 @@ class StoreTagFixture extends ActiveFixture
 {
     public $modelClass = StoreTag::class;
 
-    public $dataFile = '@fixture/store_tag.php';
-
     public $depends = [
-        UserFixture::class,
+        AdminUserFixture::class,
     ];
+
+    protected function getData(): array
+    {
+        return [
+            'tag1' => [
+                'name' => 'tag1',
+                'frequency' => 1,
+                'created_at' => time(),
+                'updated_at' => time(),
+            ],
+            'tag2' => [
+                'name' => 'tag2',
+                'frequency' => 1,
+                'created_at' => time(),
+                'updated_at' => time(),
+            ],
+            'tag3' => [
+                'name' => 'tag3',
+                'frequency' => 1,
+                'created_at' => time(),
+                'updated_at' => time(),
+            ],
+        ];
+    }
 }

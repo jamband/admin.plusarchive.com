@@ -10,6 +10,5 @@ modules:
             args: [--headless, --disable-gpu, window-size=1920x1080]
 
     - Yii2:
-        part: [orm, fixtures]
+        part: [fixtures]
         entryScript: index-test.php
-        cleanup: false

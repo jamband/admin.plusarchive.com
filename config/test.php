@@ -20,4 +20,9 @@ return yii\helpers\ArrayHelper::merge(require __DIR__.'/web.php', [
             'alphabet' => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-',
         ],
     ],
+    'params' => [
+        'admin-username' => 'admin',
+        'admin-email' => 'admin@example.com',
+        'admin-password' => 'adminadmin',
+    ]
 ]);

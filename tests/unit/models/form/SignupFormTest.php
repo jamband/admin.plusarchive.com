@@ -15,7 +15,7 @@ namespace app\tests\unit\models\form;
 
 use app\models\form\SignupForm;
 use app\models\User;
-use app\tests\unit\fixtures\UserFixture;
+use app\tests\unit\fixtures\SignupFormFixture;
 use Codeception\Test\Unit;
 
 class SignupFormTest extends Unit
@@ -25,29 +25,28 @@ class SignupFormTest extends Unit
      */
     protected $tester;
 
-    protected function setUp(): void
+    public function testSignup(): void
     {
-        parent::setUp();
-
         $this->tester->haveFixtures([
-            'user' => UserFixture::class,
+            'users' => SignupFormFixture::class,
         ]);
-    }
 
-    public function testSignupFailure(): void
-    {
-        $model = new SignupForm();
+        $users = $this->tester->grabFixture('users');
+
+        // failure
+        $model = new SignupForm;
+        $model->username = $users['user1']['username']; // not unique
+        $model->email = 'new_user@example.com';
+        $model->password = 'new_user_password';
+
         $this->assertNull($model->signup());
-        $this->assertNotEmpty($model->errors);
-    }
+        $this->assertNotEmpty($model->getErrors('username'));
 
-    public function testSignupSuccess(): void
-    {
-        $model = new SignupForm([
-            'username' => 'newuser',
-            'email' => 'newuser@example.com',
-            'password' => 'newusernewuser',
-        ]);
+        // success
+        $model = new SignupForm;
+        $model->username = 'new_user';
+        $model->email = 'new_user@example.com';
+        $model->password = 'new_user_password';
 
         $this->assertInstanceOf(User::class, $model->signup());
         $this->assertEmpty($model->errors);
