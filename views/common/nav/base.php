@@ -25,8 +25,8 @@ use yii\helpers\Inflector;
     ]) ?>
     <div class="dropdown-menu">
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/track/admin']) ?>">Track</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= url(['/track-genre/admin']) ?>">TrackGenre</a>
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/playlist/admin']) ?>">Playlist</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= url(['/music-genre/admin']) ?>">MusicGenre</a>
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/label/admin']) ?>">Label</a>
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/label-tag/admin']) ?>">LabelTag</a>
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/store/admin']) ?>">Store</a>

@@ -25,7 +25,7 @@ use yii\db\ActiveRecord;
  * @property int $created_at
  * @property int $updated_at
  */
-class TrackGenre extends ActiveRecord
+class MusicGenre extends ActiveRecord
 {
     use ActiveRecordTrait;
 
@@ -34,7 +34,7 @@ class TrackGenre extends ActiveRecord
      */
     public static function tableName(): string
     {
-        return 'track_genre';
+        return 'music_genre';
     }
 
     /**

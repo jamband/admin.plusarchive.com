@@ -18,7 +18,7 @@
  * @var string $embedAction
  */
 
-use app\models\TrackGenre;
+use app\models\MusicGenre;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
@@ -61,8 +61,8 @@ $this->title = app()->name;
                             <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
                                     'class' => 'badge badge-secondary',
                             ]) ?>
-                            <?php /** @var TrackGenre $genre */ ?>
-                            <?php foreach ($model->trackGenres as $genre): ?>
+                            <?php /** @var MusicGenre $genre */ ?>
+                            <?php foreach ($model->musicGenres as $genre): ?>
                                 <?= Html::a(h($genre->name), ['', 'genre' => $genre->name], [
                                     'class' => 'badge badge-secondary',
                                 ]) ?>

@@ -11,12 +11,12 @@
 
 namespace app\tests\acceptance\fixtures;
 
-use app\models\TrackGenre;
+use app\models\MusicGenre;
 use yii\test\ActiveFixture;
 
-class TrackGenreFixture extends ActiveFixture
+class MusicGenreFixture extends ActiveFixture
 {
-    public $modelClass = TrackGenre::class;
+    public $modelClass = MusicGenre::class;
 
     public $depends = [
         AdminUserFixture::class,

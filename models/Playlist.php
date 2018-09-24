@@ -15,25 +15,22 @@ namespace app\models;
 
 use app\models\query\PlaylistQuery;
 use yii\data\ActiveDataProvider;
-use yii\db\ActiveQuery;
 
-class Playlist extends Track
+class Playlist extends Music
 {
     /**
-     * @return ActiveQuery
+     * @return PlaylistQuery
      */
-    public static function find(): ActiveQuery
+    public static function find(): PlaylistQuery
     {
         return new PlaylistQuery(static::class);
     }
 
     /**
-     * @param null|string ...$params
      * @return ActiveDataProvider
      */
-    public static function all(?string ...$params): ActiveDataProvider
+    public static function all(): ActiveDataProvider
     {
-        /** @var $query PlaylistQuery */
         $query = static::find();
 
         return new ActiveDataProvider([

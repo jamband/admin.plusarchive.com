@@ -14,14 +14,14 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\filters\AccessControl;
-use app\models\search\TrackGenreSearch;
-use app\models\TrackGenre;
+use app\models\search\MusicGenreSearch;
+use app\models\MusicGenre;
 use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
-class TrackGenreController extends Controller
+class MusicGenreController extends Controller
 {
     /**
      * @return array
@@ -53,14 +53,14 @@ class TrackGenreController extends Controller
     }
 
     /**
-     * Manages all TrackGenre models.
+     * Manages all MusicGenre models.
      *
      * @return string
      */
     public function actionAdmin(): string
     {
         return $this->render('admin', [
-            'search' => $searchModel = new TrackGenreSearch,
+            'search' => $searchModel = new MusicGenreSearch,
             'data' => $searchModel->search(request()->queryParams),
         ]);
     }
@@ -72,11 +72,11 @@ class TrackGenreController extends Controller
      */
     public function actionList(): Response
     {
-        return $this->asJson(TrackGenre::getNames()->all());
+        return $this->asJson(MusicGenre::getNames()->all());
     }
 
     /**
-     * Updates an existing TrackGenre model.
+     * Updates an existing MusicGenre model.
      *
      * @param string $id
      * @return string|Response
@@ -86,7 +86,7 @@ class TrackGenreController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Track genre has been updated.');
+            session()->setFlash('success', 'Music genre has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -97,7 +97,7 @@ class TrackGenreController extends Controller
     }
 
     /**
-     * Deletes an existing TrackGenre model.
+     * Deletes an existing MusicGenre model.
      *
      * @param string $id
      * @return Response
@@ -106,20 +106,20 @@ class TrackGenreController extends Controller
     {
         $this->findModel($id)->delete();
 
-        session()->setFlash('success', 'Track genre has been deleted.');
+        session()->setFlash('success', 'Music genre has been deleted.');
         return $this->redirect(['admin']);
     }
 
     /**
-     * Finds the TrackGenre model based on its primary key value.
+     * Finds the MusicGenre model based on its primary key value.
      *
      * @param string $id
-     * @return TrackGenre
+     * @return MusicGenre
      * @throws NotFoundHttpException
      */
-    protected function findModel(string $id): TrackGenre
+    protected function findModel(string $id): MusicGenre
     {
-        $model = TrackGenre::findOne($id);
+        $model = MusicGenre::findOne($id);
 
         if (null === $model) {
             throw new NotFoundHttpException('Page not found.');

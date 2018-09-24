@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace app\models\search;
 
-use app\models\TrackGenre;
+use app\models\MusicGenre;
 use yii\data\ActiveDataProvider;
 
-class TrackGenreSearch extends TrackGenre
+class MusicGenreSearch extends MusicGenre
 {
     /**
      * @return array
@@ -37,7 +37,7 @@ class TrackGenreSearch extends TrackGenre
      */
     public function search(array $params = []): ActiveDataProvider
     {
-        $query = TrackGenre::find();
+        $query = MusicGenre::find();
 
         $data = new ActiveDataProvider([
             'query' => $query,

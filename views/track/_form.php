@@ -41,5 +41,5 @@ use yii\widgets\ActiveForm;
 </div>
 <?= $this->render('/common/js/selectize', [
     'id' => '#track-tagvalues',
-    'url' => url(['track-genre/list']),
+    'url' => url(['music-genre/list']),
 ]) ?>

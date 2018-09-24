@@ -20,7 +20,7 @@ class TrackFixture extends ActiveFixture
 
     public $depends = [
         AdminUserFixture::class,
-        TrackGenreFixture::class,
+        MusicGenreFixture::class,
     ];
 
     protected function getData(): array

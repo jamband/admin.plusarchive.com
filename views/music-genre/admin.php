@@ -11,7 +11,7 @@
 
 /**
  * @var yii\web\View $this
- * @var app\models\search\TrackGenreSearch $search
+ * @var app\models\search\MusicGenreSearch $search
  * @var yii\data\ActiveDataProvider $data
  */
 
@@ -19,7 +19,7 @@ use app\components\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
-$this->title = 'Admin TrackGenres - '.app()->name;
+$this->title = 'Admin MusicGenres - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [
@@ -27,7 +27,7 @@ $this->title = 'Admin TrackGenres - '.app()->name;
         'enableCreate' => false,
     ]) ?>
     <?= GridView::widget([
-        'id' => 'grid-view-track-genre',
+        'id' => 'grid-view-music-genre',
         'dataProvider' => $data,
         'filterModel' => $search,
         'columns' => [

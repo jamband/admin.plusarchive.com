@@ -11,24 +11,24 @@
 
 declare(strict_types=1);
 
-namespace app\tests\acceptance\trackGenre;
+namespace app\tests\acceptance\musicGenre;
 
 use AcceptanceTester;
-use app\tests\acceptance\fixtures\TrackGenreFixture;
+use app\tests\acceptance\fixtures\MusicGenreFixture;
 
 class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([
-            'track-genres' => TrackGenreFixture::class,
+            'music-genres' => MusicGenreFixture::class,
         ]);
     }
 
-    public function ensureThatTrackGenreDeleteWorks(AcceptanceTester $I): void
+    public function ensureThatMusicGenreDeleteWorks(AcceptanceTester $I): void
     {
-        $I->seePageNotFound(['/track-genre/delete', 'id' => 1]);
+        $I->seePageNotFound(['/music-genre/delete', 'id' => 1]);
         $I->loginAsAdmin();
-        $I->seeMethodNotAllowed(['/track-genre/delete', 'id' => 1]);
+        $I->seeMethodNotAllowed(['/music-genre/delete', 'id' => 1]);
     }
 }

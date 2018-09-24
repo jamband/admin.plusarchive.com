@@ -15,7 +15,7 @@
  * @var string $embed
  */
 
-use app\models\TrackGenre;
+use app\models\MusicGenre;
 use yii\helpers\Html;
 
 $this->title = "$model->title - ".app()->name;
@@ -32,8 +32,8 @@ $this->title = "$model->title - ".app()->name;
     <?= Html::a(h($model->providerText), ['index', 'provider' => $model->providerText], [
         'class' => 'badge badge-secondary',
     ]) ?>
-    <?php /** @var TrackGenre $genre */ ?>
-    <?php foreach ($model->trackGenres as $genre): ?>
+    <?php /** @var MusicGenre $genre */ ?>
+    <?php foreach ($model->musicGenres as $genre): ?>
         <?= Html::a(h($genre->name), ['index', 'genre' => $genre->name], [
             'class' => 'badge badge-secondary',
         ]) ?>

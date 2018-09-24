@@ -11,10 +11,10 @@
 
 declare(strict_types=1);
 
-namespace app\tests\acceptance\trackGenre;
+namespace app\tests\acceptance\musicGenre;
 
 use AcceptanceTester;
-use app\tests\acceptance\fixtures\TrackGenreFixture;
+use app\tests\acceptance\fixtures\MusicGenreFixture;
 use WebDriverKeys;
 
 class AdminCest
@@ -22,24 +22,24 @@ class AdminCest
     public function _before(AcceptanceTester $I): void
     {
         $I->haveFixtures([
-            'track-genres' => TrackGenreFixture::class,
+            'music-genres' => MusicGenreFixture::class,
         ]);
     }
 
-    public function ensureThatTrackGenreAdminWorks(AcceptanceTester $I): void
+    public function ensureThatMusicGenreAdminWorks(AcceptanceTester $I): void
     {
-        $I->seePageNotFound(['/track-genre/admin']);
+        $I->seePageNotFound(['/music-genre/admin']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/track-genre/admin']));
-        $I->see('TrackGenre', '#menu-controller');
+        $I->amOnPage(url(['/music-genre/admin']));
+        $I->see('MusicGenre', '#menu-controller');
         $I->see('Admin: 5', '#menu-action');
         $I->see('genre1', '.grid-view');
         $I->see('genre2', '.grid-view');
         $I->see('genre3', '.grid-view');
 
-        $I->fillField('input[name="TrackGenreSearch[name]"]', 3);
-        $I->pressKey(['name' => 'TrackGenreSearch[name]'], WebDriverKeys::ENTER);
+        $I->fillField('input[name="MusicGenreSearch[name]"]', 3);
+        $I->pressKey(['name' => 'MusicGenreSearch[name]'], WebDriverKeys::ENTER);
         $I->wait(1);
         $I->see('Admin: 1', '#menu-action');
         $I->see('genre3', '.grid-view');

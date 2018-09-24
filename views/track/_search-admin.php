@@ -18,7 +18,7 @@
  */
 
 use app\models\Track;
-use app\models\TrackGenre;
+use app\models\MusicGenre;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -65,7 +65,7 @@ use yii\helpers\Url;
                 <div class="dropdown-menu dropdown-menu-right scrollable-menu">
                     <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => null, 'search' => null]) ?>">Reset</a>
                     <div class="dropdown-divider"></div>
-                    <?php foreach (TrackGenre::getNames()->column() as $name): ?>
+                    <?php foreach (MusicGenre::getNames()->column() as $name): ?>
                         <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => $name, 'search' => null]) ?>"><?= h($name) ?></a>
                     <?php endforeach ?>
                 </div>

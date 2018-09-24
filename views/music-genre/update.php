@@ -11,14 +11,14 @@
 
 /**
  * @var yii\web\View $this
- * @var app\models\TrackGenre $model
+ * @var app\models\MusicGenre $model
  * @var yii\widgets\ActiveForm $form
  */
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = "Update TrackGenre: $model->name - ".app()->name;
+$this->title = "Update MusicGenre: $model->name - ".app()->name;
 ?>
 <?= $this->render('/common/nav/update', ['model' => $model]) ?>
 

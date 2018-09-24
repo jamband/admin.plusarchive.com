@@ -44,13 +44,13 @@ class AdminCest
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('TrackGenre', '.dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/track-genre/admin');
+        $I->click('Playlist', '.dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('Playlist', '.dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
+        $I->click('MusicGenre', '.dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/music-genre/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
