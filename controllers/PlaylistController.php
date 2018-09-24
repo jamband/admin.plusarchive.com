@@ -152,10 +152,10 @@ class PlaylistController extends Controller
      * Finds the Playlist model based on its primary key value.
      *
      * @param int $id
-     * @return array|Playlist
+     * @return Playlist
      * @throws NotFoundHttpException
      */
-    protected function findModel(int $id)
+    protected function findModel(int $id): Playlist
     {
         $model = Playlist::findOne($id);
 

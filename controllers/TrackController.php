@@ -194,10 +194,10 @@ class TrackController extends Controller
      * Finds the Track model based on its primary key value.
      *
      * @param int $id
-     * @return array|Track
+     * @return Track
      * @throws NotFoundHttpException
      */
-    protected function findModel(int $id)
+    protected function findModel(int $id): Track
     {
         $model = Track::findOne($id);
 
