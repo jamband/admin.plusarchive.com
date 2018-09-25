@@ -11,6 +11,7 @@
 
 namespace app\models\query;
 
+use app\models\Label;
 use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
@@ -39,7 +40,11 @@ class LabelQuery extends ActiveQuery
      */
     public function country(?string $country): LabelQuery
     {
-        return $this->andFilterWhere(['country' => $country]);
+        if (in_array($country, Label::getCountries(), true)) {
+            return $this->andWhere(['country' => $country]);
+        }
+
+        return $this->andWhere(['country' => '']);
     }
 
     /**

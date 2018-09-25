@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace app\models\query;
 
+use app\models\Bookmark;
 use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
@@ -42,7 +43,11 @@ class BookmarkQuery extends ActiveQuery
      */
     public function country(?string $country): BookmarkQuery
     {
-        return $this->andFilterWhere(['country' => $country]);
+        if (in_array($country, Bookmark::getCountries(), true)) {
+            return $this->andWhere(['country' => $country]);
+        }
+
+        return $this->andWhere(['country' => '']);
     }
 
     /**

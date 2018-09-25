@@ -83,9 +83,12 @@ class Store extends ActiveRecord
         $query = static::find()
             ->with(['storeTags']);
 
+        if (null !== $country) {
+            $query->country($country);
+        }
+
         if (null === $search) {
-            $query->country($country)
-                ->sort($sort);
+            $query->sort($sort);
         } else {
             $query->search($search)
                 ->inNameOrder();

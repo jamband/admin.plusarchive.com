@@ -83,9 +83,12 @@ class Label extends ActiveRecord
         $query = static::find()
             ->with(['labelTags']);
 
+        if (null !== $country) {
+            $query->country($country);
+        }
+
         if (null === $search) {
-            $query->country($country)
-                ->sort($sort);
+            $query->sort($sort);
         } else {
             $query->search($search)
                 ->inNameOrder();

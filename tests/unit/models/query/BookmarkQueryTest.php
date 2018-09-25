@@ -46,7 +46,7 @@ class BookmarkQueryTest extends Unit
         ]);
 
         $bookmarks = Bookmark::find()->country(null)->all();
-        $this->assertSame(4, count($bookmarks));
+        $this->assertSame(0, count($bookmarks));
 
         $bookmarks = Bookmark::find()->country('Foo')->all();
         $this->assertSame(0, count($bookmarks));

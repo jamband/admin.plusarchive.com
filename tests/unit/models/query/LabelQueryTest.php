@@ -46,7 +46,7 @@ class LabelQueryTest extends Unit
         ]);
 
         $labels = Label::find()->country(null)->all();
-        $this->assertSame(4, count($labels));
+        $this->assertSame(0, count($labels));
 
         $labels = Label::find()->country('Foo')->all();
         $this->assertSame(0, count($labels));

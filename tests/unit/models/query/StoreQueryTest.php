@@ -46,7 +46,7 @@ class StoreQueryTest extends Unit
         ]);
 
         $stores = Store::find()->country(null)->all();
-        $this->assertSame(4, count($stores));
+        $this->assertSame(0, count($stores));
 
         $stores = Store::find()->country('Foo')->all();
         $this->assertSame(0, count($stores));

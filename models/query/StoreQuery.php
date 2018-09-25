@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace app\models\query;
 
+use app\models\Store;
 use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
@@ -41,7 +42,11 @@ class StoreQuery extends ActiveQuery
      */
     public function country(?string $country): StoreQuery
     {
-        return $this->andFilterWhere(['country' => $country]);
+        if (in_array($country, Store::getCountries(), true)) {
+            return $this->andWhere(['country' => $country]);
+        }
+
+        return $this->andWhere(['country' => '']);
     }
 
     /**
