@@ -11,26 +11,26 @@
 
 declare(strict_types=1);
 
-namespace app\tests\unit\fixtures;
+namespace app\tests\unit\fixtures\store;
 
-use app\models\MusicGenre;
+use app\models\StoreTag;
 use yii\test\ActiveFixture;
 
-class MusicGenreFixture extends ActiveFixture
+class StoreTagFixture extends ActiveFixture
 {
-    public $modelClass = MusicGenre::class;
+    public $modelClass = StoreTag::class;
 
     protected function getData(): array
     {
         return [
-            'genre1' => [
-                'name' => 'genre1',
+            'tag1' => [
+                'name' => 'tag1',
                 'frequency' => 1,
                 'created_at' => time(),
                 'updated_at' => time(),
             ],
-            'genre2' => [
-                'name' => 'genre2',
+            'tag2' => [
+                'name' => 'tag2',
                 'frequency' => 1,
                 'created_at' => time(),
                 'updated_at' => time(),

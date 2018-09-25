@@ -11,9 +11,8 @@
 
 declare(strict_types=1);
 
-namespace app\models\common;
+namespace app\models;
 
-use yii\base\Action;
 use yii\db\ActiveQuery;
 
 /**

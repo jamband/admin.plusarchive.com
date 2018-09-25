@@ -11,20 +11,20 @@
 
 declare(strict_types=1);
 
-namespace app\tests\unit\fixtures;
+namespace app\tests\unit\fixtures\store;
 
 use yii\test\ActiveFixture;
 
-class MusicGenreAssnFixture extends ActiveFixture
+class StoreTagAssnFixture extends ActiveFixture
 {
-    public $tableName = 'music_genre_assn';
+    public $tableName = 'store_tag_assn';
 
     protected function getData(): array
     {
         return [
-            'genre_assn1' => [
-                'music_id' => 1,
-                'music_genre_id' => 1,
+            'tag_assn1' => [
+                'store_id' => 1,
+                'store_tag_id' => 1,
             ],
         ];
     }

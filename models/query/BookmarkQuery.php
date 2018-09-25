@@ -22,6 +22,7 @@ use yii\db\ActiveQuery;
  * @see \app\models\Bookmark
  */
 class BookmarkQuery extends ActiveQuery
+
 {
     use ActiveQueryTrait;
 

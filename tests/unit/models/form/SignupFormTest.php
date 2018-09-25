@@ -15,7 +15,7 @@ namespace app\tests\unit\models\form;
 
 use app\models\form\SignupForm;
 use app\models\User;
-use app\tests\unit\fixtures\SignupFormFixture;
+use app\tests\unit\fixtures\auth\SignupFormFixture;
 use Codeception\Test\Unit;
 
 class SignupFormTest extends Unit

@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace app\tests\unit\fixtures;
+namespace app\tests\unit\fixtures\music;
 
-use app\models\User;
+use app\models\Track;
 use yii\test\ActiveFixture;
 
-class UserFixture extends ActiveFixture
+class TrackFixture extends ActiveFixture
 {
-    public $modelClass = User::class;
+    public $modelClass = Track::class;
 }

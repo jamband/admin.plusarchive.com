@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace app\models;
 
-use app\models\common\ActiveRecordTrait;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;

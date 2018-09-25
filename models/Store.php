@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace app\models;
 
-use app\models\common\ActiveRecordTrait;
 use app\models\query\StoreQuery;
 use creocoder\taggable\TaggableBehavior;
 use yii\data\ActiveDataProvider;

@@ -11,15 +11,10 @@
 
 declare(strict_types=1);
 
-namespace app\tests\unit\fixtures;
+namespace app\tests\unit\fixtures\auth;
 
-use app\models\User;
-use yii\test\ActiveFixture;
-
-class LoginFormFixture extends ActiveFixture
+class LoginFormFixture extends UserFixture
 {
-    public $modelClass = User::class;
-
     protected function getData(): array
     {
         return [

@@ -15,7 +15,8 @@ namespace app\tests\unit\models;
 
 use app\models\Track;
 use app\models\MusicGenre;
-use app\tests\unit\fixtures\TrackAllFixture;
+use app\tests\unit\fixtures\music\TrackAllFixture;
+use app\tests\unit\fixtures\music\TrackQueryFindFixture;
 use Codeception\Test\Unit;
 
 class TrackTest extends Unit
@@ -24,6 +25,18 @@ class TrackTest extends Unit
      * @var \UnitTester
      */
     protected $tester;
+
+    public function testFind(): void
+    {
+        $this->tester->haveFixtures([
+            'tracks' => TrackQueryFindFixture::class,
+        ]);
+
+        $tracks = Track::find()->all();
+        $this->assertSame(2, count($tracks));
+        $this->assertSame(Track::TYPE_TRACK, $tracks[0]->type);
+        $this->assertSame(Track::TYPE_TRACK, $tracks[1]->type);
+    }
 
     public function testAll(): void
     {
@@ -35,11 +48,9 @@ class TrackTest extends Unit
         $tracks = Track::all()->models;
 
         $this->assertSame(5, count($tracks));
-        $this->assertInstanceOf(Track::class, $tracks[0]);
         $this->assertSame('track4', $tracks[0]->title);
 
         $this->assertSame(1, count($tracks[4]->musicGenres));
-        $this->assertInstanceOf(MusicGenre::class, $tracks[4]->musicGenres[0]);
         $this->assertSame('genre1', $tracks[4]->musicGenres[0]->name);
 
         // provider=YouTube
@@ -74,11 +85,9 @@ class TrackTest extends Unit
         $tracks = Track::allAsAdmin()->models;
 
         $this->assertSame(5, count($tracks));
-        $this->assertInstanceOf(Track::class, $tracks[0]);
         $this->assertSame('track4', $tracks[0]->title);
 
         $this->assertSame(1, count($tracks[4]->musicGenres));
-        $this->assertInstanceOf(MusicGenre::class, $tracks[4]->musicGenres[0]);
         $this->assertSame('genre1', $tracks[4]->musicGenres[0]->name);
 
         // sort=Title

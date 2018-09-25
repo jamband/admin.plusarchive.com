@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace app\models;
 
-use app\models\common\ActiveRecordTrait;
 use creocoder\taggable\TaggableBehavior;
 use jamband\ripple\Ripple;
 use yii\behaviors\TimestampBehavior;
