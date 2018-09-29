@@ -14,7 +14,6 @@
  */
 
 $cid = app()->controller->id;
-$aid = app()->controller->action->id;
 ?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container">
@@ -41,10 +40,10 @@ $aid = app()->controller->action->id;
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item<?= 'contact' === $aid ? ' active' : '' ?>">
+                <li class="nav-item<?= 'site/contact' === $cid ? ' active' : '' ?>">
                     <a class="nav-link" href="<?= url(['/site/contact/index']) ?>">Contact</a>
                 </li>
-                <li class="nav-item<?= 'about' === $aid ? ' active' : '' ?>">
+                <li class="nav-item<?= 'site/about' === $cid ? ' active' : '' ?>">
                     <a class="nav-link" href="<?= url(['/site/about/index']) ?>">About</a>
                 </li>
             </ul>
