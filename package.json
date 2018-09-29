@@ -17,7 +17,7 @@
     "autoprefixer": "^9.1.5",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.0",
-    "eslint": "^5.6.0",
+    "eslint": "^5.6.1",
     "exports-loader": "^0.7.0",
     "file-loader": "^2.0.0",
     "license-webpack-plugin": "^2.0.1",
@@ -27,7 +27,7 @@
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "webpack": "^4.20.1",
+    "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.4"
