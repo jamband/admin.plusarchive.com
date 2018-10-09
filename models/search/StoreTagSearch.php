@@ -42,7 +42,9 @@ class StoreTagSearch extends StoreTag
         $data = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
-                'defaultOrder' => ['created_at' => SORT_DESC],
+                'defaultOrder' => [
+                    'created_at' => SORT_DESC,
+                ],
             ],
         ]);
 

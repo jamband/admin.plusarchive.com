@@ -45,7 +45,7 @@ class ActionColumn extends ActionColumnBase
      */
     protected function initDefaultButton($name, $iconName, $additionalOptions = []): void
     {
-        if (!isset($this->buttons[$name]) && strpos($this->template, '{' . $name . '}') !== false) {
+        if (!isset($this->buttons[$name]) && strpos($this->template, '{'.$name.'}') !== false) {
             $this->buttons[$name] = function (string $url) use ($name, $iconName, $additionalOptions): string {
                 switch ($name) {
                     case 'view':

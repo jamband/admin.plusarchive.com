@@ -81,5 +81,4 @@ class StoreQuery extends ActiveQuery
 
         return $this->latest();
     }
-
 }

@@ -15,7 +15,6 @@ namespace app\models\search;
 
 use yii\data\ActiveDataProvider;
 use app\models\Playlist;
-use app\models\query\PlaylistQuery;
 
 class PlaylistSearch extends Playlist
 {
@@ -40,7 +39,6 @@ class PlaylistSearch extends Playlist
      */
     public function search(array $params = []): ActiveDataProvider
     {
-        /** @var PlaylistQuery $query */
         $query = static::find();
 
         $data = new ActiveDataProvider([
