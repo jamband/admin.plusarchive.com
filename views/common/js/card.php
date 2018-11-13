@@ -21,12 +21,6 @@ var card = function () {
             $container.masonry({transitionDuration: 0});
         }, true);
     });
-    $(document).on('lazybeforeunveil', function () {
-        $container.find('.card-play').css({
-            'opacity': .6,
-            'transition': 'opacity 500ms'
-        });
-    });
 }
 $(card);
 $(document).on('pjax:success', card);

@@ -2,6 +2,10 @@
 @import "../variables/components";
 @import "~bootstrap/scss/mixins/breakpoints";
 
+@keyframes fade-in {
+  from {opacity: 0 } to { opacity: .6 }
+}
+
 .card-container {
   .card {
     position: relative;
@@ -34,7 +38,7 @@
       }
 
       .card-play {
-        opacity: 0;
+        animation: fade-in 1s ease 0s 1 normal forwards;
         position: absolute;
         top: 50%;
         left: 50%;
