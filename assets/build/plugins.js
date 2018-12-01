@@ -4,5 +4,5 @@ module.exports = {
   License: require('license-webpack-plugin').LicenseWebpackPlugin,
   Manifest: require('webpack-manifest-plugin'),
   OptimizeCssAssets: require('optimize-css-assets-webpack-plugin'),
-  UglifyJs: require('uglifyjs-webpack-plugin')
+  Terser: require('terser-webpack-plugin')
 }

@@ -22,8 +22,8 @@ module.exports = merge.smart(common, {
   },
   optimization: {
     minimizer: [
-      new plugins.UglifyJs({
-        uglifyOptions: {
+      new plugins.Terser({
+        terserOptions: {
           output: {
             comments: false
           }
