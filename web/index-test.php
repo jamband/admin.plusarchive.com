@@ -18,7 +18,7 @@ require __DIR__.'/../vendor/autoload.php';
 if (preg_match('/\A(localhost|dev.plusarchive)\z/', $_SERVER['SERVER_NAME'])) {
     defined('YII_DEBUG') or define('YII_DEBUG', true);
     defined('YII_ENV') or define('YII_ENV', 'test');
-    (new Dotenv\Dotenv(dirname(__DIR__)))->load();
+    Dotenv\Dotenv::create(dirname(__DIR__))->load();
 }
 
 require __DIR__.'/../vendor/yiisoft/yii2/Yii.php';
