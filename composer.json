@@ -1,25 +1,22 @@
 {
   "require": {
     "php": ">= 7.1.0",
-    "yiisoft/yii2": "2.0.16",
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.5.1",
-    "hashids/hashids": "3.0.0"
+    "hashids/hashids": "3.0.0",
+    "yiisoft/yii2": "2.0.16.1"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "2.0.14",
-    "yiisoft/yii2-gii": "2.0.8",
-    "vlucas/phpdotenv": "v3.3.2",
-    "codeception/codeception": "2.5.3",
-    "twbs/bootstrap": "3.3.7"
+    "yiisoft/yii2-debug": "2.1.0",
+    "yiisoft/yii2-gii": "2.1.0",
+    "vlucas/phpdotenv": "v3.3.3",
+    "codeception/codeception": "2.5.4"
   },
   "provide": {
     "bower-asset/jquery": "*",
     "bower-asset/inputmask": "*",
-    "bower-asset/bootstrap": "*",
     "bower-asset/punycode": "*",
-    "bower-asset/yii2-pjax": "*",
-    "bower-asset/typeahead.js": "*"
+    "bower-asset/yii2-pjax": "*"
   },
   "autoload": {
     "files": ["helpers/functions.php"]
