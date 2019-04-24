@@ -4,7 +4,7 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.0",
-    "lazysizes": "^4.1.7",
+    "lazysizes": "^4.1.8",
     "loaders.css": "^0.1.2",
     "masonry-layout": "^4.2.2",
     "popper.js": "^1.15.0",
@@ -28,7 +28,7 @@
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.0",
+    "webpack-cli": "^3.3.1",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.2.1"
   },
