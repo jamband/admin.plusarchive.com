@@ -4,13 +4,13 @@
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.5.1",
     "hashids/hashids": "4.0.0",
-    "yiisoft/yii2": "2.0.18"
+    "yiisoft/yii2": "2.0.21"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "2.1.2",
+    "yiisoft/yii2-debug": "2.1.5",
     "yiisoft/yii2-gii": "2.1.0",
-    "vlucas/phpdotenv": "v3.3.3",
-    "codeception/codeception": "3.0.0"
+    "vlucas/phpdotenv": "3.4.0",
+    "codeception/codeception": "3.0.2"
   },
   "provide": {
     "bower-asset/jquery": "*",
