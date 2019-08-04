@@ -4,7 +4,7 @@
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.5.1",
     "hashids/hashids": "4.0.0",
-    "yiisoft/yii2": "2.0.21"
+    "yiisoft/yii2": "2.0.22"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "2.1.5",
