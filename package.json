@@ -4,7 +4,7 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
-    "lazysizes": "^5.1.0",
+    "lazysizes": "^5.1.1",
     "loaders.css": "^0.1.2",
     "masonry-layout": "^4.2.2",
     "popper.js": "^1.15.0",
@@ -16,21 +16,21 @@
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "compression-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.1.0",
-    "eslint": "^6.1.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.3.0",
     "exports-loader": "^0.7.0",
-    "file-loader": "^4.1.0",
-    "license-webpack-plugin": "^2.1.1",
+    "file-loader": "^4.2.0",
+    "license-webpack-plugin": "^2.1.2",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.1.0",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
     "webpack-manifest-plugin": "^2.0.4",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.2"
   },
   "browserslist": [
     "last 2 versions"
