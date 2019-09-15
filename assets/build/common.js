@@ -1,5 +1,4 @@
 const plugins = require('./plugins')
-const webpack = require('webpack')
 
 module.exports = {
   entry: {
@@ -47,11 +46,5 @@ module.exports = {
         }
       }
     }
-  },
-  plugins: [
-    new webpack.ProvidePlugin({
-      Popper: ['popper.js', 'default'],
-      Util: 'exports-loader?Util!bootstrap/js/dist/util'
-    })
-  ]
+  }
 }
