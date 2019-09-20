@@ -4,10 +4,10 @@
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.5.1",
     "hashids/hashids": "4.0.0",
-    "yiisoft/yii2": "2.0.26"
+    "yiisoft/yii2": "2.0.27"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "2.1.8",
+    "yiisoft/yii2-debug": "2.1.9",
     "yiisoft/yii2-gii": "2.1.1",
     "vlucas/phpdotenv": "3.6.0",
     "codeception/codeception": "3.1.1"

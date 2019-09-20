@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "948408bdc02c1eb56116b7e85e9519a9",
+    "content-hash": "322b832682e600934c44a97e35e24339",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -273,16 +273,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.26",
+            "version": "2.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "5ca9036dd6eb75354fbd287cc57f79ca861fb7f1"
+                "reference": "6793f8f9b4cd891dbf475cfbb88cf480f74eaa85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/5ca9036dd6eb75354fbd287cc57f79ca861fb7f1",
-                "reference": "5ca9036dd6eb75354fbd287cc57f79ca861fb7f1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/6793f8f9b4cd891dbf475cfbb88cf480f74eaa85",
+                "reference": "6793f8f9b4cd891dbf475cfbb88cf480f74eaa85",
                 "shasum": ""
             },
             "require": {
@@ -369,7 +369,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-09-03T21:38:33+00:00"
+            "time": "2019-09-18T13:04:16+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1559,16 +1559,16 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722"
+                "reference": "60a97fff133b1669a5b1776aa8ab06db3f3962b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
-                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
+                "url": "https://api.github.com/repos/opis/closure/zipball/60a97fff133b1669a5b1776aa8ab06db3f3962b7",
+                "reference": "60a97fff133b1669a5b1776aa8ab06db3f3962b7",
                 "shasum": ""
             },
             "require": {
@@ -1616,7 +1616,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2019-07-09T21:58:11+00:00"
+            "time": "2019-09-02T21:07:33+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -4025,16 +4025,16 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.1.8",
+            "version": "2.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "959bf8206a3ec64f8949f62024a2c58d9a02e78f"
+                "reference": "62679af3183c308c0edffecc69778afc32ae55aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/959bf8206a3ec64f8949f62024a2c58d9a02e78f",
-                "reference": "959bf8206a3ec64f8949f62024a2c58d9a02e78f",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/62679af3183c308c0edffecc69778afc32ae55aa",
+                "reference": "62679af3183c308c0edffecc69778afc32ae55aa",
                 "shasum": ""
             },
             "require": {
@@ -4079,7 +4079,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2019-08-20T15:19:56+00:00"
+            "time": "2019-09-18T10:49:01+00:00"
         },
         {
             "name": "yiisoft/yii2-gii",
