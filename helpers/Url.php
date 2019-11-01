@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace yii\helpers;
 
+use Yii;
 use yii\data\Pagination;
 
 class Url extends BaseUrl
@@ -27,7 +28,9 @@ class Url extends BaseUrl
      */
     public static function currentPlus(array $params = [], $scheme = false): string
     {
-        $params = array_merge($params, [(new Pagination)->pageParam => null]);
+        /** @var Pagination $pagination */
+        $pagination = Yii::createObject(Pagination::class);
+        $params = array_merge($params, [$pagination->pageParam => null]);
 
         return static::current($params, $scheme);
     }
