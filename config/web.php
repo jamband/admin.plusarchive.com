@@ -114,12 +114,12 @@ $config = [
         'embed-track' => [
             'Bandcamp' => 'size=large/tracklist=false/bgcol=333333/linkcol=cc6055/',
             'SoundCloud' => 'show_comments=false&visual=true',
-            'YouTube' => 'showinfo=0&playsinline=1',
+            'YouTube' => 'playsinline=1',
         ],
         'embed-track-modal' => [
             'Bandcamp' => 'size=large/tracklist=false/artwork=small/bgcol=333333/linkcol=cc6055/',
             'SoundCloud' => 'show_comments=false',
-            'YouTube' => 'showinfo=0&playsinline=1',
+            'YouTube' => 'playsinline=1',
         ],
         'embed-playlist' => [
             'SoundCloud' => 'show_comments=false&color=cc6055&show_playcount=false',
@@ -142,15 +142,6 @@ if (YII_ENV_DEV) {
     ];
 
     $config['container']['definitions'] += [
-        yii\bootstrap\BootstrapAsset::class => [
-            'sourcePath' => '@vendor/twbs/bootstrap/dist',
-        ],
-        yii\bootstrap\BootstrapPluginAsset::class => [
-            'sourcePath' => '@vendor/twbs/bootstrap/dist',
-        ],
-        yii\gii\TypeAheadAsset::class => [
-            'sourcePath' => '@app/node_modules/typeahead.js/dist',
-        ],
         yii\web\JqueryAsset::class => [
             'sourcePath' => '@app/node_modules/jquery/dist',
         ],

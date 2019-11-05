@@ -1,13 +1,14 @@
 {
   "require": {
     "php": ">=7.2.0",
+    "ext-json": "*",
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.7.0",
     "hashids/hashids": "4.0.0",
     "yiisoft/yii2": "2.0.29"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "2.1.10",
+    "yiisoft/yii2-debug": "2.1.11",
     "yiisoft/yii2-gii": "2.1.2",
     "vlucas/phpdotenv": "3.6.0",
     "codeception/codeception": "3.1.2"
