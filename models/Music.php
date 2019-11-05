@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace app\models;
 
 use creocoder\taggable\TaggableBehavior;
-use jamband\ripple\Ripple;
+use Jamband\Ripple\Ripple;
+use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -62,6 +63,11 @@ class Music extends ActiveRecord
         self::TYPE_ALBUM => 'Album',
         self::TYPE_PLAYLIST => 'Playlist',
     ];
+
+    /**
+     * @var Ripple
+     */
+    private $_ripple;
 
     /**
      * @return string
@@ -136,8 +142,8 @@ class Music extends ActiveRecord
      */
     public function validateValidUrl(string $attribute): void
     {
-        if (!(new Ripple($this->$attribute))->isValidUrl()) {
-            $this->addError($attribute, 'The URL is not valid.');
+        if (null === $this->_ripple->url()) {
+            $this->addError($attribute, 'The URL is invalid.');
         }
     }
 
@@ -171,13 +177,14 @@ class Music extends ActiveRecord
      */
     public function beforeValidate(): bool
     {
-        $ripple = new Ripple($this->url);
-        $ripple->request();
+        $this->_ripple = Yii::createObject(Ripple::class);
+        $this->_ripple->request($this->url);
 
-        $this->provider = array_search($ripple->provider(), self::PROVIDERS, true) ?: null;
-        $this->provider_key = $ripple->id();
-        $this->title = $this->title ?: $ripple->title();
-        $this->image = $this->image ?: $ripple->image();
+        $this->url = $this->_ripple->url() ?? $this->url;
+        $this->provider = array_search($this->_ripple->provider(), self::PROVIDERS, true) ?: null;
+        $this->provider_key = $this->_ripple->id();
+        $this->title = $this->title ?: $this->_ripple->title();
+        $this->image = $this->image ?: $this->_ripple->image();
 
         return parent::beforeValidate();
     }

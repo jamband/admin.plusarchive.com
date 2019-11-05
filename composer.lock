@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eba9dea2988b2184ba71958ad1074775",
+    "content-hash": "36eb3ac603f3679cf644c284252cd71d",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -223,28 +223,28 @@
         },
         {
             "name": "jamband/ripple",
-            "version": "v0.5.1",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jamband/ripple.git",
-                "reference": "be3e089aef6f731239913f7a8a0a5e3fbfe6b88b"
+                "reference": "418eadf6bf5bff226cd846eb8baace31224a3096"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jamband/ripple/zipball/be3e089aef6f731239913f7a8a0a5e3fbfe6b88b",
-                "reference": "be3e089aef6f731239913f7a8a0a5e3fbfe6b88b",
+                "url": "https://api.github.com/repos/jamband/ripple/zipball/418eadf6bf5bff226cd846eb8baace31224a3096",
+                "reference": "418eadf6bf5bff226cd846eb8baace31224a3096",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1.0"
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.2"
+                "phpunit/phpunit": "^8.4"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "jamband\\ripple\\": "src"
+                    "Jamband\\Ripple\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -269,7 +269,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2018-08-27T13:00:46+00:00"
+            "time": "2019-11-05T07:44:18+00:00"
         },
         {
             "name": "yiisoft/yii2",

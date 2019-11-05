@@ -15,7 +15,7 @@ namespace app\commands;
 
 use app\models\query\TrackQuery;
 use app\models\Track;
-use jamband\ripple\Ripple;
+use Jamband\Ripple\Ripple;
 use SplFileObject;
 use Yii;
 use yii\base\Exception;

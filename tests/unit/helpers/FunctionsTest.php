@@ -83,15 +83,4 @@ class FunctionsTest extends Unit
         $this->assertSame('/assets/foo.css', asset('foo.css'));
 
     }
-
-    public function testCustomDomains(): void
-    {
-        $domains = custom_domains();
-        $this->assertArrayHasKey('bandcamp.com', $domains);
-        $this->assertArrayHasKey('botanicalhouse.net', $domains);
-        $this->assertArrayHasKey('mamabirdrecordingco.com', $domains);
-        $this->assertSame('bandcamp', $domains['bandcamp.com']);
-        $this->assertSame('bandcamp', $domains['botanicalhouse.net']);
-        $this->assertSame('bandcamp', $domains['mamabirdrecordingco.com']);
-    }
 }

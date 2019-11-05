@@ -133,18 +133,3 @@ if (!function_exists('asset')) {
             : '/assets/'.$file;
     }
 }
-
-if (!function_exists('custom_domains')) {
-    /**
-     * @return string[]
-     */
-    function custom_domains(): array {
-        static $domains;
-
-        if (null === $domains) {
-            $domains = array_fill_keys(jamband\ripple\Bandcamp::DOMAINS, 'bandcamp');
-        }
-
-        return $domains;
-    }
-}

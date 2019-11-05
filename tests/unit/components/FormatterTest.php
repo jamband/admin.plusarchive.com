@@ -55,6 +55,12 @@ class FormatterTest extends Unit
             ['<a href="https://vimeo.com/channels/foo"><i class="fab fa-vimeo-square fa-fw fa-lg"></i></a> ', 'https://vimeo.com/channels/foo'],
             ['<a href="https://www.youtube.com/user/foo"><i class="fab fa-youtube-square fa-fw fa-lg"></i></a> ', 'https://www.youtube.com/user/foo'],
             ['<a href="https://www.example.com/foo"><i class="fas fa-external-link-alt fa-fw fa-lg"></i></a> ', 'https://www.example.com/foo'],
+
+            // Bandcamp hosts
+            ['<a href="https://shop.fikarecordings.com"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://shop.fikarecordings.com'],
+            ['<a href="https://tunes.mamabirdrecordingco.com"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://tunes.mamabirdrecordingco.com'],
+            ['<a href="https://downloads.maybemars.org"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://downloads.maybemars.org'],
+            ['<a href="https://souterraine.biz"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://souterraine.biz'],
         ];
     }
 
@@ -73,16 +79,6 @@ class FormatterTest extends Unit
         $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, '|'));
     }
 
-    public function testAsSnsIconLinkWithDomainsArgument(): void
-    {
-        $value = "http://music.botanicalhouse.net\n";
-        $value .= "http://souterraine.biz";
-        $expected = '<a href="http://music.botanicalhouse.net"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ';
-        $expected .= '<a href="http://souterraine.biz"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ';
-
-        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, null, custom_domains()));
-    }
-
     public function testAsSnsIconLinkWithOptionsArgument(): void
     {
         $value = "https://www.facebook.com/foo\n";
@@ -90,6 +86,6 @@ class FormatterTest extends Unit
         $expected = '<a href="https://plus.google.com/+foo" target="_blank"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
         $expected .= '<a href="https://www.facebook.com/foo" target="_blank"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
 
-        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, null, [], ['target' => '_blank']));
+        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, null, ['target' => '_blank']));
     }
 }

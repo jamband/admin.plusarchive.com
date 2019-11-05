@@ -35,7 +35,7 @@ $this->title = "View Label: $model->name - ".app()->name;
         ],
         [
             'attribute' => 'link',
-            'format' => ['brandIconLink', null, custom_domains(), [
+            'format' => ['brandIconLink', null, [
                 'rel' => 'noopener',
                 'target' => '_blank',
             ]],

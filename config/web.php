@@ -113,17 +113,17 @@ $config = [
     'params' => [
         'embed-track' => [
             'Bandcamp' => 'size=large/tracklist=false/bgcol=333333/linkcol=cc6055/',
-            'SoundCloud' => '&show_comments=false&visual=true',
-            'YouTube' => '&showinfo=0&playsinline=1',
+            'SoundCloud' => 'show_comments=false&visual=true',
+            'YouTube' => 'showinfo=0&playsinline=1',
         ],
         'embed-track-modal' => [
             'Bandcamp' => 'size=large/tracklist=false/artwork=small/bgcol=333333/linkcol=cc6055/',
-            'SoundCloud' => '&show_comments=false',
-            'YouTube' => '&showinfo=0&playsinline=1',
+            'SoundCloud' => 'show_comments=false',
+            'YouTube' => 'showinfo=0&playsinline=1',
         ],
         'embed-playlist' => [
-            'SoundCloud' => '&show_comments=false&color=cc6055&show_playcount=false',
-            'YouTube' => '&playsinline=1',
+            'SoundCloud' => 'show_comments=false&color=cc6055&show_playcount=false',
+            'YouTube' => 'playsinline=1',
         ],
     ],
 ];

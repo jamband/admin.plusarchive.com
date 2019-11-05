@@ -23,11 +23,10 @@ class Formatter extends FormatterBase
      *
      * @param null|string $value the value to be formatted.
      * @param null|string $separator
-     * @param string[] $domains some custom domain
      * @param array $options the tag options in terms of name-value pairs. See [[Html::a()]].
      * @return null|string the formatted result.
      */
-    public function asBrandIconLink(?string $value, ?string $separator = null, array $domains = [], array $options = []): ?string
+    public function asBrandIconLink(?string $value, ?string $separator = null, array $options = []): ?string
     {
         if (null === $value || '' === $value) {
             return null;
@@ -43,7 +42,7 @@ class Formatter extends FormatterBase
         $urls = '';
 
         foreach ($values as $v) {
-            $urls .= Html::a(static::getBrandIcon($v, $domains), $v, $options).' ';
+            $urls .= Html::a(static::getBrandIcon($v), $v, $options).' ';
         }
 
         return $urls;
@@ -53,12 +52,11 @@ class Formatter extends FormatterBase
      * Get the brand icon for Font Awesome.
      *
      * @param string $value
-     * @param string[] $domains
      * @return string
      */
-    private static function getBrandIcon(string $value, array $domains = []): string
+    private static function getBrandIcon(string $value): string
     {
-        $icons = $domains + [
+        $icons = [
             'bandcamp.com' => 'bandcamp',
             'facebook.com' => 'facebook-square',
             'plus.google.com' => 'google-plus-square',
@@ -72,6 +70,14 @@ class Formatter extends FormatterBase
             'tumblr.com' => 'tumblr-square',
             'vimeo.com' => 'vimeo-square',
             'youtube.com' => 'youtube-square',
+        ];
+
+        // Bandcamp hosts
+        $icons += [
+            'fikarecordings.com' => 'bandcamp',
+            'mamabirdrecordingco.com' => 'bandcamp',
+            'maybemars.org' => 'bandcamp',
+            'souterraine.biz' => 'bandcamp',
         ];
 
         foreach ($icons as $domain => $icon) {

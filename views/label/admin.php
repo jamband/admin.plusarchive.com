@@ -50,7 +50,7 @@ $this->title = 'Admin Labels - '.app()->name;
             ],
             [
                 'attribute' => 'link',
-                'format' => ['brandIconLink', null, custom_domains(), [
+                'format' => ['brandIconLink', null, [
                     'rel' => 'noopener',
                     'target' => '_blank',
                 ]],

@@ -16,7 +16,8 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\search\PlaylistSearch;
 use app\models\Playlist;
-use jamband\ripple\Ripple;
+use Jamband\Ripple\Ripple;
+use Yii;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -70,8 +71,9 @@ class PlaylistController extends Controller
     {
         $model = $this->findModel(hashids()->decode($id));
 
-        $ripple = new Ripple;
-        $ripple->setEmbedParams(app()->params['embed-playlist']);
+         /** @var Ripple $ripple */
+        $ripple = Yii::createObject(Ripple::class);
+        $ripple->options(['embed' => app()->params['embed-playlist']]);
 
         return $this->render('view', [
             'model' => $model,

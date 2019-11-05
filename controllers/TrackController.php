@@ -15,7 +15,8 @@ namespace app\controllers;
 
 use app\filters\AccessControl;
 use app\models\Track;
-use jamband\ripple\Ripple;
+use Jamband\Ripple\Ripple;
+use Yii;
 use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
@@ -83,8 +84,9 @@ class TrackController extends Controller
      */
     public function actionNow(string $id, string $url, string $title, string $provider, string $key): string
     {
-        $ripple = new Ripple;
-        $ripple->setEmbedParams(app()->params['embed-track-modal']);
+        /** @var Ripple $ripple */
+        $ripple = Yii::createObject(Ripple::class);
+        $ripple->options(['embed' => app()->params['embed-track-modal']]);
 
         return $this->renderAjax('now', [
             'embed' => $ripple->embed($url, $key),
@@ -104,8 +106,9 @@ class TrackController extends Controller
     {
         $model = $this->findModel(hashids()->decode($id));
 
-        $ripple = new Ripple;
-        $ripple->setEmbedParams(app()->params['embed-track']);
+        /** @var Ripple $ripple */
+        $ripple = Yii::createObject(Ripple::class);
+        $ripple->options(['embed' => app()->params['embed-track']]);
 
         return $this->render('view', [
             'model' => $model,
