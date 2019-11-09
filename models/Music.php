@@ -167,6 +167,7 @@ class Music extends ActiveRecord
             TimestampBehavior::class,
             'taggable' => [
                 'class' => TaggableBehavior::class,
+                'tagValuesAsArray' => true,
                 'tagRelation' => 'musicGenres',
             ],
         ];

@@ -19,6 +19,23 @@ use yii\i18n\Formatter as FormatterBase;
 class Formatter extends FormatterBase
 {
     /**
+     * @param string|array $value
+     * @return string
+     */
+    public function asTagValues($value): string
+    {
+        if (null === $value || '' === $value || empty($value)) {
+            return '';
+        }
+
+        if (is_array($value)) {
+            $value = implode(', ', $value);
+        }
+
+        return Html::encode($value);
+    }
+
+    /**
      * Formats the value as some hyperlink.
      *
      * @param null|string $value the value to be formatted.

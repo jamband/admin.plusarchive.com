@@ -16,7 +16,6 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\search\MusicGenreSearch;
 use app\models\MusicGenre;
-use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -45,10 +44,6 @@ class MusicGenreController extends Controller
                     'delete' => ['post'],
                 ],
             ],
-            [
-                'class' => AjaxFilter::class,
-                'only' => ['list'],
-            ],
         ];
     }
 
@@ -63,16 +58,6 @@ class MusicGenreController extends Controller
             'search' => $searchModel = new MusicGenreSearch,
             'data' => $searchModel->search(request()->queryParams),
         ]);
-    }
-
-    /**
-     * Returns all genres name.
-     *
-     * @return Response
-     */
-    public function actionList(): Response
-    {
-        return $this->asJson(MusicGenre::getNames()->all());
     }
 
     /**

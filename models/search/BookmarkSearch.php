@@ -31,7 +31,7 @@ class BookmarkSearch extends Bookmark
             [['name', 'country', 'link', 'status', 'tag'], 'safe'],
 
             ['country', 'in', 'range' => static::getCountries()],
-            ['tag', 'in', 'range' => BookmarkTag::getNames()->column()],
+            ['tag', 'in', 'range' => BookmarkTag::getNames()],
         ];
     }
 

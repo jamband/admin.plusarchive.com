@@ -57,8 +57,10 @@ $this->title = 'Admin Labels - '.app()->name;
             ],
             [
                 'attribute' => 'tag',
-                'value' => 'tagValues',
-                'filter' => array_combine($tags = LabelTag::getNames()->column(), $tags),
+                'value' => function ($data) {
+                    return formatter()->asTagValues($data->tagValues);
+                },
+                'filter' => LabelTag::listData('name'),
             ],
             'created_at:datetime',
             'updated_at:datetime',

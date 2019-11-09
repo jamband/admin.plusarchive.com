@@ -15,6 +15,6 @@ require('yii2-pjax/jquery.pjax')
 require('masonry-layout/dist/masonry.pkgd')
 require('lazysizes/lazysizes')
 
-require('selectize/dist/js/standalone/selectize')
+require('select2/dist/js/select2')
 
 window.toastr = require('toastr/toastr')

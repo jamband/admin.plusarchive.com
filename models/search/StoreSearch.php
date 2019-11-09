@@ -31,7 +31,7 @@ class StoreSearch extends Store
             [['name', 'country', 'link', 'tag'], 'safe'],
 
             ['country', 'in', 'range' => static::getCountries()],
-            ['tag', 'in', 'range' => StoreTag::getNames()->column()],
+            ['tag', 'in', 'range' => StoreTag::getNames()],
         ];
     }
 

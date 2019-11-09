@@ -35,7 +35,7 @@ $this->title = "View Bookmark: $model->name - ".app()->name;
             ]],
         ],
         'link:brandIconLink',
-        'tagValues',
+        'tagValues:tagValues',
         'created_at:datetime',
         'updated_at:datetime',
     ],

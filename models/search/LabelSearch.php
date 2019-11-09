@@ -31,7 +31,7 @@ class LabelSearch extends Label
             [['name', 'country', 'link', 'tag'], 'safe'],
 
             ['country', 'in', 'range' => static::getCountries()],
-            ['tag', 'in', 'range' => LabelTag::getNames()->column()],
+            ['tag', 'in', 'range' => LabelTag::getNames()],
         ];
     }
 

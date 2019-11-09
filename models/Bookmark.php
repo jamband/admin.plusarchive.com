@@ -133,6 +133,7 @@ class Bookmark extends ActiveRecord
             TimestampBehavior::class,
             'taggable' => [
                 'class' => TaggableBehavior::class,
+                'tagValuesAsArray' => true,
                 'tagRelation' => 'bookmarkTags',
             ],
         ];

@@ -16,7 +16,6 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\LabelTag;
 use app\models\search\LabelTagSearch;
-use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -45,10 +44,6 @@ class LabelTagController extends Controller
                     'delete' => ['post'],
                 ],
             ],
-            [
-                'class' => AjaxFilter::class,
-                'only' => ['list'],
-            ],
         ];
     }
 
@@ -63,16 +58,6 @@ class LabelTagController extends Controller
             'search' => $searchModel = new LabelTagSearch,
             'data' => $searchModel->search(request()->queryParams),
         ]);
-    }
-
-    /**
-     * Returns all tag name.
-     *
-     * @return Response
-     */
-    public function actionList(): Response
-    {
-        return $this->asJson(LabelTag::getNames()->all());
     }
 
     /**

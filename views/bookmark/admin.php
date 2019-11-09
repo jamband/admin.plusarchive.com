@@ -57,8 +57,10 @@ $this->title = 'Admin Bookmarks - '.app()->name;
             ],
             [
                 'attribute' => 'tag',
-                'value' => 'tagValues',
-                'filter' => array_combine($tags = BookmarkTag::getNames()->column(), $tags),
+                'value' => function ($data) {
+                    return formatter()->asTagValues($data->tagValues);
+                },
+                'filter' => BookmarkTag::listData('name'),
             ],
             'created_at:datetime',
             'updated_at:datetime',

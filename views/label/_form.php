@@ -15,6 +15,7 @@
  * @var yii\widgets\ActiveForm $form
  */
 
+use app\models\LabelTag;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -32,12 +33,11 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'country')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'link')->textarea(['rows' => 6]) ?>
-            <?= $form->field($model, 'tagValues') ?>
+            <?= $form->field($model, 'tagValues')->dropDownList(LabelTag::listData('name'), ['multiple' => true]) ?>
             <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
         <?php ActiveForm::end() ?>
     </div>
 </div>
-<?= $this->render('/common/js/selectize', [
+<?= $this->render('/common/js/select-multiple', [
     'id' => '#label-tagvalues',
-    'url' => url(['label-tag/list']),
 ]) ?>

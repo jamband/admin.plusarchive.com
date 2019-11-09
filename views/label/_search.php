@@ -59,7 +59,7 @@ use yii\helpers\Url;
     <ul class="dropdown-menu scrollable-menu">
         <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => null, 'search' => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
-        <?php foreach (LabelTag::getNames()->column() as $tag): ?>
+        <?php foreach (LabelTag::getNames() as $tag): ?>
             <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => $tag, 'search' => null]) ?>"><?= h($tag) ?></a>
         <?php endforeach ?>
     </ul>

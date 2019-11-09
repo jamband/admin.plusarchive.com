@@ -14,22 +14,24 @@ declare(strict_types=1);
 namespace app\models;
 
 use yii\db\ActiveQuery;
+use yii\helpers\ArrayHelper;
 
 /**
- * @method ActiveQuery find()
+ * @method static|ActiveQuery find()
  */
 trait ActiveRecordTrait
 {
     /**
-     * Returns all name attribute values.
+     * Returns all names.
      *
-     * @return ActiveQuery
+     * @return array
      */
-    public static function getNames(): ActiveQuery
+    public static function getNames(): array
     {
         return static::find()
             ->select('name')
-            ->orderBy(['name' => SORT_ASC]);
+            ->orderBy(['name' => SORT_ASC])
+            ->column();
     }
 
     /**
@@ -56,5 +58,21 @@ trait ActiveRecordTrait
         return static::find()
             ->select('id')
             ->column();
+    }
+
+    /**
+     * @param string $key
+     * @param string|null $value
+     * @param string|null $sortKey
+     * @return array
+     */
+    public static function listData(string $key, ?string $value = null, ?string $sortKey = null): array
+    {
+        $data = static::find()
+            ->orderBy([$sortKey ?? $key => SORT_ASC])
+            ->asArray()
+            ->all();
+
+        return ArrayHelper::map($data, $key, $value ?? $key);
     }
 }

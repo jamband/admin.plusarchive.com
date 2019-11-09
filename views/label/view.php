@@ -40,7 +40,7 @@ $this->title = "View Label: $model->name - ".app()->name;
                 'target' => '_blank',
             ]],
         ],
-        'tagValues',
+        'tagValues:tagValues',
         'created_at:datetime',
         'updated_at:datetime',
     ],

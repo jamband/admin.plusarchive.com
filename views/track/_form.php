@@ -15,6 +15,7 @@
  * @var yii\widgets\ActiveForm $form
  */
 
+use app\models\MusicGenre;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -34,12 +35,11 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'tagValues') ?>
+            <?= $form->field($model, 'tagValues')->dropdownList(MusicGenre::listData('name'), ['multiple' => true]) ?>
             <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
         <?php ActiveForm::end() ?>
     </div>
 </div>
-<?= $this->render('/common/js/selectize', [
+<?= $this->render('/common/js/select-multiple', [
     'id' => '#track-tagvalues',
-    'url' => url(['music-genre/list']),
 ]) ?>

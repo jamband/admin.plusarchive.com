@@ -132,6 +132,7 @@ class Store extends ActiveRecord
             TimestampBehavior::class,
             'taggable' => [
                 'class' => TaggableBehavior::class,
+                'tagValuesAsArray' => true,
                 'tagRelation' => 'storeTags',
             ],
         ];

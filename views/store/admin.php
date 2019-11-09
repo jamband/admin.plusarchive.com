@@ -57,8 +57,10 @@ $this->title = 'Admin Stores - '.app()->name;
             ],
             [
                 'attribute' => 'tag',
-                'value' => 'tagValues',
-                'filter' => array_combine($tags = StoreTag::getNames()->column(), $tags),
+                'value' => function ($data) {
+                    return formatter()->asTagValues($data->tagValues);
+                },
+                'filter' => Storetag::listData('name'),
             ],
             'created_at:datetime',
             'updated_at:datetime',

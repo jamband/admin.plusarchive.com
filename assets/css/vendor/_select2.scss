@@ -1,0 +1,19 @@
+@import "~select2/src/scss/multiple";
+@import "~select2/src/scss/core";
+
+@import "../variables/body";
+
+.select2-container--default .select2-selection--multiple {
+  background-color: darken($gray-900, 1%);
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  color: $body-color;
+  background-color: $gray-800;
+  border: none;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  color: white;
+  background-color: $gray-800;
+}

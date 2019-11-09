@@ -39,7 +39,7 @@ $this->title = "View Store: $model->name - ".app()->name;
                 'target' => '_blank',
             ]],
         ],
-        'tagValues',
+        'tagValues:tagValues',
         'created_at:datetime',
         'updated_at:datetime',
     ],
