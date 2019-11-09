@@ -21,5 +21,5 @@ $this->title = "$name - ".app()->name;
 <h1><?= h($this->title) ?></h1>
 
 <div class="alert alert-danger">
-    <i class="fas fa-fw fa-info-circle"></i> <?= nl2br(h($message)) ?>
+    <i class="fas fa-info-circle"></i> <?= nl2br(h($message)) ?>
 </div>

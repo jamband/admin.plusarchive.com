@@ -14,25 +14,18 @@
  * @var yii\db\ActiveRecord $model
  */
 
-use yii\helpers\Html;
-
 ?>
 <div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
-    <span class="dropdown">
-        <?= Html::a(ucfirst(app()->controller->action->id).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-            'id' => 'menu-action',
-            'class' => 'dropdown-toggle badge badge-secondary',
-            'data-toggle' => 'dropdown',
-        ]) ?>
+    <div class="d-inline-block dropdown">
+        <a id="menu-action" class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+            <?= ucfirst(app()->controller->action->id) ?>
+            <i class="fas fa-angle-down fa-fw"></i>
+        </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="<?= url(['admin']) ?>">Admin</a>
             <a class="dropdown-item" href="<?= url(['create']) ?>">Create</a>
-            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-                'class' => 'dropdown-item',
-                'data-confirm' => 'Are you sure you want to delete this item?',
-                'data-method' => 'post',
-            ]) ?>
+            <a class="dropdown-item" href="<?= url(['delete', 'id' => $model->id]) ?>" data-confirm="Are you sure?" data-method="post">Delete</a>
         </div>
-    </span>
+    </div>
 </div>

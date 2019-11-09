@@ -16,7 +16,6 @@
  */
 
 use yii\widgets\ActiveForm;
-use yii\helpers\Html;
 
 $this->title = 'Sign up - '.app()->name;
 ?>
@@ -29,7 +28,7 @@ $this->title = 'Sign up - '.app()->name;
             <?= $form->field($model, 'username') ?>
             <?= $form->field($model, 'email') ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
-            <?= Html::submitButton('Sign up', ['class' => 'btn btn-primary']) ?>
+            <button class="btn btn-primary" type="submit">Sign up</button>
         <?php ActiveForm::end() ?>
     </div>
 </div>

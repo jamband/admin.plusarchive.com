@@ -16,7 +16,6 @@
  */
 
 use yii\widgets\ActiveForm;
-use yii\helpers\Html;
 
 $this->title = 'Login - '.app()->name;
 ?>
@@ -30,7 +29,7 @@ $this->title = 'Login - '.app()->name;
             <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
             <?= $form->field($model, 'rememberMe')->checkbox() ?>
-            <?= Html::submitButton('Login', ['class' => 'btn btn-primary']) ?>
+            <button class="btn btn-primary" type="submit">Login</button>
         <?php ActiveForm::end() ?>
     </div>
 </div>

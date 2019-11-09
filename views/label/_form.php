@@ -16,7 +16,6 @@
  */
 
 use app\models\LabelTag;
-use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 ?>
@@ -34,7 +33,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'link')->textarea(['rows' => 6]) ?>
             <?= $form->field($model, 'tagValues')->dropDownList(LabelTag::listData('name'), ['multiple' => true]) ?>
-            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => 'btn btn-primary']) ?>
+            <button class="btn btn-primary" type="submit"><?= $model->isNewRecord ? 'Create' : 'Update' ?></button>
         <?php ActiveForm::end() ?>
     </div>
 </div>

@@ -15,7 +15,6 @@
  */
 
 use app\models\Playlist;
-use yii\helpers\Html;
 
 $this->title = 'Playlists - '.app()->name;
 ?>
@@ -27,7 +26,7 @@ $this->title = 'Playlists - '.app()->name;
         <ul class="list-unstyled playlist-title text-truncate">
             <?php /** @var Playlist $model */ ?>
             <?php foreach ($data->models as $model): ?>
-                <li><?= Html::a(h($model->title).' <i class="fas fa-fw fa-angle-right"></i>', ['view', 'id' => hashids()->encode($model->id)]) ?></li>
+                <li><a href="<?= url(['view', 'id' => hashids()->encode($model->id)]) ?>"><?= h($model->title) ?> <i class="fas fa-angle-right fa-fw"></i></a></li>
             <?php endforeach ?>
         </ul>
     </div>

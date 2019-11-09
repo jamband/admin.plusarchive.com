@@ -57,31 +57,25 @@ $this->title = 'Admin Tracks - '.app()->name;
                     </div>
                     <div class="card-body">
                         <h6 class="card-title text-truncate">
-                            <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
-                                'class' => 'text-white',
-                                'data-pjax' => '0',
-                            ]) ?>
+                            <a class="text-white" href="<?= url(['view', 'id' => hashids()->encode($model->id)]) ?>" data-pjax="0">
+                                <?= h($model->title) ?>
+                            </a>
                         </h6>
                         <div class="card-text">
-                            <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
-                                'class' => 'badge badge-secondary',
-                            ]) ?>
+                            <a class="badge badge-secondary" href="<?= url(['', 'provider' => $model->providerText]) ?>">
+                                <?= h($model->providerText) ?>
+                            </a>
                             <?php /** @var MusicGenre $genre */ ?>
                             <?php foreach ($model->musicGenres as $genre): ?>
-                                <?= Html::a(h($genre->name), ['', 'genre' => $genre->name], [
-                                    'class' => 'badge badge-secondary',
-                                ]) ?>
+                                <a class="badge badge-secondary" href="<?= url(['', 'genre' => $genre->name]) ?>"><?= h($genre->name) ?></a>
                             <?php endforeach ?>
                             <br>
-                            <?= Html::a('<i class="fas fa-fw fa-edit"></i> Update', ['update', 'id' => $model->id], [
-                                'class' => 'badge badge-secondary',
-                                'data-pjax' => '0',
-                            ]) ?>
-                            <?= Html::a('<i class="fas fa-fw fa-trash"></i> Delete', ['delete', 'id' => $model->id], [
-                                'class' => 'badge badge-secondary',
-                                'data-confirm' => 'Are you sure you want to delete this item?',
-                                'data-method' => 'post',
-                            ]) ?>
+                            <a class="badge badge-secondary" href="<?= url(['update', 'id' => $model->id]) ?>" data-pjax="0">
+                                <i class="fas fa-edit fa-fw"></i> Update
+                            </a>
+                            <a class="badge badge-secondary" href="<?= url(['delete', 'id' => $model->id]) ?>" data-confirm="Are you sure?" data-method="post">
+                                <i class="fas fa-trash fa-fw"></i> Delete
+                            </a>
                         </div>
                         <div class="card-date">
                             <i class="fas fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>

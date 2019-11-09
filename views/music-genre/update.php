@@ -15,7 +15,6 @@
  * @var yii\widgets\ActiveForm $form
  */
 
-use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 $this->title = "Update MusicGenre: $model->name - ".app()->name;
@@ -28,7 +27,7 @@ $this->title = "Update MusicGenre: $model->name - ".app()->name;
     <div class="col-md-5 offset-md-1 order-md-first mb-3">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-            <?= Html::submitButton('Update', ['class' => 'btn btn-primary']) ?>
+            <button class="btn btn-primary" type="submit">Update</button>
         <?php ActiveForm::end() ?>
     </div>
 </div>

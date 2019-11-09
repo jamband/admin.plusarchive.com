@@ -13,16 +13,14 @@
  * @var yii\web\View $this
  */
 
-use yii\helpers\Html;
 use yii\helpers\Inflector;
 
 ?>
-<span class="dropdown">
-    <?= Html::a(preg_replace('#/[a-z/]+\z#', '', Inflector::id2camel(app()->controller->id)).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-        'id' => 'menu-controller',
-        'class' => 'dropdown-toggle badge badge-secondary',
-        'data-toggle' => 'dropdown',
-    ]) ?>
+<div class="d-inline-block dropdown">
+    <a id="menu-controller" class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+        <?= preg_replace('#/[a-z/]+\z#', '', Inflector::id2camel(app()->controller->id)) ?>
+        <i class="fas fa-angle-down fa-fw"></i>
+    </a>
     <div class="dropdown-menu">
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/track/admin']) ?>">Track</a>
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/playlist/admin']) ?>">Playlist</a>
@@ -34,4 +32,4 @@ use yii\helpers\Inflector;
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/bookmark/admin']) ?>">Bookmark</a>
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/bookmark-tag/admin']) ?>">BookmarkTag</a>
     </div>
-</span>
+</div>

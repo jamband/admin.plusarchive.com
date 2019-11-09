@@ -15,12 +15,7 @@
  * @var string $placeholder
  */
 
-use yii\helpers\Html;
-
 ?>
-<?= Html::beginForm([''], 'get', ['class' => 'form-search pt-1', 'data-pjax' => true]) ?>
-    <?= Html::textInput('search', $search, [
-        'class' => 'form-control',
-        'placeholder' => $placeholder,
-    ]) ?>
-<?= Html::endForm() ?>
+<form class="form-search pt-1" action="<?= url(['']) ?>" method="get" data-pjax>
+    <input class="form-control" type="text" name="search" placeholder="<?= $placeholder ?>" value="<?= $search ?>">
+</form>

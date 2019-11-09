@@ -19,7 +19,6 @@
 
 use app\models\Track;
 use app\models\MusicGenre;
-use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
@@ -28,12 +27,10 @@ use yii\helpers\Url;
         <div class="card-body">
             <a class="refresh-link" href="<?= url(['']) ?>"><i class="fas fa-fw fa-redo-alt"></i> Reset All</a>
             <br>
-            <span class="dropdown">
-                <?= Html::a(h($provider).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-                    'id' => 'search-provider',
-                    'class' => 'dropdown-toggle badge badge-secondary',
-                    'data-toggle' => 'dropdown',
-                ]) ?>
+            <div class="d-inline-block dropdown">
+                <a id="search-provider" class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+                    <?= h($provider) ?> <i class="fas fa-angle-down fa-fw"></i>
+                </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?= Url::currentPlus(['provider' => null, 'search' => null]) ?>">Reset</a>
                     <div class="dropdown-divider"></div>
@@ -41,13 +38,11 @@ use yii\helpers\Url;
                         <a class="dropdown-item" href="<?= Url::currentPlus(['provider' => $provider, 'search' => null]) ?>"><?= h($provider) ?></a>
                     <?php endforeach ?>
                 </div>
-            </span>
-            <span class="dropdown">
-                <?= Html::a(h($genre).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-                    'id' => 'search-genre',
-                    'class' => 'dropdown-toggle badge badge-secondary',
-                    'data-toggle' => 'dropdown',
-                ]) ?>
+            </div>
+            <div class="d-inline-block dropdown">
+                <a id="search-genre" class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+                    <?= h($genre) ?> <i class="fas fa-angle-down fa-fw"></i>
+                </a>
                 <div class="dropdown-menu scrollable-menu">
                     <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => null, 'search' => null]) ?>">Reset</a>
                     <div class="dropdown-divider"></div>
@@ -55,7 +50,7 @@ use yii\helpers\Url;
                         <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => $genre, 'search' => null]) ?>"><?= h($genre) ?></a>
                     <?php endforeach ?>
                 </div>
-            </span>
+            </div>
             <?= $this->render('/common/form/search', [
                 'search' => $search,
                 'placeholder' => 'Search artist or title ...',

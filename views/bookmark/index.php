@@ -20,7 +20,6 @@
 
 use app\models\Bookmark;
 use app\models\BookmarkTag;
-use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 $this->title = 'Bookmarks - '.app()->name;
@@ -55,9 +54,9 @@ $this->title = 'Bookmarks - '.app()->name;
                         <span class="badge badge-secondary"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
                         <?php /** @var BookmarkTag $tag */ ?>
                         <?php foreach ($model->bookmarkTags as $tag): ?>
-                            <?= Html::a(h($tag->name), ['', 'tag' => $tag->name], [
-                                'class' => 'badge badge-secondary',
-                            ]) ?>
+                            <a class="badge badge-secondary" href="<?= url(['', 'tag' => $tag->name]) ?>">
+                                <?= h($tag->name) ?>
+                            </a>
                         <?php endforeach ?>
                         <hr>
                     </div>

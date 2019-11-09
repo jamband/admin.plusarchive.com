@@ -52,20 +52,19 @@ $this->title = app()->name;
                     </div>
                     <div class="card-body">
                         <h6 class="card-title text-truncate">
-                            <?= Html::a(h($model->title), ['view', 'id' => hashids()->encode($model->id)], [
-                                'class' => 'text-white',
-                                'data-pjax' => '0',
-                            ]) ?>
+                            <a class="text-white" href="<?= url(['view', 'id' => hashids()->encode($model->id)]) ?>" data-pjax="0">
+                                <?= h($model->title) ?>
+                            </a>
                         </h6>
                         <div class="card-text">
-                            <?= Html::a(h($model->providerText), ['', 'provider' => $model->providerText], [
-                                    'class' => 'badge badge-secondary',
-                            ]) ?>
+                            <a class="badge badge-secondary" href="<?= url(['', 'provider' => $model->providerText]) ?>">
+                                <?= h($model->providerText) ?>
+                            </a>
                             <?php /** @var MusicGenre $genre */ ?>
                             <?php foreach ($model->musicGenres as $genre): ?>
-                                <?= Html::a(h($genre->name), ['', 'genre' => $genre->name], [
-                                    'class' => 'badge badge-secondary',
-                                ]) ?>
+                                <a class="badge badge-secondary" href="<?= url(['', 'genre' => $genre->name]) ?>">
+                                    <?= h($genre->name) ?>
+                                </a>
                             <?php endforeach ?>
                         </div>
                         <div class="card-date">

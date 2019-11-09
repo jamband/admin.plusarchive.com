@@ -16,7 +16,6 @@
  */
 
 use app\models\MusicGenre;
-use yii\helpers\Html;
 
 $this->title = "$model->title - ".app()->name;
 ?>
@@ -29,14 +28,14 @@ $this->title = "$model->title - ".app()->name;
     </div>
 <div class="text-center">
     <h5 class="pt-3"><?= h($model->title) ?></h5>
-    <?= Html::a(h($model->providerText), ['index', 'provider' => $model->providerText], [
-        'class' => 'badge badge-secondary',
-    ]) ?>
+    <a class="badge badge-secondary" href="<?= url(['index', 'provider' => $model->providerText]) ?>">
+        <?= h($model->providerText) ?>
+    </a>
     <?php /** @var MusicGenre $genre */ ?>
     <?php foreach ($model->musicGenres as $genre): ?>
-        <?= Html::a(h($genre->name), ['index', 'genre' => $genre->name], [
-            'class' => 'badge badge-secondary',
-        ]) ?>
+        <a class="badge badge-secondary" href="<?= url(['index', 'genre' => $genre->name]) ?>">
+            <?= h($genre->name) ?>
+        </a>
     <?php endforeach ?>
     <div class="text-center small py-2">
         <a href="<?= url(['index']) ?>"><i class="fas fa-fw fa-angle-left"></i> Back to tracks</a>

@@ -20,7 +20,6 @@
 
 use app\models\Store;
 use app\models\StoreTag;
-use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 $this->title = 'Stores - '.app()->name;
@@ -55,9 +54,9 @@ $this->title = 'Stores - '.app()->name;
                         <div class="badge badge-secondary"><?= h($model->getAttributeLabel('tag')) ?>:</div>
                         <?php /** @var StoreTag $tag */ ?>
                         <?php foreach ($model->storeTags as $tag): ?>
-                            <?= Html::a(h($tag->name), ['', 'tag' => $tag->name], [
-                                'class' => 'badge badge-secondary',
-                            ]) ?>
+                            <a class="badge badge-secondary" href="<?= url(['', 'tag' => $tag->name]) ?>">
+                                <?= h($tag->name) ?>
+                            </a>
                         <?php endforeach ?>
                         <hr class="text-light">
                     </div>

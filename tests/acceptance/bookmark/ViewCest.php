@@ -54,7 +54,7 @@ class ViewCest
 
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
-        $I->seeInPopup('Are you sure you want to delete this item?');
+        $I->seeInPopup('Are you sure?');
         $I->cancelPopup();
 
         $I->click('Delete', '#menu-action + .dropdown-menu');

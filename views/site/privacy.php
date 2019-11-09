@@ -19,7 +19,9 @@ $this->title = 'Privacy Policy - '.app()->name;
     <div class="col-md-5 offset-md-1">
         <h2>Privacy Policy</h2>
         <p>This site uses Google Analytics. The Google Analytics tool uses "Cookies" which are text files placed on your computer, to collect internet log information and visitor behavior information in an anonymous form. About the information collected by Google Analytics, please see the following links.</p>
-        <a href="https://policies.google.com/privacy?hl=en" rel="noopener" target="_blank"><i class="fas fa-fw fa-external-link-alt"></i> Google Privacy & Terms</a>
+        <a href="https://policies.google.com/privacy?hl=en" rel="noopener" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Google Privacy & Terms
+        </a>
 
         <h4 class="mt-5 mb-3">For what purpose do this site use Google Analytics?</h4>
         <ul>
@@ -43,7 +45,6 @@ $this->title = 'Privacy Policy - '.app()->name;
 </div>
 
 <?php
-
 $this->registerJs(<<<'JS'
 $(document).on('click', '.privacy-opt-out', function (event) {
   event.preventDefault();

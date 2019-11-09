@@ -20,29 +20,28 @@
 
 use app\models\Store;
 use app\models\StoreTag;
-use yii\helpers\Html;
 use yii\helpers\Url;
 
 ?>
-<?= Html::a('<i class="fas fa-fw fa-redo-alt"></i> Reset All', [''], ['class' => 'refresh-link']) ?>
+<a class="refresh-link" href="<?= url(['']) ?>">
+    <i class="fas fa-redo-alt fa-fw"></i> Reset All
+</a>
 <br>
-<span class="dropdown">
-    <?= Html::a(h($sort).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-        'class' => 'dropdown-toggle badge badge-secondary',
-        'data-toggle' => 'dropdown',
-    ]) ?>
+<div class="d-inline-block dropdown">
+    <a class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+        <?= h($sort) ?> <i class="fas fa-angle-down fa-fw"></i>
+    </a>
     <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => null, 'search' => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => 'Name', 'search' => null]) ?>">Name</a>
         <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => 'Latest', 'search' => null]) ?>">Latest</a>
     </div>
-</span>
-<span class="dropdown">
-    <?= Html::a(h($country).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-        'class' => 'dropdown-toggle badge badge-secondary',
-        'data-toggle' => 'dropdown',
-    ]) ?>
+</div>
+<div class="d-inline-block dropdown">
+    <a class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+        <?= h($country) ?> <i class="fas fa-angle-down fa-fw"></i>
+    </a>
     <div class="dropdown-menu scrollable-menu">
         <a class="dropdown-item" href="<?= Url::currentPlus(['country' => null, 'search' => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
@@ -50,12 +49,11 @@ use yii\helpers\Url;
             <a class="dropdown-item" href="<?= Url::currentPlus(['country' => $country, 'search' => null]) ?>"><?= h($country) ?></a>
         <?php endforeach ?>
     </div>
-</span>
-<span class="dropdown">
-    <?= Html::a(h($tag).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-        'class' => 'dropdown-toggle badge badge-secondary',
-        'data-toggle' => 'dropdown',
-    ]) ?>
+</div>
+<div class="d-inline-block dropdown">
+    <a class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+        <?= h($tag) ?> <i class="fas fa-angle-down fa-fw"></i>
+    </a>
     <div class="dropdown-menu scrollable-menu">
         <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => null, 'search' => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
@@ -63,7 +61,7 @@ use yii\helpers\Url;
             <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => $tag, 'search' => null]) ?>"><?= h($tag) ?></a>
         <?php endforeach ?>
     </div>
-</span>
+</div>
 <?= $this->render('/common/form/search', [
     'search' => $search,
     'placeholder' => 'name or link ...',

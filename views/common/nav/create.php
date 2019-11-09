@@ -13,19 +13,16 @@
  * @var yii\web\View $this
  */
 
-use yii\helpers\Html;
-
 ?>
 <div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
-    <span class="dropdown">
-        <?= Html::a(ucfirst(app()->controller->action->id).' <i class="fas fa-fw fa-angle-down"></i>', '#', [
-            'id' => 'menu-action',
-            'class' => 'dropdown-toggle badge badge-secondary',
-            'data-toggle' => 'dropdown',
-        ]) ?>
+    <div class="d-inline-block dropdown">
+        <a id="menu-action" class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+            <?= ucfirst(app()->controller->action->id) ?>
+            <i class="fas fa-angle-down fa-fw"></i>
+        </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="<?= url(['admin']) ?>">Admin</a>
         </div>
-    </span>
+    </div>
 </div>

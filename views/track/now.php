@@ -18,22 +18,15 @@
  * @var string $provider
  */
 
-use yii\helpers\Html;
-
 ?>
 <div id="track-modal" class="modal fade">
     <div class="text-center modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <?= Html::tag('iframe', '', [
-                    'src' => h($embed),
-                    'data-provider' => h($provider),
-                    'frameborder' => '0',
-                    'allowfullscreen' => true,
-                ]) ?>
-                <?= Html::a('View <i class="fas fa-fw fa-angle-right"></i>', ['view', 'id' => $id], [
-                    'class' => 'badge badge-secondary',
-                ]) ?>
+                <iframe src="<?= h($embed) ?>" frameborder="0" data-provider="<?= h($provider) ?>" allowfullscreen></iframe>
+                <a class="badge badge-secondary" href="<?= url(['view', 'id' => $id])?>">
+                    View <i class="fas fa-angle-right fa-fw"></i>
+                </a>
             </div>
         </div>
         <div class="now-playing-loading">
