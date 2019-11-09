@@ -25,13 +25,7 @@ $this->title = "View Store: $model->name - ".app()->name;
         'id',
         'name',
         'country',
-        [
-            'attribute' => 'url',
-            'format' => ['url', [
-                'rel' => 'noopener',
-                'target' => '_blank',
-            ]],
-        ],
+        'url:urlWithText',
         'link:brandIconLink',
         'tagValues:tagValues',
         'created_at:datetime',

@@ -18,6 +18,11 @@ use yii\i18n\Formatter as FormatterBase;
 
 class Formatter extends FormatterBase
 {
+    private const EXTERNAL_LINK_DEFAULT_OPTIONS = [
+        'rel' => 'noopener',
+        'target' => '_blank',
+    ];
+
     /**
      * @param string|array|null $value
      * @return string
@@ -33,6 +38,27 @@ class Formatter extends FormatterBase
         }
 
         return Html::encode($value);
+    }
+
+    /**
+     * @param string|null $value
+     * @param string|null $text
+     * @param array $options
+     * @return string
+     */
+    public function asUrlWithText(?string $value, ?string $text = null, array $options = []): string
+    {
+        if (null === $value) {
+            return $this->nullDisplay;
+        }
+
+        if (null === $text) {
+            $text = $value;
+        }
+
+        $options += self::EXTERNAL_LINK_DEFAULT_OPTIONS;
+
+        return Html::a('<i class="fas fa-external-link-alt fa-fw"></i> '.Html::encode($text), $value, $options);
     }
 
     /**
@@ -58,10 +84,7 @@ class Formatter extends FormatterBase
 
         $urls = '';
 
-        $options += [
-            'rel' => 'noopener',
-            'target' => '_blank',
-        ];
+        $options += self::EXTERNAL_LINK_DEFAULT_OPTIONS;
 
         foreach ($values as $v) {
             $urls .= Html::a(static::getBrandIcon($v), $v, $options).' ';

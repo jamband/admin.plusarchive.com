@@ -17,7 +17,6 @@
 
 use app\components\ActionColumn;
 use app\models\BookmarkTag;
-use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
@@ -37,16 +36,12 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                 'attribute' => 'name',
                 'format' => 'raw',
                 'value' => function ($data) {
-                    return Html::a(h($data->name), h($data->url), [
-                        'class' => 'external-link',
-                        'rel' => 'noopener',
-                        'target' => '_blank',
-                    ]);
+                    return formatter()->asUrlWithText($data->url, $data->name);
                 },
             ],
             [
                 'attribute' => 'country',
-                'filter' => array_combine($countries = $search::getCountries(), $countries),
+                'filter' => $search::listData('country'),
             ],
             'link:brandIconLink',
             [

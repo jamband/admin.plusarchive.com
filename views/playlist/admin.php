@@ -18,7 +18,6 @@
 use app\components\ActionColumn;
 use app\models\Playlist;
 use yii\grid\GridView;
-use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 $this->title = 'Admin Playlists - '.app()->name;
@@ -37,11 +36,7 @@ $this->title = 'Admin Playlists - '.app()->name;
                 'attribute' => 'title',
                 'format' => 'raw',
                 'value' => function ($data) {
-                    return Html::a(h($data->title), h($data->url), [
-                        'class' => 'external-link',
-                        'rel' => 'noopener',
-                        'target' => '_blank',
-                    ]);
+                    return formatter()->asUrlWithText($data->url, $data->title);
                 },
             ],
             [

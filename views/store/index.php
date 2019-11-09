@@ -42,11 +42,7 @@ $this->title = 'Stores - '.app()->name;
                 <?php /* @var Store $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-sm-6 mb-4">
-                        <?= Html::a('<i class="fas fa-fw fa-external-link-alt"></i> '.h($model->name), h($model->url), [
-                            'class' => 'external-link',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ]) ?>
+                        <?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'font-weight-bold']) ?>
                         <br>
                         <div class="badge badge-secondary">
                             <?= h($model->getAttributeLabel('country')) ?>:
@@ -54,11 +50,7 @@ $this->title = 'Stores - '.app()->name;
                         <?= h($model->country) ?>
                         <br>
                         <div class="badge badge-secondary"><?= h($model->getAttributeLabel('link')) ?>:</div>
-                        <?= formatter()->asBrandIconLink($model->link, "\n", [
-                            'class' => 'text-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ]) ?>
+                        <?= formatter()->asBrandIconLink($model->link, "\n", ['class' => 'text-secondary']) ?>
                         <br>
                         <div class="badge badge-secondary"><?= h($model->getAttributeLabel('tag')) ?>:</div>
                         <?php /** @var StoreTag $tag */ ?>

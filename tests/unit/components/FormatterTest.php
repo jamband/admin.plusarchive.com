@@ -27,6 +27,23 @@ class FormatterTest extends Unit
         $this->assertSame("foo&#039;s, bar&#039;s", Yii::$app->formatter->asTagValues(["foo's", "bar's"]));
     }
 
+    public function testAsUrlWithText(): void
+    {
+        $value = 'https://example.com';
+        $expected = '<a href="https://example.com" rel="noopener" target="_blank"><i class="fas fa-external-link-alt fa-fw"></i> https://example.com</a>';
+        $this->assertSame($expected, Yii::$app->formatter->asUrlWithText($value));
+
+        $value = 'https://example.com';
+        $expected = '<a href="https://example.com" rel="noopener" target="_blank"><i class="fas fa-external-link-alt fa-fw"></i> Example&#039;s</a>';
+        $this->assertSame($expected, Yii::$app->formatter->asUrlWithText($value, "Example's"));
+
+        $value = 'https://example.com';
+        $expected = '<a class="foo" href="https://example.com" rel="noopener" target="_blank"><i class="fas fa-external-link-alt fa-fw"></i> Example&#039;s</a>';
+        $this->assertSame($expected, Yii::$app->formatter->asUrlWithText($value, "Example's", ['class' => 'foo']));
+
+        $this->assertSame(Yii::$app->formatter->nullDisplay, Yii::$app->formatter->asUrlWithText(null));
+    }
+
     public function testAsSnsIconLink(): void
     {
         $value = "https://www.facebook.com/foo\n";
