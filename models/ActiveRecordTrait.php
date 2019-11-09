@@ -49,18 +49,6 @@ trait ActiveRecordTrait
     }
 
     /**
-     * Returns all ids.
-     *
-     * @return array
-     */
-    public static function getIds(): array
-    {
-        return static::find()
-            ->select('id')
-            ->column();
-    }
-
-    /**
      * @param string $key
      * @param string|null $value
      * @param string|null $sortKey
