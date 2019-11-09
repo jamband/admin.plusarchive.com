@@ -104,7 +104,6 @@ class Formatter extends FormatterBase
         $icons = [
             'bandcamp.com' => 'bandcamp',
             'facebook.com' => 'facebook-square',
-            'plus.google.com' => 'google-plus-square',
             'instagram.com' => 'instagram',
             'last.fm' => 'lastfm-square',
             'mixcloud.com' => 'mixcloud',
