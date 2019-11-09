@@ -58,6 +58,11 @@ class Formatter extends FormatterBase
 
         $urls = '';
 
+        $options += [
+            'rel' => 'noopener',
+            'target' => '_blank',
+        ];
+
         foreach ($values as $v) {
             $urls .= Html::a(static::getBrandIcon($v), $v, $options).' ';
         }

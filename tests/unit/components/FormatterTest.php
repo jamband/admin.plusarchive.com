@@ -32,8 +32,8 @@ class FormatterTest extends Unit
         $value = "https://www.facebook.com/foo\n";
         $value .= "https://plus.google.com/+foo";
 
-        $expected = '<a href="https://plus.google.com/+foo"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
-        $expected .= '<a href="https://www.facebook.com/foo"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
+        $expected = '<a href="https://plus.google.com/+foo" rel="noopener" target="_blank"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
+        $expected .= '<a href="https://www.facebook.com/foo" rel="noopener" target="_blank"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
 
         $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value));
     }
@@ -52,24 +52,24 @@ class FormatterTest extends Unit
     public function asSnsIconLinkProvider(): array
     {
         return [
-            ['<a href="https://foo.bandcamp.com"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://foo.bandcamp.com'],
-            ['<a href="https://www.instagram.com/foo/"><i class="fab fa-instagram fa-fw fa-lg"></i></a> ', 'https://www.instagram.com/foo/'],
-            ['<a href="http://www.last.fm/foo"><i class="fab fa-lastfm-square fa-fw fa-lg"></i></a> ', 'http://www.last.fm/foo'],
-            ['<a href="https://www.mixcloud.com/foo/"><i class="fab fa-mixcloud fa-fw fa-lg"></i></a> ', 'https://www.mixcloud.com/foo/'],
-            ['<a href="https://www.pinterest.com/foo/"><i class="fab fa-pinterest-square fa-fw fa-lg"></i></a> ', 'https://www.pinterest.com/foo/'],
-            ['<a href="https://soundcloud.com/foo"><i class="fab fa-soundcloud fa-fw fa-lg"></i></a> ', 'https://soundcloud.com/foo'],
-            ['<a href="https://play.spotify.com/artist/foo"><i class="fab fa-spotify fa-fw fa-lg"></i></a> ', 'https://play.spotify.com/artist/foo'],
-            ['<a href="https://twitter.com/foo"><i class="fab fa-twitter-square fa-fw fa-lg"></i></a> ', 'https://twitter.com/foo'],
-            ['<a href="http://foo.tumblr.com"><i class="fab fa-tumblr-square fa-fw fa-lg"></i></a> ', 'http://foo.tumblr.com'],
-            ['<a href="https://vimeo.com/channels/foo"><i class="fab fa-vimeo-square fa-fw fa-lg"></i></a> ', 'https://vimeo.com/channels/foo'],
-            ['<a href="https://www.youtube.com/user/foo"><i class="fab fa-youtube-square fa-fw fa-lg"></i></a> ', 'https://www.youtube.com/user/foo'],
-            ['<a href="https://www.example.com/foo"><i class="fas fa-external-link-alt fa-fw fa-lg"></i></a> ', 'https://www.example.com/foo'],
+            ['<a href="https://foo.bandcamp.com" rel="noopener" target="_blank"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://foo.bandcamp.com'],
+            ['<a href="https://www.instagram.com/foo/" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw fa-lg"></i></a> ', 'https://www.instagram.com/foo/'],
+            ['<a href="http://www.last.fm/foo" rel="noopener" target="_blank"><i class="fab fa-lastfm-square fa-fw fa-lg"></i></a> ', 'http://www.last.fm/foo'],
+            ['<a href="https://www.mixcloud.com/foo/" rel="noopener" target="_blank"><i class="fab fa-mixcloud fa-fw fa-lg"></i></a> ', 'https://www.mixcloud.com/foo/'],
+            ['<a href="https://www.pinterest.com/foo/" rel="noopener" target="_blank"><i class="fab fa-pinterest-square fa-fw fa-lg"></i></a> ', 'https://www.pinterest.com/foo/'],
+            ['<a href="https://soundcloud.com/foo" rel="noopener" target="_blank"><i class="fab fa-soundcloud fa-fw fa-lg"></i></a> ', 'https://soundcloud.com/foo'],
+            ['<a href="https://play.spotify.com/artist/foo" rel="noopener" target="_blank"><i class="fab fa-spotify fa-fw fa-lg"></i></a> ', 'https://play.spotify.com/artist/foo'],
+            ['<a href="https://twitter.com/foo" rel="noopener" target="_blank"><i class="fab fa-twitter-square fa-fw fa-lg"></i></a> ', 'https://twitter.com/foo'],
+            ['<a href="http://foo.tumblr.com" rel="noopener" target="_blank"><i class="fab fa-tumblr-square fa-fw fa-lg"></i></a> ', 'http://foo.tumblr.com'],
+            ['<a href="https://vimeo.com/channels/foo" rel="noopener" target="_blank"><i class="fab fa-vimeo-square fa-fw fa-lg"></i></a> ', 'https://vimeo.com/channels/foo'],
+            ['<a href="https://www.youtube.com/user/foo" rel="noopener" target="_blank"><i class="fab fa-youtube-square fa-fw fa-lg"></i></a> ', 'https://www.youtube.com/user/foo'],
+            ['<a href="https://www.example.com/foo" rel="noopener" target="_blank"><i class="fas fa-external-link-alt fa-fw fa-lg"></i></a> ', 'https://www.example.com/foo'],
 
             // Bandcamp hosts
-            ['<a href="https://shop.fikarecordings.com"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://shop.fikarecordings.com'],
-            ['<a href="https://tunes.mamabirdrecordingco.com"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://tunes.mamabirdrecordingco.com'],
-            ['<a href="https://downloads.maybemars.org"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://downloads.maybemars.org'],
-            ['<a href="https://souterraine.biz"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://souterraine.biz'],
+            ['<a href="https://shop.fikarecordings.com" rel="noopener" target="_blank"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://shop.fikarecordings.com'],
+            ['<a href="https://tunes.mamabirdrecordingco.com" rel="noopener" target="_blank"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://tunes.mamabirdrecordingco.com'],
+            ['<a href="https://downloads.maybemars.org" rel="noopener" target="_blank"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://downloads.maybemars.org'],
+            ['<a href="https://souterraine.biz" rel="noopener" target="_blank"><i class="fab fa-bandcamp fa-fw fa-lg"></i></a> ', 'https://souterraine.biz'],
         ];
     }
 
@@ -82,8 +82,8 @@ class FormatterTest extends Unit
     public function testAsSnsIconLinkWithSeparatorArgument(): void
     {
         $value = 'https://www.facebook.com/foo|https://plus.google.com/+foo';
-        $expected = '<a href="https://plus.google.com/+foo"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
-        $expected .= '<a href="https://www.facebook.com/foo"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
+        $expected = '<a href="https://plus.google.com/+foo" rel="noopener" target="_blank"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
+        $expected .= '<a href="https://www.facebook.com/foo" rel="noopener" target="_blank"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
 
         $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, '|'));
     }
@@ -92,9 +92,9 @@ class FormatterTest extends Unit
     {
         $value = "https://www.facebook.com/foo\n";
         $value .= "https://plus.google.com/+foo";
-        $expected = '<a href="https://plus.google.com/+foo" target="_blank"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
-        $expected .= '<a href="https://www.facebook.com/foo" target="_blank"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
+        $expected = '<a class="foo" href="https://plus.google.com/+foo" rel="noopener" target="_blank"><i class="fab fa-google-plus-square fa-fw fa-lg"></i></a> ';
+        $expected .= '<a class="foo" href="https://www.facebook.com/foo" rel="noopener" target="_blank"><i class="fab fa-facebook-square fa-fw fa-lg"></i></a> ';
 
-        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, null, ['target' => '_blank']));
+        $this->assertSame($expected, Yii::$app->formatter->asBrandIconLink($value, null, ['class' => 'foo']));
     }
 }

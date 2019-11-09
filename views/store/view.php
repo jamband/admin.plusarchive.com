@@ -32,13 +32,7 @@ $this->title = "View Store: $model->name - ".app()->name;
                 'target' => '_blank',
             ]],
         ],
-        [
-            'attribute' => 'link',
-            'format' => ['brandIconLink', null, [], [
-                'rel' => 'noopener',
-                'target' => '_blank',
-            ]],
-        ],
+        'link:brandIconLink',
         'tagValues:tagValues',
         'created_at:datetime',
         'updated_at:datetime',

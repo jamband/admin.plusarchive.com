@@ -48,13 +48,7 @@ $this->title = 'Admin Labels - '.app()->name;
                 'attribute' => 'country',
                 'filter' => array_combine($countries = $search::getCountries(), $countries),
             ],
-            [
-                'attribute' => 'link',
-                'format' => ['brandIconLink', null, [
-                    'rel' => 'noopener',
-                    'target' => '_blank',
-                ]],
-            ],
+            'link:brandIconLink',
             [
                 'attribute' => 'tag',
                 'value' => function ($data) {
