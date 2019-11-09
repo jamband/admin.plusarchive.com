@@ -19,7 +19,7 @@ use yii\i18n\Formatter as FormatterBase;
 class Formatter extends FormatterBase
 {
     /**
-     * @param string|array $value
+     * @param string|array|null $value
      * @return string
      */
     public function asTagValues($value): string

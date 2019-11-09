@@ -18,6 +18,15 @@ use Codeception\Test\Unit;
 
 class FormatterTest extends Unit
 {
+    public function testAsTagValues(): void
+    {
+        $this->assertSame('', Yii::$app->formatter->asTagValues(null));
+        $this->assertSame('foo, bar', Yii::$app->formatter->asTagValues('foo, bar'));
+        $this->assertSame('foo, bar', Yii::$app->formatter->asTagValues(['foo', 'bar']));
+        $this->assertSame("foo&#039;s, bar&#039;s", Yii::$app->formatter->asTagValues("foo's, bar's"));
+        $this->assertSame("foo&#039;s, bar&#039;s", Yii::$app->formatter->asTagValues(["foo's", "bar's"]));
+    }
+
     public function testAsSnsIconLink(): void
     {
         $value = "https://www.facebook.com/foo\n";
