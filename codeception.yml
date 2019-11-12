@@ -16,3 +16,4 @@ modules:
     config:
       Yii2:
         configFile: config/test.php
+        cleanup: false

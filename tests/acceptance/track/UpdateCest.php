@@ -18,36 +18,34 @@ use app\tests\acceptance\fixtures\TrackFixture;
 
 class UpdateCest
 {
+    private $fixtures;
+
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'tracks' => TrackFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackFixture::class;
+        $I->haveFixtures($fixtures);
+        $this->fixtures = $I->grabFixture('tracks');
     }
 
     public function ensureThatTrackUpdateWorks(AcceptanceTester $I): void
     {
-        $I->seePageNotFound(['/track/update', 'id' => 1]);
+        $I->seePageNotFound(['/track/update', 'id' => 5]);
+
         $I->loginAsAdmin();
 
-        // $I->amOnPage(url(['/track/admin']));
-        // $I->click('//*[@class="card-container"]/div[2]/div/div/a[3]'); // Update link
-        // $I->seeCurrentUrlEquals('/index-test.php/track/update/1');
-        // $I->see('Track', '#menu-controller');
-        // $I->see('Update', '#menu-action');
+        $I->amOnPage(url(['/track/update', 'id' => 5]));
 
-        // $I->click('#menu-action');
-        // $I->click('Admin', '#menu-action + .dropdown-menu');
-        // $I->seeCurrentUrlEquals('/index-test.php/track/admin');
-        // $I->moveBack();
+        $I->seeInField('#trackupdateform-url', $this->fixtures['track5']['url']);
+        $I->seeInField('#trackupdateform-title', $this->fixtures['track5']['title']);
+        $I->seeInField('#trackupdateform-image', $this->fixtures['track5']['image']);
 
-        // $I->click('#menu-action');
-        // $I->click('Create', '#menu-action + .dropdown-menu');
-        // $I->seeCurrentUrlEquals('/index-test.php/track/create');
-        // $I->moveBack();
+        $I->fillField('#trackupdateform-title', 'Updated Title');
+        $I->click('button[type=submit]');
+        $I->wait(1);
 
-        // $I->seeInField('#track-url', 'https://example.bandcamp.com/track/track1');
-        // $I->seeInField('#track-title', 'track1');
-        // $I->seeInField('#track-image', 'track1.jpg');
+        $I->seeCurrentUrlEquals('/index-test.php/track/admin');
+        $I->see('Track has been updated.');
+        $I->see('Admin: 5' ,'#menu-action');
+        $I->see('Updated Title', ['css' => '.card:nth-child(1)']);
     }
 }

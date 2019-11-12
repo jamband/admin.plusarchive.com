@@ -13,6 +13,7 @@
  * @var yii\web\View $this
  * @var app\models\Playlist $model
  * @var yii\widgets\ActiveForm $form
+ * @var string $action
  */
 
 use yii\widgets\ActiveForm;
@@ -26,7 +27,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-            <button class="btn btn-primary" type="submit"><?= $model->isNewRecord ? 'Create' : 'Update' ?></button>
+            <button class="btn btn-primary" type="submit"><?= h($action) ?></button>
         <?php ActiveForm::end() ?>
     </div>
 </div>

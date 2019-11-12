@@ -20,14 +20,14 @@ class CreateCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'playlists' => PlaylistFixture::class,
-        ]);
+        $fixtures['playlists'] = PlaylistFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatPlaylistCreateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/playlist/create']);
+
         $I->loginAsAdmin();
 
         $I->amOnPage(url(['/playlist/admin']));
@@ -40,5 +40,14 @@ class CreateCest
         $I->click('button[type=submit]');
         $I->wait(1);
         $I->seeElement('.is-invalid');
+
+        $I->fillField('#playlistcreateform-url', 'https://www.youtube.com/playlist?list=foo');
+        $I->click('button[type=submit]');
+        $I->wait(1);
+
+        $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
+        $I->see('Playlist has been added.');
+        $I->see('Admin: 4' ,'#menu-action');
+        $I->see('Foo Title');
     }
 }

@@ -18,63 +18,33 @@ use app\tests\acceptance\fixtures\PlaylistFixture;
 
 class UpdateCest
 {
+    private $fixtures;
+
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'playlists' => PlaylistFixture::class,
-        ]);
+        $fixtures['playlists'] = PlaylistFixture::class;
+        $I->haveFixtures($fixtures);
+        $this->fixtures = $I->grabFixture('playlists');
     }
 
     public function ensureThatPlaylistUpdateWorks(AcceptanceTester $I): void
     {
-        $I->seePageNotFound(['/playlist/update', 'id' => 1]);
+        $I->seePageNotFound(['/playlist/update', 'id' => 3]);
+
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/playlist/admin']));
-        $I->click('//*[@id="grid-view-playlist"]/table/tbody/tr[1]/td[6]/a[1]/i'); // Update link
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
+        $I->amOnPage(url(['/playlist/update', 'id' => 3]));
+        $I->seeInField('#playlistupdateform-url', $this->fixtures['playlist3']['url']);
+        $I->seeInField('#playlistupdateform-title', $this->fixtures['playlist3']['title']);
+        $I->seeInField('#playlistupdateform-image', $this->fixtures['playlist3']['image']);
 
-        $I->see('Playlist', '#menu-controller');
-        $I->see('Update', '#menu-action');
-
-        $I->click('#menu-action');
-        $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
-        $I->moveBack();
-
-        $I->click('#menu-action');
-        $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
-        $I->moveBack();
-
-        $I->seeInField('#playlist-title', 'playlist1');
-
-        // $I->fillField('#playlist-title', '');
+        $I->fillField('#playlistupdateform-title', 'Updated Title');
         $I->click('button[type=submit]');
         $I->wait(1);
-        $I->seeElement('.is-invalid');
 
-        // $I->fillField('#playlist-title', 'playlist-one');
-        // $I->click('button[type=submit]');
-        // $I->wait(1);
-        // $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
-        // $I->see('Playlist has been updated.');
-
-        $I->click('#menu-action');
-        $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->click('//*[@id="grid-view-playlist"]/table/tbody/tr[1]/td[6]/a[1]/i'); // Update link
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/update/1');
-
-        $I->click('#menu-action');
-        $I->click('Delete', '#menu-action + .dropdown-menu');
-        $I->seeInPopup('Are you sure?');
-        $I->cancelPopup();
-
-        // $I->click('#menu-action');
-        $I->click('Delete', '#menu-action + .dropdown-menu');
-        $I->acceptPopup();
         $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
-        $I->see('Admin: 2', '#menu-action');
-        $I->dontSee('playlist-one', '.grid-view');
+        $I->see('Playlist has been updated.');
+        $I->see('Admin: 3' ,'#menu-action');
+        $I->see('Updated Title');
     }
 }

@@ -14,6 +14,9 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\filters\AccessControl;
+use app\models\form\TrackCreateForm;
+use app\models\form\TrackUpdateForm;
+use app\models\NotFoundModelException;
 use app\models\Track;
 use Jamband\Ripple\Ripple;
 use Yii;
@@ -144,8 +147,7 @@ class TrackController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Track;
-        $model->loadDefaultValues();
+        $model = new TrackCreateForm;
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'New track has been added.');
@@ -166,7 +168,11 @@ class TrackController extends Controller
      */
     public function actionUpdate(int $id)
     {
-        $model = $this->findModel($id);
+        try {
+            $model = new TrackUpdateForm($id);
+        } catch (NotFoundModelException $e) {
+            throw new NotFoundHttpException('Page not found.');
+        }
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Track has been updated.');

@@ -17,4 +17,4 @@
 $this->title = 'Create Playlist - '.app()->name;
 ?>
 <?= $this->render('/common/nav/create', ['model' => $model]) ?>
-<?= $this->render('_form', ['model' => $model]); ?>
+<?= $this->render('_form', ['model' => $model, 'action' => 'Create']); ?>

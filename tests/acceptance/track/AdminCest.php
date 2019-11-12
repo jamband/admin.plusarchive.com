@@ -29,6 +29,7 @@ class AdminCest
     public function ensureThatTrackAdminWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/track/admin']);
+
         $I->loginAsAdmin();
 
         $I->amOnPage(url(['/track/admin']));
@@ -50,12 +51,12 @@ class AdminCest
         $I->dontSee('track2', '.card-title');
 
         $I->click('#search-genre');
-        $I->click('genre1', '#search-genre + .dropdown-menu');
+        $I->click('genre2', '#search-genre + .dropdown-menu');
         $I->wait(1);
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=Bandcamp&genre=genre1');
+        $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=Bandcamp&genre=genre2');
         $I->see('Admin: 0', '#menu-action');
         $I->dontSee('Genres', '#search-genre');
-        $I->see('genre1', '#search-genre');
+        $I->see('genre2', '#search-genre');
 
         $I->click('Reset All', '.card-body');
         $I->wait(1);

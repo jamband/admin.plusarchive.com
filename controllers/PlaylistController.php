@@ -14,7 +14,10 @@ declare(strict_types=1);
 namespace app\controllers;
 
 use app\filters\AccessControl;
+use app\models\form\PlaylistUpdateForm;
+use app\models\NotFoundModelException;
 use app\models\search\PlaylistSearch;
+use app\models\form\PlaylistCreateForm;
 use app\models\Playlist;
 use Jamband\Ripple\Ripple;
 use Yii;
@@ -101,8 +104,7 @@ class PlaylistController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Playlist;
-        $model->type = Playlist::TYPE_PLAYLIST;
+        $model = new PlaylistCreateForm;
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Playlist has been added.');
@@ -123,7 +125,11 @@ class PlaylistController extends Controller
      */
     public function actionUpdate(int $id)
     {
-        $model = $this->findModel($id);
+        try {
+            $model = new PlaylistUpdateForm($id);
+        } catch (NotFoundModelException $e) {
+            throw new NotFoundHttpException('Page not found.');
+        }
 
         if ($model->load(request()->post()) && $model->save()) {
             session()->setFlash('success', 'Playlist has been updated.');

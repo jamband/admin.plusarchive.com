@@ -34,11 +34,17 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'tagValues')->dropdownList(MusicGenre::listData('name'), ['multiple' => true]) ?>
-            <button class="btn btn-primary" type="submit"><?= $model->isNewRecord ? 'Create' : 'Update' ?></button>
+            <?= $form->field($model, 'tagValues')->dropdownList(MusicGenre::listData('name'), ['id' => 'track-tagvalues', 'multiple' => true]) ?>
+            <button class="btn btn-primary" type="submit"><?= isset($model->id) ? 'Update' : 'Create' ?></button>
         <?php ActiveForm::end() ?>
     </div>
 </div>
-<?= $this->render('/common/js/select-multiple', [
-    'id' => '#track-tagvalues',
-]) ?>
+
+<?php
+$this->registerJs(<<<JS
+$('#track-tagvalues').select2({
+    multiple: true,
+    tags: true
+});
+JS
+);

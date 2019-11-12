@@ -20,14 +20,14 @@ class CreateCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'tracks' => TrackFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatTrackCreateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/track/create']);
+
         $I->loginAsAdmin();
 
         $I->amOnPage(url(['/track/admin']));
@@ -39,5 +39,16 @@ class CreateCest
         $I->click('button[type=submit]');
         $I->wait(1);
         $I->seeElement('.is-invalid');
+
+        $I->fillField('#trackcreateform-url', 'https://www.youtube.com/watch?v=foo');
+        $I->selectOption('#track-tagvalues', ['genre1', 'genre2']);
+        $I->click('button[type=submit]');
+        $I->wait(1);
+
+        $I->seeCurrentUrlEquals('/index-test.php/track/admin');
+        $I->see('Track has been added.');
+        $I->see('Admin: 6' ,'#menu-action');
+        $I->see('Foo Title', ['css' => '.card:nth-child(1)']);
+        $I->see('genre1 genre2', ['css' => '.card:nth-child(1)']);
     }
 }
