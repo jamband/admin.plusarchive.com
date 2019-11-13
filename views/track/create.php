@@ -17,4 +17,5 @@
 $this->title = 'Create Track - '.app()->name;
 ?>
 <?= $this->render('/common/nav/create') ?>
-<?= $this->render('_form', ['model' => $model]) ?>
+<?= $this->render('_form', ['model' => $model, 'action' => 'Create']) ?>
+<?= $this->render('/common/js/select-multiple', ['id' => '#trackcreateform-tagvalues']) ?>

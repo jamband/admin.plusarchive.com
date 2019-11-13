@@ -17,4 +17,5 @@
 $this->title = "Update Track: $model->title - ".app()->name;
 ?>
 <?= $this->render('/common/nav/update', ['model' => $model]) ?>
-<?= $this->render('_form', ['model' => $model]) ?>
+<?= $this->render('_form', ['model' => $model, 'action' => 'Update']) ?>
+<?= $this->render('/common/js/select-multiple', ['id' => '#trackupdateform-tagvalues']) ?>
