@@ -12,24 +12,14 @@
     max-width: 200px;
     word-wrap: break-word;
   }
-
-  table {
-    i {
-      color: lighten($body-color, 10%);
-    }
-  }
 }
 
 .detail-view {
   font-size: 85%;
-
-  i {
-    color: lighten($body-color, 10%);
-  }
 }
 
 .not-set {
-  color: #c55;
+  color: $body-color;
   font-style: italic;
 }
 
