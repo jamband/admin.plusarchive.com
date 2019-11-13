@@ -20,9 +20,8 @@ class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'store-tags' => StoreTagFixture::class,
-        ]);
+        $fixtures['tags'] = StoreTagFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatStoreTagDeleteWorks(AcceptanceTester $I): void

@@ -16,20 +16,19 @@ namespace app\tests\unit\models\form;
 use app\models\form\LoginForm;
 use app\tests\unit\fixtures\auth\LoginFormFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class LoginFormTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testLogin(): void
     {
-        $this->tester->haveFixtures([
-            'users' => LoginFormFixture::class,
-        ]);
-
+        $fixtures['users'] = LoginFormFixture::class;
+        $this->tester->haveFixtures($fixtures);
         $users = $this->tester->grabFixture('users');
 
         // failure

@@ -28,6 +28,9 @@ class PlaylistForm extends Model
      */
     protected $_ripple;
 
+    /**
+     * @param array $config
+     */
     public function __construct($config = [])
     {
         $this->_ripple = Yii::$container->get(Ripple::class);

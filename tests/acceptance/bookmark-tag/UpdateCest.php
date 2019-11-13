@@ -20,9 +20,8 @@ class UpdateCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'bookmarks' => BookmarkTagFixture::class,
-        ]);
+        $fixtures['tags'] = BookmarkTagFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatBookmarkTagUpdateWorks(AcceptanceTester $I): void

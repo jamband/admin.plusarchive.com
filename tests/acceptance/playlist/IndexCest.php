@@ -20,9 +20,8 @@ class IndexCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'playlists' => PlaylistFixture::class,
-        ]);
+        $fixtures['playlist'] = PlaylistFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatPlaylistsWorks(AcceptanceTester $I): void

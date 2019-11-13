@@ -16,19 +16,19 @@ namespace app\tests\unit\models;
 use app\models\Bookmark;
 use app\tests\unit\fixtures\bookmark\BookmarkAllFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class BookmarkTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testAll(): void
     {
-        $this->tester->haveFixtures([
-            BookmarkAllFixture::class,
-        ]);
+        $fixtures['bookmarks'] = BookmarkAllFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         // no parameters
         $bookmarks = Bookmark::all()->models;

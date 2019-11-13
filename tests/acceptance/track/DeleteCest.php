@@ -20,9 +20,8 @@ class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'tracks' => TrackFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatTrackDeleteWorks(AcceptanceTester $I): void

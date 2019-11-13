@@ -20,9 +20,8 @@ class SignupCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'users' => SignupFixture::class,
-        ]);
+        $fixtures['users'] = SignupFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatSignupWorks(AcceptanceTester $I): void

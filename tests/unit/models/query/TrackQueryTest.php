@@ -22,19 +22,19 @@ use app\tests\unit\fixtures\music\TrackQueryProviderFixture;
 use app\tests\unit\fixtures\music\TrackQuerySearchFixture;
 use app\tests\unit\fixtures\music\TrackQuerySortFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class TrackQueryTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testInit(): void
     {
-        $this->tester->haveFixtures([
-            TrackQueryFindFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackQueryFindFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->all();
         $this->assertSame(2, count($tracks));
@@ -44,9 +44,8 @@ class TrackQueryTest extends Unit
 
     public function testBehaviors(): void
     {
-        $this->tester->haveFixtures([
-            TrackQueryBehaviorsFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackQueryBehaviorsFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->allTagValues('genre1')->all();
         $this->assertSame(1, count($tracks));
@@ -55,9 +54,8 @@ class TrackQueryTest extends Unit
 
     public function testProvider(): void
     {
-        $this->tester->haveFixtures([
-            TrackQueryProviderFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackQueryProviderFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->provider(null)->all();
         $this->assertSame(0, count($tracks));
@@ -84,9 +82,8 @@ class TrackQueryTest extends Unit
 
     public function testSearch(): void
     {
-        $this->tester->haveFixtures([
-            TrackQuerySearchFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackQuerySearchFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->search('')->all();
         $this->assertSame(3, count($tracks));
@@ -103,9 +100,8 @@ class TrackQueryTest extends Unit
 
     public function testInTitleOrder(): void
     {
-        $this->tester->haveFixtures([
-            TrackQueryInTitleOrderFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackQueryInTitleOrderFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->inTitleOrder()->all();
         $this->assertSame(3, count($tracks));
@@ -116,9 +112,8 @@ class TrackQueryTest extends Unit
 
     public function testInUpdateOrder(): void
     {
-        $this->tester->haveFixtures([
-            TrackQueryInUpdateOrderFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackQueryInUpdateOrderFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->inUpdateOrder()->all();
         $this->assertSame(3, count($tracks));
@@ -129,9 +124,8 @@ class TrackQueryTest extends Unit
 
     public function testSort(): void
     {
-        $this->tester->haveFixtures([
-            TrackQuerySortFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackQuerySortFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->sort('Title')->all();
         $this->assertSame(3, count($tracks));

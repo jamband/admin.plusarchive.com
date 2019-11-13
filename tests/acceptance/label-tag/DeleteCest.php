@@ -20,9 +20,8 @@ class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'label-tags' => LabelTagFixture::class,
-        ]);
+        $fixtures['tags'] = LabelTagFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatLabelTagDeleteWorks(AcceptanceTester $I): void

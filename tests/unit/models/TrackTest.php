@@ -14,23 +14,22 @@ declare(strict_types=1);
 namespace app\tests\unit\models;
 
 use app\models\Track;
-use app\models\MusicGenre;
 use app\tests\unit\fixtures\music\TrackAllFixture;
 use app\tests\unit\fixtures\music\TrackQueryFindFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class TrackTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testFind(): void
     {
-        $this->tester->haveFixtures([
-            'tracks' => TrackQueryFindFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackQueryFindFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->all();
         $this->assertSame(2, count($tracks));
@@ -40,9 +39,8 @@ class TrackTest extends Unit
 
     public function testAll(): void
     {
-        $this->tester->haveFixtures([
-            'tracks' => TrackAllFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackAllFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         // no parameters
         $tracks = Track::all()->models;
@@ -77,9 +75,8 @@ class TrackTest extends Unit
 
     public function testAllAsAdmin(): void
     {
-        $this->tester->haveFixtures([
-            'tracks' => TrackAllFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackAllFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         // no parameters
         $tracks = Track::allAsAdmin()->models;

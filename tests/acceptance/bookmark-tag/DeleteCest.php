@@ -20,9 +20,8 @@ class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'bookmarks' => BookmarkTagFixture::class,
-        ]);
+        $fixtures['tags'] = BookmarkTagFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatBookmarkTagDeleteWorks(AcceptanceTester $I): void

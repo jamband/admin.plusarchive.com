@@ -16,19 +16,19 @@ namespace app\tests\unit\models\query;
 use app\models\Playlist;
 use app\tests\unit\fixtures\music\PlaylistFindFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class PlaylistQueryTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testInit(): void
     {
-        $this->tester->haveFixtures([
-            PlaylistFindFixture::class,
-        ]);
+        $fixtures['playlists'] = PlaylistFindFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $playlists = Playlist::find()->all();
         $this->assertSame(2, count($playlists));

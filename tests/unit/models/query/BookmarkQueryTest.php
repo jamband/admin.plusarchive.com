@@ -20,19 +20,19 @@ use app\tests\unit\fixtures\bookmark\BookmarkQueryInNameOrderFixture;
 use app\tests\unit\fixtures\bookmark\BookmarkQuerySearchFixture;
 use app\tests\unit\fixtures\bookmark\BookmarkQuerySortFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class BookmarkQueryTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testBehaviors(): void
     {
-        $this->tester->haveFixtures([
-            BookmarkQueryBehaviorsFixture::class,
-        ]);
+        $fixtures['bookmarks'] = BookmarkQueryBehaviorsFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $bookmarks = Bookmark::find()->allTagValues('tag1')->all();
         $this->assertSame(1, count($bookmarks));
@@ -41,9 +41,8 @@ class BookmarkQueryTest extends Unit
 
     public function testCountry(): void
     {
-        $this->tester->haveFixtures([
-            BookmarkQueryCountryFixture::class,
-        ]);
+        $fixtures['bookmarks'] = BookmarkQueryCountryFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $bookmarks = Bookmark::find()->country(null)->all();
         $this->assertSame(0, count($bookmarks));
@@ -63,9 +62,8 @@ class BookmarkQueryTest extends Unit
 
     public function testSearch(): void
     {
-        $this->tester->haveFixtures([
-            BookmarkQuerySearchFixture::class,
-        ]);
+        $fixtures['bookmarks'] = BookmarkQuerySearchFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $bookmarks = Bookmark::find()->search('')->all();
         $this->assertSame(3, count($bookmarks));
@@ -87,9 +85,8 @@ class BookmarkQueryTest extends Unit
 
     public function testInNameOrder(): void
     {
-        $this->tester->haveFixtures([
-            BookmarkQueryInNameOrderFixture::class,
-        ]);
+        $fixtures['bookmarks'] = BookmarkQueryInNameOrderFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $bookmarks = Bookmark::find()->inNameOrder()->all();
         $this->assertSame(3, count($bookmarks));
@@ -100,9 +97,8 @@ class BookmarkQueryTest extends Unit
 
     public function testSort(): void
     {
-        $this->tester->haveFixtures([
-            BookmarkQuerySortFixture::class,
-        ]);
+        $fixtures['bookmarks'] = BookmarkQuerySortFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $bookmarks = Bookmark::find()->sort('Name')->all();
         $this->assertSame(3, count($bookmarks));

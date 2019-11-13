@@ -16,19 +16,19 @@ namespace app\tests\unit\models;
 use app\models\Store;
 use app\tests\unit\fixtures\store\StoreAllFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class StoreTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testAll(): void
     {
-        $this->tester->haveFixtures([
-            StoreAllFixture::class,
-        ]);
+        $fixtures['stores'] = StoreAllFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         // no parameters
         $stores = Store::all()->models;

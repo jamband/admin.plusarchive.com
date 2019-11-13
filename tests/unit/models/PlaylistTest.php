@@ -17,19 +17,19 @@ use app\models\Playlist;
 use app\tests\unit\fixtures\music\PlaylistAllFixture;
 use app\tests\unit\fixtures\music\PlaylistFindFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class PlaylistTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testFind(): void
     {
-        $this->tester->haveFixtures([
-            PlaylistFindFixture::class,
-        ]);
+        $fixtures['playlists'] = PlaylistFindFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $playlists = Playlist::find()->all();
         $this->assertSame(2, count($playlists));
@@ -39,9 +39,8 @@ class PlaylistTest extends Unit
 
     public function testAll(): void
     {
-        $this->tester->haveFixtures([
-            PlaylistAllFixture::class,
-        ]);
+        $fixtures['playlists'] = PlaylistAllFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $playlists = Playlist::all()->models;
         $this->assertSame(3, count($playlists));

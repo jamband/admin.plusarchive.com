@@ -20,9 +20,8 @@ class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'playlists' => PlaylistFixture::class,
-        ]);
+        $fixtures['playlists'] = PlaylistFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatPlaylistDeleteWorks(AcceptanceTester $I): void

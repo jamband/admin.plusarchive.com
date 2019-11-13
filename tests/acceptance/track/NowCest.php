@@ -20,9 +20,8 @@ class NowCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'tracks' => TrackFixture::class,
-        ]);
+        $fixtures['tracks'] = TrackFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatTrackNowWorks(AcceptanceTester $I): void

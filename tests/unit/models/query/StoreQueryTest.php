@@ -20,19 +20,19 @@ use app\tests\unit\fixtures\store\StoreQueryInNameOrderFixture;
 use app\tests\unit\fixtures\store\StoreQuerySearchFixture;
 use app\tests\unit\fixtures\store\StoreQuerySortFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class StoreQueryTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testBehaviors(): void
     {
-        $this->tester->haveFixtures([
-            StoreQueryBehaviorsFixture::class,
-        ]);
+        $fixtures['stores'] = StoreQueryBehaviorsFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $stores = Store::find()->allTagValues('tag1')->all();
         $this->assertSame(1, count($stores));
@@ -41,9 +41,8 @@ class StoreQueryTest extends Unit
 
     public function testCountry(): void
     {
-        $this->tester->haveFixtures([
-            StoreQueryCountryFixture::class,
-        ]);
+        $fixtures['stores'] = StoreQueryCountryFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $stores = Store::find()->country(null)->all();
         $this->assertSame(0, count($stores));
@@ -63,9 +62,8 @@ class StoreQueryTest extends Unit
 
     public function testSearch(): void
     {
-        $this->tester->haveFixtures([
-            StoreQuerySearchFixture::class,
-        ]);
+        $fixtures['stores'] = StoreQuerySearchFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $stores = Store::find()->search('')->all();
         $this->assertSame(3, count($stores));
@@ -87,9 +85,8 @@ class StoreQueryTest extends Unit
 
     public function testInNameOrder(): void
     {
-        $this->tester->haveFixtures([
-            StoreQueryInNameOrderFixture::class,
-        ]);
+        $fixtures['stores'] = StoreQueryInNameOrderFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $stores = Store::find()->inNameOrder()->all();
         $this->assertSame(3, count($stores));
@@ -100,9 +97,8 @@ class StoreQueryTest extends Unit
 
     public function testSort(): void
     {
-        $this->tester->haveFixtures([
-            storeQuerySortFixture::class,
-        ]);
+        $fixtures['stores'] = storeQuerySortFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $stores = Store::find()->sort('Name')->all();
         $this->assertSame(3, count($stores));

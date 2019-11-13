@@ -20,9 +20,8 @@ class UpdateCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'music-genres' => MusicGenreFixture::class,
-        ]);
+        $fixtures['genres'] = MusicGenreFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatMusicGenreUpdateWorks(AcceptanceTester $I): void

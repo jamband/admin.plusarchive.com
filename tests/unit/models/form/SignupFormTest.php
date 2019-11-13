@@ -17,20 +17,19 @@ use app\models\form\SignupForm;
 use app\models\User;
 use app\tests\unit\fixtures\auth\SignupFormFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class SignupFormTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testSignup(): void
     {
-        $this->tester->haveFixtures([
-            'users' => SignupFormFixture::class,
-        ]);
-
+        $fixtures['users'] = SignupFormFixture::class;
+        $this->tester->haveFixtures($fixtures);
         $users = $this->tester->grabFixture('users');
 
         // failure

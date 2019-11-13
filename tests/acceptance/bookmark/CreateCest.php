@@ -20,9 +20,8 @@ class CreateCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'bookmarks' => BookmarkFixture::class,
-        ]);
+        $fixtures['bookmarks'] = BookmarkFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatBookmarkCreateWorks(AcceptanceTester $I): void

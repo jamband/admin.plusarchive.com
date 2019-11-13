@@ -16,19 +16,19 @@ namespace app\tests\unit\models;
 use app\models\Label;
 use app\tests\unit\fixtures\label\LabelAllFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class LabelTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testAll(): void
     {
-        $this->tester->haveFixtures([
-            LabelAllFixture::class,
-        ]);
+        $fixtures['labels'] = LabelAllFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         // no parameters
         $labels = Label::all()->models;

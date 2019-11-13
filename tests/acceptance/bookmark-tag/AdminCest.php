@@ -21,9 +21,8 @@ class AdminCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'bookmarks' => BookmarkTagFixture::class,
-        ]);
+        $fixtures['tags'] = BookmarkTagFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatBookmarkTagAdminWorks(AcceptanceTester $I): void

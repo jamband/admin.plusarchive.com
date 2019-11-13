@@ -20,19 +20,19 @@ use app\tests\unit\fixtures\label\LabelQueryInNameOrderFixture;
 use app\tests\unit\fixtures\label\LabelQuerySearchFixture;
 use app\tests\unit\fixtures\label\LabelQuerySortFixture;
 use Codeception\Test\Unit;
+use UnitTester;
 
 class LabelQueryTest extends Unit
 {
     /**
-     * @var \UnitTester
+     * @var UnitTester
      */
     protected $tester;
 
     public function testBehaviors(): void
     {
-        $this->tester->haveFixtures([
-            LabelQueryBehaviorsFixture::class,
-        ]);
+        $fixtures['labels'] = LabelQueryBehaviorsFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $labels = Label::find()->allTagValues('tag1')->all();
         $this->assertSame(1, count($labels));
@@ -41,9 +41,8 @@ class LabelQueryTest extends Unit
 
     public function testCountry(): void
     {
-        $this->tester->haveFixtures([
-            LabelQueryCountryFixture::class,
-        ]);
+        $fixtures['labels'] = LabelQueryCountryFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $labels = Label::find()->country(null)->all();
         $this->assertSame(0, count($labels));
@@ -63,9 +62,8 @@ class LabelQueryTest extends Unit
 
     public function testSearch(): void
     {
-        $this->tester->haveFixtures([
-            LabelQuerySearchFixture::class,
-        ]);
+        $fixtures['labels'] = LabelQuerySearchFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $labels = Label::find()->search('')->all();
         $this->assertSame(3, count($labels));
@@ -87,9 +85,8 @@ class LabelQueryTest extends Unit
 
     public function testInNameOrder(): void
     {
-        $this->tester->haveFixtures([
-            LabelQueryInNameOrderFixture::class,
-        ]);
+        $fixtures['labels'] = LabelQueryInNameOrderFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $labels = Label::find()->inNameOrder()->all();
         $this->assertSame(3, count($labels));
@@ -100,9 +97,8 @@ class LabelQueryTest extends Unit
 
     public function testSort(): void
     {
-        $this->tester->haveFixtures([
-            labelQuerySortFixture::class,
-        ]);
+        $fixtures['labels'] = labelQuerySortFixture::class;
+        $this->tester->haveFixtures($fixtures);
 
         $labels = Label::find()->sort('Name')->all();
         $this->assertSame(3, count($labels));

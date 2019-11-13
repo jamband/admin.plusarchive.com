@@ -20,9 +20,8 @@ class ViewCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'labels' => LabelFixture::class,
-        ]);
+        $fixtures['labels'] = LabelFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatLabelViewWorks(AcceptanceTester $I): void

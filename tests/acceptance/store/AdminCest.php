@@ -21,9 +21,8 @@ class AdminCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'stores' => StoreFixture::class,
-        ]);
+        $fixtures['stores'] = StoreFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatStoreAdminWorks(AcceptanceTester $I): void

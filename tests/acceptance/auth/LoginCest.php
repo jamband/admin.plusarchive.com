@@ -20,9 +20,8 @@ class LoginCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $I->haveFixtures([
-            'users' => AdminUserFixture::class,
-        ]);
+        $fixtures['users'] = AdminUserFixture::class;
+        $I->haveFixtures($fixtures);
     }
 
     public function ensureThatLoginWorks(AcceptanceTester $I): void
