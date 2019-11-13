@@ -1,2 +1,6 @@
+@import "~bootstrap/scss/functions";
+
 $border-radius:               .25rem;
 $border-radius-sm:            .15rem;
+
+$component-active-bg:         theme-color("primary");

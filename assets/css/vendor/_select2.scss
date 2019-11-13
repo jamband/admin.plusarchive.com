@@ -1,19 +1,50 @@
-@import "~select2/src/scss/multiple";
+@import "~bootstrap/scss/mixins/box-shadow";
+@import "../variables/components";
+@import "../variables/body";
+@import "../variables/dropdown";
+@import "../variables/forms";
 @import "~select2/src/scss/core";
 
-@import "../variables/body";
+.select2-container--default {
+  border-radius: $border-radius;
 
-.select2-container--default .select2-selection--multiple {
-  background-color: darken($gray-900, 1%);
+  .select2-selection--multiple {
+    background-color: darken($gray-900, 1%);
+    border: 1px solid $gray-800;
+
+    .select2-selection__choice {
+      background-color: $gray-800;
+      border: none;
+    }
+  }
+
+  .select2-results__option {
+    background-color: $body-bg;
+    color: $gray-500;
+
+    &[aria-selected=true] {
+      background-color: $gray-900;
+      color: $gray-300;
+    }
+
+    &--highlighted[aria-selected] {
+      background-color: $gray-800;
+      color: $gray-400;
+    }
+  }
 }
 
-.select2-container--default .select2-selection--multiple .select2-selection__choice {
-  color: $body-color;
-  background-color: $gray-800;
-  border: none;
+.select2-container--focus {
+  border: 1px solid $input-focus-border-color;
+  outline: 0;
+  @include box-shadow($input-btn-focus-box-shadow);
 }
 
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
-  color: white;
-  background-color: $gray-800;
+.select2-dropdown {
+  border: 1px solid $gray-900;
+  @include box-shadow($dropdown-box-shadow);
+}
+
+.select2-search__field {
+  color: $input-color;
 }

@@ -13,9 +13,30 @@ $black:    #000;
 $red:     #a94442;
 $green:   #3c763d;
 $cyan:    #31708f;
+$yellow:  #ffc107;
 
 $primary:       #cc6055;
 $secondary:     $gray-500;
 $success:       $green;
 $danger:        $red;
 $info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-800;
+
+$theme-colors: ();
+
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
