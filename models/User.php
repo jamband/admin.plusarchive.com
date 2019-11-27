@@ -23,7 +23,7 @@ use yii\web\IdentityInterface;
  * @property string $username
  * @property string $email
  * @property string $password
- * @property string $auto_key
+ * @property string $auth_key
  * @property int $created_at
  * @property int $updated_at
  *
