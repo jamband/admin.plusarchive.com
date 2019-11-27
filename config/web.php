@@ -135,12 +135,6 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => yii\gii\Module::class,
-        'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
-
     $config['container']['definitions'] += [
         yii\web\JqueryAsset::class => [
             'sourcePath' => '@app/node_modules/jquery/dist',
