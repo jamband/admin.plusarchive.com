@@ -2,7 +2,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "bootstrap": "^4.4.0",
+    "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "lazysizes": "^5.1.2",
     "loaders.css": "^0.1.2",
