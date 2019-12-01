@@ -30,6 +30,7 @@ class PlaylistCreateFormFixture extends ActiveFixture
                 'title' => 'playlist1',
                 'image' => 'http://dev.plusarchive:8080/assets/favicon.png',
                 'type' => Playlist::TYPE_PLAYLIST,
+                'urge' => false,
                 'created_at' => time(),
                 'updated_at' => time(),
             ],

@@ -27,6 +27,7 @@ class TrackCreateFormFixture extends TrackFixture
                 'title' => 'track1',
                 'image' => 'http://dev.plusarchive:8080/assets/favicon.png',
                 'type' => Track::TYPE_TRACK,
+                'urge' => false,
                 'created_at' => time(),
                 'updated_at' => time(),
             ],

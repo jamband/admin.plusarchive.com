@@ -24,6 +24,7 @@ use yii\db\ActiveRecord;
  * @property string $title
  * @property string $image
  * @property int $type
+ * @property int $urge
  * @property int $created_at
  * @property int $updated_at
  *
