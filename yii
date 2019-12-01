@@ -6,7 +6,9 @@ require __DIR__.'/vendor/autoload.php';
 if (php_uname('n') !== 'plusarchive.com') {
     defined('YII_DEBUG') or define('YII_DEBUG', true);
     defined('YII_ENV') or define('YII_ENV', 'dev');
-    Dotenv\Dotenv::create(__DIR__)->load();
+
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
 }
 
 require __DIR__.'/vendor/yiisoft/yii2/Yii.php';
