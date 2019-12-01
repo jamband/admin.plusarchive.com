@@ -27,8 +27,8 @@ abstract class BaseApplication extends yii\base\Application
 }
 
 /**
- * @property \app\components\Formatter $formatter
- * @method \app\components\Formatter getFormatter()
+ * @property app\components\Formatter $formatter
+ * @method app\components\Formatter getFormatter()
  */
 class WebApplication extends yii\web\Application
 {
