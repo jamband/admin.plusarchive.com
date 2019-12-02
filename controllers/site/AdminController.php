@@ -15,6 +15,7 @@ namespace app\controllers\site;
 
 use app\controllers\Controller;
 use app\filters\AccessControl;
+use app\models\Track;
 use yii\helpers\ArrayHelper;
 
 class AdminController extends Controller
@@ -44,6 +45,13 @@ class AdminController extends Controller
      */
     public function actionIndex(): string
     {
-        return $this->render('//'.$this->id);
+        $tracks = Track::find()
+            ->favorites()
+            ->latest()
+            ->all();
+
+        return $this->render('//'.$this->id, [
+            'tracks' => $tracks,
+        ]);
     }
 }

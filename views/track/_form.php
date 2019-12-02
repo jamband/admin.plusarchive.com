@@ -35,6 +35,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'urge')->radioList([0 => 'off', 1 => 'on']) ?>
             <?= $form->field($model, 'tagValues')->dropdownList(MusicGenre::listData('name'), ['multiple' => true]) ?>
             <button class="btn btn-primary" type="submit"><?= h($action) ?></button>
         <?php ActiveForm::end() ?>

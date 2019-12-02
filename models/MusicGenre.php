@@ -57,6 +57,23 @@ class MusicGenre extends ActiveRecord
     }
 
     /**
+     * @param int $limit
+     * @return array
+     */
+    public static function minimal(int $limit): array
+    {
+        $data = static::find()
+            ->select('name')
+            ->orderBy(['frequency' => SORT_DESC])
+            ->limit($limit)
+            ->column();
+
+        sort($data, SORT_STRING);
+
+        return $data;
+    }
+
+    /**
      * @return array
      */
     public function behaviors(): array

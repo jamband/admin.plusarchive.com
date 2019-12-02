@@ -41,6 +41,7 @@ class TrackCreateForm extends TrackForm
             $track->provider = array_search($this->_ripple->provider(), Track::PROVIDERS, true);
             $track->provider_key = $this->_ripple->id();
             $track->type = Track::TYPE_TRACK;
+            $track->urge = $this->urge;
             $track->tagValues = $this->tagValues;
 
             return $track->save();

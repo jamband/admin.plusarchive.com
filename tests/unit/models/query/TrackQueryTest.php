@@ -15,6 +15,7 @@ namespace app\tests\unit\models\query;
 
 use app\models\Track;
 use app\tests\unit\fixtures\music\TrackQueryBehaviorsFixture;
+use app\tests\unit\fixtures\music\TrackQueryFavoritesFixture;
 use app\tests\unit\fixtures\music\TrackQueryFindFixture;
 use app\tests\unit\fixtures\music\TrackQueryInTitleOrderFixture;
 use app\tests\unit\fixtures\music\TrackQueryInUpdateOrderFixture;
@@ -150,5 +151,17 @@ class TrackQueryTest extends Unit
         $this->assertSame('baz', $tracks[0]->title);
         $this->assertSame('bar', $tracks[1]->title);
         $this->assertSame('foo', $tracks[2]->title);
+    }
+
+    public function testFavorites(): void
+    {
+        $fixtures['tracks'] = TrackQueryFavoritesFixture::class;
+        $this->tester->haveFixtures($fixtures);
+
+        $tracks = Track::find()->favorites()->all();
+        $this->assertSame(3, count($tracks));
+        $this->assertSame('title2', $tracks[0]->title);
+        $this->assertSame('title4', $tracks[1]->title);
+        $this->assertSame('title5', $tracks[2]->title);
     }
 }

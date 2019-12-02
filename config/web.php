@@ -34,7 +34,7 @@ $config = [
                 '<controller:[\w-]+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:[\w-]+>/<action:(admin|create|now|list)>' => '<controller>/<action>',
                 '<controller:(track|playlist)>/<id:[\w-]+>' => '<controller>/view',
-                '' => 'track/index',
+                '' => 'site/home/index',
             ],
         ],
         'errorHandler' => [

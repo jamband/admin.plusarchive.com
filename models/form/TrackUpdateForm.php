@@ -43,6 +43,7 @@ class TrackUpdateForm extends TrackForm
         $this->url = $this->_track->url;
         $this->title = $this->_track->title;
         $this->image = $this->_track->image;
+        $this->urge = $this->_track->urge;
         $this->tagValues = $this->_track->tagValues;
 
         parent::__construct($config);
@@ -71,6 +72,7 @@ class TrackUpdateForm extends TrackForm
             $this->_track->image = $this->image;
             $this->_track->provider = array_search($this->_ripple->provider(), Track::PROVIDERS, true);
             $this->_track->provider_key = $this->_ripple->id();
+            $this->_track->urge = $this->urge;
             $this->_track->tagValues = $this->tagValues;
 
             return $this->_track->save();

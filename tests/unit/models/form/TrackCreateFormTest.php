@@ -55,8 +55,9 @@ class TrackCreateFormTest extends Unit
         $this->assertSame(Track::PROVIDER_YOUTUBE, $track->provider);
         $this->assertSame('foo', $track->provider_key);
         $this->assertSame('Foo Title', $track->title);
-        $this->assertSame(Track::TYPE_TRACK, $track->type);
         $this->assertSame('http://dev.plusarchive:8080/assets/apple-touch-icon.png', $track->image);
+        $this->assertSame(Track::TYPE_TRACK, $track->type);
+        $this->assertSame(0, $track->urge);
         $this->assertGreaterThanOrEqual(time(), $track->created_at);
         $this->assertGreaterThanOrEqual(time(), $track->updated_at);
         $this->assertSame(['Folk', 'Rock'], $track->tagValues);

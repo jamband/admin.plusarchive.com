@@ -97,4 +97,12 @@ class TrackQuery extends ActiveQuery
 
         return $this->latest();
     }
+
+    /**
+     * @return TrackQuery
+     */
+    public function favorites(): TrackQuery
+    {
+        return $this->andWhere(['urge' => true]);
+    }
 }

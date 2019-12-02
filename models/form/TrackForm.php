@@ -16,12 +16,15 @@ namespace app\models\form;
 use Jamband\Ripple\Ripple;
 use Yii;
 use yii\base\Model;
+use app\models\Track;
+use yii\validators\InlineValidator;
 
 class TrackForm extends Model
 {
     public $url;
     public $title;
     public $image;
+    public $urge;
     public $tagValues;
 
     /**
@@ -62,6 +65,9 @@ class TrackForm extends Model
             ['url', 'validateValidUrl'],
             ['url', 'validateHasContent'],
             ['title', 'string', 'max' => 200],
+            ['urge', 'boolean'],
+            ['urge', 'default', 'value' => false],
+            ['urge', 'validateLimit'],
             ['tagValues', 'safe'],
         ];
     }
@@ -85,6 +91,21 @@ class TrackForm extends Model
     {
         if (null === $this->_ripple->id()) {
             $this->addError($attribute, 'Unable to retrieve the contents from the URL.');
+        }
+    }
+
+    /**
+     * @param string $attribute
+     * @param mixed $params
+     * @param InlineValidator $validator
+     *
+     * @noinspection PhpUnused
+     * @noinspection PhpUnusedParameterInspection $params
+     */
+    public function validateLimit(string $attribute, $params, InlineValidator $validator): void
+    {
+        if ('1' === $this->$attribute && 3 <= (int)Track::find()->favorites()->count()) {
+            $validator->addError($this, $attribute, 'Only up to 3 {attribute} can be set.');
         }
     }
 

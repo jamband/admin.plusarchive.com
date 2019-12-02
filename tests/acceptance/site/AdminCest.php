@@ -81,5 +81,18 @@ class AdminCest
         $I->click('BookmarkTag', '.dropdown-menu');
         $I->seeCurrentUrlEquals('/index-test.php/bookmark-tag/admin');
         $I->moveBack();
+
+        $I->see('Recent favorite tracks');
+        $I->see('track1', '.card-title');
+        $I->see('track2', '.card-title');
+        $I->see('track3', '.card-title');
+
+        $I->click('genre1', '.card-text');
+        $I->seeCurrentUrlEquals('/index-test.php/track/admin?genre=genre1');
+        $I->moveBack();
+
+        $I->click('Update', '.card-date');
+        $I->seeCurrentUrlEquals('/index-test.php/track/update/1');
+        $I->moveBack();
     }
 }
