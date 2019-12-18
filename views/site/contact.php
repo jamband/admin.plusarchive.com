@@ -23,7 +23,7 @@ $this->title = 'Contact - '.app()->name;
             <i class="fab fa-twitter"></i> Twitter
         </a>
         or
-        <a href="https://github.com/jamband/plusarchive.com/issues" rel="noopener" target="_blank">
+        <a href="https://github.com/jamband/admin.plusarchive.com/issues" rel="noopener" target="_blank">
             <i class="fab fa-github"></i> GitHub
         </a>
         Issues. Thank you.
