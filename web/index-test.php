@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the plusarchive.com
+ * This file is part of the admin.plusarchive.com
  *
  * (c) Tomoki Morita <tmsongbooks215@gmail.com>
  *
@@ -15,7 +15,7 @@ if (!in_array(@$_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
 
 require __DIR__.'/../vendor/autoload.php';
 
-if (preg_match('/\A(localhost|dev.plusarchive)\z/', $_SERVER['SERVER_NAME'])) {
+if (preg_match('/\A(localhost|dev.admin.plusarchive)\z/', $_SERVER['SERVER_NAME'])) {
     defined('YII_DEBUG') or define('YII_DEBUG', true);
     defined('YII_ENV') or define('YII_ENV', 'test');
 

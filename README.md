@@ -1,6 +1,6 @@
-# plusarchive.com
+# admin.plusarchive.com
 
-[plusarchive.com](https://plusarchive.com) sources.
+[plusarchive.com](https://plusarchive.com) sources for backend (admin).
 
 ## License
-plusarchive.com is licensed under the MIT license.
+admin.plusarchive.com is licensed under the MIT license.

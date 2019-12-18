@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the plusarchive.com
+ * This file is part of the admin.plusarchive.com
  *
  * (c) Tomoki Morita <tmsongbooks215@gmail.com>
  *
