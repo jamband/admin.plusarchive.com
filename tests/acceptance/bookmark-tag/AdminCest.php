@@ -15,7 +15,7 @@ namespace app\tests\acceptance\bookmarkTag;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkTagFixture;
-use WebDriverKeys;
+use Facebook\WebDriver\WebDriverKeys;
 
 class AdminCest
 {

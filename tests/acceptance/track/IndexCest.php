@@ -15,7 +15,7 @@ namespace app\tests\acceptance\track;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
-use WebDriverKeys;
+use Facebook\WebDriver\WebDriverKeys;
 
 class IndexCest
 {

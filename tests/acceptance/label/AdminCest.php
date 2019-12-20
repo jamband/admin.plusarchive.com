@@ -15,7 +15,7 @@ namespace app\tests\acceptance\label;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\LabelFixture;
-use WebDriverKeys;
+use Facebook\WebDriver\WebDriverKeys;
 
 class AdminCest
 {

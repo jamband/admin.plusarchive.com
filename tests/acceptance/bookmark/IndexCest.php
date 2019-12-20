@@ -15,7 +15,7 @@ namespace app\tests\acceptance\bookmark;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkFixture;
-use WebDriverKeys;
+use Facebook\WebDriver\WebDriverKeys;
 
 class IndexCest
 {

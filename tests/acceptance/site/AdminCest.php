@@ -15,12 +15,14 @@ namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\AdminUserFixture;
+use app\tests\acceptance\fixtures\HomeFixture;
 
 class AdminCest
 {
     public function _before(AcceptanceTester $I): void
     {
         $fixtures['users'] = AdminUserFixture::class;
+        $fixtures['tracks'] = HomeFixture::class;
         $I->haveFixtures($fixtures);
     }
 

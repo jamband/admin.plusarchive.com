@@ -15,7 +15,7 @@ namespace app\tests\acceptance\storeTag;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreTagFixture;
-use WebDriverKeys;
+use Facebook\WebDriver\WebDriverKeys;
 
 class AdminCest
 {

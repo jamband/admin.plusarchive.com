@@ -15,7 +15,7 @@ namespace app\tests\acceptance\playlist;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\PlaylistFixture;
-use WebDriverKeys;
+use Facebook\WebDriver\WebDriverKeys;
 
 class AdminCest
 {

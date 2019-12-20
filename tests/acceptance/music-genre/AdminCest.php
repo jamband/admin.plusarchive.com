@@ -15,7 +15,7 @@ namespace app\tests\acceptance\musicGenre;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\MusicGenreFixture;
-use WebDriverKeys;
+use Facebook\WebDriver\WebDriverKeys;
 
 class AdminCest
 {
