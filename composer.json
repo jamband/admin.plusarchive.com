@@ -10,7 +10,7 @@
   "require-dev": {
     "vlucas/phpdotenv": "4.1.0",
     "yiisoft/yii2-debug": "2.1.13",
-    "codeception/module-yii2": "1.0.1",
+    "codeception/module-yii2": "1.1.0",
     "codeception/module-webdriver": "1.0.1"
   },
   "provide": {
