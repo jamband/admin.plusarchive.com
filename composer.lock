@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd41ff17fc07fdc80d193f6a2cf01862",
+    "content-hash": "7cb7de178b153f4d8647cc3db5bd30b2",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -223,23 +223,23 @@
         },
         {
             "name": "jamband/ripple",
-            "version": "v0.7.0",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jamband/ripple.git",
-                "reference": "418eadf6bf5bff226cd846eb8baace31224a3096"
+                "reference": "be3bb835e0a1cbcadb50aa3f71aba9e50c5e2aac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jamband/ripple/zipball/418eadf6bf5bff226cd846eb8baace31224a3096",
-                "reference": "418eadf6bf5bff226cd846eb8baace31224a3096",
+                "url": "https://api.github.com/repos/jamband/ripple/zipball/be3bb835e0a1cbcadb50aa3f71aba9e50c5e2aac",
+                "reference": "be3bb835e0a1cbcadb50aa3f71aba9e50c5e2aac",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.4"
+                "phpunit/phpunit": "^8.5"
             },
             "type": "library",
             "autoload": {
@@ -269,7 +269,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2019-11-05T07:44:18+00:00"
+            "time": "2020-03-10T08:45:12+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -3642,5 +3642,6 @@
         "php": ">=7.2.0",
         "ext-json": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
