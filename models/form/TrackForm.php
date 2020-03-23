@@ -104,7 +104,12 @@ class TrackForm extends Model
      */
     public function validateLimit(string $attribute, $params, InlineValidator $validator): void
     {
-        if ('1' === $this->$attribute && 3 <= (int)Track::find()->favorites()->count()) {
+        $favoriteIds = [];
+        foreach (Track::find()->favorites()->column() as $id) {
+            $favoriteIds[] = (int)$id;
+        }
+
+        if ('1' === $this->$attribute && 3 <= count($favoriteIds) && !in_array($this->id, $favoriteIds, true)) {
             $validator->addError($this, $attribute, 'Only up to 3 {attribute} can be set.');
         }
     }
