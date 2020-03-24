@@ -123,8 +123,35 @@ class TrackForm extends Model
 
         $this->url = $this->_ripple->url() ?? $this->url;
         $this->title = $this->title ?: $this->_ripple->title();
-        $this->image = $this->image ?: $this->_ripple->image();
+        $this->image = $this->image ?: $this->convertImage();
 
         return parent::beforeValidate();
+    }
+
+    /**
+     * @return string|null
+     */
+    protected function convertImage(): ?string
+    {
+        $provider = array_search($this->_ripple->provider(), Track::PROVIDERS, true);
+        $image = $this->_ripple->image();
+
+        if (Track::PROVIDER_BANDCAMP === $provider) {
+            return preg_replace('/[0-9]+\.jpg\z/', '4.jpg', $image);
+        }
+
+        if (Track::PROVIDER_SOUNDCLOUD === $provider) {
+            return str_replace('t500x500', 't300x300', $image);
+        }
+
+        if (Track::PROVIDER_VIMEO === $provider) {
+            return preg_replace('/[x0-9]+\.jpg/', '320.jpg', $image);
+        }
+
+        if (Track::PROVIDER_YOUTUBE === $provider) {
+            return str_replace('hqdefault.jpg', 'mqdefault.jpg', $image);
+        }
+
+        return null;
     }
 }
