@@ -8,7 +8,7 @@
     "yiisoft/yii2": "2.0.34"
   },
   "require-dev": {
-    "vlucas/phpdotenv": "4.1.2",
+    "vlucas/phpdotenv": "4.1.3",
     "yiisoft/yii2-debug": "2.1.13",
     "codeception/module-yii2": "1.1.0",
     "codeception/module-webdriver": "1.0.6"
