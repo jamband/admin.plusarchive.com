@@ -13,7 +13,7 @@
     "yii2-pjax": "^2.0.7"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.0",
     "compression-webpack-plugin": "^4.0.0",
     "css-loader": "^3.5.3",
     "eslint": "^7.0.0",
