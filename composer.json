@@ -8,10 +8,10 @@
     "yiisoft/yii2": "2.0.35"
   },
   "require-dev": {
-    "vlucas/phpdotenv": "4.1.5",
+    "vlucas/phpdotenv": "4.1.6",
     "yiisoft/yii2-debug": "2.1.13",
     "codeception/module-yii2": "1.1.0",
-    "codeception/module-webdriver": "1.0.8"
+    "codeception/module-webdriver": "1.1.0"
   },
   "provide": {
     "bower-asset/jquery": "*",
