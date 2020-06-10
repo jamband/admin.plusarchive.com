@@ -36,17 +36,17 @@ return [
         ],
         'db' => [
             'class' => yii\db\Connection::class,
-            'dsn' => getenv('DB_DSN'),
-            'username' => getenv('DB_USER'),
-            'password' => getenv('DB_PASS'),
+            'dsn' => $_SERVER['DB_DSN'],
+            'username' => $_SERVER['DB_USER'],
+            'password' => $_SERVER['DB_PASS'],
             'charset' => 'utf8',
             'enableSchemaCache' => true,
         ],
         'hashids' => [
             'class' => app\components\Hashids::class,
-            'salt' => getenv('HASHIDS_SALT'),
+            'salt' => $_SERVER['HASHIDS_SALT'],
             'minHashLength' => 11,
-            'alphabet' => getenv('HASHIDS_ALPHABET'),
+            'alphabet' => $_SERVER['HASHIDS_ALPHABET'],
         ],
     ],
 ];

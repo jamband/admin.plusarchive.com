@@ -15,7 +15,7 @@ $config = [
     // 'catchAll' => ['site/offline/index'],
     'components' => [
         'request' => [
-            'cookieValidationKey' => getenv('COOKIE_VALIDATION_KEY'),
+            'cookieValidationKey' => $_SERVER['COOKIE_VALIDATION_KEY'],
         ],
         'user' => [
             'identityClass' => app\models\User::class,
