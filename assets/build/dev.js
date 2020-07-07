@@ -1,8 +1,8 @@
 const common = require('./common')
 const plugins = require('./plugins')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 
-module.exports = merge.smart(common, {
+module.exports = merge(common, {
   mode: 'development',
   output: {
     filename: '[name].js'
