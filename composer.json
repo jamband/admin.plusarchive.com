@@ -23,7 +23,7 @@
     "files": ["helpers/functions.php"]
   },
   "scripts": {
-    "dev": "composer install --quiet && npm install --silent && npm run dev",
+    "dev": "composer install --quiet && yarn && yarn dev",
     "clean": "rm -rf node_modules runtime/* tests/_output/* vendor web/assets/*",
     "show-asset-version": "composer show --tree | grep -o 'bower-asset.*' | sort | uniq"
   }
