@@ -2,7 +2,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
-    "bootstrap": "^4.5.1",
+    "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "lazysizes": "^5.2.2",
     "loaders.css": "^0.1.2",
@@ -15,7 +15,7 @@
   "devDependencies": {
     "autoprefixer": "^9.8.6",
     "compression-webpack-plugin": "^4.0.0",
-    "css-loader": "^4.2.0",
+    "css-loader": "^4.2.1",
     "eslint": "^7.6.0",
     "fibers": "^5.0.0",
     "file-loader": "^6.0.0",
@@ -25,7 +25,7 @@
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-loader": "^3.0.0",
     "sass": "^1.26.10",
-    "sass-loader": "^9.0.2",
+    "sass-loader": "^9.0.3",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-manifest-plugin": "^2.2.0",
