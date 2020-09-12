@@ -23,10 +23,12 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: [
-                require('postcss-flexbugs-fixes')(),
-                require('autoprefixer')()
-              ]
+              postcssOptions: {
+                plugins: [
+                  require('postcss-flexbugs-fixes')(),
+                  require('autoprefixer')()
+                ]
+              }
             }
           },
           {
