@@ -1,8 +1,8 @@
 {
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.14.0",
-    "bootstrap": "^4.5.2",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "lazysizes": "^5.2.2",
     "loaders.css": "^0.1.2",
@@ -13,24 +13,24 @@
     "yii2-pjax": "^2.0.7"
   },
   "devDependencies": {
-    "autoprefixer": "^10.0.0",
-    "compression-webpack-plugin": "^6.0.2",
-    "css-loader": "^4.3.0",
-    "eslint": "^7.9.0",
+    "autoprefixer": "^10.0.1",
+    "compression-webpack-plugin": "^6.0.3",
+    "css-loader": "^5.0.0",
+    "eslint": "^7.11.0",
     "fibers": "^5.0.0",
-    "file-loader": "^6.1.0",
+    "file-loader": "^6.1.1",
     "license-webpack-plugin": "^2.3.0",
-    "mini-css-extract-plugin": "^0.11.2",
+    "mini-css-extract-plugin": "^1.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
-    "postcss": "^8.0.9",
+    "postcss": "^8.1.2",
     "postcss-flexbugs-fixes": "^4.2.1",
-    "postcss-loader": "^4.0.2",
-    "sass": "^1.26.11",
-    "sass-loader": "^10.0.2",
+    "postcss-loader": "^4.0.4",
+    "sass": "^1.27.0",
+    "sass-loader": "^10.0.3",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-manifest-plugin": "^2.2.0",
-    "webpack-merge": "^5.1.4"
+    "webpack-merge": "^5.2.0"
   },
   "browserslist": [
     "last 2 versions"
