@@ -11,7 +11,8 @@
     "vlucas/phpdotenv": "5.2.0",
     "yiisoft/yii2-debug": "2.1.13",
     "codeception/module-yii2": "1.1.1",
-    "codeception/module-webdriver": "1.1.1"
+    "codeception/module-webdriver": "1.1.2",
+    "codeception/module-filesystem": "1.0.2"
   },
   "provide": {
     "bower-asset/jquery": "*",
