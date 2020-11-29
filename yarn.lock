@@ -428,13 +428,13 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-autoprefixer@^10.0.2:
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.0.2.tgz#a79f9a02bfb95c621998776ac0d85f8f855b367e"
-  integrity sha512-okBmu9OMdt6DNEcZmnl0IYVv8Xl/xYWRSnc2OJ9UJEOt1u30opG1B8aLsViqKryBaYv1SKB4f85fOGZs5zYxHQ==
+autoprefixer@^10.0.4:
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.0.4.tgz#f87ac6105d7861e31af794b8ebb1c6d4390d3d55"
+  integrity sha512-hmjYejN/WTyPP9cdNmiwtwqM8/ACVJPD5ExtwoOceQohNbgnFNiwpL2+U4bXS8aXozBL00WvH6WhqbuHf0Fgfg==
   dependencies:
     browserslist "^4.14.7"
-    caniuse-lite "^1.0.30001157"
+    caniuse-lite "^1.0.30001161"
     colorette "^1.2.1"
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
@@ -764,6 +764,11 @@ caniuse-lite@^1.0.30001157:
   version "1.0.30001157"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001157.tgz#2d11aaeb239b340bc1aa730eca18a37fdb07a9ab"
   integrity sha512-gOerH9Wz2IRZ2ZPdMfBvyOi3cjaz4O4dgNwPGzx8EhqAs4+2IL/O+fJsbt+znSigujoZG8bVcIAUM/I/E5K3MA==
+
+caniuse-lite@^1.0.30001161:
+  version "1.0.30001161"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001161.tgz#64f7ffe79ee780b8c92843ff34feb36cea4651e0"
+  integrity sha512-JharrCDxOqPLBULF9/SPa6yMcBRTjZARJ6sc3cuKrPfyIk64JN6kuMINWqA99Xc8uElMFcROliwtz0n9pYej+g==
 
 chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
@@ -3614,6 +3619,16 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.27:
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
+postcss@^8.1.10:
+  version "8.1.10"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.10.tgz#129834f94c720554d2cfdaeb27d5542ac4a026ea"
+  integrity sha512-iBXEV5VTTYaRRdxiFYzTtuv2lGMQBExqkZKSzkJe+Fl6rvQrA/49UVGKqB+LG54hpW/TtDBMGds8j33GFNW7pg==
+  dependencies:
+    colorette "^1.2.1"
+    nanoid "^3.1.18"
+    source-map "^0.6.1"
+    vfile-location "^3.2.0"
+
 postcss@^8.1.4:
   version "8.1.4"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.4.tgz#356dfef367a70f3d04347f74560c85846e20e4c1"
@@ -3623,16 +3638,6 @@ postcss@^8.1.4:
     line-column "^1.0.2"
     nanoid "^3.1.15"
     source-map "^0.6.1"
-
-postcss@^8.1.9:
-  version "8.1.9"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.9.tgz#20ff4b598a6f5015c5f7fe524b8ed5313d7ecade"
-  integrity sha512-oWuBpEl1meaMKkQXn0ic78TUrgsMvrAZLE/6ZY0H3LTteq2O3L8PGWwMbPLctpksTJIHjQeossMUMNQW7qRIHQ==
-  dependencies:
-    colorette "^1.2.1"
-    nanoid "^3.1.18"
-    source-map "^0.6.1"
-    vfile-location "^3.2.0"
 
 prelude-ls@^1.2.1:
   version "1.2.1"

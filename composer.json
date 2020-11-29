@@ -4,8 +4,8 @@
     "ext-json": "*",
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.8.0",
-    "hashids/hashids": "4.0.0",
-    "yiisoft/yii2": "2.0.39.2"
+    "hashids/hashids": "4.1.0",
+    "yiisoft/yii2": "2.0.39.3"
   },
   "require-dev": {
     "vlucas/phpdotenv": "5.2.0",
