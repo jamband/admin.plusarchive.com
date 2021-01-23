@@ -25,7 +25,6 @@ module.exports = {
             options: {
               postcssOptions: {
                 plugins: [
-                  require('postcss-flexbugs-fixes')(),
                   require('autoprefixer')()
                 ]
               }
