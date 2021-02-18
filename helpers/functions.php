@@ -129,7 +129,7 @@ if (!function_exists('asset')) {
             : new stdClass;
 
         return property_exists($manifest, $file)
-            ? $manifest->$file
+            ? '/assets/'.$manifest->$file
             : '/assets/'.$file;
     }
 }

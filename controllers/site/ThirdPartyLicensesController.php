@@ -25,7 +25,7 @@ class ThirdPartyLicensesController extends Controller
      */
     public function actionIndex(): string
     {
-        $path = Yii::getAlias('@app/web/assets/licenses.txt');
+        $path = Yii::getAlias('@app/web/'.asset('app.js').'.LICENSE.txt');
 
         return $this->render('//'.$this->id, [
             'licenses' => file_exists($path)

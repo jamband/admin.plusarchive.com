@@ -46,7 +46,6 @@ if (session()->has('privacy-consent')) {
         <a href="<?= url(['/site/privacy/index']) ?>">Privacy</a>
         <a href="<?= url(['/site/third-party-licenses/index']) ?>">Third-Party Licenses</a>
     </footer>
-    <script src="<?= asset('vendor.js') ?>"></script>
     <script src="<?= asset('app.js') ?>"></script>
 <?php $this->endBody() ?>
 </body>

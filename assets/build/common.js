@@ -1,22 +1,21 @@
-const plugins = require('./plugins')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: {
-    vendor: './assets/entries/vendor.js',
-    app: './assets/entries/app.js',
-    admin: './assets/entries/admin.js'
+    app: './assets/entries/app.js'
   },
   output: {
     path: __dirname + '/../../web/assets',
-    publicPath: '/assets/',
-    jsonpFunction: 'plusarchive'
+    publicPath: ''
   },
   module: {
     rules: [
       {
         test: /\.scss$/,
         use: [
-          plugins.CssExtract.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           {
             loader: 'css-loader'
           },
@@ -34,18 +33,11 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.(png|woff|woff2)$/,
+        type: 'asset/resource'
+      },
     ]
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: 'vendor',
-          name: 'vendor',
-          chunks: 'all'
-        }
-      }
-    }
   }
 }

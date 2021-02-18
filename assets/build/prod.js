@@ -1,50 +1,24 @@
 const common = require('./common')
-const plugins = require('./plugins')
 const { merge } = require('webpack-merge')
+const CompressionPlugin = require('compression-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    filename: '[name]-[hash].js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(png|woff|woff2)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name]-[hash].[ext]'
-          }
-        }
-      }
-    ]
-  },
-  optimization: {
-    minimizer: [
-      new plugins.Terser({
-        terserOptions: {
-          output: {
-            comments: false
-          }
-        }
-      })
-    ]
+    filename: '[name].[contenthash].js',
+    assetModuleFilename: '[name][ext]',
   },
   plugins: [
-    new plugins.Compression({
+    new CompressionPlugin({
       test: /\.(js|css)$/
     }),
-    new plugins.CssExtract({
-      filename: '[name]-[contenthash].css'
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
     }),
-    new plugins.License({
-      pattern: /^(.*)$/,
-      perChunkOutput: false
-    }),
-    new plugins.Manifest({
-    }),
-    new plugins.OptimizeCssAssets({
+    new WebpackManifestPlugin({
+      filter: (file) => !file.path.match(/\.(png|woff|woff2)$/)
     })
   ]
 })
