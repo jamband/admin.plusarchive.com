@@ -17,7 +17,7 @@ $this->title = 'Currently in maintenance - '.app()->name;
 ?>
 <div class="row">
     <div class="col-md-5 offset-md-1">
-        <h2>Currently in maintenance</h2>
+        <h1>Currently in maintenance</h1>
         Please wait until the restoration. Thank you.<br>
     </div>
     <div class="col-md-5">

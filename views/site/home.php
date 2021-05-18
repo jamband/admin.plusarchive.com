@@ -17,9 +17,9 @@
 
 $this->title = app()->name;
 ?>
-<h2 class="mb-3">
+<h1 class="mb-3">
     Recent <small class="text-muted">favorite tracks</small>
-</h2>
+</h1>
 <div class="row text-center card-container">
     <?php foreach ($data->models as $model): ?>
         <div class="col-md-4 mb-sm-4">
@@ -60,16 +60,16 @@ $this->title = app()->name;
         </div>
     <?php endforeach ?>
 </div>
-<h2 class="my-2">
+<h1 class="my-2">
     Search
     <small class="text-muted">by genres</small>
-</h2>
+</h1>
 <div class="d-inline-block">
     <?php foreach ($genres as $genre): ?>
         <a href="<?= url(['/tracks', 'genre' => $genre]) ?>" class="badge badge-secondary"><?= h($genre) ?></a>
     <?php endforeach ?>
 </div>
-<div class="text-center pt-3 pb-4 small">
+<div class="text-center pt-3 pb-4">
     <a href="<?= url(['/tracks']) ?>">
         Go to Tracks
     </a>

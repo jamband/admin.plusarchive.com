@@ -20,6 +20,6 @@ class PrivacyCest
     public function ensureThatPrivacyWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/site/privacy/index']));
-        $I->see('Privacy Policy', 'h2');
+        $I->see('Privacy Policy', 'h1');
     }
 }

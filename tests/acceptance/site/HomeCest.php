@@ -27,8 +27,8 @@ class HomeCest
     public function ensureThatAboutWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));
-        $I->see('Recent favorite tracks', 'h2');
-        $I->see('Search by genres', 'h2');
+        $I->see('Recent favorite tracks', 'h1');
+        $I->see('Search by genres', 'h1');
 
         $I->see('track1', '.card-title');
         $I->see('track2', '.card-title');

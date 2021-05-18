@@ -10,7 +10,7 @@
  */
 
 ?>
-<h2>About</h2>
+<h1>About</h1>
 <p>
     <?= h(app()->name) ?> is music archive website for everyday.<br>
     This website is an open source project.

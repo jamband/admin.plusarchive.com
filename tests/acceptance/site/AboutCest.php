@@ -20,6 +20,6 @@ class AboutCest
     public function ensureThatAboutWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/site/about/index']));
-        $I->see('About', 'h2');
+        $I->see('About', 'h1');
     }
 }

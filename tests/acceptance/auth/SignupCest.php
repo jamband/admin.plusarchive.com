@@ -34,7 +34,7 @@ class SignupCest
 
         $I->seeCurrentUrlEquals('/index-test.php');
         $I->click('Signup', '.navbar');
-        $I->see('Sign up', 'h2');
+        $I->see('Sign up', 'h1');
 
         $I->click('button[type=submit]');
         $I->wait(1);

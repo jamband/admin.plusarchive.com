@@ -31,7 +31,7 @@ class IndexCest
         $I->click('Bookmark', '.navbar');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks');
-        $I->see('Bookmarks', 'h2');
+        $I->see('Bookmarks', 'h1');
         $I->see('bookmark1', '.card-container');
         $I->see('bookmark2', '.card-container');
         $I->see('bookmark3', '.card-container');

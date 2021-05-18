@@ -20,6 +20,6 @@ class ContactCest
     public function ensureThatContactWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/site/contact/index']));
-        $I->see('Contact', 'h2');
+        $I->see('Contact', 'h1');
     }
 }

@@ -18,7 +18,7 @@ $this->title = 'Third-Party Licenses - '.app()->name;
 ?>
 <div class="row">
     <div class="col-md-11 offset-md-1">
-        <h2>Third-Party Licenses</h2>
+        <h1>Third-Party Licenses</h1>
         <?= nl2br(h($licenses)) ?>
     </div>
 </div>

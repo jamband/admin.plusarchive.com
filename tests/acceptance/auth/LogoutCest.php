@@ -27,7 +27,7 @@ class LogoutCest
     public function ensureThatLogoutWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/auth/login/index']));
-        $I->see('Log in', 'h2');
+        $I->see('Log in', 'h1');
         $I->dontSee('Logout');
 
         $I->loginAsAdmin();

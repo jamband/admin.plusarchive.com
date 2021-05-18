@@ -37,7 +37,7 @@ $this->title = "$model->title - ".app()->name;
             <?= h($genre->name) ?>
         </a>
     <?php endforeach ?>
-    <div class="text-center small py-2">
+    <div class="text-center py-2">
         <a href="<?= url(['index']) ?>"><i class="fas fa-fw fa-angle-left"></i> Back to tracks</a>
         <span class="text-muted px-1">or</span>
         <a href="<?= url(['/']) ?>">Recent Favorites</a>

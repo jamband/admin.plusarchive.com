@@ -30,7 +30,7 @@ class LoginCest
         $I->dontSee('Login', '.navbar');
 
         $I->amOnPage(url(['/auth/login/index']));
-        $I->see('Log in', 'h2');
+        $I->see('Log in', 'h1');
 
         $I->click('button[type=submit]');
         $I->wait(1);

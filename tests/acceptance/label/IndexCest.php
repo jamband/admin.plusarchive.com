@@ -30,7 +30,7 @@ class IndexCest
         $I->click('Label', '.navbar');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/labels');
-        $I->see('Labels', 'h2');
+        $I->see('Labels', 'h1');
 
         $I->see('label1', '.card-container');
         $I->see('label2', '.card-container');

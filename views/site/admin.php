@@ -19,9 +19,9 @@ $this->title = 'Admin Site - '.app()->name;
 <div class="text-center">
     <?= $this->render('/common/nav/base') ?>
 </div>
-<h2 class="mb-3">
+<h1 class="mb-3">
     Recent <small class="text-muted">favorite tracks</small>
-</h2>
+</h1>
 <div class="row text-center card-container">
     <?php foreach ($tracks as $track): ?>
         <div class="col-md-4 mb-sm-4">

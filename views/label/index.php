@@ -34,7 +34,7 @@ $this->title = 'Labels - '.app()->name;
                 'search' => $search,
                 'total' => $data->totalCount,
             ]) ?>
-            <h2 class="my-2">Labels</h2>
+            <h1 class="my-2">Labels</h1>
         </div>
         <div class="col-sm-8">
             <div class="row card-container">

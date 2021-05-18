@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
 
 // Variables
-@import "./variables/alert";
 @import "./variables/body";
 @import "./variables/badge";
 @import "./variables/card";
@@ -25,21 +24,16 @@
 @import "./vendor/lazysizes";
 @import "./vendor/select2";
 
-// Mixins
-//@import "./mixins/...";
-
 // Components
 @import "./components/layout";
 @import "./components/type";
 @import "./components/dropdowns";
 @import "./components/forms";
-@import "./components/nav";
 @import "./components/navbar";
 @import "./components/responsive-embed";
 @import "./components/pagination";
 @import "./components/views";
 @import "./components/card";
 @import "./components/now-playing";
-@import "./components/playlist";
 @import "./components/toast";
 @import "./components/other";

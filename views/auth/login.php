@@ -21,7 +21,7 @@ $this->title = 'Login - '.app()->name;
 ?>
 <div class="row">
     <div class="col-sm-6 col-md-5 offset-md-1">
-        <h2>Log in</h2>
+        <h1>Log in</h1>
     </div>
     <div class="col-sm-6 col-md-5">
         <?php $form = ActiveForm::begin(['fieldConfig' => ['template' => "{label}\n{input}"]]) ?>

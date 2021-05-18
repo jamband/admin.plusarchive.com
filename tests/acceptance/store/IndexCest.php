@@ -30,7 +30,7 @@ class IndexCest
         $I->amOnPage(url(['/']));
         $I->click('Store', '.navbar');
         $I->seeCurrentUrlEquals('/index-test.php/stores');
-        $I->see('Stores', 'h2');
+        $I->see('Stores', 'h1');
         $I->see('store1', '.card-container');
         $I->see('store2', '.card-container');
         $I->see('store3', '.card-container');

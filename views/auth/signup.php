@@ -21,7 +21,7 @@ $this->title = 'Sign up - '.app()->name;
 ?>
 <div class="row">
     <div class="col-md-5 offset-md-1">
-        <h2>Sign up</h2>
+        <h1>Sign up</h1>
     </div>
     <div class="col-md-5">
         <?php $form = ActiveForm::begin() ?>

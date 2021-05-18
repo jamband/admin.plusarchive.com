@@ -27,6 +27,6 @@ $this->title = "$model->title - ".app()->name;
 <h5 class="text-center my-2">
     <?= h($model->title) ?> <small class="text-muted">via <?= h($model->providerText) ?></small>
 </h5>
-<p class="text-center small">
+<p class="text-center">
     <a href="<?= url(['index']) ?>"><i class="fas fa-fw fa-angle-left"></i> Back to playlists</a>
 </p>

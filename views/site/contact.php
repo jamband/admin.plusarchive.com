@@ -17,7 +17,7 @@ $this->title = 'Contact - '.app()->name;
 ?>
 <div class="row">
     <div class="col-md-5 offset-md-1">
-        <h2>Contact <small class="text-muted">for bugs and question</small></h2>
+        <h1>Contact <small class="text-muted">for bugs and question</small></h1>
         Please to the message via
         <a href="https://twitter.com/livejam_db" rel="noopener" target="_blank">
             <i class="fab fa-twitter"></i> Twitter

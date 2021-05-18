@@ -29,7 +29,7 @@ class IndexCest
         $I->amOnPage(url(['/']));
         $I->click('Playlist', '.navbar');
         $I->seeCurrentUrlEquals('/index-test.php/playlists');
-        $I->see('Playlists', 'h2');
+        $I->see('Playlists', 'h1');
         $I->see('playlist1', '.playlist-title');
         $I->see('playlist2', '.playlist-title');
         $I->see('playlist3', '.playlist-title');
