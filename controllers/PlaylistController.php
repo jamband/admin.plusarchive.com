@@ -107,7 +107,7 @@ class PlaylistController extends Controller
         $model = new PlaylistCreateForm;
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Playlist has been added.');
+            session()->setFlash('notification', 'Playlist has been added.');
 
             return $this->redirect(['admin']);
         }
@@ -132,7 +132,7 @@ class PlaylistController extends Controller
         }
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Playlist has been updated.');
+            session()->setFlash('notification', 'Playlist has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -151,7 +151,7 @@ class PlaylistController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('success', 'Playlist has been deleted.');
+        session()->setFlash('notification', 'Playlist has been deleted.');
 
         return $this->redirect(['admin']);
     }

@@ -14,8 +14,6 @@
  * @var string $content
  */
 
-use app\widgets\ToastrNotification;
-
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -32,7 +30,9 @@ use app\widgets\ToastrNotification;
 </head>
 <body>
 <?php $this->beginBody() ?>
-    <?= ToastrNotification::widget() ?>
+    <?php if (session()->hasFlash('notification')): ?>
+        <?= $this->render('/common/notification') ?>
+    <?php endif ?>
     <?= $this->render('navbar') ?>
     <div class="container layout-main">
         <?= $content ?>

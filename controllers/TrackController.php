@@ -150,7 +150,7 @@ class TrackController extends Controller
         $model = new TrackCreateForm;
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'New track has been added.');
+            session()->setFlash('notification', 'New track has been added.');
 
             return $this->redirect(['admin']);
         }
@@ -175,7 +175,7 @@ class TrackController extends Controller
         }
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Track has been updated.');
+            session()->setFlash('notification', 'Track has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -194,7 +194,7 @@ class TrackController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('success', 'Track has been deleted.');
+        session()->setFlash('notification', 'Track has been deleted.');
 
         return $this->redirect(['admin']);
     }

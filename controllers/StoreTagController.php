@@ -71,7 +71,7 @@ class StoreTagController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Store tag has been updated.');
+            session()->setFlash('notification', 'Store tag has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -90,7 +90,7 @@ class StoreTagController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('success', 'Store tag has been deleted.');
+        session()->setFlash('notification', 'Store tag has been deleted.');
 
         return $this->redirect(['admin']);
     }

@@ -103,7 +103,7 @@ class StoreController extends Controller
         $model = new Store;
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Store has been added.');
+            session()->setFlash('notification', 'Store has been added.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -124,7 +124,7 @@ class StoreController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Store has been updated.');
+            session()->setFlash('notification', 'Store has been updated.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -143,7 +143,7 @@ class StoreController extends Controller
     public function actionDelete(int $id)
     {
         $this->findModel($id)->delete();
-        session()->setFlash('success', 'Store has been deleted.');
+        session()->setFlash('notification', 'Store has been deleted.');
 
         return $this->redirect(['admin']);
     }

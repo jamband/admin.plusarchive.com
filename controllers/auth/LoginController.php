@@ -33,7 +33,7 @@ class LoginController extends Controller
         $model = new LoginForm;
 
         if ($model->load(request()->post()) && $model->login()) {
-            session()->setFlash('success', 'Logged in successfully.');
+            session()->setFlash('notification', 'Logged in successfully.');
 
             return $this->goBack();
         }

@@ -17,6 +17,7 @@
 @import "./variables/spacing";
 @import "./variables/system-color";
 @import "./variables/tables";
+@import "./variables/toasts";
 
 // Vendor
 @import "./vendor/fontawesome";
@@ -40,4 +41,5 @@
 @import "./components/card";
 @import "./components/now-playing";
 @import "./components/playlist";
+@import "./components/toast";
 @import "./components/other";

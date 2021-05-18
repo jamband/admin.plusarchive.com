@@ -53,7 +53,7 @@ class LogoutController extends Controller
     public function actionIndex(): Response
     {
         user()->logout();
-        session()->setFlash('success', 'Logged out successfully.');
+        session()->setFlash('notification', 'Logged out successfully.');
 
         return $this->goHome();
     }

@@ -101,13 +101,6 @@ $config = [
             yii\widgets\Pjax::class => [
                 'scrollTo' => 0,
             ],
-            app\widgets\ToastrNotification::class => [
-                'options' => [
-                    'escapeHtml' => true,
-                    'timeOut' => 3600,
-                    'positionClass' => 'toast-bottom-full-width',
-                ],
-            ],
         ],
     ],
     'params' => [

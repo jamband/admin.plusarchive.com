@@ -103,7 +103,7 @@ class LabelController extends Controller
         $model = new Label;
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Label has been added.');
+            session()->setFlash('notification', 'Label has been added.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -124,7 +124,7 @@ class LabelController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Label has been updated.');
+            session()->setFlash('notification', 'Label has been updated.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -143,7 +143,7 @@ class LabelController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('success', 'Label has been deleted.');
+        session()->setFlash('notification', 'Label has been deleted.');
 
         return $this->redirect(['admin']);
     }

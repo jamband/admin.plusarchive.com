@@ -52,7 +52,7 @@ class SignupController extends Controller
             $user = $model->signup();
 
             if (null !== $user && user()->login($user)) {
-                session()->setFlash('success', 'Signed up successfully.');
+                session()->setFlash('notification', 'Signed up successfully.');
 
                 return $this->goBack();
             }

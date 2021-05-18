@@ -71,7 +71,7 @@ class MusicGenreController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('success', 'Music genre has been updated.');
+            session()->setFlash('notification', 'Music genre has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -91,7 +91,7 @@ class MusicGenreController extends Controller
     {
         $this->findModel($id)->delete();
 
-        session()->setFlash('success', 'Music genre has been deleted.');
+        session()->setFlash('notification', 'Music genre has been deleted.');
         return $this->redirect(['admin']);
     }
 
