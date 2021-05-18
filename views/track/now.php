@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="now-playing-loading">
-            <div class="line-scale"><div></div><div></div><div></div><div></div><div></div></div>
+            <span>.</span><span>.</span><span>.</span>
         </div>
     </div>
 </div>

@@ -1,5 +1,10 @@
 @import "../variables/body";
 
+@keyframes loading {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 .now-playing-clear {
   cursor: pointer;
 }
@@ -16,6 +21,20 @@
 }
 
 .now-playing-loading {
-  margin-top: 3px;
-  color: $gray-800;
+  color: lightgray;
+  font-size: 200%;
+  font-weight: bold;
+  pointer-events: none;
+
+  > span {
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-name: loading;
+    animation-timing-function: ease;
+
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+  }
+
 }
