@@ -38,7 +38,7 @@ use app\widgets\ToastrNotification;
     </div>
     <footer class="fixed-bottom p-3 text-center bg-dark font-weight-bold">
         <?php if (session()->has('privacy-consent')): ?>
-            <?= $this->render('/common/js/analytics-tracking.php') ?>
+            <?= $this->render('/common/analytics-tracking.php') ?>
         <?php else: ?>
             <?= $this->render('/common/privacy-consent') ?>
         <?php endif ?>
