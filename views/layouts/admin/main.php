@@ -38,8 +38,7 @@ use app\widgets\ToastrNotification;
         <?= $content ?>
     </div>
     <footer class="footer">
-        <a href="<?= url(['/site/privacy/index']) ?>">Privacy</a>
-        <a href="<?= url(['/site/third-party-licenses/index']) ?>">Third-Party Licenses</a>
+        <?= h(app()->name) ?>
     </footer>
     <script src="<?= asset('app.js') ?>"></script>
 <?php $this->endBody() ?>

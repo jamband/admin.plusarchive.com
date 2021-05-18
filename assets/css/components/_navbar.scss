@@ -14,3 +14,9 @@
     }
   }
 }
+
+.nav-link.active {
+  @include media-breakpoint-up(md) {
+    background: linear-gradient(transparent 92%, var(--primary) 92%);
+  }
+}

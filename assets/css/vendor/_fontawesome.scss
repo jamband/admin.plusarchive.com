@@ -59,6 +59,7 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 .#{$fa-css-prefix}-bandcamp:before { content: fa-content($fa-var-bandcamp); }
 .#{$fa-css-prefix}-clock:before { content: fa-content($fa-var-clock); }
 .#{$fa-css-prefix}-edit:before { content: fa-content($fa-var-edit); }
+.#{$fa-css-prefix}-ellipsis-h:before { content: fa-content($fa-var-ellipsis-h); }
 .#{$fa-css-prefix}-external-link-alt:before { content: fa-content($fa-var-external-link-alt); }
 .#{$fa-css-prefix}-eye:before { content: fa-content($fa-var-eye); }
 .#{$fa-css-prefix}-facebook-square:before { content: fa-content($fa-var-facebook-square); }

@@ -22,31 +22,33 @@ $cid = app()->controller->id;
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item<?= 'track' === $cid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/track/index']) ?>">Track</a>
-                </li>
-                <li class="nav-item<?= 'playlist' === $cid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/playlist/index']) ?>">Playlist</a>
-                </li>
-                <li class="nav-item<?= 'label' === $cid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/label/index']) ?>">Label</a>
-                </li>
-                <li class="nav-item<?= 'store' === $cid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/store/index']) ?>">Store</a>
-                </li>
-                <li class="nav-item<?= 'bookmark' === $cid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/bookmark/index']) ?>">Bookmark</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item<?= 'site/contact' === $cid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/site/contact/index']) ?>">Contact</a>
-                </li>
-                <li class="nav-item<?= 'site/about' === $cid ? ' active' : '' ?>">
-                    <a class="nav-link" href="<?= url(['/site/about/index']) ?>">About</a>
-                </li>
-            </ul>
+            <div class="d-md-none navbar-nav">
+                <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= url(['/track/index']) ?>">Track</a>
+                <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= url(['/playlist/index']) ?>">Playlist</a>
+                <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= url(['/label/index']) ?>">Label</a>
+                <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= url(['/store/index']) ?>">Store</a>
+                <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= url(['/bookmark/index']) ?>">Bookmark</a>
+                <a class="nav-link<?= 'site/contact' === $cid ? ' active' : '' ?>" href="<?= url(['/site/contact/index']) ?>">Contact</a>
+                <a class="nav-link<?= 'site/about' === $cid ? ' active' : '' ?>" href="<?= url(['/site/about/index']) ?>">About</a>
+            </div>
+            <div class="d-none d-md-flex navbar-nav">
+                <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= url(['/track/index']) ?>">Track</a>
+                <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= url(['/playlist/index']) ?>">Playlist</a>
+                <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= url(['/label/index']) ?>">Label</a>
+                <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= url(['/store/index']) ?>">Store</a>
+                <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= url(['/bookmark/index']) ?>">Bookmark</a>
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMoreLinks" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMoreLinks">
+                        <a class="dropdown-item" href="<?= url(['/site/about/index']) ?>">About</a>
+                        <a class="dropdown-item" href="<?= url(['/site/privacy/index']) ?>">Privacy</a>
+                        <a class="dropdown-item" href="<?= url(['/site/contact/index']) ?>">Contact</a>
+                        <a class="dropdown-item" href="<?= url(['/site/third-party-licenses/index']) ?>">Third Party Licenses</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
