@@ -1,5 +1,5 @@
-@import "components";
-@import "body";
+@import "./components";
+@import "./body";
 
 $input-bg:                              darken($gray-900, 1%);
 $input-color:                           darken($gray-400, 15%);

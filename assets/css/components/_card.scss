@@ -1,6 +1,6 @@
 @import "../variables/body";
 @import "../variables/components";
-@import "~bootstrap/scss/mixins/breakpoints";
+@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
 @keyframes fade-in {
   from {opacity: 0 } to { opacity: .6 }

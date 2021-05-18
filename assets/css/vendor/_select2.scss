@@ -1,9 +1,9 @@
-@import "~bootstrap/scss/mixins/box-shadow";
+@import "../../../node_modules/bootstrap/scss/mixins/box-shadow";
 @import "../variables/components";
 @import "../variables/body";
 @import "../variables/dropdown";
 @import "../variables/forms";
-@import "~select2/src/scss/core";
+@import "../../../node_modules/select2/src/scss/core";
 
 .select2-container--default {
   border-radius: $border-radius;

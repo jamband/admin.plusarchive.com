@@ -18,8 +18,6 @@ require('lazysizes/lazysizes')
 
 require('select2/dist/js/select2')
 
-window.toastr = require('toastr/toastr')
-
 // images
 require('../images/favicon.png')
 require('../images/apple-touch-icon.png')
