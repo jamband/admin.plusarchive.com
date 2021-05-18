@@ -37,3 +37,5 @@ $(document).on('pjax:end', function () {
 });
 JS
 );
+?>
+<?= h(app()->name) ?>

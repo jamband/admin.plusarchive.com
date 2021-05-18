@@ -34,11 +34,12 @@ use app\widgets\ToastrNotification;
 <?php $this->beginBody() ?>
     <?= ToastrNotification::widget() ?>
     <?= $this->render('navbar') ?>
-    <div class="container">
+    <div class="container layout-main">
         <?= $content ?>
     </div>
-    <footer class="footer">
-        <?= h(app()->name) ?>
+    <footer class="fixed-bottom p-3 bg-dark text-center font-weight-bold">
+        <i class="fas fa-info-circle"></i>
+        Currently logged in as an administrator.
     </footer>
     <script src="<?= asset('app.js') ?>"></script>
 <?php $this->endBody() ?>

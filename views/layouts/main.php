@@ -15,12 +15,6 @@
  */
 
 use app\widgets\ToastrNotification;
-
-if (session()->has('privacy-consent')) {
-    $this->render('/common/js/analytics-tracking');
-} else {
-    $this->render('/common/js/privacy-consent');
-}
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -39,11 +33,15 @@ if (session()->has('privacy-consent')) {
 <?php $this->beginBody() ?>
     <?= ToastrNotification::widget() ?>
     <?= $this->render('navbar') ?>
-    <div class="container">
+    <div class="container layout-main">
         <?= $content ?>
     </div>
-    <footer class="footer">
-        <?= h(app()->name) ?>
+    <footer class="fixed-bottom p-3 text-center bg-dark font-weight-bold">
+        <?php if (session()->has('privacy-consent')): ?>
+            <?= $this->render('/common/js/analytics-tracking.php') ?>
+        <?php else: ?>
+            <?= $this->render('/common/privacy-consent') ?>
+        <?php endif ?>
     </footer>
     <script src="<?= asset('app.js') ?>"></script>
 <?php $this->endBody() ?>
