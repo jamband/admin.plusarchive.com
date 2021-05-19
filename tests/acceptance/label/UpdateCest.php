@@ -37,13 +37,11 @@ class UpdateCest
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/label/admin');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/label/create');
         $I->moveBack();
 
@@ -54,18 +52,18 @@ class UpdateCest
 
         $I->fillField('#label-name', '');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeElement('.is-invalid');
 
         $I->fillField('#label-name', 'label-one');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/label/1');
         $I->see('label has been updated.');
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see('Admin: 3', '#menu-action');
         $I->see('label-one', '.grid-view');
         $I->dontSee('label1', '.grid-view');
@@ -75,12 +73,13 @@ class UpdateCest
 
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeInPopup('Are you sure?');
         $I->cancelPopup();
 
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/label/admin');
         $I->see('Admin: 2', '#menu-action');
         $I->dontSee('label-one', '.grid-view');

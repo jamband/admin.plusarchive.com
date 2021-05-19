@@ -31,8 +31,6 @@ class AdminCest
         $I->seePageNotFound(['/site/admin/index']);
 
         $I->loginAsAdmin();
-        $I->wait(1);
-
         $I->amOnPage(url(['/site/admin/index']));
 
         $I->click('#menu-controller');

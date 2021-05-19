@@ -41,7 +41,7 @@ class UpdateCest
 
         $I->fillField('#trackupdateform-title', 'Updated Title');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
 
         $I->seeCurrentUrlEquals('/index-test.php/track/admin');
         $I->see('Track has been updated.');

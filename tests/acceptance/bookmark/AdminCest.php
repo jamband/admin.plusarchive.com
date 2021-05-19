@@ -40,7 +40,7 @@ class AdminCest
 
         $I->fillField('input[name="BookmarkSearch[name]"]', 4);
         $I->pressKey(['name' => 'BookmarkSearch[name]'], WebDriverKeys::ENTER);
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see('Admin: 1', '#menu-action');
         $I->see('bookmark4', '.grid-view');
         $I->dontSee('bookmark1', '.grid-view');
@@ -49,7 +49,6 @@ class AdminCest
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->see('Admin: 4', '#menu-action');
         $I->see('bookmark1', '.grid-view');
         $I->see('bookmark2', '.grid-view');
@@ -57,7 +56,7 @@ class AdminCest
         $I->see('bookmark4', '.grid-view');
 
         $I->selectOption('select[name="BookmarkSearch[country]"]', 'Japan');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see('Admin: 2', '#menu-action');
         $I->see('Japan', '.grid-view');
         $I->dontSee('bookmark2', '.grid-view');
@@ -67,7 +66,7 @@ class AdminCest
         $I->click('Admin', '#menu-action + .dropdown-menu');
         $I->fillField('input[name="BookmarkSearch[link]"]', 'you');
         $I->pressKey(['name' => 'BookmarkSearch[link]'], WebDriverKeys::ENTER);
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see('Admin: 1', '#menu-action');
         $I->see('bookmark4', '.grid-view');
         $I->seeElement('.fa-youtube-square');
@@ -77,7 +76,6 @@ class AdminCest
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->see('Admin: 4', '#menu-action');
         $I->see('bookmark1', '.grid-view');
         $I->see('bookmark2', '.grid-view');

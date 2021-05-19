@@ -39,7 +39,7 @@ class AdminCest
 
         $I->fillField('input[name="LabelTagSearch[name]"]', 3);
         $I->pressKey(['name' => 'LabelTagSearch[name]'], WebDriverKeys::ENTER);
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see('Admin: 1', '#menu-action');
         $I->see('tag3', '.grid-view');
         $I->dontSee('tag1', '.grid-view');
@@ -47,7 +47,6 @@ class AdminCest
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->see('Admin: 3', '#menu-action');
         $I->see('tag1', '.grid-view');
         $I->see('tag2', '.grid-view');

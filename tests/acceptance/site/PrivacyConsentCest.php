@@ -26,7 +26,7 @@ class PrivacyConsentCest
         $I->seeCurrentUrlEquals('/index-test.php/privacy');
 
         $I->click('ACCEPT', 'footer');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see(app()->name, 'footer');
     }
 }

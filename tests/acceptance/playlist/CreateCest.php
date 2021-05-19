@@ -38,12 +38,12 @@ class CreateCest
         $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
 
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeElement('.is-invalid');
 
         $I->fillField('#playlistcreateform-url', 'https://www.youtube.com/playlist?list=foo');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
 
         $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
         $I->see('Playlist has been added.');

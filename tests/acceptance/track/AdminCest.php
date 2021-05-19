@@ -41,7 +41,7 @@ class AdminCest
 
         $I->click('#search-provider');
         $I->click('Bandcamp', '#search-provider + .dropdown-menu');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=Bandcamp');
         $I->dontSee('Providers', '#search-provider');
         $I->see('Bandcamp', '#search-provider');
@@ -51,14 +51,14 @@ class AdminCest
 
         $I->click('#search-genre');
         $I->click('genre2', '#search-genre + .dropdown-menu');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=Bandcamp&genre=genre2');
         $I->see('Admin: 0', '#menu-action');
         $I->dontSee('Genres', '#search-genre');
         $I->see('genre2', '#search-genre');
 
-        $I->click('Reset All', '.card-body');
-        $I->wait(1);
+        $I->click('Reset All');
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/track/admin');
         $I->see('Providers', '#search-provider');
         $I->dontSee('Bandcamp', '#search-provider');
@@ -68,13 +68,13 @@ class AdminCest
 
         $I->fillField(['name' => 'search'], '5');
         $I->pressKey('input[name=search]', WebDriverKeys::ENTER);
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeInField(['name' => 'search'], '5');
         $I->see('Admin: 1', '#menu-action');
         $I->see('track5', '.card-title');
 
         $I->click('YouTube', '.card-img-wrap + .card-body');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=YouTube');
         $I->see('YouTube', '.dropdown-toggle');
         $I->see('Admin: 2', '#menu-action');

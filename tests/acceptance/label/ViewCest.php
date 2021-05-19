@@ -31,7 +31,6 @@ class ViewCest
 
         $I->amOnPage(url(['/label/admin']));
         $I->click('//*[@id="grid-view-label"]/table/tbody/tr[1]/td[7]/a[1]/i');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/label/1');
         $I->see('Label', '#menu-controller');
         $I->see('View', '#menu-action');
@@ -39,30 +38,28 @@ class ViewCest
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/label/admin');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/label/create');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Update', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/label/update/1');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeInPopup('Are you sure?');
         $I->cancelPopup();
 
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/label/admin');
         $I->see('Admin: 2', '#menu-action');
     }

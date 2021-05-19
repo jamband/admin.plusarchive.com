@@ -40,9 +40,8 @@ class IndexCest
         $I->see('3 results');
 
         $I->click('Countries', '.col-sm-4');
-        $I->wait(1);
         $I->click('Japan', '.col-sm-4');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/stores?country=Japan');
         $I->see('store1', '.card-container');
         $I->dontSee('store2', '.card-container');
@@ -51,7 +50,7 @@ class IndexCest
 
         $I->fillField('input[name=search]', '1');
         $I->pressKey('input[name=search]', WebDriverKeys::ENTER);
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/stores?search=1');
         $I->see('1 results');
         $I->see('store1', '.card-container');
@@ -59,7 +58,7 @@ class IndexCest
         $I->dontSee('store3', '.card-container');
 
         $I->click('Reset All');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/stores');
         $I->see('3 results');
     }

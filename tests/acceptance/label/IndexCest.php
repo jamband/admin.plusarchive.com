@@ -28,7 +28,6 @@ class IndexCest
     {
         $I->amOnPage(url(['/']));
         $I->click('Label', '#navbar');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/labels');
         $I->see('Labels', 'h1');
 
@@ -41,9 +40,8 @@ class IndexCest
         $I->see('3 results');
 
         $I->click('Countries', '.col-sm-4');
-        $I->wait(1);
         $I->click('Japan', '.col-sm-4');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/labels?country=Japan');
         $I->see('label1', '.card-container');
         $I->dontSee('label2', '.card-container');
@@ -52,7 +50,7 @@ class IndexCest
 
         $I->click('Reset All');
         $I->seeCurrentUrlEquals('/index-test.php/labels');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see('3 results');
     }
 }

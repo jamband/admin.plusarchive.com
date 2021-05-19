@@ -34,13 +34,12 @@ class CreateCest
 
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
 
         $I->fillField('#bookmark-name', 'newbookmark');
         $I->fillField('#bookmark-url', 'https://newbookmark.example.com');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see('Bookmark has been added.');
         $I->seeCurrentUrlEquals('/index-test.php/bookmark/5');
 

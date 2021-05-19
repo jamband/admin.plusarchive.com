@@ -37,13 +37,13 @@ class CreateCest
         $I->see('Track', '#menu-controller');
         $I->see('Create', '#menu-action');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeElement('.is-invalid');
 
         $I->fillField('#trackcreateform-url', 'https://www.youtube.com/watch?v=foo');
         $I->selectOption('#trackcreateform-tagvalues', ['genre1', 'genre2']);
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
 
         $I->seeCurrentUrlEquals('/index-test.php/track/admin');
         $I->see('Track has been added.');

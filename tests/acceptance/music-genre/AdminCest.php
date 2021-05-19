@@ -39,7 +39,7 @@ class AdminCest
 
         $I->fillField('input[name="MusicGenreSearch[name]"]', 3);
         $I->pressKey(['name' => 'MusicGenreSearch[name]'], WebDriverKeys::ENTER);
-        $I->wait(1);
+        $I->wait(0.5);
         $I->see('Admin: 1', '#menu-action');
         $I->see('genre3', '.grid-view');
         $I->dontSee('genre1', '.grid-view');

@@ -29,7 +29,6 @@ class IndexCest
     {
         $I->amOnPage(url(['/']));
         $I->click('Bookmark', '#navbar');
-        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks');
         $I->see('Bookmarks', 'h1');
         $I->see('bookmark1', '.card-container');
@@ -41,7 +40,7 @@ class IndexCest
 
         $I->click('Countries', '.col-sm-4');
         $I->click('Japan', '.col-sm-4');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks?country=Japan');
         $I->see('bookmark1', '.card-container');
         $I->dontSee('bookmark2', '.card-container');
@@ -50,7 +49,7 @@ class IndexCest
 
         $I->fillField('input[name=search]', '1');
         $I->pressKey('input[name=search]', WebDriverKeys::ENTER);
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks?search=1');
         $I->see('1 results');
         $I->see('bookmark1', '.card-container');
@@ -58,7 +57,7 @@ class IndexCest
         $I->dontSee('bookmark3', '.card-container');
 
         $I->click('Reset All');
-        $I->wait(1);
+        $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks');
         $I->see('4 results');
     }

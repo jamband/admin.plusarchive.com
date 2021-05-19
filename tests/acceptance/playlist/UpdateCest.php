@@ -40,7 +40,7 @@ class UpdateCest
 
         $I->fillField('#playlistupdateform-title', 'Updated Title');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->wait(0.5);
 
         $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
         $I->see('Playlist has been updated.');
