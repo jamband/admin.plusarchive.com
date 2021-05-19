@@ -28,12 +28,12 @@ $this->title = "$model->title - ".app()->name;
     </div>
 <div class="text-center">
     <h5 class="pt-3"><?= h($model->title) ?></h5>
-    <a class="badge badge-secondary" href="<?= url(['index', 'provider' => $model->providerText]) ?>">
+    <a class="tag" href="<?= url(['index', 'provider' => $model->providerText]) ?>">
         <?= h($model->providerText) ?>
     </a>
     <?php /** @var MusicGenre $genre */ ?>
     <?php foreach ($model->musicGenres as $genre): ?>
-        <a class="badge badge-secondary" href="<?= url(['index', 'genre' => $genre->name]) ?>">
+        <a class="tag" href="<?= url(['index', 'genre' => $genre->name]) ?>">
             <?= h($genre->name) ?>
         </a>
     <?php endforeach ?>

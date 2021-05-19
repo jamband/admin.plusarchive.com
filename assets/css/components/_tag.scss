@@ -1,0 +1,17 @@
+@import "../../../node_modules/bootstrap/scss/mixins/transition";
+
+.tag {
+  color: var(--secondary);
+  display: inline-block;
+  line-height: 1;
+  margin-right: 0.8rem;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+
+  @include transition();
+
+  &:hover {
+    color: var(--light);
+  }
+}

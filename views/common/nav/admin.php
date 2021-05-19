@@ -19,7 +19,7 @@
 <div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
     <div class="d-inline-block dropdown">
-        <a id="menu-action" class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+        <a id="menu-action" class="dropdown-toggle tag" href="#" data-toggle="dropdown">
             <?= ucfirst(app()->controller->action->id).': '.number_format($total) ?>
             <i class="fas fa-angle-down fa-fw"></i>
         </a>

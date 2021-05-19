@@ -38,13 +38,13 @@ $this->title = 'Admin Site - '.app()->name;
                     </div>
                     <div class="card-text">
                         <?php foreach ($track->musicGenres as $genre): ?>
-                            <a class="badge badge-secondary" href="<?= url(['/track/admin', 'genre' => $genre->name]) ?>">
+                            <a class="tag" href="<?= url(['/track/admin', 'genre' => $genre->name]) ?>">
                                 <?= h($genre->name) ?>
                             </a>
                         <?php endforeach ?>
                     </div>
                     <div class="card-date">
-                        <a class="badge badge-secondary" href="<?= url(['/track/update', 'id' => $track->id]) ?>" data-pjax="0">
+                        <a class="tag" href="<?= url(['/track/update', 'id' => $track->id]) ?>" data-pjax="0">
                             <i class="fas fa-edit fa-fw"></i> Update
                         </a>
                     </div>

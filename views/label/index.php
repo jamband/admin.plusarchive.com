@@ -43,22 +43,22 @@ $this->title = 'Labels - '.app()->name;
                     <div class="col-sm-6 mb-4">
                         <?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'font-weight-bold']) ?>
                         <br>
-                        <div class="badge badge-secondary">
+                        <div class="tag">
                             <?= h($model->getAttributeLabel('country')) ?>:
                         </div>
                         <?= h($model->country) ?>
                         <br>
-                        <div class="badge badge-secondary">
+                        <div class="tag">
                             <?= h($model->getAttributeLabel('link')) ?>:
                         </div>
                         <?= formatter()->asBrandIconLink($model->link, "\n", ['class' => 'text-secondary']) ?>
                         <br>
-                        <span class="badge badge-secondary">
+                        <span class="tag">
                             <?= h($model->getAttributeLabel('tagValues')) ?>:
                         </span>
                         <?php /** @var LabelTag $tag */ ?>
                         <?php foreach ($model->labelTags as $tag): ?>
-                            <a class="badge badge-secondary" href="<?= url(['', 'tag' => $tag->name]) ?>">
+                            <a class="tag" href="<?= url(['', 'tag' => $tag->name]) ?>">
                                 <?= h($tag->name) ?>
                             </a>
                         <?php endforeach ?>

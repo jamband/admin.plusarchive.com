@@ -24,7 +24,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <iframe src="<?= h($embed) ?>" frameborder="0" data-provider="<?= h($provider) ?>" allowfullscreen></iframe>
-                <a class="badge badge-secondary" href="<?= url(['view', 'id' => $id])?>">
+                <a class="tag" href="<?= url(['view', 'id' => $id])?>">
                     View <i class="fas fa-angle-right fa-fw"></i>
                 </a>
             </div>

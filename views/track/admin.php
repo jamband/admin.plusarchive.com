@@ -62,18 +62,18 @@ $this->title = 'Admin Tracks - '.app()->name;
                             </a>
                         </h6>
                         <div class="card-text">
-                            <a class="badge badge-secondary" href="<?= url(['', 'provider' => $model->providerText]) ?>">
+                            <a class="tag" href="<?= url(['', 'provider' => $model->providerText]) ?>">
                                 <?= h($model->providerText) ?>
                             </a>
                             <?php /** @var MusicGenre $genre */ ?>
                             <?php foreach ($model->musicGenres as $genre): ?>
-                                <a class="badge badge-secondary" href="<?= url(['', 'genre' => $genre->name]) ?>"><?= h($genre->name) ?></a>
+                                <a class="tag" href="<?= url(['', 'genre' => $genre->name]) ?>"><?= h($genre->name) ?></a>
                             <?php endforeach ?>
                             <br>
-                            <a class="badge badge-secondary" href="<?= url(['update', 'id' => $model->id]) ?>" data-pjax="0">
+                            <a class="tag" href="<?= url(['update', 'id' => $model->id]) ?>" data-pjax="0">
                                 <i class="fas fa-edit fa-fw"></i> Update
                             </a>
-                            <a class="badge badge-secondary" href="<?= url(['delete', 'id' => $model->id]) ?>" data-confirm="Are you sure?" data-method="post">
+                            <a class="tag" href="<?= url(['delete', 'id' => $model->id]) ?>" data-confirm="Are you sure?" data-method="post">
                                 <i class="fas fa-trash fa-fw"></i> Delete
                             </a>
                         </div>

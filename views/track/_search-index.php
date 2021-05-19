@@ -28,7 +28,7 @@ use yii\helpers\Url;
             <a class="refresh-link" href="<?= url(['']) ?>"><i class="fas fa-fw fa-redo-alt"></i> Reset All</a>
             <br>
             <div class="d-inline-block dropdown">
-                <a id="search-provider" class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+                <a id="search-provider" class="dropdown-toggle tag" href="#" data-toggle="dropdown">
                     <?= h($provider) ?> <i class="fas fa-angle-down fa-fw"></i>
                 </a>
                 <div class="dropdown-menu">
@@ -40,7 +40,7 @@ use yii\helpers\Url;
                 </div>
             </div>
             <div class="d-inline-block dropdown">
-                <a id="search-genre" class="dropdown-toggle badge badge-secondary" href="#" data-toggle="dropdown">
+                <a id="search-genre" class="dropdown-toggle tag" href="#" data-toggle="dropdown">
                     <?= h($genre) ?> <i class="fas fa-angle-down fa-fw"></i>
                 </a>
                 <div class="dropdown-menu scrollable-menu">

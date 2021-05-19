@@ -57,12 +57,12 @@ $this->title = app()->name;
                             </a>
                         </h6>
                         <div class="card-text">
-                            <a class="badge badge-secondary" href="<?= url(['', 'provider' => $model->providerText]) ?>">
+                            <a class="tag" href="<?= url(['', 'provider' => $model->providerText]) ?>">
                                 <?= h($model->providerText) ?>
                             </a>
                             <?php /** @var MusicGenre $genre */ ?>
                             <?php foreach ($model->musicGenres as $genre): ?>
-                                <a class="badge badge-secondary" href="<?= url(['', 'genre' => $genre->name]) ?>">
+                                <a class="tag" href="<?= url(['', 'genre' => $genre->name]) ?>">
                                     <?= h($genre->name) ?>
                                 </a>
                             <?php endforeach ?>
