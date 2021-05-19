@@ -63,4 +63,3 @@ class TrackCreateFormTest extends Unit
         $this->assertSame(['Folk', 'Rock'], $track->tagValues);
     }
 }
-
