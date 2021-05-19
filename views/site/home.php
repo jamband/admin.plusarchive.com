@@ -31,11 +31,11 @@ $this->title = app()->name;
                     <i class="fas fa-play-circle card-play"></i>
                 </div>
                 <div class="card-body">
-                    <div class="card-title text-white text-truncate">
-                        <a class="text-white" href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>">
+                    <h6 class="card-title">
+                        <a class="text-body" href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>">
                             <?= h($model->title) ?>
                         </a>
-                    </div>
+                    </h6>
                     <div class="card-text">
                         <?php foreach ($model->musicGenres as $genre): ?>
                             <a class="tag" href="<?= url(['/tracks', 'genre' => $genre->name]) ?>">

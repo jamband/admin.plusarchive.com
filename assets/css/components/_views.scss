@@ -2,8 +2,6 @@
 @import "../variables/system-color";
 
 .grid-view {
-  font-size: 85%;
-
   th {
     white-space: nowrap;
   }
@@ -12,10 +10,6 @@
     max-width: 200px;
     word-wrap: break-word;
   }
-}
-
-.detail-view {
-  font-size: 85%;
 }
 
 .not-set {

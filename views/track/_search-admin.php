@@ -25,7 +25,7 @@ use yii\helpers\Url;
 <div class="col-sm-6 col-md-4 mb-4">
     <div class="card">
         <div class="card-body">
-            <a class="refresh-link" href="<?= url(['']) ?>">
+            <a class="text-body" href="<?= url(['']) ?>">
                 <i class="fas fa-redo-alt fa-fw"></i> Reset All
             </a>
             <br>

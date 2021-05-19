@@ -23,7 +23,7 @@ use app\models\LabelTag;
 use yii\helpers\Url;
 
 ?>
-<a class="refresh-link" href="<?= url(['']) ?>">
+<a class="text-body" href="<?= url(['']) ?>">
     <i class="fas fa-redo-alt fa-fw"></i> Reset All
 </a>
 <br>
@@ -66,4 +66,6 @@ use yii\helpers\Url;
     'search' => $search,
     'placeholder' => 'name or link ...',
 ]) ?>
-<div class="total-count"><?= h(number_format($total)) ?> results</div>
+<div class="text-right text-muted">
+    <?= h(number_format($total)) ?> results
+</div>

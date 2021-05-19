@@ -25,7 +25,9 @@ use yii\helpers\Url;
 <div class="col-sm-6 col-md-4 mb-4">
     <div class="card">
         <div class="card-body">
-            <a class="refresh-link" href="<?= url(['']) ?>"><i class="fas fa-fw fa-redo-alt"></i> Reset All</a>
+            <a class="text-body" href="<?= url(['']) ?>">
+                <i class="fas fa-fw fa-redo-alt"></i> Reset All
+            </a>
             <br>
             <div class="d-inline-block dropdown">
                 <a id="search-provider" class="dropdown-toggle tag" href="#" data-toggle="dropdown">
@@ -55,7 +57,7 @@ use yii\helpers\Url;
                 'search' => $search,
                 'placeholder' => 'Search artist or title ...',
             ]) ?>
-            <div class="total-count"><?= h(number_format($total)) ?> results</div>
+            <div class="text-right text-muted mt-1"><?= h(number_format($total)) ?> results</div>
         </div>
     </div>
 </div>

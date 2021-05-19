@@ -33,7 +33,7 @@ $this->title = 'Admin Site - '.app()->name;
                     <i class="fas fa-play-circle card-play"></i>
                 </div>
                 <div class="card-body">
-                    <div class="card-title text-white text-truncate">
+                    <div class="card-title">
                         <?= h($track->title) ?>
                     </div>
                     <div class="card-text">
@@ -44,7 +44,7 @@ $this->title = 'Admin Site - '.app()->name;
                         <?php endforeach ?>
                     </div>
                     <div class="card-date">
-                        <a class="tag" href="<?= url(['/track/update', 'id' => $track->id]) ?>" data-pjax="0">
+                        <a class="text-body" href="<?= url(['/track/update', 'id' => $track->id]) ?>" data-pjax="0">
                             <i class="fas fa-edit fa-fw"></i> Update
                         </a>
                     </div>

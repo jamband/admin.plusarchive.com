@@ -1,6 +1,8 @@
+@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "../../../node_modules/bootstrap/scss/mixins/text-truncate";
+
 @import "../variables/body";
 @import "../variables/components";
-@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
 @keyframes fade-in {
   from {opacity: 0 } to { opacity: .6 }
@@ -63,7 +65,10 @@
       }
 
       .card-title {
-        margin-bottom: 0;
+        @include text-truncate();
+        font-size: 108%;
+        font-weight: bold;
+        margin-bottom: 0.4rem;
       }
 
       @include media-breakpoint-only(xs) {
@@ -78,14 +83,13 @@
 
         @include media-breakpoint-only(xs) {
           position: absolute;
-          bottom: 0;
+          bottom: -5px;
           right: 0;
-          font-size: 75%;
+          font-size: 85%;
         }
 
         @include media-breakpoint-up(sm) {
-          padding-top: 10px;
-          font-size: 80%;
+          margin-top: 1rem;
         }
       }
     }
