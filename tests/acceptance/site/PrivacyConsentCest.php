@@ -22,12 +22,11 @@ class PrivacyConsentCest
         $I->seeBadRequest(['/site/privacy-consent/index']);
 
         $I->amOnPage(url(['/']));
-        $I->see('Privacy Policy', '.toast-message');
-        $I->click('.toast-message a');
+        $I->click('Privacy Policy', 'footer');
         $I->seeCurrentUrlEquals('/index-test.php/privacy');
 
-        $I->click('.toast-close-button');
+        $I->click('ACCEPT', 'footer');
         $I->wait(1);
-        $I->dontSeeElement('.toast-message');
+        $I->see(app()->name, 'footer');
     }
 }

@@ -28,7 +28,7 @@ class IndexCest
     public function ensureThatStoresWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));
-        $I->click('Store', '.navbar');
+        $I->click('Store', '#navbar');
         $I->seeCurrentUrlEquals('/index-test.php/stores');
         $I->see('Stores', 'h1');
         $I->see('store1', '.card-container');
@@ -37,7 +37,7 @@ class IndexCest
         $I->seeElement('.fa-soundcloud');
         $I->seeElement('.fa-youtube-square');
         $I->seeElement('.fa-twitter-square');
-        $I->see('3 results', '.total-count');
+        $I->see('3 results');
 
         $I->click('Countries', '.col-sm-4');
         $I->wait(1);
@@ -47,20 +47,20 @@ class IndexCest
         $I->see('store1', '.card-container');
         $I->dontSee('store2', '.card-container');
         $I->dontSee('store3', '.card-container');
-        $I->see('1 results', '.total-count');
+        $I->see('1 results');
 
         $I->fillField('input[name=search]', '1');
         $I->pressKey('input[name=search]', WebDriverKeys::ENTER);
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/stores?search=1');
-        $I->see('1 results', '.total-count');
+        $I->see('1 results');
         $I->see('store1', '.card-container');
         $I->dontSee('store2', '.card-container');
         $I->dontSee('store3', '.card-container');
 
-        $I->click('Reset All', '.col-sm-4');
+        $I->click('Reset All');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/stores');
-        $I->see('3 results', '.total-count');
+        $I->see('3 results');
     }
 }

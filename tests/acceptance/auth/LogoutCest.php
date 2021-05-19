@@ -28,15 +28,17 @@ class LogoutCest
     {
         $I->amOnPage(url(['/auth/login/index']));
         $I->see('Log in', 'h1');
-        $I->dontSee('Logout');
+        $I->dontSee('Admin', '.navbar');
 
         $I->loginAsAdmin();
         $I->wait(1);
-        $I->see('Logout');
+        $I->see('Admin', '.navbar');
 
-        $I->click('Logout', '.navbar');
-        $I->wait(1);
-        $I->dontSee('Logout', '.navbar');
+        $I->click('#dropdownMoreLinks');
+        $I->click('Logout', '.dropdown-menu');
+
+        $I->click('#dropdownMoreLinks');
+        $I->dontSee('Logout');
         $I->seeCurrentUrlEquals('/index-test.php');
     }
 }

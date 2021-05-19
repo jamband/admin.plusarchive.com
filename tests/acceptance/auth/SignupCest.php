@@ -27,13 +27,15 @@ class SignupCest
     public function ensureThatSignupWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));
-        $I->dontSee('Sign up', '.navbar');
+        $I->click('#dropdownMoreLinks');
+        $I->dontSee('Signup');
 
         $I->seePageNotFound(['/auth/signup/index']);
         $I->loginAsAdmin();
 
         $I->seeCurrentUrlEquals('/index-test.php');
-        $I->click('Signup', '.navbar');
+        $I->click('#dropdownMoreLinks');
+        $I->click('Signup', '.dropdown-menu');
         $I->see('Sign up', 'h1');
 
         $I->click('button[type=submit]');

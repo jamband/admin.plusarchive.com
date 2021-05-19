@@ -27,7 +27,7 @@ class IndexCest
     public function ensureThatLabelsWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));
-        $I->click('Label', '.navbar');
+        $I->click('Label', '#navbar');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/labels');
         $I->see('Labels', 'h1');
@@ -38,7 +38,7 @@ class IndexCest
         $I->seeElement('.fa-soundcloud');
         $I->seeElement('.fa-youtube-square');
         $I->seeElement('.fa-twitter-square');
-        $I->see('3 results', '.total-count');
+        $I->see('3 results');
 
         $I->click('Countries', '.col-sm-4');
         $I->wait(1);
@@ -48,11 +48,11 @@ class IndexCest
         $I->see('label1', '.card-container');
         $I->dontSee('label2', '.card-container');
         $I->dontSee('label3', '.card-container');
-        $I->see('1 results', '.total-count');
+        $I->see('1 results');
 
-        $I->click('Reset All', '.col-sm-4');
+        $I->click('Reset All');
         $I->seeCurrentUrlEquals('/index-test.php/labels');
         $I->wait(1);
-        $I->see('3 results', '.total-count');
+        $I->see('3 results');
     }
 }

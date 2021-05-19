@@ -22,17 +22,19 @@ class PrivacyOptOutCest
         $I->seeBadRequest(['/site/privacy-opt-out/index']);
 
         $I->amOnPage(url(['/site/privacy/index']));
-        $I->see('Privacy Policy', '.toast-message');
-        $I->click('.toast-message a');
+        $I->see('Privacy Policy', 'footer');
+        $I->dontSee(app()->name, 'footer');
 
-        $I->click('.toast-close-button');
+        $I->click('ACCEPT', 'footer');
         $I->wait(1);
-        $I->dontSeeElement('.toast-message');
+        $I->see(app()->name, 'footer');
+        $I->dontSee('Privacy Policy', 'footer');
 
-        $I->click('.privacy-opt-out');
+        $I->click('Opt-Out');
         $I->wait(1);
         $I->seeInPopup('Google Analytics opt-out has been completed.');
         $I->acceptPopup();
-        $I->seeElement('.toast-message');
+        $I->see('Privacy Policy', 'footer');
+        $I->dontSee(app()->name, 'footer');
     }
 }

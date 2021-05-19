@@ -26,9 +26,6 @@ class LoginCest
 
     public function ensureThatLoginWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/']));
-        $I->dontSee('Login', '.navbar');
-
         $I->amOnPage(url(['/auth/login/index']));
         $I->see('Log in', 'h1');
 
@@ -48,7 +45,7 @@ class LoginCest
         $I->dontSeeElement('.error-summary');
         $I->seeCurrentUrlEquals('/index-test.php');
         $I->see('Logged in successfully.');
-        $I->see('Logout', '.navbar');
+        $I->see('Admin', '.navbar');
 
         $I->amOnPage(url(['/auth/login/index']));
         $I->wait(1);

@@ -30,7 +30,7 @@ class IndexCest
         $I->amOnPage(url(['/track/index']));
         $I->see('Providers', '.dropdown-toggle');
         $I->see('Genres', '.dropdown-toggle');
-        $I->see('5 results', '.total-count');
+        $I->see('5 results');
         $I->see('track1', '.card-title');
         $I->see('track2', '.card-title');
 
@@ -39,7 +39,7 @@ class IndexCest
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/tracks?provider=Bandcamp');
         $I->see('Bandcamp', '#search-provider');
-        $I->see('1 results', '.total-count');
+        $I->see('1 results');
         $I->see('track1', '.card-title');
         $I->dontSee('track2', '.card-title');
 
@@ -47,14 +47,14 @@ class IndexCest
         $I->click('genre2', '#search-genre + .dropdown-menu');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/tracks?provider=Bandcamp&genre=genre2');
-        $I->see('0 results', '.total-count');
+        $I->see('0 results');
         $I->see('genre2', '#search-genre');
 
-        $I->click('Reset All', '.card-body');
+        $I->click('Reset All');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/tracks');
         $I->see('Providers', '#search-provider');
-        $I->see('5 results', '.total-count');
+        $I->see('5 results');
         $I->see('track1', '.card-title');
         $I->see('track2', '.card-title');
 
@@ -62,7 +62,7 @@ class IndexCest
         $I->pressKey('input[name=search]', WebDriverKeys::ENTER);
         $I->wait(1);
         $I->seeInField(['name' => 'search'], '3');
-        $I->see('1 results', '.total-count');
+        $I->see('1 results');
         $I->see('track3', '.card-title');
         $I->dontSee('track1', '.card-title');
         $I->dontSee('track2', '.card-title');

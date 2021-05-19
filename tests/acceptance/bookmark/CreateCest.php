@@ -38,7 +38,7 @@ class CreateCest
         $I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
 
         $I->fillField('#bookmark-name', 'newbookmark');
-        $I->fillField('#bookmark-url', 'http://newbookmark.example.com');
+        $I->fillField('#bookmark-url', 'https://newbookmark.example.com');
         $I->click('button[type=submit]');
         $I->wait(1);
         $I->see('Bookmark has been added.');
@@ -47,8 +47,5 @@ class CreateCest
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
         $I->see('Admin: 5', '#menu-action');
-
-        $I->click('Bookmark', '.navbar');
-        $I->see('5 results', '.total-count');
     }
 }

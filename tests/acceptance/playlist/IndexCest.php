@@ -27,19 +27,15 @@ class IndexCest
     public function ensureThatPlaylistsWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));
-        $I->click('Playlist', '.navbar');
+        $I->click('Playlist', '#navbar');
         $I->seeCurrentUrlEquals('/index-test.php/playlists');
         $I->see('Playlists', 'h1');
-        $I->see('playlist1', '.playlist-title');
-        $I->see('playlist2', '.playlist-title');
-        $I->see('playlist3', '.playlist-title');
+        $I->see('playlist1');
+        $I->see('playlist2');
+        $I->see('playlist3');
 
-        $I->click('playlist1', '.playlist-title');
+        $I->click('playlist1');
         $I->seeCurrentUrlEquals('/index-test.php/playlist/'.hashids()->encode(1));
-
-        // close privacy consent popup
-        $I->click('.toast-close-button');
-        $I->wait(1);
 
         $I->click('Back to playlists');
         $I->seeCurrentUrlEquals('/index-test.php/playlists');

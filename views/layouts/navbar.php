@@ -31,7 +31,7 @@ $cid = app()->controller->id;
                 <a class="nav-link<?= 'site/contact' === $cid ? ' active' : '' ?>" href="<?= url(['/site/contact/index']) ?>">Contact</a>
                 <a class="nav-link<?= 'site/about' === $cid ? ' active' : '' ?>" href="<?= url(['/site/about/index']) ?>">About</a>
             </div>
-            <div class="d-none d-md-flex navbar-nav">
+            <div id="navbar" class="d-none d-md-flex navbar-nav">
                 <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= url(['/track/index']) ?>">Track</a>
                 <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= url(['/playlist/index']) ?>">Playlist</a>
                 <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= url(['/label/index']) ?>">Label</a>

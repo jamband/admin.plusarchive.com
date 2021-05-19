@@ -28,7 +28,7 @@ class IndexCest
     public function ensureThatBookmarksWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));
-        $I->click('Bookmark', '.navbar');
+        $I->click('Bookmark', '#navbar');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks');
         $I->see('Bookmarks', 'h1');
@@ -37,7 +37,7 @@ class IndexCest
         $I->see('bookmark3', '.card-container');
         $I->seeElement('.fa-soundcloud');
         $I->seeElement('.fa-twitter-square');
-        $I->see('4 results', '.total-count');
+        $I->see('4 results');
 
         $I->click('Countries', '.col-sm-4');
         $I->click('Japan', '.col-sm-4');
@@ -46,20 +46,20 @@ class IndexCest
         $I->see('bookmark1', '.card-container');
         $I->dontSee('bookmark2', '.card-container');
         $I->dontSee('bookmark3', '.card-container');
-        $I->see('2 results', '.total-count');
+        $I->see('2 results');
 
         $I->fillField('input[name=search]', '1');
         $I->pressKey('input[name=search]', WebDriverKeys::ENTER);
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks?search=1');
-        $I->see('1 results', '.total-count');
+        $I->see('1 results');
         $I->see('bookmark1', '.card-container');
         $I->dontSee('bookmark2', '.card-container');
         $I->dontSee('bookmark3', '.card-container');
 
-        $I->click('Reset All', '.col-sm-4');
+        $I->click('Reset All');
         $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks');
-        $I->see('4 results', '.total-count');
+        $I->see('4 results');
     }
 }
