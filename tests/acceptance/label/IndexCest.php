@@ -31,9 +31,9 @@ class IndexCest
         $I->seeCurrentUrlEquals('/index-test.php/labels');
         $I->see('Labels', 'h1');
 
-        $I->see('label1', '.card-container');
-        $I->see('label2', '.card-container');
-        $I->see('label3', '.card-container');
+        $I->see('label1');
+        $I->see('label2');
+        $I->see('label3');
         $I->seeElement('.fa-soundcloud');
         $I->seeElement('.fa-youtube-square');
         $I->seeElement('.fa-twitter-square');
@@ -43,9 +43,9 @@ class IndexCest
         $I->click('Japan', '.col-sm-4');
         $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/labels?country=Japan');
-        $I->see('label1', '.card-container');
-        $I->dontSee('label2', '.card-container');
-        $I->dontSee('label3', '.card-container');
+        $I->see('label1');
+        $I->dontSee('label2');
+        $I->dontSee('label3');
         $I->see('1 results');
 
         $I->click('Reset All');

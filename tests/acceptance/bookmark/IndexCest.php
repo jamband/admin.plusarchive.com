@@ -31,9 +31,9 @@ class IndexCest
         $I->click('Bookmark', '#navbar');
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks');
         $I->see('Bookmarks', 'h1');
-        $I->see('bookmark1', '.card-container');
-        $I->see('bookmark2', '.card-container');
-        $I->see('bookmark3', '.card-container');
+        $I->see('bookmark1');
+        $I->see('bookmark2');
+        $I->see('bookmark3');
         $I->seeElement('.fa-soundcloud');
         $I->seeElement('.fa-twitter-square');
         $I->see('4 results');
@@ -42,9 +42,9 @@ class IndexCest
         $I->click('Japan', '.col-sm-4');
         $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks?country=Japan');
-        $I->see('bookmark1', '.card-container');
-        $I->dontSee('bookmark2', '.card-container');
-        $I->dontSee('bookmark3', '.card-container');
+        $I->see('bookmark1');
+        $I->dontSee('bookmark2');
+        $I->dontSee('bookmark3');
         $I->see('2 results');
 
         $I->fillField('input[name=search]', '1');
@@ -52,9 +52,9 @@ class IndexCest
         $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks?search=1');
         $I->see('1 results');
-        $I->see('bookmark1', '.card-container');
-        $I->dontSee('bookmark2', '.card-container');
-        $I->dontSee('bookmark3', '.card-container');
+        $I->see('bookmark1');
+        $I->dontSee('bookmark2');
+        $I->dontSee('bookmark3');
 
         $I->click('Reset All');
         $I->wait(0.5);

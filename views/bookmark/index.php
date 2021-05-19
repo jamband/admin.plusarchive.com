@@ -37,7 +37,7 @@ $this->title = 'Bookmarks - '.app()->name;
             <h1 class="my-2">Bookmarks</h1>
         </div>
         <div class="col-sm-8">
-            <div class="row card-container">
+            <div class="row">
                 <?php /** @var Bookmark $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-sm-6 mb-4">
@@ -66,4 +66,3 @@ $this->title = 'Bookmarks - '.app()->name;
         </div>
     </div>
 <?php Pjax::end() ?>
-<?= $this->render('/common/js/card-list') ?>

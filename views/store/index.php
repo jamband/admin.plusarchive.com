@@ -37,7 +37,7 @@ $this->title = 'Stores - '.app()->name;
             <h1 class="my-2">Stores</h1>
         </div>
         <div class="col-sm-8">
-            <div class="row card-container">
+            <div class="row">
                 <?php /* @var Store $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-sm-6 mb-4">
@@ -66,4 +66,3 @@ $this->title = 'Stores - '.app()->name;
         </div>
     </div>
 <?php Pjax::end() ?>
-<?= $this->render('/common/js/card-list') ?>
