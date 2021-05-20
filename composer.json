@@ -1,6 +1,6 @@
 {
   "require": {
-    "php": ">=7.2.0",
+    "php": "^7.4",
     "ext-json": "*",
     "creocoder/yii2-taggable": "2.0.0",
     "jamband/ripple": "0.9.0",
