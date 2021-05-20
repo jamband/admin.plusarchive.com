@@ -1,18 +1,16 @@
-@import "../variables/body";
-@import "../variables/components";
+@import "../variables";
 
 .required {
   > label::after {
+    color: var(--danger);
     content: " *";
-    color: $danger;
   }
 }
 
 .error-summary {
-  color: $danger;
-  background: $body-bg;
-  border: 1px solid $gray-800;
-  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--dark);
   border-radius: $border-radius;
+  color: var(--danger);
   margin: 0 0 15px 0;
+  padding: 0.75rem 1.25rem;
 }

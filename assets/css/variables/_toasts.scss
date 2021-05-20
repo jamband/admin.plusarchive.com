@@ -1,8 +1,0 @@
-@use "sass:color";
-
-@import "./body";
-
-$toast-font-size:                   1rem;
-$toast-color:                       $body-color;
-$toast-background-color:            color.scale($body-bg, $lightness: 10%, $alpha: -15%);
-$toast-border-width:                0;

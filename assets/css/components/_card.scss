@@ -1,96 +1,88 @@
 @import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 @import "../../../node_modules/bootstrap/scss/mixins/text-truncate";
 
-@import "../variables/body";
-@import "../variables/components";
-
 @keyframes fade-in {
-  from {opacity: 0 } to { opacity: .6 }
+  from { opacity: 0; }
+  to { opacity: 0.6; }
 }
 
-.card-container {
-  .card {
+.card {
+  position: relative;
+
+  @include media-breakpoint-only(xs) {
+    flex-direction: row;
+  }
+
+  @include media-breakpoint-up(sm) {
+    background-color: var(--dark);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    display: block;
+  }
+
+  .card-img-wrap {
     position: relative;
 
     @include media-breakpoint-only(xs) {
-      flex-direction: row;
-      background-color: $body-bg;
+      height: 30%;
+      width: 30%;
     }
 
-    @include media-breakpoint-up(sm) {
-      display: block;
-      background-color: $gray-800;
-      box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+    .card-img-top {
+      cursor: pointer;
     }
 
-    .card-img-wrap {
-      position: relative;
+    .card-play {
+      animation: fade-in 1s ease 0s 1 normal forwards;
+      color: var(--light);
+      left: 50%;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
 
       @include media-breakpoint-only(xs) {
-        width: 30%;
-        height: 30%;
+        font-size: 150%;
       }
 
-      .card-img-top {
-        cursor: pointer;
-
-        @include media-breakpoint-only(xs) {
-          border-radius: $border-radius-sm;
-        }
+      @include media-breakpoint-up(sm) {
+        font-size: 250%;
       }
+    }
+  }
 
-      .card-play {
-        animation: fade-in 1s ease 0s 1 normal forwards;
+  .card-body {
+    @include media-breakpoint-only(xs) {
+      padding-top: 0;
+      width: 70%;
+    }
+
+    .card-title {
+      @include text-truncate();
+
+      font-size: 108%;
+      font-weight: bold;
+      margin-bottom: 0.4rem;
+    }
+
+    @include media-breakpoint-only(xs) {
+      .card-text {
+        padding-bottom: 10px;
+      }
+    }
+
+    .card-date {
+      color: gray;
+      text-align: right;
+
+      @include media-breakpoint-only(xs) {
+        bottom: -5px;
+        font-size: 85%;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: $white;
-        pointer-events: none;
-
-        @include media-breakpoint-only(xs) {
-          font-size: 150%;
-        }
-
-        @include media-breakpoint-up(sm) {
-          font-size: 250%;
-        }
-      }
-    }
-
-    .card-body {
-      @include media-breakpoint-only(xs) {
-        width: 70%;
-        padding-top: 0;
+        right: 0;
       }
 
-      .card-title {
-        @include text-truncate();
-        font-size: 108%;
-        font-weight: bold;
-        margin-bottom: 0.4rem;
-      }
-
-      @include media-breakpoint-only(xs) {
-        .card-text {
-          padding-bottom: 10px;
-        }
-      }
-
-      .card-date {
-        color: $gray-600;
-        text-align: right;
-
-        @include media-breakpoint-only(xs) {
-          position: absolute;
-          bottom: -5px;
-          right: 0;
-          font-size: 85%;
-        }
-
-        @include media-breakpoint-up(sm) {
-          margin-top: 1rem;
-        }
+      @include media-breakpoint-up(sm) {
+        margin-top: 1rem;
       }
     }
   }

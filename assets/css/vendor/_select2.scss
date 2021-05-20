@@ -1,9 +1,6 @@
 @import "../../../node_modules/bootstrap/scss/mixins/box-shadow";
-@import "../variables/components";
-@import "../variables/body";
-@import "../variables/dropdown";
-@import "../variables/forms";
 @import "../../../node_modules/select2/src/scss/core";
+@import "../variables";
 
 .select2-container--default {
   border-radius: $border-radius;
@@ -37,11 +34,13 @@
 .select2-container--focus {
   border: 1px solid $input-focus-border-color;
   outline: 0;
+
   @include box-shadow($input-btn-focus-box-shadow);
 }
 
 .select2-dropdown {
   border: 1px solid $gray-900;
+
   @include box-shadow($dropdown-box-shadow);
 }
 

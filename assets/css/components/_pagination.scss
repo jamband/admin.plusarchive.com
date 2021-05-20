@@ -1,7 +1,5 @@
 @import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
-@import "../variables/system-color";
-
 .pagination {
   > li {
     @include media-breakpoint-down(sm) {
@@ -11,17 +9,17 @@
 }
 
 .pagination-info {
+  color: gray;
   position: relative;
   z-index: -1;
-  color: $gray-700;
 
   @include media-breakpoint-only(xs) {
-    font-size: 75%;
     bottom: 48px;
+    font-size: 75%;
   }
 
   @include media-breakpoint-up(sm) {
-    font-size: 85%;
     bottom: 50px;
+    font-size: 85%;
   }
 }

@@ -10,7 +10,7 @@
     right: 0;
   }
 
-  @include  media-breakpoint-up(sm) {
+  @include media-breakpoint-up(sm) {
     right: 1rem;
   }
 }

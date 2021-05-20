@@ -1,6 +1,3 @@
-@import "../variables/body";
-@import "../variables/system-color";
-
 .grid-view {
   th {
     white-space: nowrap;
@@ -13,27 +10,26 @@
 }
 
 .not-set {
-  color: $body-color;
+  color: lightgray;
   font-style: italic;
 }
 
 a.asc::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid $gray-600;
-
+  border-top: 5px solid gray;
+  content: '';
+  height: 0;
+  position: absolute;
+  width: 0;
 }
 
 a.desc::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
+  border-bottom: 5px solid gray;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid $gray-600;
+  content: '';
+  height: 0;
+  position: absolute;
+  width: 0;
 }
