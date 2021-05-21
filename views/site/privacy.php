@@ -16,7 +16,7 @@
 $this->title = 'Privacy Policy - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-md-5 offset-md-1">
+    <div class="col-lg-8 offset-lg-1">
         <h1>Privacy Policy</h1>
         <p>This site uses Google Analytics. The Google Analytics tool uses "Cookies" which are text files placed on your computer, to collect internet log information and visitor behavior information in an anonymous form. About the information collected by Google Analytics, please see the following links.</p>
         <a href="https://policies.google.com/privacy?hl=en" rel="noopener" target="_blank">
@@ -40,7 +40,7 @@ $this->title = 'Privacy Policy - '.app()->name;
 
         <div class="my-5"></div>
     </div>
-    <div class="col-md-5">
+    <div class="col-lg-2">
     </div>
 </div>
 

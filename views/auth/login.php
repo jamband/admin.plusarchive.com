@@ -20,16 +20,14 @@ use yii\widgets\ActiveForm;
 $this->title = 'Login - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-sm-6 col-md-5 offset-md-1">
+    <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
         <h1>Log in</h1>
-    </div>
-    <div class="col-sm-6 col-md-5">
         <?php $form = ActiveForm::begin(['fieldConfig' => ['template' => "{label}\n{input}"]]) ?>
-            <?= $form->errorSummary($model) ?>
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-            <?= $form->field($model, 'password')->passwordInput() ?>
-            <?= $form->field($model, 'rememberMe')->checkbox() ?>
-            <button class="btn btn-primary" type="submit">Login</button>
+        <?= $form->errorSummary($model) ?>
+        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+        <?= $form->field($model, 'password')->passwordInput() ?>
+        <?= $form->field($model, 'rememberMe')->checkbox() ?>
+        <button class="btn btn-primary" type="submit">Login</button>
         <?php ActiveForm::end() ?>
     </div>
 </div>

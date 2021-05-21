@@ -18,8 +18,11 @@
 
 $this->title = "$name - ".app()->name;
 ?>
-<h1><?= h($this->title) ?></h1>
-
-<p>
-    <i class="fas fa-info-circle"></i> <?= nl2br(h($message)) ?>
-</p>
+<div class="row">
+    <div class="col-lg-8 offset-lg-1">
+        <h1><?= h($this->title) ?></h1>
+        <i class="fas fa-info-circle"></i> <?= nl2br(h($message)) ?>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>

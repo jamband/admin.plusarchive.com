@@ -26,7 +26,7 @@ $this->title = 'Stores - '.app()->name;
 ?>
 <?php Pjax::begin() ?>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-lg-4">
             <?= $this->render('_search', [
                 'sort' => $sort,
                 'country' => $country,
@@ -36,11 +36,11 @@ $this->title = 'Stores - '.app()->name;
             ]) ?>
             <h1 class="my-2">Stores</h1>
         </div>
-        <div class="col-sm-8">
+        <div class="col-lg-8">
             <div class="row">
                 <?php /* @var Store $model */ ?>
                 <?php foreach ($data->models as $model): ?>
-                    <div class="col-sm-6 mb-4">
+                    <div class="col-lg-6 mb-4">
                         <?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'font-weight-bold']) ?>
                         <br>
                         <div class="tag">

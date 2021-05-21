@@ -28,8 +28,10 @@ $cid = app()->controller->id;
                 <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= url(['/label/index']) ?>">Label</a>
                 <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= url(['/store/index']) ?>">Store</a>
                 <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= url(['/bookmark/index']) ?>">Bookmark</a>
-                <a class="nav-link<?= 'site/contact' === $cid ? ' active' : '' ?>" href="<?= url(['/site/contact/index']) ?>">Contact</a>
                 <a class="nav-link<?= 'site/about' === $cid ? ' active' : '' ?>" href="<?= url(['/site/about/index']) ?>">About</a>
+                <a class="nav-link<?= 'site/privacy' === $cid ? ' active' : '' ?>" href="<?= url(['/site/privacy/index']) ?>">Privacy</a>
+                <a class="nav-link<?= 'site/contact' === $cid ? ' active' : '' ?>" href="<?= url(['/site/contact/index']) ?>">Contact</a>
+                <a class="nav-link<?= 'site/third-party-licenses' === $cid ? ' active' : '' ?>" href="<?= url(['/site/third-party-licenses/index']) ?>">Third Party Licenses</a>
             </div>
             <div id="navbar" class="d-none d-md-flex navbar-nav">
                 <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= url(['/track/index']) ?>">Track</a>

@@ -39,7 +39,7 @@ $this->title = 'Admin Tracks - '.app()->name;
             'search' => $search,
         ]) ?>
         <?php foreach ($data->models as $model): ?>
-            <div class="col-sm-6 col-md-4 mb-sm-4">
+            <div class="col-md-6 col-lg-4 mb-sm-4">
                 <div class="card">
                     <div class="card-img-wrap">
                         <?= Html::tag('img', '', [
@@ -71,15 +71,15 @@ $this->title = 'Admin Tracks - '.app()->name;
                             <?php endforeach ?>
                             <p class="mt-1">
                                 <a class="tag" href="<?= url(['update', 'id' => $model->id]) ?>" data-pjax="0">
-                                    <i class="fas fa-edit fa-fw"></i> Update
+                                    <i class="fas fa-sm fa-fw fa-edit"></i> Update
                                 </a>
                                 <a class="tag" href="<?= url(['delete', 'id' => $model->id]) ?>" data-confirm="Are you sure?" data-method="post">
-                                    <i class="fas fa-trash fa-fw"></i> Delete
+                                    <i class="fas fa-sm fa-fw fa-trash"></i> Delete
                                 </a>
                             </p>
                         </div>
                         <div class="card-date">
-                            <i class="fas fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
+                            <i class="fas fa-sm fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div>
                 </div>

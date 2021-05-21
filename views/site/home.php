@@ -22,7 +22,7 @@ $this->title = app()->name;
 </h1>
 <div class="row text-center card-container">
     <?php foreach ($data->models as $model): ?>
-        <div class="col-md-4 mb-sm-4">
+        <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
                 <div class="card-img-wrap">
                     <a href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>">
@@ -37,6 +37,9 @@ $this->title = app()->name;
                         </a>
                     </h6>
                     <div class="card-text">
+                        <a class="tag" href="<?= url(['/tracks', 'provider' => $model->providerText]) ?>">
+                            <?= h($model->providerText) ?>
+                        </a>
                         <?php foreach ($model->musicGenres as $genre): ?>
                             <a class="tag" href="<?= url(['/tracks', 'genre' => $genre->name]) ?>">
                                 <?= h($genre->name) ?>
@@ -44,15 +47,8 @@ $this->title = app()->name;
                         <?php endforeach ?>
                     </div>
                     <div class="card-date">
-                        <?php if ('Bandcamp' === $model->providerText): ?>
-                            <i class="fab fa-bandcamp"></i> <?= h($model->providerText) ?>
-                        <?php elseif ('SoundCloud' === $model->providerText): ?>
-                            <i class="fab fa-soundcloud"></i> <?= h($model->providerText) ?>
-                        <?php elseif ('Vimeo' === $model->providerText): ?>
-                            <i class="fab fa-vimeo-square"></i> <?= h($model->providerText) ?>
-                        <?php elseif ('YouTube' === $model->providerText): ?>
-                            <i class="fab fa-youtube-square"></i> <?= h($model->providerText) ?>
-                        <?php endif ?>
+                        <i class="fas fa-sm fa-fw fa-clock"></i>
+                        <?= formatter()->asDate($model->created_at) ?>
                     </div>
                 </div>
             </div>

@@ -34,7 +34,7 @@ $this->title = app()->name;
             'total' => $data->totalCount,
         ]) ?>
         <?php foreach ($data->models as $model): ?>
-            <div class="col-sm-6 col-md-4 mb-sm-4">
+            <div class="col-md-6 col-lg-4 mb-sm-4">
                 <div class="card">
                     <div class="card-img-wrap">
                         <?= Html::tag('img', '', [
@@ -68,7 +68,7 @@ $this->title = app()->name;
                             <?php endforeach ?>
                         </div>
                         <div class="card-date">
-                            <i class="fas fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
+                            <i class="fas fa-sm fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div>
                 </div>

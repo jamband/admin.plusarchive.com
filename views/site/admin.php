@@ -24,7 +24,7 @@ $this->title = 'Admin Site - '.app()->name;
 </h1>
 <div class="row text-center card-container">
     <?php foreach ($tracks as $track): ?>
-        <div class="col-md-4 mb-sm-4">
+        <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
                 <div class="card-img-wrap">
                     <a href="<?= url(['/track/view', 'id' => hashids()->encode($track->id)]) ?>">
@@ -45,7 +45,7 @@ $this->title = 'Admin Site - '.app()->name;
                     </div>
                     <div class="card-date">
                         <a class="text-body" href="<?= url(['/track/update', 'id' => $track->id]) ?>" data-pjax="0">
-                            <i class="fas fa-edit fa-fw"></i> Update
+                            <i class="fas fa-sm fa-fw fa-edit"></i> Update
                         </a>
                     </div>
                 </div>

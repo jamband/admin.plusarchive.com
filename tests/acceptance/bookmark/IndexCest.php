@@ -38,8 +38,8 @@ class IndexCest
         $I->seeElement('.fa-twitter-square');
         $I->see('4 results');
 
-        $I->click('Countries', '.col-sm-4');
-        $I->click('Japan', '.col-sm-4');
+        $I->click('Countries', '.col-lg-4');
+        $I->click('Japan', '.col-lg-4');
         $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks?country=Japan');
         $I->see('bookmark1');

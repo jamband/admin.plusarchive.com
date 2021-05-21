@@ -16,7 +16,7 @@
 $this->title = 'Contact - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-md-5 offset-md-1">
+    <div class="col-lg-8 offset-lg-1">
         <h1>Contact <small class="text-muted">for bugs and question</small></h1>
         Please to the message via
         <a href="https://twitter.com/livejam_db" rel="noopener" target="_blank">
@@ -28,6 +28,6 @@ $this->title = 'Contact - '.app()->name;
         </a>
         Issues. Thank you.
     </div>
-    <div class="col-md-5">
+    <div class="col-lg-2">
     </div>
 </div>

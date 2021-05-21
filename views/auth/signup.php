@@ -20,10 +20,8 @@ use yii\widgets\ActiveForm;
 $this->title = 'Sign up - '.app()->name;
 ?>
 <div class="row">
-    <div class="col-md-5 offset-md-1">
+    <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
         <h1>Sign up</h1>
-    </div>
-    <div class="col-md-5">
         <?php $form = ActiveForm::begin() ?>
             <?= $form->field($model, 'username') ?>
             <?= $form->field($model, 'email') ?>

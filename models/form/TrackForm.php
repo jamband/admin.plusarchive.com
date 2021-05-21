@@ -27,6 +27,8 @@ class TrackForm extends Model
     public $urge;
     public $tagValues;
 
+    private const URGE_LIMIT = 6;
+
     /**
      * @var Ripple
      */
@@ -109,8 +111,8 @@ class TrackForm extends Model
             $favoriteIds[] = (int)$id;
         }
 
-        if ('1' === $this->$attribute && 3 <= count($favoriteIds) && !in_array($this->id, $favoriteIds, true)) {
-            $validator->addError($this, $attribute, 'Only up to 3 {attribute} can be set.');
+        if ('1' === $this->$attribute && self::URGE_LIMIT <= count($favoriteIds) && !in_array($this->id, $favoriteIds, true)) {
+            $validator->addError($this, $attribute, 'Only up to '.self::URGE_LIMIT.' {attribute} can be set.');
         }
     }
 
