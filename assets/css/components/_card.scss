@@ -14,7 +14,7 @@
   }
 
   @include media-breakpoint-up(sm) {
-    background-color: var(--dark);
+    background-color: var(--bs-dark);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     display: block;
   }
@@ -33,7 +33,7 @@
 
     .card-play {
       animation: fade-in 1s ease 0s 1 normal forwards;
-      color: var(--light);
+      color: var(--bs-light);
       left: 50%;
       pointer-events: none;
       position: absolute;

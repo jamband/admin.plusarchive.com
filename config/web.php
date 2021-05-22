@@ -55,7 +55,7 @@ $config = [
     'container' => [
         'definitions' => [
             yii\captcha\Captcha::class => [
-                'template' => '<p>{image} <span class="captcha-refresh label label-default">'.
+                'template' => '<p>{image} <span class="captcha-refresh">'.
                     '<i class="fas fa-fw fa-sync"></i> Refresh</span></p>'."\n{input}",
             ],
             yii\data\Pagination::class => [
@@ -75,7 +75,10 @@ $config = [
                 'tableOptions' => ['class' => 'table table-striped table-bordered table-dark'],
             ],
             yii\widgets\ActiveField::class => [
+                'options' => ['class' => 'mb-3'],
                 'errorOptions' => ['class' => 'invalid-feedback'],
+                'labelOptions' => ['class' => 'form-label'],
+                'hintOptions' => ['class' => 'form-text'],
             ],
             yii\widgets\ActiveForm::class => [
                 'validateOnBlur' => false,
@@ -89,14 +92,14 @@ $config = [
                 'nextPageLabel' => '<i class="fas fa-angle-right"></i>',
                 'firstPageLabel' => '<i class="fas fa-angle-double-left"></i>',
                 'lastPageLabel' => '<i class="fas fa-angle-double-right"></i>',
-                'firstPageCssClass' => 'first page-item w-25',
+                'firstPageCssClass' => 'page-item flex-fill',
+                'nextPageCssClass' => 'page-item flex-fill',
+                'prevPageCssClass' => 'page-item flex-fill',
+                'lastPageCssClass' => 'page-item flex-fill',
                 'hideOnSinglePage' => false,
-                'nextPageCssClass' => 'next page-item w-25',
-                'prevPageCssClass' => 'prev page-item w-25',
-                'lastPageCssClass' => 'last page-item w-25',
-                'linkOptions' => ['class' => 'page-link text-center'],
-                'disabledListItemSubTagOptions' => ['tag' => 'span', 'class' => 'page-link text-center'],
-                'options' => ['class' => 'pagination my-4'],
+                'linkOptions' => ['class' => 'page-link'],
+                'disabledListItemSubTagOptions' => ['tag' => 'span', 'class' => 'page-link'],
+                'options' => ['class' => 'pagination my-4 text-center'],
             ],
             yii\widgets\Pjax::class => [
                 'scrollTo' => 0,

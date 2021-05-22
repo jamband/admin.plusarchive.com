@@ -41,7 +41,7 @@ $this->title = 'Stores - '.app()->name;
                 <?php /* @var Store $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-lg-6 mb-4">
-                        <?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'font-weight-bold']) ?>
+                        <?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'fw-bold']) ?>
                         <br>
                         <div class="tag">
                             <?= h($model->getAttributeLabel('country')) ?>:
@@ -58,7 +58,7 @@ $this->title = 'Stores - '.app()->name;
                                 <?= h($tag->name) ?>
                             </a>
                         <?php endforeach ?>
-                        <hr class="text-light">
+                        <hr>
                     </div>
                 <?php endforeach ?>
             </div>

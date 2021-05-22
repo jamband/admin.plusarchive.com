@@ -3,23 +3,8 @@
   100% { opacity: 1; }
 }
 
-.now-playing-clear {
-  cursor: pointer;
-}
-
-.now-playing-title {
-  cursor: pointer;
-  display: inline-block;
-  font-weight: bold;
-
-  &:hover,
-  &:active {
-    color: var(--light);
-  }
-}
-
 .now-playing-loading {
-  color: lightgray;
+  color: var(--bs-light);
   font-size: 200%;
   font-weight: bold;
   pointer-events: none;

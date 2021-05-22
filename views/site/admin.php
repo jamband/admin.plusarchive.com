@@ -22,7 +22,7 @@ $this->title = 'Admin Site - '.app()->name;
 <h1 class="mb-3">
     Recent <small class="text-muted">favorite tracks</small>
 </h1>
-<div class="row text-center card-container">
+<div class="row text-center">
     <?php foreach ($tracks as $track): ?>
         <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
@@ -37,6 +37,9 @@ $this->title = 'Admin Site - '.app()->name;
                         <?= h($track->title) ?>
                     </div>
                     <div class="card-text">
+                        <a class="tag" href="<?= url(['/track/admin', 'provider' => $track->providerText]) ?>">
+                            <?= h($track->providerText) ?>
+                        </a>
                         <?php foreach ($track->musicGenres as $genre): ?>
                             <a class="tag" href="<?= url(['/track/admin', 'genre' => $genre->name]) ?>">
                                 <?= h($genre->name) ?>

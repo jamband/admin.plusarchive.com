@@ -27,7 +27,7 @@ $(document).on('click', '.card-img-top', function () {
         }
     }).done(function (data) {
         $('#now-playing').hide().html(data).fadeIn();
-    }).fail(function (data) {
+    }).fail(function () {
         alert('Request failure.');
     });
 });

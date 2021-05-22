@@ -20,7 +20,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= $this->registerCsrfMetaTags() ?>
+    <?php $this->registerCsrfMetaTags() ?>
     <title><?= h($this->title) ?></title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -35,10 +35,10 @@
         <?= $this->render('/common/notification') ?>
     <?php endif ?>
     <?= $this->render('navbar') ?>
-    <div class="container layout-main">
+    <div class="container pt-4 pb-8 pb-sm-7">
         <?= $content ?>
     </div>
-    <footer class="fixed-bottom p-3 text-center bg-dark font-weight-bold">
+    <footer class="fixed-bottom p-3 text-center bg-dark fw-bold">
         <?php if (session()->has('privacy-consent')): ?>
             <?= $this->render('/common/analytics-tracking') ?>
         <?php else: ?>

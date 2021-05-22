@@ -1,5 +1,7 @@
+@import "../variables";
+
 .tag {
-  color: var(--secondary);
+  color: var(--bs-secondary);
   display: inline-block;
   line-height: 1;
   margin-right: 0.8rem;
@@ -8,6 +10,6 @@
   white-space: nowrap;
 
   &:hover {
-    color: var(--light);
+    color: $body-color;
   }
 }

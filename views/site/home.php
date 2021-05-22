@@ -69,7 +69,7 @@ $this->title = app()->name;
     <a href="<?= url(['/tracks']) ?>">
         Go to Tracks
     </a>
-    <span class="text-muted px-1">or</span>
+    <span class="mx-1 text-muted">or</span>
     <a href="<?= url(['/playlists']) ?>">
         Playlists<i class="fas fa-angle-right fa-fw"></i>
     </a>

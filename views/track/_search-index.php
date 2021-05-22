@@ -30,7 +30,7 @@ use yii\helpers\Url;
             </a>
             <br>
             <div class="d-inline-block dropdown">
-                <a id="search-provider" class="dropdown-toggle tag" href="#" data-toggle="dropdown">
+                <a id="search-provider" class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
                     <?= h($provider) ?> <i class="fas fa-angle-down fa-fw"></i>
                 </a>
                 <div class="dropdown-menu">
@@ -42,10 +42,10 @@ use yii\helpers\Url;
                 </div>
             </div>
             <div class="d-inline-block dropdown">
-                <a id="search-genre" class="dropdown-toggle tag" href="#" data-toggle="dropdown">
+                <a id="search-genre" class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
                     <?= h($genre) ?> <i class="fas fa-angle-down fa-fw"></i>
                 </a>
-                <div class="dropdown-menu scrollable-menu">
+                <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => null, 'search' => null]) ?>">Reset</a>
                     <div class="dropdown-divider"></div>
                     <?php foreach (MusicGenre::getNames() as $genre): ?>
@@ -57,7 +57,7 @@ use yii\helpers\Url;
                 'search' => $search,
                 'placeholder' => 'Search artist or title ...',
             ]) ?>
-            <div class="text-right text-muted mt-1"><?= h(number_format($total)) ?> results</div>
+            <div class="mt-1 text-end text-muted"><?= h(number_format($total)) ?> results</div>
         </div>
     </div>
 </div>

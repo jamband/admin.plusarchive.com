@@ -28,7 +28,7 @@ use yii\helpers\Url;
 </a>
 <br>
 <div class="d-inline-block dropdown">
-    <a class="dropdown-toggle tag" href="#" data-toggle="dropdown">
+    <a class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
         <?= h($sort) ?> <i class="fas fa-angle-down fa-fw"></i>
     </a>
     <div class="dropdown-menu">
@@ -39,7 +39,7 @@ use yii\helpers\Url;
     </div>
 </div>
 <div class="d-inline-block dropdown">
-    <a class="dropdown-toggle tag" href="#" data-toggle="dropdown">
+    <a class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
         <?= h($country) ?> <i class="fas fa-angle-down fa-fw"></i>
     </a>
     <div class="dropdown-menu scrollable-menu">
@@ -51,10 +51,10 @@ use yii\helpers\Url;
     </div>
 </div>
 <div class="d-inline-block dropdown">
-    <a class="dropdown-toggle tag" href="#" data-toggle="dropdown">
+    <a class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
         <?= h($tag) ?> <i class="fas fa-angle-down fa-fw"></i>
     </a>
-    <div class="dropdown-menu scrollable-menu">
+    <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => null, 'search' => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
         <?php foreach (StoreTag::getNames() as $tag): ?>
@@ -66,6 +66,6 @@ use yii\helpers\Url;
     'search' => $search,
     'placeholder' => 'name or link ...',
 ]) ?>
-<div class="text-right text-muted">
+<div class="text-end text-muted">
     <?= h(number_format($total)) ?> results
 </div>

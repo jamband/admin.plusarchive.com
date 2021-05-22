@@ -2,139 +2,116 @@
 @use "sass:map";
 
 // Color system
-$white:    #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #919191;
-$gray-600: #5e5e5e;
-$gray-700: #474747;
-$gray-800: #2e2e2e;
-$gray-900: #222;
-$black:    #000;
-
-$red:     #a94442;
-$green:   #3c763d;
-$cyan:    #31708f;
-$yellow:  #ffc107;
-
 $primary:       #cc6055;
-$secondary:     $gray-500;
-$success:       $green;
-$danger:        $red;
-$info:          $cyan;
-$warning:       $yellow;
-$danger:        $red;
-$light:         $gray-100;
-$dark:          $gray-800;
+$secondary:     #919191;
+$success:       #3c763d;
+$info:          #31708f;
+$warning:       #ffc107;
+$danger:        #a94442;
+$light:         #f8f9fa;
+$dark:          #2e2e2e;
 
-$theme-colors: ();
+$colors: (
+);
 
-$theme-colors: map.merge(
-  (
-    "primary":    $primary,
-    "secondary":  $secondary,
-    "success":    $success,
-    "info":       $info,
-    "warning":    $warning,
-    "danger":     $danger,
-    "light":      $light,
-    "dark":       $dark
-  ),
-  $theme-colors
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
 );
 
 // Options
-$enable-caret:              false;
-$enable-shadows:            true;
-$enable-print-styles:       false;
+$enable-caret:                false;
+$enable-shadows:              true;
+$enable-smooth-scroll:        false;
 
 // Spacing
 $spacer: 1rem;
 
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+  8: $spacer * 7.5,
+);
+
 // Body
-$body-bg:       $gray-900;
-$body-color:    $gray-400;
+$body-bg:       #222;
+$body-color:    #ced4da;
 
 // Links
-$link-hover-decoration:                   none;
+$link-decoration:                         none;
 
 // Components
 $border-radius:               0.25rem;
 $border-radius-sm:            0.15rem;
-
 $component-active-bg:         $primary;
 
 // Typography
 $font-family-sans-serif:      "Source Sans Pro", "Yu Gothic", YuGothic sans-serif;
 $font-family-base:            $font-family-sans-serif;
-
 $font-size-base:              1rem;
-
-$text-muted:                  $gray-600;
-
-$hr-border-color:             rgba($white, 0.08);
+$text-muted:                  #5e5e5e;
 $hr-margin-y:                 $spacer / 2;
-
-$small-font-size:             50%;
+$hr-color:                    #919191;
+$hr-height:                   1px;
+$small-font-size:             0.675em;
 
 // Tables
-$table-dark-color:            $body-color;
+$table-color:                 $body-color;
+$table-striped-color:         $table-color;
 
 // Forms
-$input-bg:                              darken($gray-900, 1%);
-$input-color:                           darken($gray-400, 15%);
-$input-border-color:                    $gray-800;
-$input-border-focus:                    $primary;
-
-$input-focus-border-color:              lighten($component-active-bg, 25%);
-
-$input-btn-focus-width:                 0.2rem;
-$input-btn-focus-color:                 rgba($component-active-bg, 0.25);
-$input-btn-focus-box-shadow:            0 0 0 $input-btn-focus-width $input-btn-focus-color;
-
-// Form validation
-$form-feedback-font-size:           90%;
+$form-text-font-size:                   $font-size-base;
+$input-bg:                              color.scale($body-bg, $lightness: -20%);
+$input-color:                           color.scale($body-color, $lightness: -15%);
+$input-border-color:                    $dark;
 
 // Z-index
-$zindex-toast:      1080;
+$zindex-toast:      1090;
 
 // Navbar
 $navbar-nav-link-padding-x:         0.8rem;
 
-$navbar-dark-color:                 rgba($white, 0.5);
-$navbar-dark-hover-color:           rgba($white, 0.75);
+$navbar-dark-color:                 color.scale(black, $lightness: 60%);
+$navbar-dark-hover-color:           $body-color;
 $navbar-dark-active-color:          $body-color;
 $navbar-dark-toggler-border-color:  none;
-
 $navbar-toggler-font-size:          $font-size-base;
-
-$navbar-brand-font-size:            1.25rem;
 
 // Dropdowns
 $dropdown-bg:                       $body-bg;
-$dropdown-link-color:               $gray-500;
-$dropdown-link-hover-color:         $gray-300;
-$dropdown-link-hover-bg:            $gray-800;
-$dropdown-divider-bg:               $gray-800;
-$dropdown-box-shadow:               0 0.5rem 1rem rgba($black, 0.175);
+$dropdown-link-color:               color.scale(black, $lightness: 60%);
+$dropdown-link-hover-color:         $body-color;
+$dropdown-link-hover-bg:            $dark;
+$dropdown-divider-bg:               $dark;
 
 // Pagination
+$pagination-padding-y:              0.5rem;
 $pagination-bg:                     transparent;
 $pagination-border-color:           none;
-$pagination-hover-bg:               rgba(55, 55, 55, 0.4);
+$pagination-focus-bg:               color.scale(black, $lightness: 30%, $alpha: -80%);
+$pagination-hover-bg:               $pagination-focus-bg;
 $pagination-disabled-bg:            transparent;
 
 // Cards
 $card-spacer-y:                     0.8rem;
 $card-spacer-x:                     0.6rem;
-
 $card-border-color:                 $body-bg;
 $card-bg:                           $body-bg;
 
 // Toasts
-$toast-font-size:                   1rem;
+$toast-font-size:                   $font-size-base;
 $toast-color:                       $body-color;
 $toast-background-color:            color.scale($body-bg, $lightness: 10%, $alpha: -15%);
 $toast-border-width:                0;
@@ -142,10 +119,10 @@ $toast-border-width:                0;
 // Modals
 $modal-content-bg:                  transparent;
 $modal-content-border-color:        none;
-
 $modal-backdrop-opacity:            0.7;
-
 $modal-content-box-shadow-xs:       none;
 $modal-content-box-shadow-sm-up:    none;
-
 $modal-md:                          600px;
+
+// Close
+$btn-close-color:                   $light;

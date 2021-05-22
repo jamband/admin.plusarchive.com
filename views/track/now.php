@@ -23,44 +23,44 @@
     <div class="text-center modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                <iframe src="<?= h($embed) ?>" frameborder="0" data-provider="<?= h($provider) ?>" allowfullscreen></iframe>
+                <?php if (in_array($provider, ['Vimeo', 'YouTube'], true)): ?>
+                <div class="ratio ratio-16x9 mb-2">
+                    <iframe src="<?= h($embed) ?>" allowfullscreen></iframe>
+                </div>
+                <?php else: ?>
+                    <iframe width="100%" height="120" src="<?= h($embed) ?>" allowfullscreen></iframe>
+                <?php endif ?>
                 <a class="tag" href="<?= url(['view', 'id' => $id])?>">
                     View <i class="fas fa-angle-right fa-fw"></i>
                 </a>
+                <div class="now-playing-loading">
+                    <span>.</span><span>.</span><span>.</span>
+                </div>
             </div>
-        </div>
-        <div class="now-playing-loading">
-            <span>.</span><span>.</span><span>.</span>
         </div>
     </div>
 </div>
-<div class="now-playing-title mb-2">
-    <i class="fas fa-fw fa-volume-up"></i> <?= h($title) ?>
-    <span class="now-playing-clear"><i class="fas fa-fw fa-times"></i></span>
+<div class="mb-2">
+    <i class="fas fa-fw fa-sm fa-volume-up"></i>
+    <button type="button" class="now-playing-title ms-1 align-baseline btn btn-link text-light fw-bold"><?= h($title) ?></button>
+    <button type="button" class="now-playing-clear btn-close btn-sm align-text-top" aria-label="Close"></button>
 </div>
 
 <?php
 $this->registerJs(<<<'JS'
-var $modal = $('#track-modal');
-var $iframe = $modal.find('iframe');
+var modal = new Modal(document.querySelector('#track-modal'));
+modal.show();
 
-if (/^(Vimeo|YouTube)$/.test($iframe.attr('data-provider'))) {
-    $iframe.wrap('<div class="embed-responsive embed-responsive-16by9" />').addClass('embed-responsive-item');
-} else {
-    $iframe.attr({ 'width': '100%', 'height': '120' });
-}
-$modal.modal('show');
+document.querySelector('#track-modal iframe').addEventListener('load', function () {
+  document.querySelector('.now-playing-loading').style.display = 'none';
+})
 
-$iframe.on('load', function () {
-    $('.now-playing-loading').fadeOut();
-});
-$(document).on('click', '.now-playing-title', function () {
-    $('#track-modal').modal('show');
-});
-$(document).on('click', '.now-playing-clear', function () {
-    $('#now-playing').children().fadeOut(function () {
-        $(this).remove();
-    });
-});
+document.querySelector('.now-playing-title').addEventListener('click', function () {
+  modal.show();
+})
+
+document.querySelector('.now-playing-clear').addEventListener('click', function () {
+  document.querySelector('#now-playing').innerHTML = '';
+})
 JS
 );

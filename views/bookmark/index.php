@@ -41,7 +41,7 @@ $this->title = 'Bookmarks - '.app()->name;
                 <?php /** @var Bookmark $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <div class="col-lg-6 mb-4">
-                        <?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'font-weight-bold']) ?>
+                        <?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'fw-bold']) ?>
                         <br>
                         <div class="tag">
                             <?= h($model->getAttributeLabel('country')) ?>:

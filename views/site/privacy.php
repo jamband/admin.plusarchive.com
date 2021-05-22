@@ -35,8 +35,13 @@ $this->title = 'Privacy Policy - '.app()->name;
         Data retention period is "<strong>26 months</strong>".
 
         <h4 class="mt-5 mb-3">Google Analytics Opt-Out</h4>
-        If pop-up related to cookie is displayed at the bottom of the screen, it means that you have not consent to the privacy policy of this site yet. If you consent, please press the OK button.<br><br>
-        Ever after consenting, you can opt-out by pressing the following link: <a class="privacy-opt-out" href="#">Opt-Out</a>
+        If pop-up related to cookie is displayed at the bottom of the screen,
+        it means that you have not consent to the privacy policy of this site yet.
+        If you consent, please press the OK button
+        <p>
+            Ever after consenting, you can opt-out by pressing the following link:
+            <button type="button" class="m-0 p-0 align-baseline btn btn-link privacy-opt-out">Opt-Out</button>
+        </p>
 
         <div class="my-5"></div>
     </div>

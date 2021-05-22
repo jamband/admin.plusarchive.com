@@ -1,12 +1,10 @@
 // js
 window.$ = window.jQuery = require('jquery')
 
-require('bootstrap/js/dist/util')
-require('bootstrap/js/dist/button')
 require('bootstrap/js/dist/collapse')
 require('bootstrap/js/dist/dropdown')
-require('bootstrap/js/dist/modal')
-require('bootstrap/js/dist/toast')
+window.Modal = require('bootstrap/js/dist/modal')
+window.Toast = require('bootstrap/js/dist/toast')
 
 require('../../vendor/yiisoft/yii2/assets/yii')
 require('../../vendor/yiisoft/yii2/assets/yii.activeForm')

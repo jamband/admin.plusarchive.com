@@ -2,6 +2,6 @@
 
 .nav-link.active {
   @include media-breakpoint-up(md) {
-    background: linear-gradient(transparent 92%, var(--primary) 92%);
+    background: linear-gradient(transparent 92%, var(--bs-primary) 92%);
   }
 }

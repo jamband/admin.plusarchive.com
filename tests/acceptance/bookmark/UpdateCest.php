@@ -74,7 +74,9 @@ class UpdateCest
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->seeInPopup('Are you sure?');
         $I->cancelPopup();
+        $I->makeScreenshot();
 
+        $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
         $I->wait(0.5);

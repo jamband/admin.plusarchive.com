@@ -20,12 +20,18 @@ use app\models\MusicGenre;
 $this->title = "$model->title - ".app()->name;
 ?>
 <?php if (preg_match('/\A(YouTube|Vimeo)\z/', $model->providerText)): ?>
-    <div class="embed-responsive embed-responsive-16by9">
-<?php else: ?>
-    <div class="embed-responsive embed-responsive-1by1-half">
-<?php endif ?>
-        <iframe class="embed-responsive-item" src="<?= h($embed) ?>" frameborder="0" allowfullscreen></iframe>
+    <div class="ratio ratio-16x9">
+        <iframe src="<?= h($embed) ?>" allowfullscreen></iframe>
     </div>
+<?php else: ?>
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="ratio ratio-1x1">
+                <iframe src="<?= h($embed) ?>" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+<?php endif ?>
 <div class="text-center">
     <h5 class="pt-3"><?= h($model->title) ?></h5>
     <a class="tag" href="<?= url(['index', 'provider' => $model->providerText]) ?>">
@@ -39,7 +45,7 @@ $this->title = "$model->title - ".app()->name;
     <?php endforeach ?>
     <div class="text-center py-2">
         <a href="<?= url(['index']) ?>"><i class="fas fa-fw fa-angle-left"></i> Back to tracks</a>
-        <span class="text-muted px-1">or</span>
+        <span class="mx-1 text-muted">or</span>
         <a href="<?= url(['/']) ?>">Recent Favorites</a>
     </div>
 </div>

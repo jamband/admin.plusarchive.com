@@ -18,14 +18,20 @@
 $this->title = "$model->title - ".app()->name;
 ?>
 <?php if (preg_match('/\A(YouTube|Vimeo)\z/', $model->providerText)): ?>
-    <div class="embed-responsive embed-responsive-16by9">
-<?php else: ?>
-    <div class="embed-responsive embed-responsive-1by1-half mx-auto">
-<?php endif ?>
-        <iframe class="embed-responsive-item" src="<?= h($embed) ?>" frameborder="0" allowfullscreen></iframe>
+    <div class="ratio ratio-16x9">
+        <iframe src="<?= h($embed) ?>" allowfullscreen></iframe>
     </div>
+<?php else: ?>
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="ratio ratio-1x1">
+                <iframe src="<?= h($embed) ?>" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+<?php endif ?>
 <h5 class="text-center my-2">
-    <?= h($model->title) ?> <small class="text-muted">via <?= h($model->providerText) ?></small>
+    <?= h($model->title) ?> <span class="text-muted">via <?= h($model->providerText) ?></span>
 </h5>
 <p class="text-center">
     <a href="<?= url(['index']) ?>"><i class="fas fa-fw fa-angle-left"></i> Back to playlists</a>

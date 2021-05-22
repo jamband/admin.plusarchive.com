@@ -6,27 +6,27 @@
   border-radius: $border-radius;
 
   .select2-selection--multiple {
-    background-color: darken($gray-900, 1%);
-    border: 1px solid $gray-800;
+    background-color: darken($body-bg, 1%);
+    border: 1px solid $dark;
 
     .select2-selection__choice {
-      background-color: $gray-800;
+      background-color: $dark;
       border: none;
     }
   }
 
   .select2-results__option {
     background-color: $body-bg;
-    color: $gray-500;
+    color: $body-color;
 
     &[aria-selected=true] {
-      background-color: $gray-900;
-      color: $gray-300;
+      background-color: $body-bg;
+      color: $body-color;
     }
 
     &--highlighted[aria-selected] {
-      background-color: $gray-800;
-      color: $gray-400;
+      background-color: $dark;
+      color: $body-color;
     }
   }
 }
@@ -39,7 +39,7 @@
 }
 
 .select2-dropdown {
-  border: 1px solid $gray-900;
+  border: 1px solid $body-bg;
 
   @include box-shadow($dropdown-box-shadow);
 }
