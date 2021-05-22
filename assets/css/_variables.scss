@@ -55,6 +55,7 @@ $link-decoration:                         none;
 // Components
 $border-radius:               0.25rem;
 $border-radius-sm:            0.15rem;
+$box-shadow:                  0 0.5rem 1rem color.scale(black, $lightness: 10%);
 $component-active-bg:         $primary;
 
 // Typography
@@ -91,10 +92,12 @@ $navbar-toggler-font-size:          $font-size-base;
 
 // Dropdowns
 $dropdown-bg:                       $body-bg;
+$dropdown-border-color:             color.scale(black, $lightness: 10%);
+$dropdown-divider-bg:               $dark;
+$dropdown-box-shadow:               $box-shadow;
 $dropdown-link-color:               color.scale(black, $lightness: 60%);
 $dropdown-link-hover-color:         $body-color;
 $dropdown-link-hover-bg:            $dark;
-$dropdown-divider-bg:               $dark;
 
 // Pagination
 $pagination-padding-y:              0.5rem;

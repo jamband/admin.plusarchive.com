@@ -1,4 +1,5 @@
 @import "../../../node_modules/bootstrap/scss/mixins/box-shadow";
+@import "../../../node_modules/bootstrap/scss/variables";
 @import "../../../node_modules/select2/src/scss/core";
 @import "../variables";
 
@@ -6,40 +7,39 @@
   border-radius: $border-radius;
 
   .select2-selection--multiple {
-    background-color: darken($body-bg, 1%);
-    border: 1px solid $dark;
+    background-color: $input-bg;
+    border: 1px solid $input-border-color;
 
     .select2-selection__choice {
       background-color: $dark;
-      border: none;
+      border-width: 0;
     }
   }
 
   .select2-results__option {
-    background-color: $body-bg;
-    color: $body-color;
+    background-color: $dropdown-bg;
+    color: $dropdown-link-color;
 
     &[aria-selected=true] {
-      background-color: $body-bg;
+      background-color: $dropdown-bg;
       color: $body-color;
     }
 
     &--highlighted[aria-selected] {
-      background-color: $dark;
-      color: $body-color;
+      background-color: $dropdown-link-hover-bg;
+      color: $dropdown-link-hover-color;
     }
   }
 }
 
 .select2-container--focus {
   border: 1px solid $input-focus-border-color;
-  outline: 0;
 
   @include box-shadow($input-btn-focus-box-shadow);
 }
 
 .select2-dropdown {
-  border: 1px solid $body-bg;
+  border: 1px solid $dropdown-border-color;
 
   @include box-shadow($dropdown-box-shadow);
 }
