@@ -28,8 +28,8 @@ class IndexCest
     public function ensureThatTracksWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/track/index']));
-        $I->see('Providers', '.dropdown-toggle');
-        $I->see('Genres', '.dropdown-toggle');
+        $I->see('Providers', '#search-provider');
+        $I->see('Genres', '#search-genre');
         $I->see('5 results');
         $I->see('track1', '.card-title');
         $I->see('track2', '.card-title');

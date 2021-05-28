@@ -76,7 +76,7 @@ class AdminCest
         $I->click('YouTube', '.card-img-wrap + .card-body');
         $I->wait(0.5);
         $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=YouTube');
-        $I->see('YouTube', '.dropdown-toggle');
+        $I->see('YouTube', '#search-provider');
         $I->see('Admin: 2', '#menu-action');
         $I->see('track4', '.card-title');
         $I->see('track5', '.card-title');

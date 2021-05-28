@@ -30,7 +30,7 @@ use yii\helpers\Url;
             </a>
             <br>
             <div class="d-inline-block dropdown">
-                <a id="search-provider" class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
+                <a id="search-provider" class="tag" href="#" data-bs-toggle="dropdown">
                     <?= h($provider) ?> <i class="fas fa-angle-down fa-fw"></i>
                 </a>
                 <div class="dropdown-menu">
@@ -42,7 +42,7 @@ use yii\helpers\Url;
                 </div>
             </div>
             <div class="d-inline-block dropdown">
-                <a id="search-genre" class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
+                <a id="search-genre" class="tag" href="#" data-bs-toggle="dropdown">
                     <?= h($genre) ?> <i class="fas fa-angle-down fa-fw"></i>
                 </a>
                 <div class="dropdown-menu">

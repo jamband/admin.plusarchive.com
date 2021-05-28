@@ -44,7 +44,7 @@ $cid = app()->controller->id;
                 <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= url(['/store/index']) ?>">Store</a>
                 <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= url(['/bookmark/index']) ?>">Bookmark</a>
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMoreLinks" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="#" id="dropdownMoreLinks" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-h"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMoreLinks">

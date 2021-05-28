@@ -18,7 +18,7 @@
 <div class="text-center mb-2">
     <?= $this->render('/common/nav/base') ?>
     <div class="d-inline-block dropdown">
-        <a id="menu-action" class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
+        <a id="menu-action" class="tag" href="#" data-bs-toggle="dropdown">
             <?= ucfirst(app()->controller->action->id) ?>
             <i class="fas fa-angle-down fa-fw"></i>
         </a>

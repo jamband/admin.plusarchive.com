@@ -28,7 +28,7 @@ use yii\helpers\Url;
 </a>
 <br>
 <div class="d-inline-block dropdown">
-    <a class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
+    <a class="tag" href="#" data-bs-toggle="dropdown">
         <?= h($sort) ?> <i class="fas fa-angle-down fa-fw"></i>
     </a>
     <div class="dropdown-menu">
@@ -39,7 +39,7 @@ use yii\helpers\Url;
     </div>
 </div>
 <div class="d-inline-block dropdown">
-    <a class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
+    <a class="tag" href="#" data-bs-toggle="dropdown">
         <?= h($country) ?> <i class="fas fa-angle-down fa-fw"></i>
     </a>
     <div class="dropdown-menu scrollable-menu">
@@ -51,7 +51,7 @@ use yii\helpers\Url;
     </div>
 </div>
 <div class="d-inline-block dropdown">
-    <a class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
+    <a class="tag" href="#" data-bs-toggle="dropdown">
         <?= h($tag) ?> <i class="fas fa-angle-down fa-fw"></i>
     </a>
     <div class="dropdown-menu">

@@ -17,7 +17,7 @@ use yii\helpers\Inflector;
 
 ?>
 <div class="d-inline-block dropdown">
-    <a id="menu-controller" class="dropdown-toggle tag" href="#" data-bs-toggle="dropdown">
+    <a id="menu-controller" class="tag" href="#" data-bs-toggle="dropdown">
         <?= preg_replace('#/[a-z/]+\z#', '', Inflector::id2camel(app()->controller->id)) ?>
         <i class="fas fa-angle-down fa-fw"></i>
     </a>
