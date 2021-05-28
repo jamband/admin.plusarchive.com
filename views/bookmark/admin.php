@@ -42,6 +42,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
             [
                 'attribute' => 'country',
                 'filter' => $search::listData('country'),
+                'filterInputOptions' => ['class' => 'form-select'],
             ],
             'link:brandIconLink',
             [
@@ -50,6 +51,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                     return formatter()->asTagValues($data->tagValues);
                 },
                 'filter' => BookmarkTag::listData('name'),
+                'filterInputOptions' => ['class' => 'form-select'],
             ],
             'created_at:datetime',
             'updated_at:datetime',

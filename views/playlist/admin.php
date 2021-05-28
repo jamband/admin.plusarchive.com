@@ -45,6 +45,7 @@ $this->title = 'Admin Playlists - '.app()->name;
                     return h($model->providerText);
                 },
                 'filter' => Playlist::PROVIDERS,
+                'filterInputOptions' => ['class' => 'form-select'],
             ],
             'provider_key',
             'created_at:datetime',
