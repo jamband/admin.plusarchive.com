@@ -21,13 +21,13 @@ $this->title = "$model->title - ".app()->name;
 ?>
 <?php if (preg_match('/\A(YouTube|Vimeo)\z/', $model->providerText)): ?>
     <div class="ratio ratio-16x9">
-        <iframe src="<?= h($embed) ?>" allowfullscreen></iframe>
+        <iframe class="rounded" src="<?= h($embed) ?>" allowfullscreen></iframe>
     </div>
 <?php else: ?>
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
             <div class="ratio ratio-1x1">
-                <iframe src="<?= h($embed) ?>" allowfullscreen></iframe>
+                <iframe class="rounded" src="<?= h($embed) ?>" allowfullscreen></iframe>
             </div>
         </div>
     </div>
