@@ -46,7 +46,7 @@ class SignupCest
         $I->fillField('#signupform-email', 'newuser@example.com');
         $I->fillField('#signupform-password', 'newusernewuser');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(2);
         $I->see('Signed up successfully.');
         $I->seeCurrentUrlEquals('/index-test.php');
     }
