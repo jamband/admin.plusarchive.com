@@ -9,7 +9,7 @@
 .card {
   position: relative;
 
-  @include media-breakpoint-only(xs) {
+  @include media-breakpoint-down(sm) {
     flex-direction: row;
   }
 
@@ -22,7 +22,7 @@
   .card-img-wrap {
     position: relative;
 
-    @include media-breakpoint-only(xs) {
+    @include media-breakpoint-down(sm) {
       height: 30%;
       width: 30%;
     }
@@ -40,7 +40,7 @@
       top: 50%;
       transform: translate(-50%, -50%);
 
-      @include media-breakpoint-only(xs) {
+      @include media-breakpoint-down(sm) {
         font-size: 150%;
       }
 
@@ -51,9 +51,13 @@
   }
 
   .card-body {
-    @include media-breakpoint-only(xs) {
+    @include media-breakpoint-down(sm) {
       padding-top: 0;
       width: 70%;
+    }
+
+    @include media-breakpoint-up(sm) {
+      padding-bottom: 0.3rem;
     }
 
     .card-title {
@@ -64,8 +68,8 @@
       margin-bottom: 0.4rem;
     }
 
-    @include media-breakpoint-only(xs) {
-      .card-text {
+    .card-text {
+      @include media-breakpoint-down(sm) {
         padding-bottom: 10px;
       }
     }
@@ -74,7 +78,7 @@
       color: gray;
       text-align: right;
 
-      @include media-breakpoint-only(xs) {
+      @include media-breakpoint-down(sm) {
         bottom: -5px;
         font-size: 85%;
         position: absolute;
