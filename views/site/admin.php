@@ -16,7 +16,7 @@
 
  use yii\helpers\Html;
 
-$this->title = 'Admin Site - '.app()->name;
+$this->title = 'Admin - '.app()->name;
 ?>
 <div class="text-center">
     <?= $this->render('/common/nav/base') ?>
