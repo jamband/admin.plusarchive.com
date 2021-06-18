@@ -14,6 +14,8 @@
  * @var app\models\Track[] $tracks
  */
 
+ use yii\helpers\Html;
+
 $this->title = 'Admin Site - '.app()->name;
 ?>
 <div class="text-center">
@@ -28,7 +30,12 @@ $this->title = 'Admin Site - '.app()->name;
             <div class="card">
                 <div class="card-img-wrap">
                     <a href="<?= url(['/track/view', 'id' => hashids()->encode($track->id)]) ?>">
-                        <img src="<?= $track->image ?>" class="card-img-top" alt="">
+                        <?= Html::tag('img', '', [
+                            'class' => 'lazyload card-img-top',
+                            'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
+                            'data-src' => h($track->image),
+                            'alt' => '',
+                        ]) ?>
                     </a>
                     <i class="fas fa-play-circle card-play"></i>
                 </div>
