@@ -15,6 +15,8 @@
  * @var array $genres
  */
 
+ use yii\helpers\Html;
+
 $this->title = app()->name;
 ?>
 <h1 class="mb-3">
@@ -26,7 +28,12 @@ $this->title = app()->name;
             <div class="card">
                 <div class="card-img-wrap">
                     <a href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>">
-                        <img src="<?= $model->image ?>" class="card-img-top" alt="">
+                        <?= Html::tag('img', '', [
+                            'class' => 'lazyload card-img-top',
+                            'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
+                            'data-src' => h($model->image),
+                            'alt' => '',
+                        ]) ?>
                     </a>
                     <i class="fas fa-play-circle card-play"></i>
                 </div>
