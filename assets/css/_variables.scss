@@ -35,8 +35,8 @@ $spacer: 1rem;
 
 $spacers: (
   0: 0,
-  1: $spacer / 4,
-  2: $spacer / 2,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
   3: $spacer,
   4: $spacer * 1.5,
   5: $spacer * 3,
@@ -63,7 +63,7 @@ $font-family-sans-serif:      "Source Sans Pro", "Yu Gothic", YuGothic sans-seri
 $font-family-base:            $font-family-sans-serif;
 $font-size-base:              1rem;
 $text-muted:                  #5e5e5e;
-$hr-margin-y:                 $spacer / 2;
+$hr-margin-y:                 $spacer * 0.5;
 $hr-color:                    #919191;
 $hr-height:                   1px;
 $small-font-size:             0.675em;
