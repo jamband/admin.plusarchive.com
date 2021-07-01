@@ -6,7 +6,6 @@ module.exports = {
   },
   output: {
     path: __dirname + '/../../web/assets',
-    publicPath: ''
   },
   module: {
     rules: [
