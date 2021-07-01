@@ -40,30 +40,27 @@ $this->title = 'Labels - '.app()->name;
             <div class="row">
                 <?php /* @var Label $model */ ?>
                 <?php foreach ($data->models as $model): ?>
-                    <div class="col-lg-6 mb-4">
-                        <?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'fw-bold']) ?>
-                        <br>
-                        <div class="tag">
-                            <?= h($model->getAttributeLabel('country')) ?>:
-                        </div>
-                        <?= h($model->country) ?>
-                        <br>
-                        <div class="tag">
-                            <?= h($model->getAttributeLabel('link')) ?>:
-                        </div>
-                        <?= formatter()->asBrandIconLink($model->link, "\n", ['class' => 'text-secondary']) ?>
-                        <br>
-                        <span class="tag">
-                            <?= h($model->getAttributeLabel('tagValues')) ?>:
-                        </span>
-                        <?php /** @var LabelTag $tag */ ?>
-                        <?php foreach ($model->labelTags as $tag): ?>
-                            <a class="tag" href="<?= url(['', 'tag' => $tag->name]) ?>">
-                                <?= h($tag->name) ?>
-                            </a>
-                        <?php endforeach ?>
+                    <article class="col-lg-6 mb-4">
+                        <h6 class="mb-1"><?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'fw-bold']) ?></h6>
+                        <section class="mb-1">
+                            <span class="me-2"><?= h($model->getAttributeLabel('country')) ?>:</span>
+                            <?= h($model->country) ?>
+                        </section>
+                        <section class="mb-1">
+                            <span class="me-2"><?= h($model->getAttributeLabel('link')) ?>:</span>
+                            <?= formatter()->asBrandIconLink($model->link, "\n", ['class' => 'text-body']) ?>
+                        </section>
+                        <section class="mb-1">
+                            <span class="me-2"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
+                            <?php /** @var LabelTag $tag */ ?>
+                            <?php foreach ($model->labelTags as $tag): ?>
+                                <a class="tag" href="<?= url(['', 'tag' => $tag->name]) ?>">
+                                    <?= h($tag->name) ?>
+                                </a>
+                            <?php endforeach ?>
+                        </section>
                         <hr>
-                    </div>
+                    </article>
                 <?php endforeach ?>
             </div>
             <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
