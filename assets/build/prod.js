@@ -18,6 +18,7 @@ module.exports = merge(common, {
       filename: '[name].[contenthash].css'
     }),
     new WebpackManifestPlugin({
+      publicPath: '',
       filter: (file) => !file.path.match(/\.(png|woff|woff2)$/)
     })
   ]
