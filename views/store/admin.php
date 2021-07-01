@@ -44,7 +44,15 @@ $this->title = 'Admin Stores - '.app()->name;
                 'filter' => $search::listData('country'),
                 'filterInputOptions' => ['class' => 'form-select'],
             ],
-            'link:brandIconLink',
+            [
+                'attribute' => 'link',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return formatter()->asBrandIconLink($data->link, "\n", [
+                        'class' => 'text-body',
+                    ]);
+                },
+            ],
             [
                 'attribute' => 'tag',
                 'value' => function ($data) {
@@ -55,7 +63,10 @@ $this->title = 'Admin Stores - '.app()->name;
             ],
             'created_at:datetime',
             'updated_at:datetime',
-            ['class' => ActionColumn::class],
+            [
+                'class' => ActionColumn::class,
+                'buttonOptions' => ['class' => 'text-body'],
+            ],
         ],
     ]) ?>
     <?= $this->render('/common/pagination', ['pagination' => $data->pagination]) ?>
