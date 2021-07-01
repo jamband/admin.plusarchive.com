@@ -27,7 +27,15 @@ $this->title = "View Bookmark: $model->name - ".app()->name;
         'name',
         'country',
         'url:urlWithText',
-        'link:brandIconLink',
+        [
+            'attribute' => 'link',
+            'format' => 'raw',
+            'value' => function ($data) {
+                return formatter()->asBrandIconLink($data->link, "\n", [
+                    'class' => 'text-body',
+                ]);
+            }
+        ],
         'tagValues:tagValues',
         'created_at:datetime',
         'updated_at:datetime',
