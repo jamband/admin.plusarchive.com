@@ -31,7 +31,7 @@ class UpdateCest
 
         $I->amOnPage(url(['/label-tag/admin']));
         $I->click('//*[@id="grid-view-label-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
-        $I->seeCurrentUrlEquals('/index-test.php/label-tag/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/label-tags/update/1');
         $I->see('LabelTag', '#menu-controller');
         $I->see('Update', '#menu-action');
 
@@ -45,14 +45,14 @@ class UpdateCest
         $I->fillField('#labeltag-name', 'tag-one');
         $I->click('button[type=submit]');
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/label-tag/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/label-tags/admin');
         $I->see('Label tag has been updated.');
         $I->see('Admin: 3', '#menu-action');
         $I->see('tag-one', '.grid-view');
         $I->dontSee('tag1', '.grid-view');
 
         $I->click('//*[@id="grid-view-label-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
-        $I->seeCurrentUrlEquals('/index-test.php/label-tag/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/label-tags/update/1');
 
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
@@ -63,7 +63,7 @@ class UpdateCest
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/label-tag/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/label-tags/admin');
         $I->see('Admin: 2', '#menu-action');
         $I->dontSee('tag-one', '.grid-view');
     }

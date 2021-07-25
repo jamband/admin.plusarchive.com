@@ -34,7 +34,7 @@ class CreateCest
 
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/store/create');
+        $I->seeCurrentUrlEquals('/index-test.php/stores/create');
 
         $I->click('button[type=submit]');
         $I->wait(0.5);
@@ -45,7 +45,7 @@ class CreateCest
         $I->click('button[type=submit]');
         $I->wait(0.5);
         $I->see('Store has been added.');
-        $I->seeCurrentUrlEquals('/index-test.php/store/4');
+        $I->seeCurrentUrlEquals('/index-test.php/stores/4');
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');

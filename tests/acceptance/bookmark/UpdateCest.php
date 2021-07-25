@@ -31,18 +31,18 @@ class UpdateCest
 
         $I->amOnPage(url(['/bookmark/admin']));
         $I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/update/1');
         $I->see('Bookmark', '#menu-controller');
         $I->see('Update', '#menu-action');
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/admin');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/create');
         $I->moveBack();
 
         $I->seeInField('#bookmark-name', 'bookmark1');
@@ -58,7 +58,7 @@ class UpdateCest
         $I->fillField('#bookmark-name', 'bookmark-one');
         $I->click('button[type=submit]');
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/1');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/1');
         $I->see('Bookmark has been updated.');
 
         $I->click('#menu-action');
@@ -68,7 +68,7 @@ class UpdateCest
         $I->dontSee('bookmark1', '.grid-view');
 
         $I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/update/1');
 
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
@@ -79,7 +79,7 @@ class UpdateCest
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/admin');
         $I->see('Admin: 3', '#menu-action');
         $I->dontSee('bookmark-one', '.grid-view');
     }

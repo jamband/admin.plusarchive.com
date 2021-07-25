@@ -42,7 +42,7 @@ class UpdateCest
         $I->click('button[type=submit]');
         $I->wait(0.5);
 
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/playlists/admin');
         $I->see('Playlist has been updated.');
         $I->see('Admin: 3' ,'#menu-action');
         $I->see('Updated Title');

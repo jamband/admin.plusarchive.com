@@ -42,7 +42,7 @@ class CreateCest
         $I->fillField('#label-url', 'https://newlabel.example.com');
         $I->click('button[type=submit]');
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/label/4');
+        $I->seeCurrentUrlEquals('/index-test.php/labels/4');
         $I->see('Label has been added.');
 
         $I->click('#menu-action');

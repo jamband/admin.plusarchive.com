@@ -31,7 +31,7 @@ class UpdateCest
 
         $I->amOnPage(url(['/store-tag/admin']));
         $I->click('//*[@id="grid-view-store-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
-        $I->seeCurrentUrlEquals('/index-test.php/store-tag/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/store-tags/update/1');
         $I->see('StoreTag', '#menu-controller');
         $I->see('Update', '#menu-action');
 
@@ -45,14 +45,14 @@ class UpdateCest
         $I->fillField('#storetag-name', 'tag-one');
         $I->click('button[type=submit]');
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/store-tag/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/store-tags/admin');
         $I->see('Store tag has been updated.');
         $I->see('Admin: 3', '#menu-action');
         $I->see('tag-one', '.grid-view');
         $I->dontSee('tag1', '.grid-view');
 
         $I->click('//*[@id="grid-view-store-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
-        $I->seeCurrentUrlEquals('/index-test.php/store-tag/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/store-tags/update/1');
 
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
@@ -63,7 +63,7 @@ class UpdateCest
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/store-tag/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/store-tags/admin');
         $I->see('Admin: 2', '#menu-action');
         $I->dontSee('tag-one', '.grid-view');
     }

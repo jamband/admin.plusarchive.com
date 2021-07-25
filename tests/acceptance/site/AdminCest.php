@@ -34,48 +34,48 @@ class AdminCest
         $I->amOnPage(url(['/site/admin/index']));
 
         $I->click('#menu-controller');
-        $I->click('Track', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin');
+        $I->click('Tracks', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('Playlist', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
+        $I->click('Playlists', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/playlists/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('MusicGenre', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/music-genre/admin');
+        $I->click('MusicGenres', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/music-genres/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('Label', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/label/admin');
+        $I->click('Labels', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/labels/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('LabelTag', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/label-tag/admin');
+        $I->click('LabelTags', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/label-tags/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('Store', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/store/admin');
+        $I->click('Stores', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/stores/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('StoreTag', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/store-tag/admin');
+        $I->click('StoreTags', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/store-tags/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('Bookmark', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/admin');
+        $I->click('Bookmarks', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/admin');
         $I->moveBack();
 
         $I->click('#menu-controller');
-        $I->click('BookmarkTag', '#menu-controller + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark-tag/admin');
+        $I->click('BookmarkTags', '#menu-controller + .dropdown-menu');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmark-tags/admin');
         $I->moveBack();
 
         $I->see('Recent favorite tracks');
@@ -84,11 +84,11 @@ class AdminCest
         $I->see('track3', '.card-title');
 
         $I->click('genre1', '.card-text');
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin?genre=genre1');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/admin?genre=genre1');
         $I->moveBack();
 
         $I->click('Update', '.card-date');
-        $I->seeCurrentUrlEquals('/index-test.php/track/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/update/1');
         $I->moveBack();
     }
 }

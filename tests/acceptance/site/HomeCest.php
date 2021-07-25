@@ -15,6 +15,7 @@ namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\HomeFixture;
+use Codeception\Util\Locator;
 
 class HomeCest
 {
@@ -42,7 +43,7 @@ class HomeCest
         $I->seeCurrentUrlEquals('/index-test.php/tracks');
         $I->moveBack();
 
-        $I->click('Playlists');
+        $I->click(Locator::elementAt('//a[contains(text(), "Playlists")]', 2));
         $I->seeCurrentUrlEquals('/index-test.php/playlists');
         $I->moveBack();
     }

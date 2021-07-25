@@ -23,22 +23,22 @@ $cid = app()->controller->id;
         </button>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <div class="d-md-none navbar-nav">
-                <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= url(['/track/index']) ?>">Track</a>
-                <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= url(['/playlist/index']) ?>">Playlist</a>
-                <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= url(['/label/index']) ?>">Label</a>
-                <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= url(['/store/index']) ?>">Store</a>
-                <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= url(['/bookmark/index']) ?>">Bookmark</a>
-                <a class="nav-link<?= 'site/about' === $cid ? ' active' : '' ?>" href="<?= url(['/site/about/index']) ?>">About</a>
+                <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= url(['/track/index']) ?>">Tracks</a>
+                <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= url(['/playlist/index']) ?>">Playlists</a>
+                <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= url(['/label/index']) ?>">Labels</a>
+                <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= url(['/store/index']) ?>">Stores</a>
+                <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= url(['/bookmark/index']) ?>">Bookmarks</a>
+                <a class="nav-link<?= 'site/about' === $cid ? ' active' : '' ?>" href="<?= url(['/site/about/index']) ?>">Abouts</a>
                 <a class="nav-link<?= 'site/privacy' === $cid ? ' active' : '' ?>" href="<?= url(['/site/privacy/index']) ?>">Privacy</a>
                 <a class="nav-link<?= 'site/contact' === $cid ? ' active' : '' ?>" href="<?= url(['/site/contact/index']) ?>">Contact</a>
                 <a class="nav-link<?= 'site/third-party-licenses' === $cid ? ' active' : '' ?>" href="<?= url(['/site/third-party-licenses/index']) ?>">Third Party Licenses</a>
             </div>
             <div id="navbar" class="d-none d-md-flex navbar-nav">
-                <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= url(['/track/index']) ?>">Track</a>
-                <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= url(['/playlist/index']) ?>">Playlist</a>
-                <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= url(['/label/index']) ?>">Label</a>
-                <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= url(['/store/index']) ?>">Store</a>
-                <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= url(['/bookmark/index']) ?>">Bookmark</a>
+                <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= url(['/track/index']) ?>">Tracks</a>
+                <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= url(['/playlist/index']) ?>">Playlists</a>
+                <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= url(['/label/index']) ?>">Labels</a>
+                <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= url(['/store/index']) ?>">Stores</a>
+                <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= url(['/bookmark/index']) ?>">Bookmarks</a>
                 <div class="dropdown">
                     <a class="nav-link" href="#" id="dropdownMoreLinks" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-h"></i>

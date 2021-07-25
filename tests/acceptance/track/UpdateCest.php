@@ -43,7 +43,7 @@ class UpdateCest
         $I->click('button[type=submit]');
         $I->wait(0.5);
 
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/admin');
         $I->see('Track has been updated.');
         $I->see('Admin: 5' ,'#menu-action');
         $I->see('Updated Title', ['css' => '.card:nth-child(1)']);

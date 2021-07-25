@@ -31,24 +31,24 @@ class ViewCest
 
         $I->amOnPage(url(['/label/admin']));
         $I->click('//*[@id="grid-view-label"]/table/tbody/tr[1]/td[7]/a[1]/i');
-        $I->seeCurrentUrlEquals('/index-test.php/label/1');
+        $I->seeCurrentUrlEquals('/index-test.php/labels/1');
         $I->see('Label', '#menu-controller');
         $I->see('View', '#menu-action');
         $I->see('label1', '.detail-view');
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/label/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/labels/admin');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/label/create');
+        $I->seeCurrentUrlEquals('/index-test.php/labels/create');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Update', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/label/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/labels/update/1');
         $I->moveBack();
 
         $I->click('#menu-action');
@@ -61,7 +61,7 @@ class ViewCest
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/label/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/labels/admin');
         $I->see('Admin: 2', '#menu-action');
     }
 }

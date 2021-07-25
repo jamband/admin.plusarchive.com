@@ -33,7 +33,7 @@ class CreateCest
         $I->amOnPage(url(['/track/admin']));
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/track/create');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/create');
         $I->see('Track', '#menu-controller');
         $I->see('Create', '#menu-action');
         $I->click('button[type=submit]');
@@ -45,7 +45,7 @@ class CreateCest
         $I->click('button[type=submit]');
         $I->wait(0.5);
 
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/admin');
         $I->see('Track has been added.');
         $I->see('Admin: 6' ,'#menu-action');
         $I->see('Foo Title', ['css' => '.card:nth-child(1)']);

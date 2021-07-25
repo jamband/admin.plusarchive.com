@@ -31,24 +31,24 @@ class ViewCest
 
         $I->amOnPage(url(['/bookmark/admin']));
         $I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[7]/a[1]/i'); // View link
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/1');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/1');
         $I->see('Bookmark', '#menu-controller');
         $I->see('View', '#menu-action');
         $I->see('bookmark1', '.detail-view');
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/admin');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/create');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/create');
         $I->moveBack();
 
         $I->click('#menu-action');
         $I->click('Update', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/update/1');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/update/1');
         $I->moveBack();
 
         $I->click('#menu-action');
@@ -60,7 +60,7 @@ class ViewCest
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/bookmark/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/bookmarks/admin');
         $I->see('Admin: 3', '#menu-action');
     }
 }

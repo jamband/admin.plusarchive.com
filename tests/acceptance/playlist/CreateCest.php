@@ -35,7 +35,7 @@ class CreateCest
 
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/create');
+        $I->seeCurrentUrlEquals('/index-test.php/playlists/create');
 
         $I->click('button[type=submit]');
         $I->wait(0.5);
@@ -45,7 +45,7 @@ class CreateCest
         $I->click('button[type=submit]');
         $I->wait(0.5);
 
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/playlists/admin');
         $I->see('Playlist has been added.');
         $I->see('Admin: 4' ,'#menu-action');
         $I->see('Foo Title');

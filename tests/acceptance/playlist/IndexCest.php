@@ -35,7 +35,7 @@ class IndexCest
         $I->see('playlist3');
 
         $I->click('playlist1');
-        $I->seeCurrentUrlEquals('/index-test.php/playlist/'.hashids()->encode(1));
+        $I->seeCurrentUrlEquals('/index-test.php/playlists/'.hashids()->encode(1));
 
         $I->click('Back to playlists');
         $I->seeCurrentUrlEquals('/index-test.php/playlists');

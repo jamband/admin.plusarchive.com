@@ -42,7 +42,7 @@ class AdminCest
         $I->click('#search-provider');
         $I->click('Bandcamp', '#search-provider + .dropdown-menu');
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=Bandcamp');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/admin?provider=Bandcamp');
         $I->dontSee('Providers', '#search-provider');
         $I->see('Bandcamp', '#search-provider');
         $I->see('Admin: 1', '#menu-action');
@@ -52,14 +52,14 @@ class AdminCest
         $I->click('#search-genre');
         $I->click('genre2', '#search-genre + .dropdown-menu');
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=Bandcamp&genre=genre2');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/admin?provider=Bandcamp&genre=genre2');
         $I->see('Admin: 0', '#menu-action');
         $I->dontSee('Genres', '#search-genre');
         $I->see('genre2', '#search-genre');
 
         $I->click('Reset All');
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/admin');
         $I->see('Providers', '#search-provider');
         $I->dontSee('Bandcamp', '#search-provider');
         $I->see('Admin: 5', '#menu-action');
@@ -75,7 +75,7 @@ class AdminCest
 
         $I->click('YouTube', '.card-img-wrap + .card-body');
         $I->wait(0.5);
-        $I->seeCurrentUrlEquals('/index-test.php/track/admin?provider=YouTube');
+        $I->seeCurrentUrlEquals('/index-test.php/tracks/admin?provider=YouTube');
         $I->see('YouTube', '#search-provider');
         $I->see('Admin: 2', '#menu-action');
         $I->see('track4', '.card-title');
