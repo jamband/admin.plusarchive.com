@@ -26,7 +26,7 @@ $this->title = 'Playlists - '.app()->name;
         <ul class="list-unstyled text-truncate">
             <?php /** @var Playlist $model */ ?>
             <?php foreach ($data->models as $model): ?>
-                <li class="h5"><a href="<?= url(['view', 'id' => hashids()->encode($model->id)]) ?>"><?= h($model->title) ?> <i class="fas fa-angle-right fa-fw"></i></a></li>
+                <li class="ms-1 mt-1 h5 fw-bold"><a href="<?= url(['view', 'id' => hashids()->encode($model->id)]) ?>"><?= h($model->title) ?> <i class="fas fa-angle-right fa-fw"></i></a></li>
             <?php endforeach ?>
         </ul>
     </div>
