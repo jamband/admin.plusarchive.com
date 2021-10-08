@@ -9,7 +9,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@popperjs/core": "^2.10.2",
-    "bootstrap": "^5.1.1",
+    "bootstrap": "^5.1.2",
     "jquery": "^3.6.0",
     "lazysizes": "^5.3.2",
     "masonry-layout": "^4.2.2",
@@ -17,12 +17,12 @@
     "yii2-pjax": "^2.0.7"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.6",
+    "autoprefixer": "^10.3.7",
     "compression-webpack-plugin": "^9.0.0",
     "css-loader": "^6.3.0",
     "fibers": "^5.0.0",
-    "mini-css-extract-plugin": "^2.3.0",
-    "postcss": "^8.3.8",
+    "mini-css-extract-plugin": "^2.4.2",
+    "postcss": "^8.3.9",
     "postcss-loader": "^6.1.1",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
@@ -30,8 +30,8 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.21.0",
-    "webpack": "^5.56.1",
-    "webpack-cli": "^4.8.0",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
     "webpack-manifest-plugin": "^4.0.2",
     "webpack-merge": "^5.8.0"
   }
