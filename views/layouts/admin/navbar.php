@@ -50,6 +50,7 @@ $cid = app()->controller->id;
                     <div class="dropdown-menu" aria-labelledby="dropdownMoreLinks">
                         <a class="dropdown-item" href="<?= url(['/auth/signup/index']) ?>">Signup</a>
                         <a class="dropdown-item" href="<?= url(['/auth/logout/index']) ?>" data-method="post">Logout</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="<?= url(['/site/about/index']) ?>">About</a>
                         <a class="dropdown-item" href="<?= url(['/site/privacy/index']) ?>">Privacy</a>
                         <a class="dropdown-item" href="<?= url(['/site/contact/index']) ?>">Contact</a>
