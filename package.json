@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "stylelint": "stylelint assets/css/**/*.scss",
-    "watch": "webpack --watch --config assets/build/dev.js",
     "dev": "webpack --config assets/build/dev.js",
-    "build": "webpack --config assets/build/prod.js"
+    "watch": "webpack --watch --config assets/build/dev.js",
+    "build": "webpack --config assets/build/prod.js",
+    "stylelint": "stylelint \"{assets,views}/**/*.{css,php,scss}\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
@@ -23,13 +23,14 @@
     "fibers": "^5.0.0",
     "mini-css-extract-plugin": "^2.4.3",
     "postcss": "^8.3.11",
+    "postcss-html": "^1.1.1",
     "postcss-loader": "^6.2.0",
+    "postcss-sass": "^0.5.0",
     "sass": "^1.43.4",
     "sass-loader": "^12.2.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.21.0",
+    "stylelint": "^14.0.1",
+    "stylelint-config-standard-scss": "^2.0.0",
+    "stylelint-order": "^5.0.0",
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",
     "webpack-manifest-plugin": "^4.0.2",

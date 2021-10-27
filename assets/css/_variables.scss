@@ -10,10 +10,8 @@ $warning:       #ffc107;
 $danger:        #a94442;
 $light:         #f8f9fa;
 $dark:          #2e2e2e;
-
 $colors: (
 );
-
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
@@ -32,7 +30,6 @@ $enable-smooth-scroll:        false;
 
 // Spacing
 $spacer: 1rem;
-
 $spacers: (
   0: 0,
   1: $spacer * 0.25,
@@ -84,7 +81,6 @@ $zindex-toast:      1090;
 
 // Navbar
 $navbar-nav-link-padding-x:         0.8rem;
-
 $navbar-dark-color:                 color.scale(black, $lightness: 60%);
 $navbar-dark-hover-color:           $body-color;
 $navbar-dark-active-color:          $body-color;

@@ -5,9 +5,6 @@
 
 $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 
-$-fab-font-family: "Font Awesome 5 Brands";
-$-fas-font-family: "Font Awesome 5 Free";
-
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/variables";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/mixins";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/core";
@@ -24,7 +21,7 @@ $-fas-font-family: "Font Awesome 5 Free";
 }
 
 .fab {
-  font-family: $-fab-font-family;
+  font-family: "Font Awesome 5 Brands";
 }
 
 // fa-solid
@@ -37,7 +34,7 @@ $-fas-font-family: "Font Awesome 5 Free";
 
 .fa,
 .fas {
-  font-family: $-fas-font-family;
+  font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
 

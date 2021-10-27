@@ -20,7 +20,7 @@
     background-color: $dropdown-bg;
     color: $dropdown-link-color;
 
-    &[aria-selected=true] {
+    &[aria-selected="true"] {
       background-color: $dropdown-bg;
       color: $body-color;
     }

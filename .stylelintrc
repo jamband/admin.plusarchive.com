@@ -1,15 +1,23 @@
 {
-  "extends": [
-    "stylelint-config-standard"
-  ],
-  "plugins": [
-    "stylelint-order",
-    "stylelint-scss"
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-order"],
+  "overrides": [
+    {
+      "files": ["**/*.php"],
+      "customSyntax": "postcss-html"
+    }
   ],
   "rules": {
-    "at-rule-no-unknown": null,
+    "alpha-value-notation": "number",
+    "selector-class-pattern": ["^[\\w-]+$", { "resolveNestedSelectors": true }],
     "value-keyword-case": ["lower", { "ignoreKeywords": ["YuGothic"] }],
     "order/properties-alphabetical-order": true,
-    "scss/at-rule-no-unknown": true
+    "scss/dollar-variable-colon-space-after": "at-least-one-space",
+    "font-family-no-missing-generic-family-keyword": [
+      true,
+      {
+        "ignoreFontFamilies": ["Font Awesome 5 Brands", "Font Awesome 5 Free"]
+      }
+    ]
   }
 }
