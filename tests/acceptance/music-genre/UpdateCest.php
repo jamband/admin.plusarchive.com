@@ -16,6 +16,9 @@ namespace app\tests\acceptance\musicGenre;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\MusicGenreFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class UpdateCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class UpdateCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatMusicGenreUpdateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/music-genre/update', 'id' => 1]);

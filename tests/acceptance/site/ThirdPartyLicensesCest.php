@@ -15,8 +15,14 @@ namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
 
+/**
+ * @noinspection PhpUnused
+ */
 class ThirdPartyLicensesCest
 {
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatThirdPartyLicensesWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/site/third-party-licenses/index']));

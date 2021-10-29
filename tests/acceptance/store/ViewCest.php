@@ -16,6 +16,9 @@ namespace app\tests\acceptance\store;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class ViewCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class ViewCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatStoreViewWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/store/view', 'id' => 1]);

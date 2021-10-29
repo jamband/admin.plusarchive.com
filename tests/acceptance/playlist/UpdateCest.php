@@ -16,8 +16,12 @@ namespace app\tests\acceptance\playlist;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\PlaylistFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class UpdateCest
 {
+    /** @var mixed */
     private $fixtures;
 
     public function _before(AcceptanceTester $I): void
@@ -27,6 +31,9 @@ class UpdateCest
         $this->fixtures = $I->grabFixture('playlists');
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatPlaylistUpdateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/playlist/update', 'id' => 3]);

@@ -16,6 +16,9 @@ namespace app\controllers;
 use yii\base\Action;
 use yii\web\Controller as BaseController;
 
+/**
+ * @noinspection PhpUnused
+ */
 class Controller extends BaseController
 {
     /**

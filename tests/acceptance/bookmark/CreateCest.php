@@ -16,6 +16,9 @@ namespace app\tests\acceptance\bookmark;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class CreateCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class CreateCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatBookmarkCreateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/bookmark/create']);

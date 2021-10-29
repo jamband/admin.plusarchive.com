@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-define('YII_ENV', 'test');
+defined('YII_ENV') or define('YII_ENV', 'test');
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 
 require __DIR__.'/../vendor/autoload.php';

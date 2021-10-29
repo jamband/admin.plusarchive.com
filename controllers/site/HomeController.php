@@ -18,6 +18,9 @@ use app\models\Track;
 use app\models\MusicGenre;
 use yii\data\ActiveDataProvider;
 
+/**
+ * @noinspection PhpUnused
+ */
 class HomeController extends Controller
 {
     private const GENRE_LIMIT = 38;

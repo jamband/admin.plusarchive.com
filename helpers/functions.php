@@ -22,9 +22,6 @@ if (!function_exists('app')) {
 }
 
 if (!function_exists('db')) {
-    /**
-     * @return yii\db\Connection
-     */
     function db(): yii\db\Connection {
         return Yii::$app->getDb();
     }
@@ -32,7 +29,7 @@ if (!function_exists('db')) {
 
 if (!function_exists('formatter')) {
     /**
-     * @return app\components\Formatter
+     * @return app\components\Formatter|yii\i18n\Formatter
      */
     function formatter() {
         return Yii::$app->getFormatter();
@@ -58,27 +55,18 @@ if (!function_exists('response')) {
 }
 
 if (!function_exists('session')) {
-    /**
-     * @return yii\web\Session
-     */
     function session(): yii\web\Session {
         return Yii::$app->getSession();
     }
 }
 
 if (!function_exists('security')) {
-    /**
-     * @return yii\base\Security
-     */
     function security(): yii\base\Security {
         return Yii::$app->getSecurity();
     }
 }
 
 if (!function_exists('user')) {
-    /**
-     * @return yii\web\User
-     */
     function user(): yii\web\User {
         return Yii::$app->getUser();
     }
@@ -86,19 +74,16 @@ if (!function_exists('user')) {
 
 // Custom components
 if (!function_exists('hashids')) {
-    /**
-     * @return null|object
-     */
-    function hashids() {
+    function hashids(): ?object {
         return Yii::$app->get('hashids');
     }
 }
 
-// Other
+// Others
 if (!function_exists('url')) {
     /**
-     * @param string $url
-     * @param bool $scheme
+     * @param array|string $url
+     * @param bool|string $scheme
      * @return string
      */
     function url($url = '', $scheme = false): string {
@@ -107,21 +92,13 @@ if (!function_exists('url')) {
 }
 
 if (!function_exists('h')) {
-    /**
-     * @param $string
-     * @return string
-     */
     function h(string $string): string {
-        return htmlspecialchars($string, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        return htmlspecialchars($string, ENT_QUOTES | ENT_SUBSTITUTE);
     }
 }
 
 if (!function_exists('asset')) {
-    /**
-     * @param string $file
-     * @return string
-     */
-    function asset($file): string {
+    function asset(string $file): string {
         $manifest = Yii::getAlias('@app/web/assets/manifest.json');
 
         $manifest = file_exists($manifest)

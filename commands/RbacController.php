@@ -17,7 +17,8 @@ use yii\console\Controller;
 use yii\console\ExitCode;
 
 /**
- * RbacController class file.
+ * Manages access control
+ * @noinspection PhpUnused
  */
 class RbacController extends Controller
 {

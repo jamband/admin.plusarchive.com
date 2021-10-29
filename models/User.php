@@ -78,9 +78,9 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * @return mixed|string
+     * @return string
      */
-    public function getAuthKey()
+    public function getAuthKey(): string
     {
         return $this->auth_key;
     }

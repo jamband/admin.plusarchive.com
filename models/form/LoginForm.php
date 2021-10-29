@@ -17,15 +17,15 @@ use app\models\User;
 use Yii;
 use yii\base\Model;
 
-/**
- * @property null|User $user
- */
 class LoginForm extends Model
 {
     public $username;
     public $password;
     public $rememberMe = true;
 
+    /**
+     * @var User|null|bool
+     */
     private $_user = false;
 
     /**
@@ -53,6 +53,7 @@ class LoginForm extends Model
 
     /**
      * Validates the password.
+     * @noinspection PhpUnused
      *
      * @return void
      */
@@ -86,7 +87,7 @@ class LoginForm extends Model
     /**
      * Finds user by username.
      *
-     * @return null|User
+     * @return User|null
      */
     protected function getUser(): ?User
     {

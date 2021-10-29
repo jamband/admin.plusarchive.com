@@ -27,6 +27,7 @@ use yii\helpers\ArrayHelper;
 class Track extends Music
 {
     /**
+     * @noinspection PhpUnused
      * @return ActiveQuery
      */
     public function getMusicGenres(): ActiveQuery

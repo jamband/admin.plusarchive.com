@@ -63,6 +63,7 @@ class Bookmark extends ActiveRecord
     }
 
     /**
+     * @noinspection PhpUnused
      * @return ActiveQuery
      */
     public function getBookmarkTags(): ActiveQuery

@@ -15,8 +15,14 @@ namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
 
+/**
+ * @noinspection PhpUnused
+ */
 class PrivacyOptOutCest
 {
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatPrivacyOptOutWorks(AcceptanceTester $I): void
     {
         $I->seeBadRequest(['/site/privacy-opt-out/index']);

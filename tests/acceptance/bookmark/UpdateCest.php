@@ -16,6 +16,9 @@ namespace app\tests\acceptance\bookmark;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class UpdateCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class UpdateCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatBookmarkUpdateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/bookmark/update', 'id' => 1]);

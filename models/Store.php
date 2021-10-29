@@ -62,6 +62,7 @@ class Store extends ActiveRecord
     }
 
     /**
+     * @noinspection PhpUnused
      * @return ActiveQuery
      */
     public function getStoreTags(): ActiveQuery

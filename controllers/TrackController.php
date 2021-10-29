@@ -25,6 +25,9 @@ use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
+/**
+ * @noinspection PhpUnused
+ */
 class TrackController extends Controller
 {
     /**

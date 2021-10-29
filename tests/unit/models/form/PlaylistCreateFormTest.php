@@ -21,10 +21,7 @@ use UnitTester;
 
 class PlaylistCreateFormTest extends Unit
 {
-    /**
-     * @var UnitTester
-     */
-    protected $tester;
+    protected UnitTester $tester;
 
     public function testSave(): void
     {

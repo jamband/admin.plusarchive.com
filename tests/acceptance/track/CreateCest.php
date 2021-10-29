@@ -16,6 +16,9 @@ namespace app\tests\acceptance\track;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class CreateCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class CreateCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatTrackCreateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/track/create']);

@@ -16,6 +16,9 @@ namespace app\controllers\site;
 use app\controllers\Controller;
 use yii\web\NotFoundHttpException;
 
+/**
+ * @noinspection PhpUnused
+ */
 class OfflineController extends Controller
 {
     /**

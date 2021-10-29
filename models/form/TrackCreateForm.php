@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace app\models\form;
 
+use app\models\Music;
 use app\models\Track;
 use yii\helpers\ArrayHelper;
 
@@ -38,9 +39,9 @@ class TrackCreateForm extends TrackForm
             $track->url = $this->url;
             $track->title = $this->title;
             $track->image = $this->image;
-            $track->provider = array_search($this->_ripple->provider(), Track::PROVIDERS, true);
+            $track->provider = array_search($this->_ripple->provider(), Music::PROVIDERS, true);
             $track->provider_key = $this->_ripple->id();
-            $track->type = Track::TYPE_TRACK;
+            $track->type = Music::TYPE_TRACK;
             $track->urge = $this->urge;
             $track->tagValues = $this->tagValues;
 

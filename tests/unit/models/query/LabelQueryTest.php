@@ -24,10 +24,7 @@ use UnitTester;
 
 class LabelQueryTest extends Unit
 {
-    /**
-     * @var UnitTester
-     */
-    protected $tester;
+    protected UnitTester $tester;
 
     public function testBehaviors(): void
     {

@@ -20,10 +20,7 @@ use UnitTester;
 
 class LoginFormTest extends Unit
 {
-    /**
-     * @var UnitTester
-     */
-    protected $tester;
+    protected UnitTester $tester;
 
     public function testLogin(): void
     {

@@ -16,6 +16,9 @@ namespace app\tests\acceptance\auth;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\SignupFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class SignupCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class SignupCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatSignupWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));

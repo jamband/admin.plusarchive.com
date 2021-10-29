@@ -14,16 +14,22 @@ declare(strict_types=1);
 namespace app\tests\acceptance\auth;
 
 use AcceptanceTester;
-use app\tests\acceptance\fixtures\AdminUserFixture;
+use app\tests\acceptance\fixtures\LoginFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class LoginCest
 {
     public function _before(AcceptanceTester $I): void
     {
-        $fixtures['users'] = AdminUserFixture::class;
+        $fixtures['users'] = LoginFixture::class;
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatLoginWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/auth/login/index']));

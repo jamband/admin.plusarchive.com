@@ -20,10 +20,7 @@ use UnitTester;
 
 class StoreTest extends Unit
 {
-    /**
-     * @var UnitTester
-     */
-    protected $tester;
+    protected UnitTester $tester;
 
     public function testAll(): void
     {

@@ -17,6 +17,9 @@ use app\controllers\Controller;
 use yii\filters\AjaxFilter;
 use yii\helpers\ArrayHelper;
 
+/**
+ * @noinspection PhpUnused
+ */
 class PrivacyOptOutController extends Controller
 {
     /**

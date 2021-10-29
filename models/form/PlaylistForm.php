@@ -23,10 +23,7 @@ class PlaylistForm extends Model
     public $title;
     public $image;
 
-    /**
-     * @var Ripple
-     */
-    protected $_ripple;
+    protected Ripple $_ripple;
 
     /**
      * @param array $config
@@ -55,6 +52,7 @@ class PlaylistForm extends Model
     }
 
     /**
+     * @noinspection PhpUnused
      * @param string $attribute
      * @return void
      */
@@ -66,6 +64,7 @@ class PlaylistForm extends Model
     }
 
     /**
+     * @noinspection PhpUnused
      * @param string $attribute
      * @return void
      */

@@ -16,6 +16,9 @@ namespace app\tests\acceptance\track;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class NowCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class NowCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatTrackNowWorks(AcceptanceTester $I): void
     {
         $I->seeBadRequest(['/track/now', 'id' => 1]);

@@ -16,6 +16,9 @@ namespace app\tests\acceptance\playlist;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\PlaylistFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class CreateCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class CreateCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatPlaylistCreateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/playlist/create']);

@@ -15,8 +15,14 @@ namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
 
+/**
+ * @noinspection PhpUnused
+ */
 class PrivacyConsentCest
 {
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatPrivacyConsentWorks(AcceptanceTester $I): void
     {
         $I->seeBadRequest(['/site/privacy-consent/index']);

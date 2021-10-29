@@ -62,6 +62,7 @@ class Label extends ActiveRecord
     }
 
     /**
+     * @noinspection PhpUnused
      * @return ActiveQuery
      */
     public function getLabelTags(): ActiveQuery

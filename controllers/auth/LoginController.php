@@ -17,6 +17,9 @@ use app\controllers\Controller;
 use app\models\form\LoginForm;
 use yii\web\Response;
 
+/**
+ * @noinspection PhpUnused
+ */
 class LoginController extends Controller
 {
     /**

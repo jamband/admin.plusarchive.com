@@ -67,6 +67,7 @@ class Music extends ActiveRecord
 
     /**
      * Transformation of provider attribute.
+     * @noinspection PhpUnused
      *
      * @return string
      */
@@ -77,6 +78,7 @@ class Music extends ActiveRecord
 
     /**
      * Transformation of type attribute.
+     * @noinspection PhpUnused
      *
      * @return string
      */

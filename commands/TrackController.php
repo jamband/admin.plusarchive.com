@@ -24,7 +24,8 @@ use yii\console\ExitCode;
 use yii\helpers\FileHelper;
 
 /**
- * TrackController class file.
+ * Manages track
+ * @noinspection PhpUnused
  */
 class TrackController extends Controller
 {
@@ -40,6 +41,7 @@ class TrackController extends Controller
 
     /**
      * Creates some csv files for each provider.
+     * @noinspection PhpUnused
      *
      * @return int
      * @throws Exception

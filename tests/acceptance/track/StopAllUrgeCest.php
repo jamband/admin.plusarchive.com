@@ -16,6 +16,9 @@ namespace app\tests\acceptance\track;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackStopAllUrgeFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class StopAllUrgeCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class StopAllUrgeCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatTrackStopAllUrgeWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/site/admin/index']);

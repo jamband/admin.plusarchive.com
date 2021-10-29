@@ -17,6 +17,9 @@ use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
 use Facebook\WebDriver\WebDriverKeys;
 
+/**
+ * @noinspection PhpUnused
+ */
 class AdminCest
 {
     public function _before(AcceptanceTester $I): void
@@ -25,6 +28,9 @@ class AdminCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatTrackAdminWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/track/admin']);

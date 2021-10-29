@@ -15,6 +15,9 @@ namespace app\controllers\site;
 
 use app\controllers\Controller;
 
+/**
+ * @noinspection PhpUnused
+ */
 class ContactController extends Controller
 {
     /**

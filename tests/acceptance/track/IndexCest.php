@@ -17,6 +17,9 @@ use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
 use Facebook\WebDriver\WebDriverKeys;
 
+/**
+ * @noinspection PhpUnused
+ */
 class IndexCest
 {
     public function _before(AcceptanceTester $I): void
@@ -25,6 +28,9 @@ class IndexCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatTracksWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/track/index']));

@@ -16,6 +16,9 @@ namespace app\tests\acceptance\labelTag;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\LabelTagFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class UpdateCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class UpdateCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatLabelTagUpdateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/label-tag/update', 'id' => 1]);

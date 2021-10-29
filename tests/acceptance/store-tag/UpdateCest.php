@@ -16,6 +16,9 @@ namespace app\tests\acceptance\storeTag;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreTagFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class UpdateCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class UpdateCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatStoreTagUpdateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/store-tag/update', 'id' => 1]);

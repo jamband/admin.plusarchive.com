@@ -17,6 +17,9 @@ use AcceptanceTester;
 use app\tests\acceptance\fixtures\AdminUserFixture;
 use app\tests\acceptance\fixtures\HomeFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class AdminCest
 {
     public function _before(AcceptanceTester $I): void
@@ -26,6 +29,9 @@ class AdminCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatAdminWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/site/admin/index']);

@@ -27,10 +27,7 @@ use UnitTester;
 
 class TrackQueryTest extends Unit
 {
-    /**
-     * @var UnitTester
-     */
-    protected $tester;
+    protected UnitTester $tester;
 
     public function testInit(): void
     {

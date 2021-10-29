@@ -19,6 +19,9 @@ use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Response;
 
+/**
+ * @noinspection PhpUnused
+ */
 class LogoutController extends Controller
 {
     /**

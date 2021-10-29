@@ -19,6 +19,9 @@ use app\models\form\SignupForm;
 use yii\helpers\ArrayHelper;
 use yii\web\Response;
 
+/**
+ * @noinspection PhpUnused
+ */
 class SignupController extends Controller
 {
     /**

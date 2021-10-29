@@ -16,8 +16,12 @@ namespace app\tests\acceptance\track;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class UpdateCest
 {
+    /** @var mixed */
     private $fixtures;
 
     public function _before(AcceptanceTester $I): void
@@ -27,6 +31,9 @@ class UpdateCest
         $this->fixtures = $I->grabFixture('tracks');
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatTrackUpdateWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/track/update', 'id' => 5]);

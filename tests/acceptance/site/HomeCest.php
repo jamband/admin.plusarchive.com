@@ -17,6 +17,9 @@ use AcceptanceTester;
 use app\tests\acceptance\fixtures\HomeFixture;
 use Codeception\Util\Locator;
 
+/**
+ * @noinspection PhpUnused
+ */
 class HomeCest
 {
     public function _before(AcceptanceTester $I): void
@@ -25,6 +28,9 @@ class HomeCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatAboutWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));

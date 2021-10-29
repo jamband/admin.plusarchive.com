@@ -16,6 +16,9 @@ namespace app\tests\acceptance\store;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class DeleteCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatStoreDeleteWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/label/store', 'id' => 1]);

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace app\tests\unit\models;
 
+use app\models\Music;
 use app\models\Track;
 use app\tests\unit\fixtures\music\TrackAllFixture;
 use app\tests\unit\fixtures\music\TrackQueryFindFixture;
@@ -22,10 +23,7 @@ use UnitTester;
 
 class TrackTest extends Unit
 {
-    /**
-     * @var UnitTester
-     */
-    protected $tester;
+    protected UnitTester $tester;
 
     public function testFind(): void
     {
@@ -34,8 +32,8 @@ class TrackTest extends Unit
 
         $tracks = Track::find()->all();
         $this->assertSame(2, count($tracks));
-        $this->assertSame(Track::TYPE_TRACK, $tracks[0]->type);
-        $this->assertSame(Track::TYPE_TRACK, $tracks[1]->type);
+        $this->assertSame(Music::TYPE_TRACK, $tracks[0]->type);
+        $this->assertSame(Music::TYPE_TRACK, $tracks[1]->type);
     }
 
     public function testAll(): void

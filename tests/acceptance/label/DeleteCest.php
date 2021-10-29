@@ -16,6 +16,9 @@ namespace app\tests\acceptance\label;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\LabelFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class DeleteCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatLabelDeleteWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/label/delete', 'id' => 1]);

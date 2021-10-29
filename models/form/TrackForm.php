@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace app\models\form;
 
+use app\models\Music;
 use Jamband\Ripple\Ripple;
 use Yii;
 use yii\base\Model;
@@ -75,6 +76,7 @@ class TrackForm extends Model
     }
 
     /**
+     * @noinspection PhpUnused
      * @param string $attribute
      * @return void
      */
@@ -86,6 +88,7 @@ class TrackForm extends Model
     }
 
     /**
+     * @noinspection PhpUnused
      * @param string $attribute
      * @return void
      */
@@ -135,22 +138,22 @@ class TrackForm extends Model
      */
     protected function convertImage(): ?string
     {
-        $provider = array_search($this->_ripple->provider(), Track::PROVIDERS, true);
+        $provider = array_search($this->_ripple->provider(), Music::PROVIDERS, true);
         $image = $this->_ripple->image();
 
-        if (Track::PROVIDER_BANDCAMP === $provider) {
+        if (Music::PROVIDER_BANDCAMP === $provider) {
             return preg_replace('/[0-9]+\.jpg\z/', '4.jpg', $image);
         }
 
-        if (Track::PROVIDER_SOUNDCLOUD === $provider) {
+        if (Music::PROVIDER_SOUNDCLOUD === $provider) {
             return str_replace('t500x500', 't300x300', $image);
         }
 
-        if (Track::PROVIDER_VIMEO === $provider) {
+        if (Music::PROVIDER_VIMEO === $provider) {
             return preg_replace('/[x0-9]+\.jpg/', '320.jpg', $image);
         }
 
-        if (Track::PROVIDER_YOUTUBE === $provider) {
+        if (Music::PROVIDER_YOUTUBE === $provider) {
             return str_replace('hqdefault.jpg', 'mqdefault.jpg', $image);
         }
 

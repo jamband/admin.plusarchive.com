@@ -16,6 +16,9 @@ namespace app\tests\acceptance\auth;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\AdminUserFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class LogoutCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class LogoutCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatLogoutWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/auth/login/index']));

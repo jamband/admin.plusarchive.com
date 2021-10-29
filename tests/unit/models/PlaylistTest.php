@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace app\tests\unit\models;
 
+use app\models\Music;
 use app\models\Playlist;
 use app\tests\unit\fixtures\music\PlaylistAllFixture;
 use app\tests\unit\fixtures\music\PlaylistFindFixture;
@@ -21,10 +22,7 @@ use UnitTester;
 
 class PlaylistTest extends Unit
 {
-    /**
-     * @var UnitTester
-     */
-    protected $tester;
+    protected UnitTester $tester;
 
     public function testFind(): void
     {
@@ -33,8 +31,8 @@ class PlaylistTest extends Unit
 
         $playlists = Playlist::find()->all();
         $this->assertSame(2, count($playlists));
-        $this->assertSame(Playlist::TYPE_PLAYLIST, $playlists[0]->type);
-        $this->assertSame(Playlist::TYPE_PLAYLIST, $playlists[1]->type);
+        $this->assertSame(Music::TYPE_PLAYLIST, $playlists[0]->type);
+        $this->assertSame(Music::TYPE_PLAYLIST, $playlists[1]->type);
     }
 
     public function testAll(): void

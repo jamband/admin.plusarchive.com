@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace app\models\search;
 
+use app\models\Music;
 use yii\data\ActiveDataProvider;
 use app\models\Playlist;
 
@@ -27,7 +28,7 @@ class PlaylistSearch extends Playlist
             [['title'], 'trim'],
             [['provider', 'title'], 'safe'],
 
-            ['provider', 'in', 'range' => array_keys(Playlist::PROVIDERS)],
+            ['provider', 'in', 'range' => array_keys(Music::PROVIDERS)],
         ];
     }
 

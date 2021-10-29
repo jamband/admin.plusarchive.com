@@ -18,6 +18,9 @@ use app\filters\AccessControl;
 use app\models\Track;
 use yii\helpers\ArrayHelper;
 
+/**
+ * @noinspection PhpUnused
+ */
 class AdminController extends Controller
 {
     /**

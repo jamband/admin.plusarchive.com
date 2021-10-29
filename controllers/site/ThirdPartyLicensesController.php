@@ -16,6 +16,9 @@ namespace app\controllers\site;
 use app\controllers\Controller;
 use Yii;
 
+/**
+ * @noinspection PhpUnused
+ */
 class ThirdPartyLicensesController extends Controller
 {
     /**

@@ -16,6 +16,9 @@ namespace app\tests\acceptance\bookmarkTag;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkTagFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class DeleteCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatBookmarkTagDeleteWorks(AcceptanceTester $I): void
     {
         $I->seePageNotFound(['/bookmark-tag/delete', 'id' => 1]);

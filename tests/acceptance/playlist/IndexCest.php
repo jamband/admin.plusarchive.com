@@ -16,6 +16,9 @@ namespace app\tests\acceptance\playlist;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\PlaylistFixture;
 
+/**
+ * @noinspection PhpUnused
+ */
 class IndexCest
 {
     public function _before(AcceptanceTester $I): void
@@ -24,6 +27,9 @@ class IndexCest
         $I->haveFixtures($fixtures);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function ensureThatPlaylistsWorks(AcceptanceTester $I): void
     {
         $I->amOnPage(url(['/']));
