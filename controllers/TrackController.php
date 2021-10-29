@@ -35,7 +35,13 @@ class TrackController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['admin', 'create', 'update', 'delete'],
+                'only' => [
+                    'admin',
+                    'create',
+                    'update',
+                    'delete',
+                    'stop-all-urge',
+                ],
                 'rules' => [
                     [
                         'allow' => true,
@@ -47,6 +53,7 @@ class TrackController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['post'],
+                    'stop-all-urge' => ['post'],
                 ],
             ],
             [
@@ -197,6 +204,17 @@ class TrackController extends Controller
         session()->setFlash('notification', 'Track has been deleted.');
 
         return $this->redirect(['admin']);
+    }
+
+    /**
+     * @return Response
+     */
+    public function actionStopAllUrge(): Response
+    {
+        Track::stopAllUrge();
+        session()->setFlash('notification', 'All Urge of track has been stopped.');
+
+        return $this->redirect(['/admin']);
     }
 
     /**

@@ -20,6 +20,17 @@ $this->title = 'Admin - '.app()->name;
 ?>
 <div class="text-center">
     <?= $this->render('/common/nav/base') ?>
+    <div class="d-inline-block dropdown">
+        <a id="menu-action" class="tag" href="#" data-bs-toggle="dropdown">
+            Action
+            <i class="fas fa-angle-down fa-fw"></i>
+        </a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="<?= url(['/track/stop-all-urge']) ?>" data-confirm="Are you sure?" data-method="post">
+                Stop All Urge
+            </a>
+        </div>
+    </div>
 </div>
 <h1 class="mb-3">
     Recent <small class="text-muted">favorite tracks</small>

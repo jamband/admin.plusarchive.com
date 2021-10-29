@@ -16,6 +16,7 @@ namespace app\tests\unit\models;
 use app\models\Track;
 use app\tests\unit\fixtures\music\TrackAllFixture;
 use app\tests\unit\fixtures\music\TrackQueryFindFixture;
+use app\tests\unit\fixtures\music\TrackStopAllUrgeFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
@@ -113,5 +114,14 @@ class TrackTest extends Unit
         $tracks = Track::allAsAdmin(null, null, null, '3')->models;
         $this->assertSame(1, count($tracks));
         $this->assertSame('track3', $tracks[0]->title);
+    }
+
+    public function testStopAllUrge(): void
+    {
+        $fixtures['tracks'] = TrackStopAllUrgeFixture::class;
+        $this->tester->haveFixtures($fixtures);
+
+        Track::stopAllUrge();
+        $this->assertSame('0', Track::find()->where(['urge' => 1])->count());
     }
 }

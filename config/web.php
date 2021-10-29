@@ -32,7 +32,7 @@ $config = [
                 '<controller:(about|admin|contact|offline|privacy|privacy-consent|privacy-opt-out|third-party-licenses)>' => 'site/<controller>/index',
                 '<controller:\w+>s/<id:\d+>' => '<controller>/view',
                 '<controller:[\w-]+>s/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:[\w-]+>s/<action:(admin|create|now|list)>' => '<controller>/<action>',
+                '<controller:[\w-]+>s/<action:(admin|create|now|list|stop-all-urge)>' => '<controller>/<action>',
                 '<controller:(track|playlist)>s/<id:[\w-]+>' => '<controller>/view',
                 '' => 'site/home/index',
             ],

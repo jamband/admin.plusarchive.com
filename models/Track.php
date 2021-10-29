@@ -114,6 +114,14 @@ class Track extends Music
     }
 
     /**
+     * @return void
+     */
+    public static function stopAllUrge(): void
+    {
+        self::updateAll(['urge' => 0], 'urge = 1');
+    }
+
+    /**
      * @return array
      */
     public function behaviors(): array
