@@ -1,3 +1,4 @@
+@import "../variables";
 @import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 @import "../../../node_modules/bootstrap/scss/mixins/text-truncate";
 
@@ -15,7 +16,7 @@
 
   @include media-breakpoint-up(sm) {
     background-color: var(--bs-dark);
-    box-shadow: 1px 1px 2px rgb(0 0 0 / 0.2);
+    box-shadow: $box-shadow-sm;
     display: block;
   }
 

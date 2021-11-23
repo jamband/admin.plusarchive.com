@@ -8,7 +8,6 @@
     }
   ],
   "rules": {
-    "alpha-value-notation": "number",
     "font-family-no-missing-generic-family-keyword": [
       true,
       {
