@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models\form;
@@ -23,14 +14,8 @@ class LoginForm extends Model
     public $password;
     public $rememberMe = true;
 
-    /**
-     * @var User|null|bool
-     */
-    private $_user = false;
+    private User|null|bool $_user = false;
 
-    /**
-     * @return array
-     */
     public function attributeLabels(): array
     {
         return [
@@ -38,9 +23,6 @@ class LoginForm extends Model
         ];
     }
 
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return [
@@ -52,10 +34,7 @@ class LoginForm extends Model
     }
 
     /**
-     * Validates the password.
      * @noinspection PhpUnused
-     *
-     * @return void
      */
     public function validatePassword(): void
     {
@@ -68,11 +47,6 @@ class LoginForm extends Model
         }
     }
 
-    /**
-     * Logs in a user using the provided username and password.
-     *
-     * @return bool whether the user is logged in successfully
-     */
     public function login(): bool
     {
         if ($this->validate()) {
@@ -84,12 +58,7 @@ class LoginForm extends Model
         return false;
     }
 
-    /**
-     * Finds user by username.
-     *
-     * @return User|null
-     */
-    protected function getUser(): ?User
+    protected function getUser(): User|null
     {
         if (!$this->_user) {
             $this->_user = User::findByUsername($this->username);

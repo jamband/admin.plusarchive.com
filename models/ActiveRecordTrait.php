@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models;
@@ -21,11 +12,6 @@ use yii\helpers\ArrayHelper;
  */
 trait ActiveRecordTrait
 {
-    /**
-     * Returns all names.
-     *
-     * @return array
-     */
     public static function getNames(): array
     {
         return static::find()
@@ -34,11 +20,6 @@ trait ActiveRecordTrait
             ->column();
     }
 
-    /**
-     * Returns all countries.
-     *
-     * @return array
-     */
     public static function getCountries(): array
     {
         return static::find()
@@ -48,14 +29,11 @@ trait ActiveRecordTrait
             ->column();
     }
 
-    /**
-     * @param string $key
-     * @param string|null $value
-     * @param string|null $sortKey
-     * @return array
-     */
-    public static function listData(string $key, ?string $value = null, ?string $sortKey = null): array
-    {
+    public static function listData(
+        string $key,
+        string|null $value = null,
+        string|null $sortKey = null,
+    ): array {
         $data = static::find()
             ->orderBy([$sortKey ?? $key => SORT_ASC])
             ->asArray()

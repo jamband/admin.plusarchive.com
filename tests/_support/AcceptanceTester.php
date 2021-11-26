@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 /**
@@ -40,30 +31,21 @@ class AcceptanceTester extends Codeception\Actor
         $I->wait(1);
     }
 
-    /**
-     * @param array|string $url
-     */
-    public function seeBadRequest($url): void
+    public function seeBadRequest(array|string $url): void
     {
         $I = $this;
         $I->amOnPage(url($url));
         $I->see('Invalid request.');
     }
 
-    /**
-     * @param array|string $url
-     */
-    public function seePageNotFound($url): void
+    public function seePageNotFound(array|string $url): void
     {
         $I = $this;
         $I->amOnPage(url($url));
         $I->see('Page not found.');
     }
 
-    /**
-     * @param array|string $url
-     */
-    public function seeMethodNotAllowed($url): void
+    public function seeMethodNotAllowed(array|string $url): void
     {
         $I = $this;
         $I->amOnPage(url($url));

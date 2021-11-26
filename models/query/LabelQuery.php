@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace app\models\query;
 
 use app\models\Label;
@@ -17,16 +8,11 @@ use yii\db\ActiveQuery;
 
 /**
  * @method LabelQuery allTagValues($values, $attribute = null)
- *
- * @see \app\models\Label
  */
 class LabelQuery extends ActiveQuery
 {
     use ActiveQueryTrait;
 
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -34,11 +20,7 @@ class LabelQuery extends ActiveQuery
         ];
     }
 
-    /**
-     * @param null|string $country
-     * @return LabelQuery
-     */
-    public function country(?string $country): LabelQuery
+    public function country(string|null $country): LabelQuery
     {
         if (in_array($country, Label::getCountries(), true)) {
             return $this->andWhere(['country' => $country]);
@@ -47,10 +29,6 @@ class LabelQuery extends ActiveQuery
         return $this->andWhere(['country' => '']);
     }
 
-    /**
-     * @param string $search
-     * @return LabelQuery
-     */
     public function search(string $search): LabelQuery
     {
         return $this->andFilterWhere(['or',
@@ -59,19 +37,12 @@ class LabelQuery extends ActiveQuery
         ]);
     }
 
-    /**
-     * @return LabelQuery
-     */
     public function inNameOrder(): LabelQuery
     {
         return $this->orderBy(['name' => SORT_ASC]);
     }
 
-    /**
-     * @param null|string $sort
-     * @return LabelQuery
-     */
-    public function sort(?string $sort): LabelQuery
+    public function sort(string|null $sort): LabelQuery
     {
         if ('Name' === $sort) {
             return $this->inNameOrder();

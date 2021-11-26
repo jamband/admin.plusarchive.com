@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\controllers;
@@ -25,9 +16,6 @@ use yii\web\Response;
  */
 class MusicGenreController extends Controller
 {
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -51,9 +39,7 @@ class MusicGenreController extends Controller
     }
 
     /**
-     * Manages all MusicGenre models.
-     *
-     * @return string
+     * @noinspection PhpUnused
      */
     public function actionAdmin(): string
     {
@@ -64,12 +50,9 @@ class MusicGenreController extends Controller
     }
 
     /**
-     * Updates an existing MusicGenre model.
-     *
-     * @param string $id
-     * @return string|Response
+     * @noinspection PhpUnused
      */
-    public function actionUpdate(string $id)
+    public function actionUpdate(string $id): string|Response
     {
         $model = $this->findModel($id);
 
@@ -84,12 +67,6 @@ class MusicGenreController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing MusicGenre model.
-     *
-     * @param string $id
-     * @return Response
-     */
     public function actionDelete(string $id): Response
     {
         $this->findModel($id)->delete();
@@ -98,13 +75,6 @@ class MusicGenreController extends Controller
         return $this->redirect(['admin']);
     }
 
-    /**
-     * Finds the MusicGenre model based on its primary key value.
-     *
-     * @param string $id
-     * @return MusicGenre
-     * @throws NotFoundHttpException
-     */
     protected function findModel(string $id): MusicGenre
     {
         $model = MusicGenre::findOne($id);

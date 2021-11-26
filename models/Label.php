@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models;
@@ -35,17 +26,11 @@ class Label extends ActiveRecord
 {
     use ActiveRecordTrait;
 
-    /**
-     * @return string
-     */
     public static function tableName(): string
     {
         return 'label';
     }
 
-    /**
-     * @return array
-     */
     public function attributeLabels(): array
     {
         return [
@@ -53,9 +38,6 @@ class Label extends ActiveRecord
         ];
     }
 
-    /**
-     * @return LabelQuery
-     */
     public static function find(): LabelQuery
     {
         return new LabelQuery(static::class);
@@ -63,7 +45,6 @@ class Label extends ActiveRecord
 
     /**
      * @noinspection PhpUnused
-     * @return ActiveQuery
      */
     public function getLabelTags(): ActiveQuery
     {
@@ -72,15 +53,12 @@ class Label extends ActiveRecord
             ->orderBy(['name' => SORT_ASC]);
     }
 
-    /**
-     * @param null|string $sort
-     * @param null|string $country
-     * @param null|string $tag
-     * @param null|string $search
-     * @return ActiveDataProvider
-     */
-    public static function all(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): ActiveDataProvider
-    {
+    public static function all(
+        string|null $sort = null,
+        string|null $country = null,
+        string|null $tag = null,
+        string|null $search = null,
+    ): ActiveDataProvider {
         $query = static::find()
             ->with(['labelTags']);
 
@@ -107,9 +85,6 @@ class Label extends ActiveRecord
         ]);
     }
 
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return [
@@ -124,9 +99,6 @@ class Label extends ActiveRecord
         ];
     }
 
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -139,9 +111,6 @@ class Label extends ActiveRecord
         ];
     }
 
-    /**
-     * @return array
-     */
     public function transactions(): array
     {
         return [

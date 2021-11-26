@@ -1,23 +1,14 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\tests\unit\helpers;
 
+use Codeception\Test\Unit;
 use Yii;
 use yii\base\Action;
 use yii\helpers\Url;
 use yii\web\Controller;
-use Codeception\Test\Unit;
 
 class UrlTest extends Unit
 {

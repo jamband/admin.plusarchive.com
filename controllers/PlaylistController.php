@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\controllers;
@@ -30,9 +21,6 @@ use yii\web\Response;
  */
 class PlaylistController extends Controller
 {
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -55,11 +43,6 @@ class PlaylistController extends Controller
         ];
     }
 
-    /**
-     * Lists all Playlist models.
-     *
-     * @return string
-     */
     public function actionIndex(): string
     {
         return $this->render('index', [
@@ -68,10 +51,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Displays a specific Playlist model.
-     *
-     * @param string $id the hashed playlist id
-     * @return string
+     * @noinspection PhpUnused
      */
     public function actionView(string $id): string
     {
@@ -88,9 +68,7 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Manages all Playlist models.
-     *
-     * @return string
+     * @noinspection PhpUnused
      */
     public function actionAdmin(): string
     {
@@ -100,12 +78,7 @@ class PlaylistController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Playlist model.
-     *
-     * @return string|Response
-     */
-    public function actionCreate()
+    public function actionCreate(): string|Response
     {
         $model = new PlaylistCreateForm;
 
@@ -121,12 +94,9 @@ class PlaylistController extends Controller
     }
 
     /**
-     * Updates an existing Playlist model.
-     *
-     * @param int $id
-     * @return string|Response
+     * @noinspection PhpUnused
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id): string|Response
     {
         try {
             $model = new PlaylistUpdateForm($id);
@@ -145,12 +115,6 @@ class PlaylistController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Playlist model.
-     *
-     * @param int $id
-     * @return Response
-     */
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
@@ -159,13 +123,6 @@ class PlaylistController extends Controller
         return $this->redirect(['admin']);
     }
 
-    /**
-     * Finds the Playlist model based on its primary key value.
-     *
-     * @param int $id
-     * @return Playlist
-     * @throws NotFoundHttpException
-     */
     protected function findModel(int $id): Playlist
     {
         $model = Playlist::findOne($id);

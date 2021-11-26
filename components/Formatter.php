@@ -1,18 +1,10 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\components;
 
+use JetBrains\PhpStorm\Pure;
 use yii\helpers\Html;
 use yii\i18n\Formatter as FormatterBase;
 
@@ -23,13 +15,9 @@ class Formatter extends FormatterBase
         'target' => '_blank',
     ];
 
-    /**
-     * @param string|array|null $value
-     * @return string
-     */
-    public function asTagValues($value): string
+    public function asTagValues(string|array|null $value): string
     {
-        if (null === $value || '' === $value || empty($value)) {
+        if ('' === $value || empty($value)) {
             return '';
         }
 
@@ -40,14 +28,11 @@ class Formatter extends FormatterBase
         return Html::encode($value);
     }
 
-    /**
-     * @param string|null $value
-     * @param string|null $text
-     * @param array $options
-     * @return string
-     */
-    public function asUrlWithText(?string $value, ?string $text = null, array $options = []): string
-    {
+    public function asUrlWithText(
+        string|null $value,
+        string|null $text = null,
+        array $options = []
+    ): string {
         if (null === $value) {
             return $this->nullDisplay;
         }
@@ -61,16 +46,11 @@ class Formatter extends FormatterBase
         return Html::a('<i class="fas fa-external-link-alt fa-fw"></i> '.Html::encode($text), $value, $options);
     }
 
-    /**
-     * Formats the value as some hyperlink.
-     *
-     * @param null|string $value the value to be formatted.
-     * @param null|string $separator
-     * @param array $options the tag options in terms of name-value pairs. See [[Html::a()]].
-     * @return null|string the formatted result.
-     */
-    public function asBrandIconLink(?string $value, ?string $separator = null, array $options = []): ?string
-    {
+    public function asBrandIconLink(
+        string|null $value,
+        string|null $separator = null,
+        array $options = []
+    ): string|null {
         if (null === $value || '' === $value) {
             return null;
         }
@@ -93,12 +73,6 @@ class Formatter extends FormatterBase
         return $urls;
     }
 
-    /**
-     * Get the brand icon for Font Awesome.
-     *
-     * @param string $value
-     * @return string
-     */
     private static function getBrandIcon(string $value): string
     {
         $icons = [

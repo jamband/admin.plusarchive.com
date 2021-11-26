@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\controllers\auth;
@@ -24,9 +15,6 @@ use yii\web\Response;
  */
 class LogoutController extends Controller
 {
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return ArrayHelper::merge(parent::behaviors(), [
@@ -48,11 +36,6 @@ class LogoutController extends Controller
         ]);
     }
 
-    /**
-     * User logout.
-     *
-     * @return Response
-     */
     public function actionIndex(): Response
     {
         user()->logout();

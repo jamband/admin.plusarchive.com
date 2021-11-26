@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models;
@@ -28,7 +19,6 @@ class Track extends Music
 {
     /**
      * @noinspection PhpUnused
-     * @return ActiveQuery
      */
     public function getMusicGenres(): ActiveQuery
     {
@@ -37,22 +27,16 @@ class Track extends Music
             ->orderBy(['name' => SORT_ASC]);
     }
 
-    /**
-     * @return TrackQuery
-     */
     public static function find(): TrackQuery
     {
         return new TrackQuery(static::class);
     }
 
-    /**
-     * @param null|string $provider
-     * @param null|string $genre
-     * @param null|string $search
-     * @return ActiveDataProvider
-     */
-    public static function all(?string $provider = null, ?string $genre = null, ?string $search = null): ActiveDataProvider
-    {
+    public static function all(
+        string|null $provider = null,
+        string|null $genre = null,
+        string|null $search = null,
+    ): ActiveDataProvider {
         $query = static::find()
             ->with(['musicGenres']);
 
@@ -79,15 +63,12 @@ class Track extends Music
         ]);
     }
 
-    /**
-     * @param null|string $sort
-     * @param null|string $provider
-     * @param null|string $genre
-     * @param null|string $search
-     * @return ActiveDataProvider
-     */
-    public static function allAsAdmin(?string $sort = null, ?string $provider = null, ?string $genre = null, ?string $search = null): ActiveDataProvider
-    {
+    public static function allAsAdmin(
+        string|null $sort = null,
+        string|null $provider = null,
+        string|null $genre = null,
+        string|null $search = null,
+    ): ActiveDataProvider {
         $query = static::find()
             ->with(['musicGenres']);
 
@@ -114,17 +95,11 @@ class Track extends Music
         ]);
     }
 
-    /**
-     * @return void
-     */
     public static function stopAllUrge(): void
     {
         self::updateAll(['urge' => 0], 'urge = 1');
     }
 
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return ArrayHelper::merge(parent::behaviors(), [
@@ -136,9 +111,6 @@ class Track extends Music
         ]);
     }
 
-    /**
-     * @return array
-     */
     public function transactions(): array
     {
         return [

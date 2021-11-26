@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\components;
@@ -18,29 +9,14 @@ use yii\base\BaseObject;
 
 class Hashids extends BaseObject
 {
-    /**
-     * @var string
-     */
-    public $salt;
+    public string $salt;
 
-    /**
-     * @var int
-     */
-    public $minHashLength;
+    public int $minHashLength;
 
-    /**
-     * @var string
-     */
-    public $alphabet;
+    public string $alphabet;
 
-    /**
-     * @var HashidsBase
-     */
-    private $_hashids;
+    private HashidsBase $_hashids;
 
-    /**
-     * @return void
-     */
     public function init(): void
     {
         parent::init();
@@ -52,12 +28,7 @@ class Hashids extends BaseObject
         );
     }
 
-    /**
-     * @param string $name
-     * @param array $params
-     * @return mixed
-     */
-    public function __call($name, $params)
+    public function __call($name, $params): mixed
     {
         if (method_exists($this->_hashids, $name)) {
             return call_user_func_array([$this->_hashids, $name], $params);
@@ -66,10 +37,6 @@ class Hashids extends BaseObject
         return parent::__call($name, $params);
     }
 
-    /**
-     * @param string $id
-     * @return int
-     */
     public function decode(string $id): int
     {
         $id = $this->_hashids->decode($id);

@@ -1,22 +1,10 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 // Core components
 if (!function_exists('app')) {
-    /**
-     * @return ConsoleApplication|WebApplication
-     */
-    function app() {
+    function app(): yii\console\Application|yii\web\Application {
         return Yii::$app;
     }
 }
@@ -28,28 +16,19 @@ if (!function_exists('db')) {
 }
 
 if (!function_exists('formatter')) {
-    /**
-     * @return app\components\Formatter|yii\i18n\Formatter
-     */
-    function formatter() {
+    function formatter(): app\components\Formatter|yii\i18n\Formatter {
         return Yii::$app->getFormatter();
     }
 }
 
 if (!function_exists('request')) {
-    /**
-     * @return yii\console\Request|yii\web\Request
-     */
-    function request() {
+    function request(): yii\console\Request|yii\web\Request {
         return Yii::$app->getRequest();
     }
 }
 
 if (!function_exists('response')) {
-    /**
-     * @return yii\console\Response|yii\web\Response
-     */
-    function response() {
+    function response(): yii\console\Response|yii\web\Response {
         return Yii::$app->getResponse();
     }
 }
@@ -74,19 +53,14 @@ if (!function_exists('user')) {
 
 // Custom components
 if (!function_exists('hashids')) {
-    function hashids(): ?object {
+    function hashids(): object|null {
         return Yii::$app->get('hashids');
     }
 }
 
 // Others
 if (!function_exists('url')) {
-    /**
-     * @param array|string $url
-     * @param bool|string $scheme
-     * @return string
-     */
-    function url($url = '', $scheme = false): string {
+    function url(array|string $url = '', bool $scheme = false): string {
         return yii\helpers\Url::to($url, $scheme);
     }
 }

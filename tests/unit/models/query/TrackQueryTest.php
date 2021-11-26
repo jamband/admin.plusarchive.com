@@ -1,18 +1,10 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\tests\unit\models\query;
 
+use app\models\Music;
 use app\models\Track;
 use app\tests\unit\fixtures\music\TrackQueryBehaviorsFixture;
 use app\tests\unit\fixtures\music\TrackQueryFavoritesFixture;
@@ -36,8 +28,8 @@ class TrackQueryTest extends Unit
 
         $tracks = Track::find()->all();
         $this->assertSame(2, count($tracks));
-        $this->assertSame(Track::TYPE_TRACK, $tracks[0]->type);
-        $this->assertSame(Track::TYPE_TRACK, $tracks[1]->type);
+        $this->assertSame(Music::TYPE_TRACK, $tracks[0]->type);
+        $this->assertSame(Music::TYPE_TRACK, $tracks[1]->type);
     }
 
     public function testBehaviors(): void
@@ -63,19 +55,19 @@ class TrackQueryTest extends Unit
 
         $tracks = Track::find()->provider('Bandcamp')->all();
         $this->assertSame(1, count($tracks));
-        $this->assertSame(Track::PROVIDER_BANDCAMP, $tracks[0]->provider);
+        $this->assertSame(Music::PROVIDER_BANDCAMP, $tracks[0]->provider);
 
         $tracks = Track::find()->provider('SoundCloud')->all();
         $this->assertSame(1, count($tracks));
-        $this->assertSame(Track::PROVIDER_SOUNDCLOUD, $tracks[0]->provider);
+        $this->assertSame(Music::PROVIDER_SOUNDCLOUD, $tracks[0]->provider);
 
         $tracks = Track::find()->provider('Vimeo')->all();
         $this->assertSame(1, count($tracks));
-        $this->assertSame(Track::PROVIDER_VIMEO, $tracks[0]->provider);
+        $this->assertSame(Music::PROVIDER_VIMEO, $tracks[0]->provider);
 
         $tracks = Track::find()->provider('YouTube')->all();
         $this->assertSame(1, count($tracks));
-        $this->assertSame(Track::PROVIDER_YOUTUBE, $tracks[0]->provider);
+        $this->assertSame(Music::PROVIDER_YOUTUBE, $tracks[0]->provider);
     }
 
     public function testSearch(): void

@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\controllers;
@@ -25,9 +16,6 @@ use yii\web\Response;
  */
 class StoreController extends Controller
 {
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -50,17 +38,12 @@ class StoreController extends Controller
         ];
     }
 
-    /**
-     * Lists all Store models.
-     *
-     * @param null|string $sort
-     * @param null|string $country
-     * @param null|string $tag
-     * @param null|string $search
-     * @return string
-     */
-    public function actionIndex(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): string
-    {
+    public function actionIndex(
+        string $sort = null,
+        string|null $country = null,
+        string|null $tag = null,
+        string|null $search = null
+    ): string {
         return $this->render('index', [
             'data' => Store::all($sort, $country, $tag, $search),
             'sort' => $sort ?: 'Sort',
@@ -71,9 +54,7 @@ class StoreController extends Controller
     }
 
     /**
-     * Manages all Store models.
-     *
-     * @return string
+     * @noinspection PhpUnused
      */
     public function actionAdmin(): string
     {
@@ -84,10 +65,7 @@ class StoreController extends Controller
     }
 
     /**
-     * Displays a single Store model.
-     *
-     * @param int $id
-     * @return string
+     * @noinspection PhpUnused
      */
     public function actionView(int $id): string
     {
@@ -96,12 +74,7 @@ class StoreController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Store model.
-     *
-     * @return string|Response
-     */
-    public function actionCreate()
+    public function actionCreate(): string|Response
     {
         $model = new Store;
 
@@ -117,12 +90,9 @@ class StoreController extends Controller
     }
 
     /**
-     * Updates an existing Store model.
-     *
-     * @param int $id
-     * @return string|Response
+     * @noinspection PhpUnused
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id): string|Response
     {
         $model = $this->findModel($id);
 
@@ -137,13 +107,7 @@ class StoreController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Store model.
-     *
-     * @param int $id
-     * @return string|Response
-     */
-    public function actionDelete(int $id)
+    public function actionDelete(int $id): string|Response
     {
         $this->findModel($id)->delete();
         session()->setFlash('notification', 'Store has been deleted.');
@@ -151,13 +115,6 @@ class StoreController extends Controller
         return $this->redirect(['admin']);
     }
 
-    /**
-     * Finds the Store model based on its primary key value.
-     *
-     * @param int $id
-     * @return Store
-     * @throws NotFoundHttpException
-     */
     protected function findModel(int $id): Store
     {
         $model = Store::findOne($id);

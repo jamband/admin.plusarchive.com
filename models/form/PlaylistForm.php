@@ -1,14 +1,5 @@
 <?php
 
-/*
-* This file is part of the admin.plusarchive.com
-*
-* (c) Tomoki Morita <tmsongbooks215@gmail.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
-
 declare(strict_types=1);
 
 namespace app\models\form;
@@ -25,9 +16,6 @@ class PlaylistForm extends Model
 
     protected Ripple $_ripple;
 
-    /**
-     * @param array $config
-     */
     public function __construct($config = [])
     {
         $this->_ripple = Yii::$container->get(Ripple::class);
@@ -35,9 +23,6 @@ class PlaylistForm extends Model
         parent::__construct($config);
     }
 
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return [
@@ -53,8 +38,6 @@ class PlaylistForm extends Model
 
     /**
      * @noinspection PhpUnused
-     * @param string $attribute
-     * @return void
      */
     public function validateValidUrl(string $attribute): void
     {
@@ -65,8 +48,6 @@ class PlaylistForm extends Model
 
     /**
      * @noinspection PhpUnused
-     * @param string $attribute
-     * @return void
      */
     public function validateHasContent(string $attribute): void
     {
@@ -75,9 +56,6 @@ class PlaylistForm extends Model
         }
     }
 
-    /**
-     * @return bool
-     */
     public function beforeValidate(): bool
     {
         $this->_ripple->request($this->url);

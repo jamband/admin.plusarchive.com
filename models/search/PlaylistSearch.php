@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models\search;
@@ -19,9 +10,6 @@ use app\models\Playlist;
 
 class PlaylistSearch extends Playlist
 {
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return [
@@ -32,12 +20,6 @@ class PlaylistSearch extends Playlist
         ];
     }
 
-    /**
-     * Creates data provider instance with search query applied.
-     *
-     * @param array $params
-     * @return ActiveDataProvider
-     */
     public function search(array $params = []): ActiveDataProvider
     {
         $query = static::find();

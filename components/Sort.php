@@ -1,32 +1,16 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\components;
 
 use Yii;
-use yii\base\InvalidConfigException;
-use yii\data\Sort as SortBase;
 use yii\data\Pagination;
+use yii\data\Sort as SortBase;
 use yii\web\Request;
 
 class Sort extends SortBase
 {
-    /**
-     * @param string $attribute
-     * @param bool $absolute
-     * @return string
-     * @throws InvalidConfigException
-     */
     public function createUrl($attribute, $absolute = false): string
     {
         $params = $this->params;

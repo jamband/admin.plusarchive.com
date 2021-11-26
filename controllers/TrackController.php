@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\controllers;
@@ -30,9 +21,6 @@ use yii\web\Response;
  */
 class TrackController extends Controller
 {
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -66,16 +54,11 @@ class TrackController extends Controller
         ];
     }
 
-    /**
-     * Lists all Track models.
-     *
-     * @param null|string $provider
-     * @param null|string $genre
-     * @param null|string $search
-     * @return string
-     */
-    public function actionIndex(?string $provider = null, ?string $genre = null, ?string $search = null): string
-    {
+    public function actionIndex(
+        string|null $provider = null,
+        string|null $genre = null,
+        string|null $search = null,
+    ): string {
         return $this->render('index', [
             'data' => Track::all($provider, $genre, $search),
             'provider' => $provider ?: 'Providers',
@@ -86,17 +69,15 @@ class TrackController extends Controller
     }
 
     /**
-     * Renders the HTML of the now playing track.
-     *
-     * @param string $id the hashed track id
-     * @param string $url
-     * @param string $title
-     * @param string $provider
-     * @param string $key provider key
-     * @return string
+     * @noinspection PhpUnused
      */
-    public function actionNow(string $id, string $url, string $title, string $provider, string $key): string
-    {
+    public function actionNow(
+        string $id,
+        string $url,
+        string $title,
+        string $provider,
+        string $key,
+    ): string {
         /** @var Ripple $ripple */
         $ripple = Yii::createObject(Ripple::class);
         $ripple->options(['embed' => app()->params['embed-track-modal']]);
@@ -110,10 +91,7 @@ class TrackController extends Controller
     }
 
     /**
-     * Displays a single Track model.
-     *
-     * @param string $id the hashed track id
-     * @return string
+     * @noinspection PhpUnused
      */
     public function actionView(string $id): string
     {
@@ -130,16 +108,14 @@ class TrackController extends Controller
     }
 
     /**
-     * Manages all Track models.
-     *
-     * @param null|string $sort
-     * @param null|string $provider
-     * @param null|string $genre
-     * @param null|string $search
-     * @return string
+     * @noinspection PhpUnused
      */
-    public function actionAdmin(?string $sort = null, ?string $provider = null, ?string $genre = null, ?string $search = null): string
-    {
+    public function actionAdmin(
+        string|null $sort = null,
+        string|null $provider = null,
+        string|null $genre = null,
+        string|null $search = null,
+    ): string {
         return $this->render('admin', [
             'data' => Track::allAsAdmin($sort, $provider, $genre, $search),
             'sort' => $sort ?: 'Sort',
@@ -150,12 +126,7 @@ class TrackController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Track model.
-     *
-     * @return string|Response
-     */
-    public function actionCreate()
+    public function actionCreate(): string|Response
     {
         $model = new TrackCreateForm;
 
@@ -171,12 +142,9 @@ class TrackController extends Controller
     }
 
     /**
-     * Updates an existing Track model.
-     *
-     * @param int $id
-     * @return string|Response
+     * @noinspection PhpUnused
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id): string|Response
     {
         try {
             $model = new TrackUpdateForm($id);
@@ -195,12 +163,6 @@ class TrackController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Track model.
-     *
-     * @param int $id
-     * @return Response
-     */
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
@@ -210,7 +172,7 @@ class TrackController extends Controller
     }
 
     /**
-     * @return Response
+     * @noinspection PhpUnused
      */
     public function actionStopAllUrge(): Response
     {
@@ -220,13 +182,6 @@ class TrackController extends Controller
         return $this->redirect(['/admin']);
     }
 
-    /**
-     * Finds the Track model based on its primary key value.
-     *
-     * @param int $id
-     * @return Track
-     * @throws NotFoundHttpException
-     */
     protected function findModel(int $id): Track
     {
         $model = Track::findOne($id);

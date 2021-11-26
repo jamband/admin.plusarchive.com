@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models\query;
@@ -19,16 +10,11 @@ use yii\db\ActiveQuery;
 
 /**
  * @method BookmarkQuery allTagValues($values, $attribute = null)
- *
- * @see \app\models\Bookmark
  */
 class BookmarkQuery extends ActiveQuery
 {
     use ActiveQueryTrait;
 
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -36,11 +22,7 @@ class BookmarkQuery extends ActiveQuery
         ];
     }
 
-    /**
-     * @param null|string $country
-     * @return BookmarkQuery
-     */
-    public function country(?string $country): BookmarkQuery
+    public function country(string|null $country): BookmarkQuery
     {
         if (in_array($country, Bookmark::getCountries(), true)) {
             return $this->andWhere(['country' => $country]);
@@ -49,10 +31,6 @@ class BookmarkQuery extends ActiveQuery
         return $this->andWhere(['country' => '']);
     }
 
-    /**
-     * @param string $search
-     * @return BookmarkQuery
-     */
     public function search(string $search): BookmarkQuery
     {
         return $this->andFilterWhere(['or',
@@ -61,19 +39,12 @@ class BookmarkQuery extends ActiveQuery
         ]);
     }
 
-    /**
-     * @return BookmarkQuery
-     */
     public function inNameOrder(): BookmarkQuery
     {
         return $this->orderBy(['bookmark.name' => SORT_ASC]);
     }
 
-    /**
-     * @param null|string $sort
-     * @return BookmarkQuery
-     */
-    public function sort(?string $sort): BookmarkQuery
+    public function sort(string|null $sort): BookmarkQuery
     {
         if ('Name' === $sort) {
             return $this->inNameOrder();

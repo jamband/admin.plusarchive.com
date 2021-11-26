@@ -1,14 +1,5 @@
 <?php
 
-/*
-* This file is part of the admin.plusarchive.com
-*
-* (c) Tomoki Morita <tmsongbooks215@gmail.com>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
-
 declare(strict_types=1);
 
 namespace app\models\form;
@@ -30,10 +21,7 @@ class TrackForm extends Model
 
     private const URGE_LIMIT = 6;
 
-    /**
-     * @var Ripple
-     */
-    protected $_ripple;
+    protected Ripple $_ripple;
 
     /**
      * @param array $config
@@ -45,9 +33,6 @@ class TrackForm extends Model
         parent::__construct($config);
     }
 
-    /**
-     * @return array
-     */
     public function attributeLabels(): array
     {
         return [
@@ -55,9 +40,6 @@ class TrackForm extends Model
         ];
     }
 
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return [
@@ -77,8 +59,6 @@ class TrackForm extends Model
 
     /**
      * @noinspection PhpUnused
-     * @param string $attribute
-     * @return void
      */
     public function validateValidUrl(string $attribute): void
     {
@@ -89,8 +69,6 @@ class TrackForm extends Model
 
     /**
      * @noinspection PhpUnused
-     * @param string $attribute
-     * @return void
      */
     public function validateHasContent(string $attribute): void
     {
@@ -100,14 +78,10 @@ class TrackForm extends Model
     }
 
     /**
-     * @param string $attribute
-     * @param mixed $params
-     * @param InlineValidator $validator
-     *
      * @noinspection PhpUnused
      * @noinspection PhpUnusedParameterInspection $params
      */
-    public function validateLimit(string $attribute, $params, InlineValidator $validator): void
+    public function validateLimit(string $attribute, mixed $params, InlineValidator $validator): void
     {
         $favoriteIds = [];
         foreach (Track::find()->favorites()->column() as $id) {
@@ -119,9 +93,6 @@ class TrackForm extends Model
         }
     }
 
-    /**
-     * @return bool
-     */
     public function beforeValidate(): bool
     {
         $this->_ripple->request($this->url);
@@ -133,10 +104,7 @@ class TrackForm extends Model
         return parent::beforeValidate();
     }
 
-    /**
-     * @return string|null
-     */
-    protected function convertImage(): ?string
+    protected function convertImage(): string|null
     {
         $provider = array_search($this->_ripple->provider(), Music::PROVIDERS, true);
         $image = $this->_ripple->image();

@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\controllers;
@@ -25,9 +16,6 @@ use yii\web\Response;
  */
 class LabelController extends Controller
 {
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -50,17 +38,12 @@ class LabelController extends Controller
         ];
     }
 
-    /**
-     * Lists all Label models.
-     *
-     * @param null|string $sort
-     * @param null|string $country
-     * @param null|string $tag
-     * @param null|string $search
-     * @return string
-     */
-    public function actionIndex(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): string
-    {
+    public function actionIndex(
+        string|null $sort = null,
+        string|null $country = null,
+        string|null $tag = null,
+        string|null $search = null
+    ): string {
         return $this->render('index', [
             'data' => Label::all($sort, $country, $tag, $search),
             'sort' => $sort ?: 'Sort',
@@ -71,9 +54,7 @@ class LabelController extends Controller
     }
 
     /**
-     * Manages all Label models.
-     *
-     * @return string
+     * @noinspection PhpUnused
      */
     public function actionAdmin(): string
     {
@@ -84,10 +65,7 @@ class LabelController extends Controller
     }
 
     /**
-     * Displays a single Label model.
-     *
-     * @param int $id
-     * @return string
+     * @noinspection PhpUnused
      */
     public function actionView(int $id): string
     {
@@ -96,12 +74,7 @@ class LabelController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Label model.
-     *
-     * @return string|Response
-     */
-    public function actionCreate()
+    public function actionCreate(): string|Response
     {
         $model = new Label;
 
@@ -117,12 +90,9 @@ class LabelController extends Controller
     }
 
     /**
-     * Updates an existing Label model.
-     *
-     * @param int $id
-     * @return string|Response
+     * @noinspection PhpUnused
      */
-    public function actionUpdate(int $id)
+    public function actionUpdate(int $id): string|Response
     {
         $model = $this->findModel($id);
 
@@ -137,12 +107,6 @@ class LabelController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Label model.
-     *
-     * @param int $id
-     * @return Response
-     */
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
@@ -151,13 +115,6 @@ class LabelController extends Controller
         return $this->redirect(['admin']);
     }
 
-    /**
-     * Finds the Label model based on its primary key value.
-     *
-     * @param int $id
-     * @return Label
-     * @throws NotFoundHttpException
-     */
     protected function findModel(int $id): Label
     {
         $model = Label::findOne($id);

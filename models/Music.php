@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models;
@@ -57,19 +48,13 @@ class Music extends ActiveRecord
         self::TYPE_PLAYLIST => 'Playlist',
     ];
 
-    /**
-     * @return string
-     */
     public static function tableName(): string
     {
         return 'music';
     }
 
     /**
-     * Transformation of provider attribute.
      * @noinspection PhpUnused
-     *
-     * @return string
      */
     public function getProviderText(): string
     {
@@ -77,19 +62,13 @@ class Music extends ActiveRecord
     }
 
     /**
-     * Transformation of type attribute.
      * @noinspection PhpUnused
-     *
-     * @return string
      */
     public function getTypeText(): string
     {
         return self::TYPES[$this->type];
     }
 
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [

@@ -22,9 +22,6 @@ class SignupForm extends Model
     public $email;
     public $password;
 
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return [
@@ -39,12 +36,7 @@ class SignupForm extends Model
         ];
     }
 
-    /**
-     * Signup user.
-     *
-     * @return null|User
-     */
-    public function signup(): ?User
+    public function signup(): User|null
     {
         if (!$this->validate()) {
             return null;

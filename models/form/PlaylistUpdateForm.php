@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models\form;
@@ -24,10 +15,6 @@ class PlaylistUpdateForm extends PlaylistForm
 
     private ?Playlist $_playlist;
 
-    /**
-     * @param int $id
-     * @param array $config
-     */
     public function __construct(int $id, array $config = [])
     {
         $this->_playlist = Playlist::findOne($id);
@@ -44,9 +31,6 @@ class PlaylistUpdateForm extends PlaylistForm
         parent::__construct($config);
     }
 
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return ArrayHelper::merge(parent::rules(), [
@@ -56,9 +40,6 @@ class PlaylistUpdateForm extends PlaylistForm
         ]);
     }
 
-    /**
-     * @return bool
-     */
     public function save(): bool
     {
         if ($this->validate()) {

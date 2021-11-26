@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the admin.plusarchive.com
- *
- * (c) Tomoki Morita <tmsongbooks215@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 namespace app\models;
@@ -36,17 +27,11 @@ class Bookmark extends ActiveRecord
 {
     use ActiveRecordTrait;
 
-    /**
-     * @return string
-     */
     public static function tableName(): string
     {
         return 'bookmark';
     }
 
-    /**
-     * @return array
-     */
     public function attributeLabels(): array
     {
         return [
@@ -54,9 +39,6 @@ class Bookmark extends ActiveRecord
         ];
     }
 
-    /**
-     * @return BookmarkQuery
-     */
     public static function find(): BookmarkQuery
     {
         return new BookmarkQuery(static::class);
@@ -64,7 +46,6 @@ class Bookmark extends ActiveRecord
 
     /**
      * @noinspection PhpUnused
-     * @return ActiveQuery
      */
     public function getBookmarkTags(): ActiveQuery
     {
@@ -73,15 +54,12 @@ class Bookmark extends ActiveRecord
             ->orderBy(['name' => SORT_ASC]);
     }
 
-    /**
-     * @param null|string $sort
-     * @param null|string $country
-     * @param null|string $tag
-     * @param null|string $search
-     * @return ActiveDataProvider
-     */
-    public static function all(?string $sort = null, ?string $country = null, ?string $tag = null, ?string $search = null): ActiveDataProvider
-    {
+    public static function all(
+        string|null $sort = null,
+        string|null $country = null,
+        string|null $tag = null,
+        string|null $search = null,
+    ): ActiveDataProvider {
         $query = static::find()
             ->with(['bookmarkTags']);
 
@@ -108,9 +86,6 @@ class Bookmark extends ActiveRecord
         ]);
     }
 
-    /**
-     * @return array
-     */
     public function rules(): array
     {
         return [
@@ -125,9 +100,6 @@ class Bookmark extends ActiveRecord
         ];
     }
 
-    /**
-     * @return array
-     */
     public function behaviors(): array
     {
         return [
@@ -140,9 +112,6 @@ class Bookmark extends ActiveRecord
         ];
     }
 
-    /**
-     * @return array
-     */
     public function transactions(): array
     {
         return [
