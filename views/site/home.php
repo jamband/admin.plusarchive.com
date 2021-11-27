@@ -14,16 +14,17 @@ $this->title = app()->name;
     Recent <small class="text-muted">favorite tracks</small>
 </h1>
 <div class="row text-center card-container">
+    <?php /** @var app\models\Track $model */ ?>
     <?php foreach ($data->models as $model): ?>
         <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
                 <div class="card-img-wrap">
-                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>">
+                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>" class="d-inline-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $model->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
                         <?= Html::tag('img', '', [
-                            'class' => 'lazyload card-img-top',
-                            'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
-                            'data-src' => h($model->image),
+                            'class' => 'card-img-top opacity-75',
+                            'src' => h($model->image),
                             'alt' => '',
+                            'loading' => 'lazy',
                         ]) ?>
                     </a>
                     <i class="fas fa-play-circle card-play"></i>

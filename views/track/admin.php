@@ -29,21 +29,25 @@ $this->title = 'Admin Tracks - '.app()->name;
             'sort' => $sort,
             'search' => $search,
         ]) ?>
+        <?php /** @var app\models\Track $model */ ?>
         <?php foreach ($data->models as $model): ?>
             <div class="col-md-6 col-lg-4 mb-sm-4">
                 <div class="card">
                     <div class="card-img-wrap">
-                        <?= Html::tag('img', '', [
-                            'class' => 'lazyload card-img-top',
-                            'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
-                            'data-src' => h($model->image),
-                            'data-action' => $embedAction,
-                            'data-id' => hashids()->encode($model->id),
-                            'data-url' => $model->url,
-                            'data-title' => $model->title,
-                            'data-provider' => $model->providerText,
-                            'data-key' => $model->provider_key,
-                        ]) ?>
+                        <div class="ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $model->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
+                            <?= Html::tag('img', '', [
+                                'class' => 'card-img-top opacity-75',
+                                'src' => h($model->image),
+                                'alt' => '',
+                                'loading' => 'lazy',
+                                'data-action' => $embedAction,
+                                'data-id' => hashids()->encode($model->id),
+                                'data-url' => $model->url,
+                                'data-title' => $model->title,
+                                'data-provider' => $model->providerText,
+                                'data-key' => $model->provider_key,
+                            ]) ?>
+                        </div>
                         <i class="fas fa-play-circle card-play"></i>
                     </div>
                     <div class="card-body">

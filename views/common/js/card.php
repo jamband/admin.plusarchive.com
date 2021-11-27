@@ -5,15 +5,14 @@
  */
 
 $this->registerJs(<<<'JS'
-var card = function () {
-    var $container = $('.card-container');
-    $container.each(function () {
-        this.addEventListener('load', function () {
-            $container.masonry({transitionDuration: 0});
-        }, true);
-    });
+var masonryOptions = {
+  transitionDuration: 0
 }
-$(card);
-$(document).on('pjax:success', card);
+
+$('.card-container').masonry(masonryOptions)
+
+$(document).on('pjax:success', function () {
+  $('.card-container').masonry(masonryOptions)
+});
 JS
 );

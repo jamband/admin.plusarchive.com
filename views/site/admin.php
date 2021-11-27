@@ -31,12 +31,12 @@ $this->title = 'Admin - '.app()->name;
         <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
                 <div class="card-img-wrap">
-                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($track->id)]) ?>">
+                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($track->id)]) ?>" class="d-inline-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $track->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
                         <?= Html::tag('img', '', [
-                            'class' => 'lazyload card-img-top',
-                            'src' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=',
-                            'data-src' => h($track->image),
+                            'class' => 'card-img-top opacity-75',
+                            'src' => h($track->image),
                             'alt' => '',
+                            'loading' => 'lazy',
                         ]) ?>
                     </a>
                     <i class="fas fa-play-circle card-play"></i>
