@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace app\components;
 
-use JetBrains\PhpStorm\Pure;
 use yii\helpers\Html;
 use yii\i18n\Formatter as FormatterBase;
 
@@ -99,7 +98,7 @@ class Formatter extends FormatterBase
         ];
 
         foreach ($icons as $domain => $icon) {
-            if (false !== strpos($value, $domain)) {
+            if (str_contains($value, $domain)) {
                 return '<i class="fab fa-'.$icon.' fa-fw fa-lg"></i>';
             }
         }

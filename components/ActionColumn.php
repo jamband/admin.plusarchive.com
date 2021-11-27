@@ -27,21 +27,14 @@ class ActionColumn extends ActionColumnBase
         $iconName,
         $additionalOptions = []
     ): void {
-        if (!isset($this->buttons[$name]) && strpos($this->template, '{'.$name.'}') !== false) {
+        if (!isset($this->buttons[$name]) && str_contains($this->template, '{'.$name.'}')) {
             $this->buttons[$name] = function (string $url) use ($name, $iconName, $additionalOptions): string {
-                switch ($name) {
-                    case 'view':
-                        $title = Yii::t('yii', 'View');
-                        break;
-                    case 'update':
-                        $title = Yii::t('yii', 'Update');
-                        break;
-                    case 'delete':
-                        $title = Yii::t('yii', 'Delete');
-                        break;
-                    default:
-                        $title = ucfirst($name);
-                }
+                $title = match ($name) {
+                    'view' => Yii::t('yii', 'View'),
+                    'update' => Yii::t('yii', 'Update'),
+                    'delete' => Yii::t('yii', 'Delete'),
+                    default => ucfirst($name),
+                };
 
                 $options = array_merge([
                     'title' => $title,
