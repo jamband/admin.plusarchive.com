@@ -3,16 +3,19 @@
 
 declare(strict_types=1);
 
+use Dotenv\Dotenv;
+use yii\console\Application;
+
 require __DIR__.'/vendor/autoload.php';
 
 if (php_uname('n') !== 'admin.plusarchive.com') {
     defined('YII_DEBUG') or define('YII_DEBUG', true);
     defined('YII_ENV') or define('YII_ENV', 'dev');
 
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
 }
 
 require __DIR__.'/vendor/yiisoft/yii2/Yii.php';
 
-exit((new yii\console\Application(require __DIR__.'/config/console.php'))->run());
+exit((new Application(require __DIR__.'/config/console.php'))->run());
