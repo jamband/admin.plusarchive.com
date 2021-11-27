@@ -43,7 +43,7 @@ class CreateCest
         $I->wait(0.5);
 
         $I->seeCurrentUrlEquals('/index-test.php/tracks/admin');
-        $I->see('Track has been added.');
+        $I->see('New track has been added.');
         $I->see('Admin: 6' ,'#menu-action');
         $I->see('Foo Title', ['css' => '.card:nth-child(1)']);
         $I->see('genre1 genre2', ['css' => '.card:nth-child(1)']);
