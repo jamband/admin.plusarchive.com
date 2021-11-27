@@ -100,7 +100,7 @@ class PlaylistController extends Controller
     {
         try {
             $model = new PlaylistUpdateForm($id);
-        } catch (NotFoundModelException $e) {
+        } catch (NotFoundModelException) {
             throw new NotFoundHttpException('Page not found.');
         }
 

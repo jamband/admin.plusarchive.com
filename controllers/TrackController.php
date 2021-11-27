@@ -148,7 +148,7 @@ class TrackController extends Controller
     {
         try {
             $model = new TrackUpdateForm($id);
-        } catch (NotFoundModelException $e) {
+        } catch (NotFoundModelException) {
             throw new NotFoundHttpException('Page not found.');
         }
 
