@@ -13,13 +13,11 @@ class LoginFormTest extends Unit
 {
     protected UnitTester $tester;
 
-    public function testLogin(): void
+    public function testLoginFails(): void
     {
         $fixtures['users'] = LoginFormFixture::class;
         $this->tester->haveFixtures($fixtures);
-        $users = $this->tester->grabFixture('users');
 
-        // failure
         $model = new LoginForm;
         $model->username = 'foo';
         $model->password = 'bar';
@@ -27,11 +25,17 @@ class LoginFormTest extends Unit
         $this->assertFalse($model->login());
         $this->assertNotEmpty($model->errors);
         $this->assertTrue(user()->isGuest);
+    }
 
-        // success
+    public function testLogin(): void
+    {
+        $fixtures['users'] = LoginFormFixture::class;
+        $this->tester->haveFixtures($fixtures);
+        $user = $this->tester->grabFixture('users', 'user1');
+
         $model = new LoginForm;
-        $model->username = $users['user1']['username'];
-        $model->password = str_repeat($users['user1']['username'], 2);
+        $model->username = $user['username'];
+        $model->password = str_repeat($user['username'], 2);
 
         $this->assertTrue($model->login());
         $this->assertEmpty($model->errors);

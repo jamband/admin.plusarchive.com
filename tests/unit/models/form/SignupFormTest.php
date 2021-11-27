@@ -14,26 +14,31 @@ class SignupFormTest extends Unit
 {
     protected UnitTester $tester;
 
-    public function testSignup(): void
+    public function testSignupFails(): void
+    {
+        $model = new SignupForm;
+        $this->assertNull($model->signup());
+    }
+
+    public function testUsernameUniqueValidation(): void
     {
         $fixtures['users'] = SignupFormFixture::class;
         $this->tester->haveFixtures($fixtures);
-        $users = $this->tester->grabFixture('users');
+        $user1 = $this->tester->grabFixture('users', 'user1');
 
-        // failure
         $model = new SignupForm;
-        $model->username = $users['user1']['username']; // not unique
-        $model->email = 'new_user@example.com';
-        $model->password = 'new_user_password';
+        $model->username = $user1->username;
 
         $this->assertNull($model->signup());
         $this->assertNotEmpty($model->getErrors('username'));
+    }
 
-        // success
+    public function testSignup(): void
+    {
         $model = new SignupForm;
         $model->username = 'new_user';
         $model->email = 'new_user@example.com';
-        $model->password = 'new_user_password';
+        $model->password = str_repeat('new_user', 2);
 
         $this->assertInstanceOf(User::class, $model->signup());
         $this->assertEmpty($model->errors);
