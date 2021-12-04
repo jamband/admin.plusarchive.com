@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1473ce659b0fe52a4554c37486eef1f",
+    "content-hash": "99a576fd39a9dd82d135e44226913d66",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -241,16 +241,16 @@
         },
         {
             "name": "jamband/ripple",
-            "version": "v0.10.1",
+            "version": "v0.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jamband/ripple.git",
-                "reference": "6aa7b8d372e1b03a0b3d4ede880d19455979890c"
+                "reference": "d7ef0adc1a0202eab6b28bc01606ca853fde26a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jamband/ripple/zipball/6aa7b8d372e1b03a0b3d4ede880d19455979890c",
-                "reference": "6aa7b8d372e1b03a0b3d4ede880d19455979890c",
+                "url": "https://api.github.com/repos/jamband/ripple/zipball/d7ef0adc1a0202eab6b28bc01606ca853fde26a9",
+                "reference": "d7ef0adc1a0202eab6b28bc01606ca853fde26a9",
                 "shasum": ""
             },
             "require": {
@@ -289,9 +289,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jamband/ripple/issues",
-                "source": "https://github.com/jamband/ripple/tree/v0.10.1"
+                "source": "https://github.com/jamband/ripple/tree/v0.10.2"
             },
-            "time": "2021-11-27T13:29:27+00:00"
+            "time": "2021-12-04T01:42:02+00:00"
         },
         {
             "name": "paragonie/random_compat",
