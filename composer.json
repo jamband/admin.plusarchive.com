@@ -3,14 +3,14 @@
     "php": "^8.0",
     "ext-json": "*",
     "creocoder/yii2-taggable": "2.0.0",
-    "jamband/ripple": "0.9.0",
+    "jamband/ripple": "0.10.1",
     "hashids/hashids": "4.1.0",
     "yiisoft/yii2": "2.0.43"
   },
   "require-dev": {
     "vlucas/phpdotenv": "^5.4",
     "yiisoft/yii2-debug": "2.1.18",
-    "codeception/module-yii2": "1.1.3",
+    "codeception/module-yii2": "1.1.4",
     "codeception/module-webdriver": "1.4.0",
     "codeception/module-filesystem": "1.0.3"
   },
