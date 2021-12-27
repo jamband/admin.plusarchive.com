@@ -33,7 +33,7 @@ class IndexCest
 
         $I->click('#search-provider');
         $I->click('Bandcamp', '#search-provider + .dropdown-menu');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/tracks?provider=Bandcamp');
         $I->see('Bandcamp', '#search-provider');
         $I->see('1 results');
@@ -42,13 +42,13 @@ class IndexCest
 
         $I->click('#search-genre');
         $I->click('genre2', '#search-genre + .dropdown-menu');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/tracks?provider=Bandcamp&genre=genre2');
         $I->see('0 results');
         $I->see('genre2', '#search-genre');
 
         $I->click('Reset All');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/tracks');
         $I->see('Providers', '#search-provider');
         $I->see('5 results');
@@ -57,7 +57,7 @@ class IndexCest
 
         $I->fillField(['name' => 'search'], '3');
         $I->pressKey('input[name=search]', WebDriverKeys::ENTER);
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeInField(['name' => 'search'], '3');
         $I->see('1 results');
         $I->see('track3', '.card-title');

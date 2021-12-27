@@ -49,12 +49,12 @@ class UpdateCest
 
         $I->fillField('#store-name', '');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeElement('.is-invalid');
 
         $I->fillField('#store-name', 'store-one');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/stores/1');
         $I->see('Store has been updated.');
 
@@ -75,7 +75,7 @@ class UpdateCest
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/stores/admin');
         $I->see('Admin: 2', '#menu-action');
         $I->dontSee('store-one', '.grid-view');

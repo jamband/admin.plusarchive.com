@@ -36,14 +36,14 @@ class StopAllUrgeCest
 
         $I->click('#menu-action');
         $I->click('Stop All Urge');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeInPopup('Are you sure?');
         $I->cancelPopup();
 
         $I->click('#menu-action');
         $I->click('Stop All Urge');
         $I->acceptPopup();
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/admin');
         $I->dontSee('track1', '.card-title');
         $I->dontSee('track2', '.card-title');

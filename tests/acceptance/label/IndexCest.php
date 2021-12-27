@@ -38,7 +38,7 @@ class IndexCest
 
         $I->click('Countries', '.col-lg-4');
         $I->click('Japan', '.col-lg-4');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/labels?country=Japan');
         $I->see('label1');
         $I->dontSee('label2');
@@ -47,7 +47,7 @@ class IndexCest
 
         $I->click('Reset All');
         $I->seeCurrentUrlEquals('/index-test.php/labels');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->see('3 results');
     }
 }

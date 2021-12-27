@@ -56,7 +56,7 @@ class ViewCest
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/stores/admin');
         $I->see('Admin: 2', '#menu-action');
     }

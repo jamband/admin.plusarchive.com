@@ -37,7 +37,7 @@ class IndexCest
 
         $I->click('Countries', '.col-lg-4');
         $I->click('Japan', '.col-lg-4');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks?country=Japan');
         $I->see('bookmark1');
         $I->dontSee('bookmark2');
@@ -46,7 +46,7 @@ class IndexCest
 
         $I->fillField('input[name=search]', '1');
         $I->pressKey('input[name=search]', WebDriverKeys::ENTER);
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks?search=1');
         $I->see('1 results');
         $I->see('bookmark1');
@@ -54,7 +54,7 @@ class IndexCest
         $I->dontSee('bookmark3');
 
         $I->click('Reset All');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks');
         $I->see('4 results');
     }

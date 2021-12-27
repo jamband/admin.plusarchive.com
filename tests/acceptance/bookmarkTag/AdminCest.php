@@ -36,7 +36,7 @@ class AdminCest
 
         $I->fillField('input[name="BookmarkTagSearch[name]"]', 3);
         $I->pressKey(['name' => 'BookmarkTagSearch[name]'], WebDriverKeys::ENTER);
-        $I->wait(0.5);
+        $I->wait(1);
         $I->see('Admin: 1', '#menu-action');
         $I->see('tag3', '.grid-view');
         $I->dontSee('tag1', '.grid-view');

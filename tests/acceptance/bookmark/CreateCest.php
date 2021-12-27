@@ -36,7 +36,7 @@ class CreateCest
         $I->fillField('#bookmark-name', 'newbookmark');
         $I->fillField('#bookmark-url', 'https://newbookmark.example.com');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->see('Bookmark has been added.');
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks/5');
 

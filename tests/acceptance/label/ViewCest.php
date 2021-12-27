@@ -50,14 +50,14 @@ class ViewCest
 
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeInPopup('Are you sure?');
         $I->cancelPopup();
 
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/labels/admin');
         $I->see('Admin: 2', '#menu-action');
     }

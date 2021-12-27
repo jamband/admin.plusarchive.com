@@ -27,18 +27,18 @@ class LoginCest
         $I->see('Log in', 'h1');
 
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeElement('.error-summary');
 
         $I->fillField('#loginform-username', app()->params['admin-username']);
         $I->fillField('#loginform-password', app()->params['admin-username']);
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeElement('.error-summary');
 
         $I->fillField('#loginform-password', app()->params['admin-password']);
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->dontSeeElement('.error-summary');
         $I->seeCurrentUrlEquals('/index-test.php');
         $I->see('Logged in successfully.');

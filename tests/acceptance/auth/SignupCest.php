@@ -36,7 +36,7 @@ class SignupCest
         $I->see('Sign up', 'h1');
 
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeElement('.is-invalid');
 
         $I->fillField('#signupform-username', 'newuser');

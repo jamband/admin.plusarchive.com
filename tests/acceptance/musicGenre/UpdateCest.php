@@ -36,12 +36,12 @@ class UpdateCest
 
         $I->fillField('#musicgenre-name', '');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeElement('.is-invalid');
 
         $I->fillField('#musicgenre-name', 'genre-one');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/music-genres/admin');
         $I->see('Music genre has been updated.');
         $I->see('Admin: 5', '#menu-action');
@@ -59,7 +59,7 @@ class UpdateCest
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/music-genres/admin');
         $I->see('Admin: 4', '#menu-action');
         $I->dontSee('genre-one', '.grid-view');

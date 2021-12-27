@@ -49,12 +49,12 @@ class UpdateCest
 
         $I->fillField('#bookmark-name', '');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeElement('.is-invalid');
 
         $I->fillField('#bookmark-name', 'bookmark-one');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks/1');
         $I->see('Bookmark has been updated.');
 
@@ -75,7 +75,7 @@ class UpdateCest
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks/admin');
         $I->see('Admin: 3', '#menu-action');
         $I->dontSee('bookmark-one', '.grid-view');

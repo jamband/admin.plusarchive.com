@@ -34,13 +34,13 @@ class CreateCest
         $I->seeCurrentUrlEquals('/index-test.php/stores/create');
 
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeElement('.is-invalid');
 
         $I->fillField('#store-name', 'newstore');
         $I->fillField('#store-url', 'https://newstore.example.com');
         $I->click('button[type=submit]');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->see('Store has been added.');
         $I->seeCurrentUrlEquals('/index-test.php/stores/4');
 

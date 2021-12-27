@@ -23,12 +23,12 @@ class PrivacyOptOutCest
         $I->dontSee(app()->name, 'footer');
 
         $I->click('ACCEPT', 'footer');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->see(app()->name, 'footer');
         $I->dontSee('Privacy Policy', 'footer');
 
         $I->click('Opt-Out');
-        $I->wait(0.5);
+        $I->wait(1);
         $I->seeInPopup('Google Analytics opt-out has been completed.');
         $I->acceptPopup();
         $I->see('Privacy Policy', 'footer');
