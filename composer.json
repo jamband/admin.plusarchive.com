@@ -2,15 +2,15 @@
   "require": {
     "php": "^8.0",
     "ext-json": "*",
-    "creocoder/yii2-taggable": "2.0.0",
-    "jamband/ripple": "0.10.2",
-    "hashids/hashids": "4.1.0",
-    "yiisoft/yii2": "2.0.43"
+    "creocoder/yii2-taggable": "^2.0",
+    "jamband/ripple": "^0.10.2",
+    "hashids/hashids": "^4.1",
+    "yiisoft/yii2": "2.0.44"
   },
   "require-dev": {
     "vlucas/phpdotenv": "^5.4",
-    "yiisoft/yii2-debug": "2.1.18",
-    "codeception/module-yii2": "1.1.4",
+    "yiisoft/yii2-debug": "^2.1",
+    "codeception/module-yii2": "^1.1",
     "codeception/module-webdriver": "^2.0",
     "codeception/module-filesystem": "^2.0"
   },
