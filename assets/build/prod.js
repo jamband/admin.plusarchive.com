@@ -19,7 +19,7 @@ module.exports = merge(common, {
     }),
     new WebpackManifestPlugin({
       publicPath: '',
-      filter: (file) => !file.path.match(/\.(png|woff|woff2)$/)
+      filter: (file) => !file.path.match(/\.(png|woff2)$/)
     })
   ]
 })

@@ -34,7 +34,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|woff|woff2)$/,
+        test: /\.(png|woff2)$/,
         type: 'asset/resource'
       },
     ]

@@ -1,42 +1,20 @@
 /*!
- * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2022 Fonticons, Inc.
  */
 
 $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/functions";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/variables";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/mixins";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/core";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/larger";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/sizing";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/fixed-width";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/screen-reader";
-
-// fa-brands
-@font-face {
-  font-family: "Font Awesome 5 Brands";
-  font-style: normal;
-  font-weight: normal;
-  src: url("#{$fa-font-path}/fa-brands-400.woff2") format("woff2"), url("#{$fa-font-path}/fa-brands-400.woff") format("woff");
-}
-
-.fab {
-  font-family: "Font Awesome 5 Brands";
-}
-
-// fa-solid
-@font-face {
-  font-family: "Font Awesome 5 Free";
-  font-style: normal;
-  font-weight: 900;
-  src: url("#{$fa-font-path}/fa-solid-900.woff2") format("woff2"), url("#{$fa-font-path}/fa-solid-900.woff") format("woff");
-}
-
-.fa,
-.fas {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-}
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
 
 // icons
 .#{$fa-css-prefix}-angle-double-down:before { content: fa-content($fa-var-angle-double-down); }
