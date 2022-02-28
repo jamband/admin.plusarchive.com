@@ -22,7 +22,7 @@
                     <iframe width="100%" height="120" src="<?= h($embed) ?>" allowfullscreen></iframe>
                 <?php endif ?>
                 <a class="tag" href="<?= url(['view', 'id' => $id])?>">
-                    View <i class="fas fa-angle-right fa-fw"></i>
+                    View <i class="fas fa-fw fa-angle-right"></i>
                 </a>
                 <div class="now-playing-loading">
                     <span>.</span><span>.</span><span>.</span>

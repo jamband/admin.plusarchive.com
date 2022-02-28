@@ -46,7 +46,7 @@ $this->title = app()->name;
                         <?php endforeach ?>
                     </div>
                     <div class="card-date">
-                        <i class="fas fa-sm fa-fw fa-clock"></i>
+                        <i class="fas fa-fw fa-sm fa-clock"></i>
                         <?= formatter()->asDate($model->created_at) ?>
                     </div>
                 </div>
@@ -70,6 +70,6 @@ $this->title = app()->name;
     </a>
     <span class="mx-1 text-muted">or</span>
     <a href="<?= url(['/playlists']) ?>">
-        Playlists<i class="fas fa-angle-right fa-fw"></i>
+        Playlists<i class="fas fa-fw fa-angle-right"></i>
     </a>
 </div>

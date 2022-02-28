@@ -17,12 +17,12 @@ use yii\helpers\Url;
     <div class="card">
         <div class="card-body">
             <a class="text-body" href="<?= url(['']) ?>">
-                <i class="fas fa-redo-alt fa-fw"></i> Reset All
+                <i class="fas fa-fw fa-redo-alt"></i> Reset All
             </a>
             <br>
             <div class="d-inline-block dropdown">
                 <a id="search-sort" class="tag" href="#" data-bs-toggle="dropdown">
-                    <?= h($sort) ?> <i class="fas fa-angle-down fa-fw"></i>
+                    <?= h($sort) ?> <i class="fas fa-fw fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => null, 'search' => null]) ?>">Reset</a>
@@ -34,7 +34,7 @@ use yii\helpers\Url;
             </div>
             <div class="d-inline-block dropdown">
                 <a id="search-provider" class="tag" href="#" data-bs-toggle="dropdown">
-                    <?= h($provider) ?> <i class="fas fa-angle-down fa-fw"></i>
+                    <?= h($provider) ?> <i class="fas fa-fw fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?= Url::currentPlus(['provider' => null, 'search' => null]) ?>">Reset</a>
@@ -46,7 +46,7 @@ use yii\helpers\Url;
             </div>
             <div class="d-inline-block dropdown">
                 <a id="search-genre" class="tag" href="#" data-bs-toggle="dropdown">
-                    <?= h($genre) ?> <i class="fas fa-angle-down fa-fw"></i>
+                    <?= h($genre) ?> <i class="fas fa-fw fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => null, 'search' => null]) ?>">Reset</a>

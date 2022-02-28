@@ -14,7 +14,7 @@ $this->title = 'Admin - '.app()->name;
     <div class="d-inline-block dropdown">
         <a id="menu-action" class="tag" href="#" data-bs-toggle="dropdown">
             Action
-            <i class="fas fa-angle-down fa-fw"></i>
+            <i class="fas fa-fw fa-angle-down"></i>
         </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="<?= url(['/track/stop-all-urge']) ?>" data-confirm="Are you sure?" data-method="post">
@@ -57,7 +57,7 @@ $this->title = 'Admin - '.app()->name;
                     </div>
                     <div class="card-date">
                         <a class="text-body" href="<?= url(['/track/update', 'id' => $track->id]) ?>" data-pjax="0">
-                            <i class="fas fa-sm fa-fw fa-edit"></i> Update
+                            <i class="fas fa-fw fa-sm fa-edit"></i> Update
                         </a>
                     </div>
                 </div>

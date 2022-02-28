@@ -10,7 +10,7 @@ use yii\helpers\Inflector;
 <div class="d-inline-block dropdown">
     <a id="menu-controller" class="tag" href="#" data-bs-toggle="dropdown">
         <?= preg_replace('#/[a-z/]+\z#', '', Inflector::pluralize(Inflector::id2camel(app()->controller->id))) ?>
-        <i class="fas fa-angle-down fa-fw"></i>
+        <i class="fas fa-fw fa-angle-down"></i>
     </a>
     <div class="dropdown-menu">
         <a class="dropdown-item" data-pjax="0" href="<?= url(['/track/admin']) ?>">Tracks</a>

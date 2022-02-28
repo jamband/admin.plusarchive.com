@@ -63,7 +63,7 @@ $this->title = app()->name;
                             <?php endforeach ?>
                         </div>
                         <div class="card-date">
-                            <i class="fas fa-sm fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
+                            <i class="fas fa-fw fa-sm fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div>
                 </div>

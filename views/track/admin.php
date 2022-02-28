@@ -66,15 +66,15 @@ $this->title = 'Admin Tracks - '.app()->name;
                             <?php endforeach ?>
                             <p class="mt-1">
                                 <a class="tag" href="<?= url(['update', 'id' => $model->id]) ?>" data-pjax="0">
-                                    <i class="fas fa-sm fa-fw fa-edit"></i> Update
+                                    <i class="fas fa-fw fa-sm fa-edit"></i> Update
                                 </a>
                                 <a class="tag" href="<?= url(['delete', 'id' => $model->id]) ?>" data-confirm="Are you sure?" data-method="post">
-                                    <i class="fas fa-sm fa-fw fa-trash"></i> Delete
+                                    <i class="fas fa-fw fa-sm fa-trash"></i> Delete
                                 </a>
                             </p>
                         </div>
                         <div class="card-date">
-                            <i class="fas fa-sm fa-fw fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
+                            <i class="fas fa-fw fa-sm fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
                         </div>
                     </div>
                 </div>

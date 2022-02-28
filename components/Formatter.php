@@ -16,7 +16,7 @@ class Formatter extends FormatterBase
 
     public function asTagValues(string|array|null $value): string
     {
-        if ('' === $value || empty($value)) {
+        if (empty($value)) {
             return '';
         }
 
@@ -42,7 +42,7 @@ class Formatter extends FormatterBase
 
         $options += self::EXTERNAL_LINK_DEFAULT_OPTIONS;
 
-        return Html::a('<i class="fas fa-external-link-alt fa-fw"></i> '.Html::encode($text), $value, $options);
+        return Html::a('<i class="fas fa-fw fa-external-link-alt"></i> '.Html::encode($text), $value, $options);
     }
 
     public function asBrandIconLink(
@@ -99,10 +99,10 @@ class Formatter extends FormatterBase
 
         foreach ($icons as $domain => $icon) {
             if (str_contains($value, $domain)) {
-                return '<i class="fab fa-'.$icon.' fa-fw fa-lg"></i>';
+                return '<i class="fab fa-fw fa-lg fa-'.$icon.'"></i>';
             }
         }
 
-        return '<i class="fas fa-external-link-alt fa-fw fa-lg"></i>';
+        return '<i class="fas fa-fw fa-lg fa-external-link-alt"></i>';
     }
 }

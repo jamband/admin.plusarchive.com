@@ -15,12 +15,12 @@ use yii\helpers\Url;
 
 ?>
 <a class="text-body" href="<?= url(['']) ?>">
-    <i class="fas fa-redo-alt fa-fw"></i> Reset All
+    <i class="fas fa-fw fa-redo-alt"></i> Reset All
 </a>
 <br>
 <div class="d-inline-block dropdown">
     <a class="tag" href="#" data-bs-toggle="dropdown">
-        <?= h($sort) ?> <i class="fas fa-angle-down fa-fw"></i>
+        <?= h($sort) ?> <i class="fas fa-fw fa-angle-down"></i>
     </a>
     <div class="dropdown-menu">
         <a class="dropdown-item" href="<?= Url::currentPlus(['sort' => null, 'search' => null]) ?>">Reset</a>
@@ -31,7 +31,7 @@ use yii\helpers\Url;
 </div>
 <div class="d-inline-block dropdown">
     <a class="tag" href="#" data-bs-toggle="dropdown">
-        <?= h($country) ?> <i class="fas fa-angle-down fa-fw"></i>
+        <?= h($country) ?> <i class="fas fa-fw fa-angle-down"></i>
     </a>
     <ul class="dropdown-menu scrollable-menu">
         <a class="dropdown-item" href="<?= Url::currentPlus(['country' => null, 'search' => null]) ?>">Reset</a>
@@ -43,7 +43,7 @@ use yii\helpers\Url;
 </div>
 <div class="d-inline-block dropdown">
     <a class="tag" href="#" data-bs-toggle="dropdown">
-        <?= h($tag) ?> <i class="fas fa-angle-down fa-fw"></i>
+        <?= h($tag) ?> <i class="fas fa-fw fa-angle-down"></i>
     </a>
     <ul class="dropdown-menu">
         <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => null, 'search' => null]) ?>">Reset</a>
