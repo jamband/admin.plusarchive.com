@@ -8,12 +8,6 @@
     }
   ],
   "rules": {
-    "font-family-no-missing-generic-family-keyword": [
-      true,
-      {
-        "ignoreFontFamilies": ["Font Awesome 5 Brands", "Font Awesome 5 Free"]
-      }
-    ],
     "selector-class-pattern": ["^[\\w-]+$", { "resolveNestedSelectors": true }],
     "value-keyword-case": ["lower", { "ignoreKeywords": ["YuGothic"] }],
     "order/properties-alphabetical-order": true,
