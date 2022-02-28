@@ -26,6 +26,7 @@
   "scripts": {
     "dev": "composer install --quiet && yarn --silent && yarn dev",
     "serve": "php -S localhost:8000 -t web",
+    "clear": "rm -rf runtime/* tests/_output/* web/assets/*",
     "clean": "rm -rf node_modules runtime/* tests/_output/* vendor web/assets/*",
     "show-asset-version": "composer show --tree | grep -o 'bower-asset.*' | sort | uniq"
   }
