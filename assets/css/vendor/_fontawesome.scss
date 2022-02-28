@@ -13,8 +13,45 @@ $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/sizing";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/fixed-width";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/screen-reader";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+// @import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+
+:root,
+:host {
+  --#{$fa-css-prefix}-font-solid: normal 900 1em/1 "#{$fa-style-family}"; /* stylelint-disable-line */
+  --#{$fa-css-prefix}-font-brands: normal 400 1em/1 "Font Awesome 6 Brands"; /* stylelint-disable-line */
+}
+
+// solid
+@font-face {
+  font-display: $fa-font-display;
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  src: url("#{$fa-font-path}/fa-solid-900.woff2") format("woff2");
+}
+
+.fas,
+.fa-solid {
+  font-family: "Font Awesome 6 Free", serif;
+  font-weight: 900;
+}
+
+// brands
+@font-face {
+  font-display: $fa-font-display;
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  src: url("#{$fa-font-path}/fa-brands-400.woff2") format("woff2");
+}
+
+.fab,
+.fa-brands {
+  font-family: "Font Awesome 6 Brands", serif;
+  font-weight: 400;
+}
 
 // icons
 .#{$fa-css-prefix}-angle-double-down:before { content: fa-content($fa-var-angle-double-down); }
