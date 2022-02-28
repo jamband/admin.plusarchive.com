@@ -31,7 +31,7 @@
         <?= $content ?>
     </div>
     <footer class="fixed-bottom p-3 text-center bg-dark fw-bold">
-        <i class="fas fa-info-circle"></i>
+        <i class="fas fa-fw fa-info-circle"></i>
         Currently logged in as an administrator.
     </footer>
     <script src="<?= asset('app.js') ?>"></script>

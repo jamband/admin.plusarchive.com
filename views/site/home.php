@@ -70,6 +70,6 @@ $this->title = app()->name;
     </a>
     <span class="mx-1 text-muted">or</span>
     <a href="<?= url(['/playlists']) ?>">
-        Playlists<i class="fas fa-fw fa-angle-right"></i>
+        Playlists<i class="fas fa-fw fa-sm fa-angle-right"></i>
     </a>
 </div>

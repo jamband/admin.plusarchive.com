@@ -14,7 +14,7 @@ $this->title = 'Admin - '.app()->name;
     <div class="d-inline-block dropdown">
         <a id="menu-action" class="tag" href="#" data-bs-toggle="dropdown">
             Action
-            <i class="fas fa-fw fa-angle-down"></i>
+            <i class="fas fa-fw fa-sm fa-angle-down"></i>
         </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="<?= url(['/track/stop-all-urge']) ?>" data-confirm="Are you sure?" data-method="post">
