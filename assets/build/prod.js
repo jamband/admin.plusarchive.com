@@ -1,6 +1,5 @@
 const common = require('./common')
 const { merge } = require('webpack-merge')
-const CompressionPlugin = require('compression-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
@@ -11,9 +10,6 @@ module.exports = merge(common, {
     assetModuleFilename: '[name][ext]',
   },
   plugins: [
-    new CompressionPlugin({
-      test: /\.(js|css)$/
-    }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
     }),

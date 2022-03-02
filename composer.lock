@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "caac99bed6087893b177b7553398fc09",
+    "content-hash": "445d60383a697e9a621cde7e095dac6b",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -814,58 +814,6 @@
                 "source": "https://github.com/Codeception/lib-innerbrowser/tree/1.5.1"
             },
             "time": "2021-08-30T15:21:42+00:00"
-        },
-        {
-            "name": "codeception/module-filesystem",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Codeception/module-filesystem.git",
-                "reference": "ae1fa5f13ba00bdb8a83d4258ef577c5114ddef9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/module-filesystem/zipball/ae1fa5f13ba00bdb8a83d4258ef577c5114ddef9",
-                "reference": "ae1fa5f13ba00bdb8a83d4258ef577c5114ddef9",
-                "shasum": ""
-            },
-            "require": {
-                "codeception/codeception": "^4.1 | *@dev",
-                "php": "^7.4 | ^8.0",
-                "symfony/finder": "^4.4 | ^5.4 | ^6.0"
-            },
-            "conflict": {
-                "codeception/codeception": "<4.1"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Bodnarchuk"
-                },
-                {
-                    "name": "Gintautas Miselis"
-                }
-            ],
-            "description": "Codeception module for testing local filesystem",
-            "homepage": "https://codeception.com/",
-            "keywords": [
-                "codeception",
-                "filesystem"
-            ],
-            "support": {
-                "issues": "https://github.com/Codeception/module-filesystem/issues",
-                "source": "https://github.com/Codeception/module-filesystem/tree/2.0.1"
-            },
-            "time": "2021-12-18T14:11:30+00:00"
         },
         {
             "name": "codeception/module-webdriver",
