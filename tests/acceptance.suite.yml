@@ -3,7 +3,7 @@ class_name: AcceptanceTester
 modules:
   enabled:
     - WebDriver:
-        url: http://localhost:8080/
+        url: http://localhost:8000/
         browser: chrome
         capabilities:
           chromeOptions:
