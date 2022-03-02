@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 
+/** @type import("webpack").Configuration */
 module.exports = merge(common, {
   mode: 'production',
   output: {

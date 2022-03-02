@@ -1,5 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const autoprefixer = require('autoprefixer')
 
+/** @type import("webpack").Configuration */
 module.exports = {
   entry: {
     app: './assets/entries/app.js'
@@ -23,7 +25,7 @@ module.exports = {
             options: {
               postcssOptions: {
                 plugins: [
-                  require('autoprefixer')()
+                  autoprefixer()
                 ]
               }
             }
@@ -34,7 +36,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|woff2)$/,
+        test: /\.(png)$/,
         type: 'asset/resource'
       },
     ]
