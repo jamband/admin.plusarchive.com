@@ -1,22 +1,22 @@
-const common = require('./common')
-const { merge } = require('webpack-merge')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
+const common = require("./common");
+const { merge } = require("webpack-merge");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 
-/** @type import("webpack").Configuration */
+/** {@type import("webpack").Configuration} */
 module.exports = merge(common, {
-  mode: 'production',
+  mode: "production",
   output: {
-    filename: '[name].[contenthash].js',
-    assetModuleFilename: '[name][ext]',
+    filename: "[name].[contenthash].js",
+    assetModuleFilename: "[name][ext]",
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: "[name].[contenthash].css",
     }),
     new WebpackManifestPlugin({
-      publicPath: '',
-      filter: (file) => !file.path.match(/\.(png|woff2)$/)
-    })
-  ]
-})
+      publicPath: "",
+      filter: (file) => !file.path.match(/\.(png|woff2)$/),
+    }),
+  ],
+});

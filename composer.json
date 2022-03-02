@@ -20,7 +20,9 @@
     "bower-asset/yii2-pjax": "*"
   },
   "autoload": {
-    "files": ["helpers/functions.php"]
+    "files": [
+      "helpers/functions.php"
+    ]
   },
   "scripts": {
     "dev": "composer install --quiet && yarn --silent && yarn dev",

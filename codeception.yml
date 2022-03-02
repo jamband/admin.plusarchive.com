@@ -13,8 +13,8 @@ settings:
   colors: true
 
 modules:
-    config:
-      Yii2:
-        configFile: config/test.php
-        transaction: false
-        cleanup: false
+  config:
+    Yii2:
+      configFile: config/test.php
+      transaction: false
+      cleanup: false

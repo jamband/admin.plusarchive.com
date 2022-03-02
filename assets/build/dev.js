@@ -1,15 +1,13 @@
-const common = require('./common')
-const { merge } = require('webpack-merge')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const common = require("./common");
+const { merge } = require("webpack-merge");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-/** @type import("webpack").Configuration */
+/** @type {import("webpack").Configuration} */
 module.exports = merge(common, {
-  mode: 'development',
+  mode: "development",
   output: {
-    filename: '[name].js',
-    assetModuleFilename: '[name][ext]',
+    filename: "[name].js",
+    assetModuleFilename: "[name][ext]",
   },
-  plugins: [
-    new MiniCssExtractPlugin()
-  ]
-})
+  plugins: [new MiniCssExtractPlugin()],
+});
