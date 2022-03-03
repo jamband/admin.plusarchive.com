@@ -9,7 +9,6 @@
   ],
   "rules": {
     "selector-class-pattern": ["^[\\w-]+$", { "resolveNestedSelectors": true }],
-    "value-keyword-case": ["lower", { "ignoreKeywords": ["YuGothic"] }],
     "order/properties-alphabetical-order": true,
     "scss/dollar-variable-colon-space-after": "at-least-one-space"
   }
