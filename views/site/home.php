@@ -11,7 +11,7 @@
 $this->title = app()->name;
 ?>
 <h1 class="mb-3">
-    Recent <small class="text-muted">favorite tracks</small>
+    Recent <small class="fw-normal text-muted">favorite tracks</small>
 </h1>
 <div class="row text-center card-container">
     <?php /** @var app\models\Track $model */ ?>
@@ -57,7 +57,7 @@ $this->title = app()->name;
 </div>
 <h1 class="my-2">
     Search
-    <small class="text-muted">by genres</small>
+    <small class="fw-normal text-muted">by genres</small>
 </h1>
 <div class="d-inline-block">
     <?php foreach ($genres as $genre): ?>

@@ -53,15 +53,16 @@ $link-decoration:                         none;
 $border-radius:               0.25rem;
 $border-radius-sm:            0.15rem;
 $box-shadow:                  0 0.5rem 1rem color.scale(black, $lightness: 10%);
+$box-shadow-sm:               0 0.125rem 0.25rem color.scale(black, $lightness: 10%);
 $component-active-bg:         $primary;
 
 // Typography
 $font-size-base:              1rem;
-$text-muted:                  #5e5e5e;
+$text-muted:                  #6f6f6f;
 $hr-margin-y:                 $spacer * 0.5;
 $hr-color:                    #919191;
 $hr-height:                   1px;
-$small-font-size:             0.675em;
+$small-font-size:             0.575em;
 
 // Tables
 $table-color:                 $body-color;

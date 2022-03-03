@@ -24,7 +24,7 @@ $this->title = 'Admin - '.app()->name;
     </div>
 </div>
 <h1 class="mb-3">
-    Recent <small class="text-muted">favorite tracks</small>
+    Recent <small class="fw-normal text-muted">favorite tracks</small>
 </h1>
 <div class="row text-center">
     <?php foreach ($tracks as $track): ?>

@@ -58,7 +58,7 @@
     }
 
     @include media-breakpoint-up(sm) {
-      padding-bottom: 0.3rem;
+      padding-bottom: 0.4rem;
     }
 
     .card-title {
@@ -66,7 +66,11 @@
 
       font-size: 108%;
       font-weight: bold;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
+
+      @include media-breakpoint-up(sm) {
+        margin-top: 0.5rem;
+      }
     }
 
     .card-text {
@@ -87,6 +91,7 @@
       }
 
       @include media-breakpoint-up(sm) {
+        font-size: 90%;
         margin-top: 1rem;
       }
     }
