@@ -19,7 +19,7 @@ $this->title = app()->name;
         <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
                 <div class="card-img-wrap">
-                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>" class="d-inline-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $model->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
+                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>" class="d-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $model->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
                         <?= Html::tag('img', '', [
                             'class' => 'card-img-top opacity-75',
                             'src' => h($model->image),

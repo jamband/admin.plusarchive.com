@@ -31,7 +31,7 @@ $this->title = 'Admin - '.app()->name;
         <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
                 <div class="card-img-wrap">
-                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($track->id)]) ?>" class="d-inline-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $track->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
+                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($track->id)]) ?>" class="d-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $track->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
                         <?= Html::tag('img', '', [
                             'class' => 'card-img-top opacity-75',
                             'src' => h($track->image),
@@ -42,9 +42,9 @@ $this->title = 'Admin - '.app()->name;
                     <i class="fas fa-play-circle card-play"></i>
                 </div>
                 <div class="card-body">
-                    <div class="card-title">
+                    <h6 class="card-title">
                         <?= h($track->title) ?>
-                    </div>
+                    </h6>
                     <div class="card-text">
                         <a class="tag" href="<?= url(['/track/admin', 'provider' => $track->providerText]) ?>">
                             <?= h($track->providerText) ?>
