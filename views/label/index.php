@@ -34,15 +34,15 @@ $this->title = 'Labels - '.app()->name;
                     <article class="col-lg-6 mb-4">
                         <h6 class="mb-1"><?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'fw-bold']) ?></h6>
                         <section class="mb-1">
-                            <span class="me-2"><?= h($model->getAttributeLabel('country')) ?>:</span>
+                            <span class="me-2 text-light"><?= h($model->getAttributeLabel('country')) ?>:</span>
                             <?= h($model->country) ?>
                         </section>
                         <section class="mb-1">
-                            <span class="me-2"><?= h($model->getAttributeLabel('link')) ?>:</span>
+                            <span class="me-2 text-light"><?= h($model->getAttributeLabel('link')) ?>:</span>
                             <?= formatter()->asBrandIconLink($model->link, "\n", ['class' => 'text-body']) ?>
                         </section>
                         <section class="mb-1">
-                            <span class="me-2"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
+                            <span class="me-2 text-light"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
                             <?php /** @var LabelTag $tag */ ?>
                             <?php foreach ($model->labelTags as $tag): ?>
                                 <a class="tag" href="<?= url(['', 'tag' => $tag->name]) ?>">

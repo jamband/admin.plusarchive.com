@@ -29,6 +29,7 @@ $this->title = 'Admin StoreTags - '.app()->name;
             [
                 'class' => ActionColumn::class,
                 'template' => '{update} {delete}',
+                'buttonOptions' => ['class' => 'text-body'],
             ],
         ],
     ]) ?>

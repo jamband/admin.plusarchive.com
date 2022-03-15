@@ -1,20 +1,29 @@
 @use "sass:color";
-@use "sass:map";
 
 // Color system
-$primary:       #cc6055;
-$secondary:     #919191;
+$white:             #eceff4;
+$gray-300:          #b7b4c7;
+$gray-700:          #35333c;
+$gray-800:          #24222b;
+$gray-900:          #13111a;
+$black:             #02000b;
+$colors: (
+  "white":          $white,
+  "gray-300":       $gray-300,
+  "gray-700":       $gray-700,
+  "gray-800":       $gray-800,
+  "gray-900":       $gray-900,
+  "black":          $black
+);
+$primary:       #c45c65;
 $success:       #3c763d;
-$info:          #31708f;
+$info:          #9ec6f2;
 $warning:       #ffc107;
 $danger:        #a94442;
-$light:         #f8f9fa;
-$dark:          #2e2e2e;
-$colors: (
-);
+$light:         $white;
+$dark:          $gray-800;
 $theme-colors: (
   "primary":    $primary,
-  "secondary":  $secondary,
   "success":    $success,
   "info":       $info,
   "warning":    $warning,
@@ -43,8 +52,8 @@ $spacers: (
 );
 
 // Body
-$body-bg:       #222;
-$body-color:    #ced4da;
+$body-bg:       $gray-900;
+$body-color:    $gray-300;
 
 // Links
 $link-decoration:                         none;
@@ -52,49 +61,56 @@ $link-decoration:                         none;
 // Components
 $border-radius:               0.25rem;
 $border-radius-sm:            0.15rem;
-$box-shadow:                  0 0.5rem 1rem color.scale(black, $lightness: 10%);
-$box-shadow-sm:               0 0.125rem 0.25rem color.scale(black, $lightness: 10%);
+$box-shadow:                  0 0.5rem 1rem $black;
+$box-shadow-sm:               0 0.125rem 0.1rem $black;
 $component-active-bg:         $primary;
 
 // Typography
 $font-size-base:              1rem;
-$text-muted:                  #6f6f6f;
+$text-muted:                  #9491a5;
 $hr-margin-y:                 $spacer * 0.5;
-$hr-color:                    #919191;
+$hr-color:                    $text-muted;
 $hr-height:                   1px;
 $small-font-size:             0.575em;
 
 // Tables
-$table-color:                 $body-color;
-$table-striped-color:         $table-color;
+$table-border-color:          $gray-700;
+$table-striped-bg:            $gray-800;
 $table-group-separator-color: inherit;
 
 // Forms
 $form-text-font-size:                   $font-size-base;
 $input-bg:                              color.scale($body-bg, $lightness: -20%);
-$input-color:                           color.scale($body-color, $lightness: -15%);
+$input-color:                           $body-color;
 $input-border-color:                    $dark;
-$form-select-indicator-color:           $secondary;
+$input-placeholder-color:               $text-muted;
 
 // Z-index
 $zindex-toast:      1090;
 
+// Nav
+$nav-link-font-size:                0.95rem;
+
 // Navbar
-$navbar-nav-link-padding-x:         0.8rem;
-$navbar-dark-color:                 color.scale(black, $lightness: 60%);
-$navbar-dark-hover-color:           $body-color;
-$navbar-dark-active-color:          $body-color;
+$navbar-nav-link-padding-x:         0.9rem;
+$navbar-dark-color:                 $body-color;
+$navbar-dark-hover-color:           $light;
+$navbar-dark-active-color:          $light;
 $navbar-dark-toggler-border-color:  none;
 $navbar-toggler-font-size:          $font-size-base;
+$navbar-dark-brand-color:           $light;
+$navbar-dark-brand-hover-color:     $light;
 
 // Dropdowns
 $dropdown-bg:                       $body-bg;
-$dropdown-border-color:             color.scale(black, $lightness: 10%);
+$dropdown-border-width:             0;
 $dropdown-divider-bg:               $dark;
 $dropdown-box-shadow:               $box-shadow;
-$dropdown-link-color:               color.scale(black, $lightness: 60%);
-$dropdown-link-hover-color:         $body-color;
+$dropdown-link-color:               $body-color;
+$dropdown-link-hover-color:         $light;
 $dropdown-link-hover-bg:            $dark;
+$dropdown-link-active-color:        $dark;
+$dropdown-link-active-bg:           $primary;
 
 // Pagination
 $pagination-padding-y:              0.5rem;
@@ -113,8 +129,9 @@ $card-bg:                           $body-bg;
 // Toasts
 $toast-font-size:                   $font-size-base;
 $toast-color:                       $body-color;
-$toast-background-color:            color.scale($body-bg, $lightness: 10%, $alpha: -15%);
-$toast-border-width:                0;
+$toast-background-color:            $dark;
+$toast-border-width:                1px;
+$toast-box-shadow:                  $box-shadow-sm;
 
 // Modals
 $modal-content-bg:                  transparent;

@@ -23,8 +23,8 @@ $this->title = "$model->title - ".app()->name;
         </div>
     </div>
 <?php endif ?>
-<div class="text-center">
-    <h5 class="pt-3"><?= h($model->title) ?></h5>
+<div class="mt-2 text-center">
+    <h5><?= h($model->title) ?></h5>
     <a class="tag" href="<?= url(['index', 'provider' => $model->providerText]) ?>">
         <?= h($model->providerText) ?>
     </a>
@@ -34,9 +34,9 @@ $this->title = "$model->title - ".app()->name;
             <?= h($genre->name) ?>
         </a>
     <?php endforeach ?>
-    <div class="text-center py-2">
+    <div class="mt-4">
         <a href="<?= url(['index']) ?>"><i class="fas fa-fw fa-sm fa-angle-left"></i> Back to tracks</a>
-        <span class="mx-1 text-muted">or</span>
+        <span class="mx-1">or</span>
         <a href="<?= url(['/']) ?>">Recent Favorites</a>
     </div>
 </div>

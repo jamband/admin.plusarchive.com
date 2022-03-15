@@ -61,11 +61,11 @@ $config = [
                 'errorMessage' => 'Invalid request.',
             ],
             yii\widgets\DetailView::class => [
-                'options' => ['class' => 'table table-striped table-bordered table-dark detail-view'],
+                'options' => ['class' => 'table table-striped table-bordered detail-view'],
             ],
             yii\grid\GridView::class => [
                 'layout' => '{items}',
-                'tableOptions' => ['class' => 'table table-striped table-bordered table-dark'],
+                'tableOptions' => ['class' => 'table table-striped table-bordered'],
             ],
             yii\widgets\ActiveField::class => [
                 'options' => ['class' => 'mb-3'],
@@ -101,17 +101,17 @@ $config = [
     ],
     'params' => [
         'embed-track' => [
-            'Bandcamp' => 'size=large/tracklist=false/bgcol=333333/linkcol=cc6055/',
-            'SoundCloud' => 'show_comments=false&color=cc6055&hide_related=true&visual=true',
+            'Bandcamp' => 'size=large/tracklist=false/bgcol=333333/linkcol=c45c65/',
+            'SoundCloud' => 'show_comments=false&color=c45c65&hide_related=true&visual=true',
             'YouTube' => 'playsinline=1',
         ],
         'embed-track-modal' => [
-            'Bandcamp' => 'size=large/tracklist=false/artwork=small/bgcol=333333/linkcol=cc6055/',
-            'SoundCloud' => 'show_comments=false&color=cc6055',
+            'Bandcamp' => 'size=large/tracklist=false/artwork=small/bgcol=333333/linkcol=c45c65/',
+            'SoundCloud' => 'show_comments=false&color=c45c65',
             'YouTube' => 'playsinline=1',
         ],
         'embed-playlist' => [
-            'SoundCloud' => 'show_comments=false&color=cc6055&hide_related=true&show_playcount=false',
+            'SoundCloud' => 'show_comments=false&color=c45c65&hide_related=true&show_playcount=false',
             'YouTube' => 'playsinline=1',
         ],
     ],

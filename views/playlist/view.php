@@ -21,9 +21,10 @@ $this->title = "$model->title - ".app()->name;
         </div>
     </div>
 <?php endif ?>
-<h5 class="text-center my-2">
-    <?= h($model->title) ?> <span class="text-muted">via <?= h($model->providerText) ?></span>
-</h5>
-<p class="text-center">
+<section class="mt-2 text-center">
+    <h5><?= h($model->title) ?></h5>
+    <p class="mb-4">via <?= h($model->providerText) ?></p>
+</section>
+<div class="text-center">
     <a href="<?= url(['index']) ?>"><i class="fas fa-fw fa-sm fa-angle-left"></i> Back to playlists</a>
 </p>

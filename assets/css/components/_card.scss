@@ -80,7 +80,7 @@
     }
 
     .card-date {
-      color: gray;
+      color: $text-muted;
       text-align: right;
 
       @include media-breakpoint-down(sm) {

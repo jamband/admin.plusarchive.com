@@ -44,6 +44,7 @@ $this->title = 'Admin Playlists - '.app()->name;
             [
                 'class' => ActionColumn::class,
                 'template' => '{update} {delete}',
+                'buttonOptions' => ['class' => 'text-body'],
             ],
         ],
     ]) ?>

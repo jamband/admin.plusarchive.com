@@ -47,7 +47,7 @@ $this->title = app()->name;
                     </div>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a class="text-body" href="<?= url(['view', 'id' => hashids()->encode($model->id)]) ?>" data-pjax="0">
+                            <a class="text-light" href="<?= url(['view', 'id' => hashids()->encode($model->id)]) ?>" data-pjax="0">
                                 <?= h($model->title) ?>
                             </a>
                         </h6>

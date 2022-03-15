@@ -11,7 +11,7 @@
 $this->title = app()->name;
 ?>
 <h1 class="mb-3">
-    Recent <small class="fw-normal text-muted">favorite tracks</small>
+    Recent <small class="fw-normal text-body">favorite tracks</small>
 </h1>
 <div class="row text-center card-container">
     <?php /** @var app\models\Track $model */ ?>
@@ -31,7 +31,7 @@ $this->title = app()->name;
                 </div>
                 <div class="card-body">
                     <h6 class="card-title">
-                        <a class="text-body" href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>">
+                        <a class="text-light" href="<?= url(['/track/view', 'id' => hashids()->encode($model->id)]) ?>">
                             <?= h($model->title) ?>
                         </a>
                     </h6>
@@ -57,7 +57,7 @@ $this->title = app()->name;
 </div>
 <h1 class="my-2">
     Search
-    <small class="fw-normal text-muted">by genres</small>
+    <small class="fw-normal text-body">by genres</small>
 </h1>
 <div class="d-inline-block">
     <?php foreach ($genres as $genre): ?>
@@ -68,7 +68,7 @@ $this->title = app()->name;
     <a href="<?= url(['/tracks']) ?>">
         Go to Tracks
     </a>
-    <span class="mx-1 text-muted">or</span>
+    <span class="mx-1">or</span>
     <a href="<?= url(['/playlists']) ?>">
         Playlists<i class="fas fa-fw fa-sm fa-angle-right"></i>
     </a>

@@ -29,4 +29,4 @@ $(document).on('pjax:end', function () {
 JS
 );
 ?>
-<?= h(app()->name) ?>
+<span class="text-light"><?= h(app()->name) ?></span>

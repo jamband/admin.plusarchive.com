@@ -29,6 +29,7 @@ $this->title = 'Admin BookmarkTags - '.app()->name;
             [
                 'class' => ActionColumn::class,
                 'template' => '{update} {delete}',
+                'buttonOptions' => ['class' => 'text-body'],
             ],
         ],
     ]) ?>

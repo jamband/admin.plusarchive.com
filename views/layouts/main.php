@@ -25,9 +25,9 @@
         <?= $this->render('/common/notification') ?>
     <?php endif ?>
     <?= $this->render('navbar') ?>
-    <div class="container pt-4 pb-8 pb-sm-7">
+    <main class="container pt-4 pb-8 pb-sm-7">
         <?= $content ?>
-    </div>
+    </main>
     <footer class="fixed-bottom p-3 text-center bg-dark fw-bold">
         <?php if (session()->has('privacy-consent')): ?>
             <?= $this->render('/common/analytics-tracking') ?>
