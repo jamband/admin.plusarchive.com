@@ -32,15 +32,13 @@ class CreateCest
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
         $I->click('button[type=submit]');
-        $I->wait(1);
-        $I->seeElement('.is-invalid');
+        $I->waitForElement('.is-invalid');
 
         $I->fillField('#label-name', 'newlabel');
         $I->fillField('#label-url', 'https://newlabel.example.com');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->waitForText('Label has been added.');
         $I->seeCurrentUrlEquals('/index-test.php/labels/4');
-        $I->see('Label has been added.');
 
         $I->click('#menu-action');
         $I->click('Admin', '#menu-action + .dropdown-menu');

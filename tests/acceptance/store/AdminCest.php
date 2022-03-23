@@ -36,8 +36,7 @@ class AdminCest
 
         $I->fillField('input[name="StoreSearch[name]"]', 3);
         $I->pressKey(['name' => 'StoreSearch[name]'], WebDriverKeys::ENTER);
-        $I->wait(1);
-        $I->see('Admin: 1', '#menu-action');
+        $I->waitForText('Admin: 1', selector: '#menu-action');
         $I->see('store3', '.grid-view');
         $I->dontSee('store1', '.grid-view');
         $I->dontSee('store2', '.grid-view');
@@ -50,8 +49,7 @@ class AdminCest
         $I->see('store3', '.grid-view');
 
         $I->selectOption('select[name="StoreSearch[country]"]', 'Japan');
-        $I->wait(1);
-        $I->see('Admin: 1', '#menu-action');
+        $I->waitForText('Admin: 1', selector: '#menu-action');
         $I->see('Japan', '.grid-view');
         $I->dontSee('store2', '.grid-view');
         $I->dontSee('store3', '.grid-view');
@@ -61,8 +59,7 @@ class AdminCest
 
         $I->fillField('input[name="StoreSearch[link]"]', 'you');
         $I->pressKey(['name' => 'StoreSearch[link]'], WebDriverKeys::ENTER);
-        $I->wait(1);
-        $I->see('Admin: 1', '#menu-action');
+        $I->waitForText('Admin: 1', selector: '#menu-action');
         $I->see('store3', '.grid-view');
         $I->seeElement('.fa-youtube-square');
         $I->dontSee('store1', '.grid-view');

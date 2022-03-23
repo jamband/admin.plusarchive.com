@@ -28,7 +28,7 @@ class AcceptanceTester extends Codeception\Actor
         $I->fillField('#loginform-username', app()->params['admin-username']);
         $I->fillField('#loginform-password', app()->params['admin-password']);
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->waitForText('Logged in successfully.');
     }
 
     public function seeBadRequest(array|string $url): void

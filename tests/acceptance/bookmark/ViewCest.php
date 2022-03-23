@@ -56,8 +56,7 @@ class ViewCest
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
-        $I->wait(1);
+        $I->waitForText('Admin: 3', selector: '#menu-action');
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks/admin');
-        $I->see('Admin: 3', '#menu-action');
     }
 }

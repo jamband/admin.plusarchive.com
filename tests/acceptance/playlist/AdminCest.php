@@ -36,8 +36,7 @@ class AdminCest
 
         $I->fillField('input[name="PlaylistSearch[title]"]', 3);
         $I->pressKey(['name' => 'PlaylistSearch[title]'], WebDriverKeys::ENTER);
-        $I->wait(1);
-        $I->see('Admin: 1', '#menu-action');
+        $I->waitForText('Admin: 1', selector: '#menu-action');
         $I->see('playlist3', '.grid-view');
         $I->dontSee('playlist1', '.grid-view');
         $I->dontSee('playlist2', '.grid-view');

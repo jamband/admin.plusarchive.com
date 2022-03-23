@@ -23,8 +23,7 @@ class PrivacyOptOutCest
         $I->dontSee(app()->name, 'footer');
 
         $I->click('ACCEPT', 'footer');
-        $I->wait(1);
-        $I->see(app()->name, 'footer');
+        $I->waitForText(app()->name, selector: 'footer');
         $I->dontSee('Privacy Policy', 'footer');
 
         $I->click('Opt-Out');

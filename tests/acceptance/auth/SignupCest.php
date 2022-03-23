@@ -36,15 +36,13 @@ class SignupCest
         $I->see('Sign up', 'h1');
 
         $I->click('button[type=submit]');
-        $I->wait(1);
-        $I->seeElement('.is-invalid');
+        $I->waitForElement('.is-invalid');
 
         $I->fillField('#signupform-username', 'newuser');
         $I->fillField('#signupform-email', 'newuser@example.com');
         $I->fillField('#signupform-password', 'newusernewuser');
         $I->click('button[type=submit]');
-        $I->wait(2);
-        $I->see('Signed up successfully.');
+        $I->waitForText('Signed up successfully.');
         $I->seeCurrentUrlEquals('/index-test.php');
     }
 }

@@ -36,8 +36,7 @@ class AdminCest
 
         $I->fillField('input[name="StoreTagSearch[name]"]', 3);
         $I->pressKey(['name' => 'StoreTagSearch[name]'], WebDriverKeys::ENTER);
-        $I->wait(1);
-        $I->see('Admin: 1', '#menu-action');
+        $I->waitForText('Admin: 1', selector: '#menu-action');
         $I->see('tag3', '.grid-view');
         $I->dontSee('tag1', '.grid-view');
         $I->dontSee('tag2', '.grid-view');

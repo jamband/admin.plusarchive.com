@@ -36,14 +36,12 @@ class UpdateCest
 
         $I->fillField('#labeltag-name', '');
         $I->click('button[type=submit]');
-        $I->wait(1);
-        $I->seeElement('.is-invalid');
+        $I->waitForElement('.is-invalid');
 
         $I->fillField('#labeltag-name', 'tag-one');
         $I->click('button[type=submit]');
-        $I->wait(1);
+        $I->waitForText('Label tag has been updated.');
         $I->seeCurrentUrlEquals('/index-test.php/label-tags/admin');
-        $I->see('Label tag has been updated.');
         $I->see('Admin: 3', '#menu-action');
         $I->see('tag-one', '.grid-view');
         $I->dontSee('tag1', '.grid-view');
@@ -59,9 +57,8 @@ class UpdateCest
         $I->click('#menu-action');
         $I->click('Delete', '#menu-action + .dropdown-menu');
         $I->acceptPopup();
-        $I->wait(1);
+        $I->waitForText('Admin: 2', selector: '#menu-action');
         $I->seeCurrentUrlEquals('/index-test.php/label-tags/admin');
-        $I->see('Admin: 2', '#menu-action');
         $I->dontSee('tag-one', '.grid-view');
     }
 }

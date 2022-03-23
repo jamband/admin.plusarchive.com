@@ -36,8 +36,7 @@ class AdminCest
 
         $I->fillField('input[name="LabelSearch[name]"]', 3);
         $I->pressKey(['name' => 'LabelSearch[name]'], WebDriverKeys::ENTER);
-        $I->wait(1);
-        $I->see('Admin: 1', '#menu-action');
+        $I->waitForText('Admin: 1', selector: '#menu-action');
         $I->see('label3', '.grid-view');
         $I->dontSee('label1', '.grid-view');
         $I->dontSee('label2', '.grid-view');
@@ -50,8 +49,7 @@ class AdminCest
         $I->see('label3', '.grid-view');
 
         $I->selectOption('select[name="LabelSearch[country]"]', 'Japan');
-        $I->wait(1);
-        $I->see('Admin: 1', '#menu-action');
+        $I->waitForText('Admin: 1', selector: '#menu-action');
         $I->see('Japan', '.grid-view');
         $I->dontSee('label2', '.grid-view');
         $I->dontSee('label3', '.grid-view');
@@ -61,8 +59,7 @@ class AdminCest
 
         $I->fillField('input[name="LabelSearch[link]"]', 'you');
         $I->pressKey(['name' => 'LabelSearch[link]'], WebDriverKeys::ENTER);
-        $I->wait(1);
-        $I->see('Admin: 1', '#menu-action');
+        $I->waitForText('Admin: 1', selector: '#menu-action');
         $I->see('label3', '.grid-view');
         $I->seeElement('.fa-youtube-square');
         $I->dontSee('label1', '.grid-view');
