@@ -39,7 +39,7 @@ $this->title = 'Bookmarks - '.app()->name;
                         </section>
                         <section class="mb-1">
                             <span class="me-2 text-light"><?= h($model->getAttributeLabel('link')) ?>:</span>
-                            <?= formatter()->asBrandIconLink($model->link, "\n", ['class' => 'text-body']) ?>
+                            <?= formatter()->asBrandIconLink($model->link, options: ['class' => 'me-1 tag']) ?>
                         </section>
                         <section class="mb-1">
                             <span class="me-2 text-light"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>

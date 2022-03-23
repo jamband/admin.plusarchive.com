@@ -57,7 +57,7 @@ $this->title = app()->name;
                             </a>
                             <?php /** @var MusicGenre $genre */ ?>
                             <?php foreach ($model->musicGenres as $genre): ?>
-                                <a class="tag" href="<?= url(['', 'genre' => $genre->name]) ?>">
+                                <a class="mb-2 tag" href="<?= url(['', 'genre' => $genre->name]) ?>">
                                     <?= h($genre->name) ?>
                                 </a>
                             <?php endforeach ?>

@@ -21,8 +21,8 @@ $this->title = "View Store: $model->name - ".app()->name;
             'attribute' => 'link',
             'format' => 'raw',
             'value' => function ($data) {
-                return formatter()->asBrandIconLink($data->link, "\n", [
-                    'class' => 'text-body',
+                return formatter()->asBrandIconLink($data->link, options: [
+                    'class' => 'me-1 tag',
                 ]);
             },
         ],

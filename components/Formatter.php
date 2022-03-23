@@ -66,7 +66,7 @@ class Formatter extends FormatterBase
         $options += self::EXTERNAL_LINK_DEFAULT_OPTIONS;
 
         foreach ($values as $v) {
-            $urls .= Html::a(static::getBrandIcon($v), $v, $options).' ';
+            $urls .= Html::a(static::getBrandIcon($v), $v, $options);
         }
 
         return $urls;

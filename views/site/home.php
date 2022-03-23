@@ -40,7 +40,7 @@ $this->title = app()->name;
                             <?= h($model->providerText) ?>
                         </a>
                         <?php foreach ($model->musicGenres as $genre): ?>
-                            <a class="tag" href="<?= url(['/tracks', 'genre' => $genre->name]) ?>">
+                            <a class="mb-2 tag" href="<?= url(['/tracks', 'genre' => $genre->name]) ?>">
                                 <?= h($genre->name) ?>
                             </a>
                         <?php endforeach ?>
@@ -61,7 +61,7 @@ $this->title = app()->name;
 </h1>
 <div class="d-inline-block">
     <?php foreach ($genres as $genre): ?>
-        <a href="<?= url(['/tracks', 'genre' => $genre]) ?>" class="tag"><?= h($genre) ?></a>
+        <a href="<?= url(['/tracks', 'genre' => $genre]) ?>" class="mb-2 tag"><?= h($genre) ?></a>
     <?php endforeach ?>
 </div>
 <div class="text-center pt-3 pb-4">

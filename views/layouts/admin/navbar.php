@@ -8,7 +8,7 @@ $cid = app()->controller->id;
 ?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="<?= app()->homeUrl ?>"><?= h(app()->name) ?></a>
+        <a class="fw-bold navbar-brand" href="<?= app()->homeUrl ?>"><?= h(app()->name) ?></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

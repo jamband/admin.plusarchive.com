@@ -50,7 +50,7 @@ $this->title = 'Admin - '.app()->name;
                             <?= h($track->providerText) ?>
                         </a>
                         <?php foreach ($track->musicGenres as $genre): ?>
-                            <a class="tag" href="<?= url(['/track/admin', 'genre' => $genre->name]) ?>">
+                            <a class="mb-2 tag" href="<?= url(['/track/admin', 'genre' => $genre->name]) ?>">
                                 <?= h($genre->name) ?>
                             </a>
                         <?php endforeach ?>

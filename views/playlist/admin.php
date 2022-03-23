@@ -7,7 +7,7 @@
  */
 
 use app\components\ActionColumn;
-use app\models\Playlist;
+use app\models\Music;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
@@ -35,7 +35,7 @@ $this->title = 'Admin Playlists - '.app()->name;
                 'value' => function ($model) {
                     return h($model->providerText);
                 },
-                'filter' => Playlist::PROVIDERS,
+                'filter' => Music::PROVIDERS,
                 'filterInputOptions' => ['class' => 'form-select'],
             ],
             'provider_key',
@@ -44,7 +44,7 @@ $this->title = 'Admin Playlists - '.app()->name;
             [
                 'class' => ActionColumn::class,
                 'template' => '{update} {delete}',
-                'buttonOptions' => ['class' => 'text-body'],
+                'buttonOptions' => ['class' => 'me-0 tag'],
             ],
         ],
     ]) ?>

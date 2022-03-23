@@ -39,8 +39,8 @@ $this->title = 'Admin Stores - '.app()->name;
                 'attribute' => 'link',
                 'format' => 'raw',
                 'value' => function ($data) {
-                    return formatter()->asBrandIconLink($data->link, "\n", [
-                        'class' => 'text-body',
+                    return formatter()->asBrandIconLink($data->link, options: [
+                        'class' => 'me-1 tag',
                     ]);
                 },
             ],
@@ -49,14 +49,14 @@ $this->title = 'Admin Stores - '.app()->name;
                 'value' => function ($data) {
                     return formatter()->asTagValues($data->tagValues);
                 },
-                'filter' => Storetag::listData('name'),
+                'filter' => StoreTag::listData('name'),
                 'filterInputOptions' => ['class' => 'form-select'],
             ],
             'created_at:datetime',
             'updated_at:datetime',
             [
                 'class' => ActionColumn::class,
-                'buttonOptions' => ['class' => 'text-body'],
+                'buttonOptions' => ['class' => 'me-0 tag'],
             ],
         ],
     ]) ?>
