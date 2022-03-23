@@ -11,7 +11,8 @@ $this->title = 'Playlists - '.app()->name;
 ?>
 <div class="row">
     <div class="col-lg-5 offset-lg-1">
-        <h1 class="mb-3 mb-lg-0">Playlists <small class="fw-normal text-body">via SoundCloud or YouTube</small></h1>
+        <h1>Playlists</h1>
+        <p>via SoundCloud or YouTube</p>
     </div>
     <div class="col-lg-5">
         <ul class="list-unstyled text-truncate">
