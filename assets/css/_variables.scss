@@ -85,6 +85,7 @@ $input-bg:                              color.scale($body-bg, $lightness: -20%);
 $input-color:                           $body-color;
 $input-border-color:                    $dark;
 $input-placeholder-color:               $text-muted;
+$form-select-indicator-color:           $gray-300;
 
 // Z-index
 $zindex-toast:      1090;
