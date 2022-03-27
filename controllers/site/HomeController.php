@@ -19,6 +19,7 @@ class HomeController extends Controller
     public function actionIndex(): string
     {
         $query = Track::find()
+            ->with('musicGenres')
             ->favorites()
             ->latest();
 
