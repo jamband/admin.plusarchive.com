@@ -131,9 +131,8 @@ $card-bg:                           $body-bg;
 
 // Toasts
 $toast-font-size:                   $font-size-base;
-$toast-color:                       $body-color;
-$toast-background-color:            $dark;
-$toast-border-width:                1px;
+$toast-color:                       $dark;
+$toast-background-color:            $primary;
 $toast-box-shadow:                  $box-shadow-sm;
 
 // Modals
@@ -145,4 +144,4 @@ $modal-content-box-shadow-sm-up:    none;
 $modal-md:                          600px;
 
 // Close
-$btn-close-color:                   $light;
+$btn-close-color:                   $dark;
