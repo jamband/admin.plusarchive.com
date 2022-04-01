@@ -39,7 +39,7 @@
 }
 
 .select2-dropdown {
-  border: 1px solid $dropdown-border-color;
+  border: none;
 
   @include box-shadow($dropdown-box-shadow);
 }
