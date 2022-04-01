@@ -79,6 +79,9 @@ $table-border-color:          $gray-700;
 $table-striped-bg:            $gray-800;
 $table-group-separator-color: inherit;
 
+// Buttons + Forms
+$input-btn-focus-width:         0.25rem;
+
 // Forms
 $form-text-font-size:                   $font-size-base;
 $input-bg:                              color.scale($body-bg, $lightness: -20%);
@@ -131,8 +134,8 @@ $card-bg:                           $body-bg;
 
 // Toasts
 $toast-font-size:                   $font-size-base;
-$toast-color:                       $dark;
-$toast-background-color:            $primary;
+$toast-color:                       $body-color;
+$toast-background-color:            $dark;
 $toast-box-shadow:                  $box-shadow-sm;
 
 // Modals
@@ -144,4 +147,5 @@ $modal-content-box-shadow-sm-up:    none;
 $modal-md:                          600px;
 
 // Close
-$btn-close-color:                   $dark;
+$btn-close-color:                   $light;
+$btn-close-focus-shadow:            0 0 0 $input-btn-focus-width $gray-700;
