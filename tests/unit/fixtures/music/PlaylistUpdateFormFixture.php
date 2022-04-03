@@ -5,13 +5,10 @@ declare(strict_types=1);
 namespace app\tests\unit\fixtures\music;
 
 use app\models\Music;
-use app\models\Playlist;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BasePlaylistFixture;
 
-class PlaylistUpdateFormFixture extends ActiveFixture
+class PlaylistUpdateFormFixture extends BasePlaylistFixture
 {
-    public $modelClass = Playlist::class;
-
     protected function getData(): array
     {
         return [

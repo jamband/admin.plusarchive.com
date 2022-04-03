@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\acceptance\fixtures;
 
-use app\models\Bookmark;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseBookmarkFixture;
 
-class BookmarkFixture extends ActiveFixture
+class BookmarkFixture extends BaseBookmarkFixture
 {
-    public $modelClass = Bookmark::class;
-
     public $depends = [
         AdminUserFixture::class,
     ];

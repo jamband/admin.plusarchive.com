@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\acceptance\fixtures;
 
-use app\models\LabelTag;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseLabelTagFixture;
 
-class LabelTagFixture extends ActiveFixture
+class LabelTagFixture extends BaseLabelTagFixture
 {
-    public $modelClass = LabelTag::class;
-
     public $depends = [
         AdminUserFixture::class,
     ];

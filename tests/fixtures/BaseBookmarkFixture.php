@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace app\tests\unit\fixtures\bookmark;
+namespace app\tests\fixtures;
 
 use app\models\Bookmark;
 use yii\test\ActiveFixture;
 
-class BookmarkFixture extends ActiveFixture
+class BaseBookmarkFixture extends ActiveFixture
 {
     public $modelClass = Bookmark::class;
 }

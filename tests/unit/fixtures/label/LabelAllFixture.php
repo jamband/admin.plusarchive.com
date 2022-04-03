@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\label;
 
-class LabelAllFixture extends LabelFixture
+use app\tests\fixtures\BaseLabelFixture;
+
+class LabelAllFixture extends BaseLabelFixture
 {
     public $depends = [
         LabelTagFixture::class,

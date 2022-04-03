@@ -29,12 +29,12 @@ class LoginCest
         $I->click('button[type=submit]');
         $I->waitForElement('.error-summary');
 
-        $I->fillField('#loginform-username', app()->params['admin-username']);
-        $I->fillField('#loginform-password', app()->params['admin-username']);
+        $I->fillField('#loginform-username', 'admin');
+        $I->fillField('#loginform-password', 'wrong_password');
         $I->click('button[type=submit]');
         $I->waitForElement('.error-summary');
 
-        $I->fillField('#loginform-password', app()->params['admin-password']);
+        $I->fillField('#loginform-password', 'adminadmin');
         $I->click('button[type=submit]');
         $I->wait(1);
         $I->see('Admin', '.navbar');

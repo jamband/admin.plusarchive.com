@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\label;
 
-class LabelQueryCountryFixture extends LabelFixture
+use app\tests\fixtures\BaseLabelFixture;
+
+class LabelQueryCountryFixture extends BaseLabelFixture
 {
     protected function getData(): array
     {

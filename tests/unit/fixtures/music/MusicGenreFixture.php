@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\music;
 
-use app\models\MusicGenre;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseMusicGenreFixture;
 
-class MusicGenreFixture extends ActiveFixture
+class MusicGenreFixture extends BaseMusicGenreFixture
 {
-    public $modelClass = MusicGenre::class;
-
     protected function getData(): array
     {
         return [

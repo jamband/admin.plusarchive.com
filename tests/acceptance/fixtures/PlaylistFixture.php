@@ -5,13 +5,10 @@ declare(strict_types=1);
 namespace app\tests\acceptance\fixtures;
 
 use app\models\Music;
-use app\models\Playlist;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BasePlaylistFixture;
 
-class PlaylistFixture extends ActiveFixture
+class PlaylistFixture extends BasePlaylistFixture
 {
-    public $modelClass = Playlist::class;
-
     public $depends = [
         AdminUserFixture::class,
     ];

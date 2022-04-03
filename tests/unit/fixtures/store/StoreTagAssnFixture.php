@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\store;
 
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseStoreTagAssnFixture;
 
-class StoreTagAssnFixture extends ActiveFixture
+class StoreTagAssnFixture extends BaseStoreTagAssnFixture
 {
-    public $tableName = 'store_tag_assn';
-
     protected function getData(): array
     {
         return [

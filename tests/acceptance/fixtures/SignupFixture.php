@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\acceptance\fixtures;
 
-use app\models\User;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseUserFixture;
 
-class SignupFixture extends ActiveFixture
+class SignupFixture extends BaseUserFixture
 {
-    public $modelClass = User::class;
-
     public $depends = [
         AdminUserFixture::class,
     ];

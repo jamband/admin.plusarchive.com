@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\store;
 
-class StoreQuerySortFixture extends StoreFixture
+use app\tests\fixtures\BaseStoreFixture;
+
+class StoreQuerySortFixture extends BaseStoreFixture
 {
     protected function getData(): array
     {

@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\label;
 
-use app\models\LabelTag;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseLabelTagFixture;
 
-class LabelTagFixture extends ActiveFixture
+class LabelTagFixture extends BaseLabelTagFixture
 {
-    public $modelClass = LabelTag::class;
-
     protected function getData(): array
     {
         return [

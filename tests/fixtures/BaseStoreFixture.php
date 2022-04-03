@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace app\tests\unit\fixtures\store;
+namespace app\tests\fixtures;
 
-use app\models\store;
+use app\models\Store;
 use yii\test\ActiveFixture;
 
-class StoreFixture extends ActiveFixture
+class BaseStoreFixture extends ActiveFixture
 {
     public $modelClass = Store::class;
 }

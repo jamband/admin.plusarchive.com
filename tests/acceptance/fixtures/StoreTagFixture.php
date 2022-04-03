@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\acceptance\fixtures;
 
-use app\models\StoreTag;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseStoreTagFixture;
 
-class StoreTagFixture extends ActiveFixture
+class StoreTagFixture extends BaseStoreTagFixture
 {
-    public $modelClass = StoreTag::class;
-
     public $depends = [
         AdminUserFixture::class,
     ];

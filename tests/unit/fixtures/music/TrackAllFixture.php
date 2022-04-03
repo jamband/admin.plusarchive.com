@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace app\tests\unit\fixtures\music;
 
 use app\models\Music;
+use app\tests\fixtures\BaseTrackFixture;
 
-class TrackAllFixture extends TrackFixture
+class TrackAllFixture extends BaseTrackFixture
 {
     public $depends = [
         MusicGenreFixture::class,

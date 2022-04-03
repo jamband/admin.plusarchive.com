@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\acceptance\fixtures;
 
-use app\models\Store;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseStoreFixture;
 
-class StoreFixture extends ActiveFixture
+class StoreFixture extends BaseStoreFixture
 {
-    public $modelClass = Store::class;
-
     public $depends = [
         AdminUserFixture::class,
     ];

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\label;
 
-class LabelQueryBehaviorsFixture extends LabelFixture
+use app\tests\fixtures\BaseLabelFixture;
+
+class LabelQueryBehaviorsFixture extends BaseLabelFixture
 {
     public $depends = [
         LabelTagFixture::class,

@@ -5,13 +5,10 @@ declare(strict_types=1);
 namespace app\tests\acceptance\fixtures;
 
 use app\models\Music;
-use app\models\Track;
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseTrackFixture;
 
-class HomeFixture extends ActiveFixture
+class HomeFixture extends BaseTrackFixture
 {
-    public $modelClass = Track::class;
-
     public $depends = [
         MusicGenreFixture::class,
     ];

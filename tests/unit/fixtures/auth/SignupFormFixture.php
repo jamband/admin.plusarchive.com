@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\auth;
 
-class SignupFormFixture extends UserFixture
+use app\tests\fixtures\BaseUserFixture;
+
+class SignupFormFixture extends BaseUserFixture
 {
     protected function getData(): array
     {
@@ -12,8 +14,8 @@ class SignupFormFixture extends UserFixture
             'user1' => [
                 'username' => 'user1',
                 'email' => 'user1@example.com',
-                'password' => security()->generatePasswordHash('user1user1', 4),
-                'auth_key' => security()->generateRandomString(),
+                'password' => '$2y$04$F2O81Pc44dl/msuRw2ROW.9aEx6wcVfD1PJ499EBjfO8.NyC97BVy', // user1user1
+                'auth_key' => 'QV0OpWDL_ML-UG_upnuNt1G7enK4rqCq',
                 'created_at' => time(),
                 'updated_at' => time(),
             ],

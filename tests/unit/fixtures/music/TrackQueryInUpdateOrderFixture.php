@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace app\tests\unit\fixtures\music;
 
 use app\models\Music;
+use app\tests\fixtures\BaseTrackFixture;
 
-class TrackQueryInUpdateOrderFixture extends TrackFixture
+class TrackQueryInUpdateOrderFixture extends BaseTrackFixture
 {
     protected function getData(): array
     {

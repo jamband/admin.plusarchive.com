@@ -4,7 +4,9 @@
 
 namespace app\tests\unit\fixtures\bookmark;
 
-class BookmarkQuerySearchFixture extends BookmarkFixture
+use app\tests\fixtures\BaseBookmarkFixture;
+
+class BookmarkQuerySearchFixture extends BaseBookmarkFixture
 {
     protected function getData(): array
     {

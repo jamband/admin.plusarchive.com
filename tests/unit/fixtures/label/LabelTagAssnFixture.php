@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\label;
 
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseLabelTagAssnFixture;
 
-class LabelTagAssnFixture extends ActiveFixture
+class LabelTagAssnFixture extends BaseLabelTagAssnFixture
 {
-    public $tableName = 'label_tag_assn';
-
     protected function getData(): array
     {
         return [

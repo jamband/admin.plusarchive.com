@@ -2,12 +2,15 @@
 
 declare(strict_types=1);
 
-namespace app\tests\unit\fixtures\store;
+namespace app\tests\fixtures;
 
-use app\tests\fixtures\BaseStoreTagFixture;
+use app\models\BookmarkTag;
+use yii\test\ActiveFixture;
 
-class StoreTagFixture extends BaseStoreTagFixture
+class BaseBookmarkTagFixture extends ActiveFixture
 {
+    public $modelClass = BookmarkTag::class;
+
     protected function getData(): array
     {
         return [

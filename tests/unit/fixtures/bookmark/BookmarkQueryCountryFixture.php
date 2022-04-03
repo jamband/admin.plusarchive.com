@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\bookmark;
 
-class BookmarkQueryCountryFixture extends BookmarkFixture
+use app\tests\fixtures\BaseBookmarkFixture;
+
+class BookmarkQueryCountryFixture extends BaseBookmarkFixture
 {
     protected function getData(): array
     {

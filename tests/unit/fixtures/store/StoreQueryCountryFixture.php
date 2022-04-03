@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\store;
 
-class StoreQueryCountryFixture extends StoreFixture
+use app\tests\fixtures\BaseStoreFixture;
+
+class StoreQueryCountryFixture extends BaseStoreFixture
 {
     protected function getData(): array
     {

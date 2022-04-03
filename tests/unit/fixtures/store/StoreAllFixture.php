@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\store;
 
-class StoreAllFixture extends StoreFixture
+use app\tests\fixtures\BaseStoreFixture;
+
+class StoreAllFixture extends BaseStoreFixture
 {
     public $depends = [
         StoreTagFixture::class,

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\label;
 
-class LabelQuerySortFixture extends LabelFixture
+use app\tests\fixtures\BaseLabelFixture;
+
+class LabelQuerySortFixture extends BaseLabelFixture
 {
     protected function getData(): array
     {

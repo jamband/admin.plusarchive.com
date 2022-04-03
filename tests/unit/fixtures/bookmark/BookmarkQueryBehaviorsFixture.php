@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\bookmark;
 
-class BookmarkQueryBehaviorsFixture extends BookmarkFixture
+use app\tests\fixtures\BaseBookmarkFixture;
+
+class BookmarkQueryBehaviorsFixture extends BaseBookmarkFixture
 {
     public $depends = [
         BookmarkTagFixture::class,

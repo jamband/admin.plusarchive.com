@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace app\tests\unit\fixtures\bookmark;
 
-use yii\test\ActiveFixture;
+use app\tests\fixtures\BaseBookmarkTagAssnFixture;
 
-class BookmarkTagAssnFixture extends ActiveFixture
+class BookmarkTagAssnFixture extends BaseBookmarkTagAssnFixture
 {
-    public $tableName = 'bookmark_tag_assn';
-
     protected function getData(): array
     {
         return [
