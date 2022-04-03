@@ -47,10 +47,6 @@ $config = [
     ],
     'container' => [
         'definitions' => [
-            yii\captcha\Captcha::class => [
-                'template' => '<p>{image} <span class="captcha-refresh">'.
-                    '<i class="fas fa-fw fa-sync"></i> Refresh</span></p>'."\n{input}",
-            ],
             yii\data\Pagination::class => [
                 'pageSizeParam' => false,
             ],
@@ -93,9 +89,6 @@ $config = [
                 'linkOptions' => ['class' => 'page-link'],
                 'disabledListItemSubTagOptions' => ['tag' => 'span', 'class' => 'page-link'],
                 'options' => ['class' => 'pagination my-4 text-center'],
-            ],
-            yii\widgets\Pjax::class => [
-                'scrollTo' => 0,
             ],
         ],
     ],
