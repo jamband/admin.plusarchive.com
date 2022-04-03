@@ -28,7 +28,7 @@
     <div class="container pt-4 pb-6">
         <?= $content ?>
     </div>
-    <footer class="fixed-bottom p-3 text-center text-light bg-dark fw-bold">
+    <footer class="fixed-bottom p-3 text-center text-light bg-dark">
         <i class="fas fa-fw fa-info-circle"></i>
         Currently logged in as an administrator.
     </footer>

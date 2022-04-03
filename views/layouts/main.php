@@ -28,7 +28,7 @@
     <main class="container pt-4 pb-8 pb-sm-7">
         <?= $content ?>
     </main>
-    <footer class="fixed-bottom p-3 text-center bg-dark fw-bold">
+    <footer class="fixed-bottom p-3 text-center bg-dark">
         <?php if (session()->has('privacy-consent')): ?>
             <?= $this->render('/common/analytics-tracking') ?>
         <?php else: ?>

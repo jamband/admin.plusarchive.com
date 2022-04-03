@@ -22,5 +22,5 @@ JS
 ?>
 <i class="fas fa-fw fa-info-circle"></i>
 This site uses Google Analytics to provide better experience. By pressing
-<button type="button" class="privacy-accept m-0 p-0 align-baseline btn btn-link fw-bold">ACCEPT</button>, you consent.
+<button type="button" class="privacy-accept m-0 p-0 align-baseline btn btn-link">ACCEPT</button>, you consent.
 See <a href="<?= url(['/site/privacy/index']) ?>">Privacy Policy</a> for details.
