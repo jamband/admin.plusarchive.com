@@ -4,7 +4,6 @@
 
 $config = [
     'id' => 'web',
-    'defaultRoute' => 'track',
     // 'catchAll' => ['site/offline/index'],
     'components' => [
         'request' => [
