@@ -5,7 +5,7 @@
 require __DIR__.'/test-container.php';
 
 return yii\helpers\ArrayHelper::merge(require __DIR__.'/web.php', [
-    'id' => 'plusarchive-test',
+    'id' => 'test',
     'components' => [
         'urlManager' => [
             'showScriptName' => true,

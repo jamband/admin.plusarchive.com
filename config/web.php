@@ -3,7 +3,7 @@
  declare(strict_types=1);
 
 $config = [
-    'id' => 'plusarchive',
+    'id' => 'web',
     'defaultRoute' => 'track',
     // 'catchAll' => ['site/offline/index'],
     'components' => [

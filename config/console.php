@@ -3,6 +3,6 @@
  declare(strict_types=1);
 
 return yii\helpers\ArrayHelper::merge(require __DIR__.'/common.php', [
-    'id' => 'plusarchive-console',
+    'id' => 'console',
     'controllerNamespace' => 'app\commands',
 ]);
