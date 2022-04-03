@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
+use app\controllers\site\PrivacyOptOutController;
 
 /**
  * @noinspection PhpUnused
+ * @see PrivacyOptOutController
  */
 class PrivacyOptOutCest
 {

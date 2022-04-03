@@ -5,12 +5,10 @@ declare(strict_types=1);
 namespace app\controllers\site;
 
 use app\controllers\Controller;
+use Yii;
 use yii\filters\AjaxFilter;
 use yii\helpers\ArrayHelper;
 
-/**
- * @noinspection PhpUnused
- */
 class PrivacyOptOutController extends Controller
 {
     public function behaviors(): array
@@ -22,8 +20,8 @@ class PrivacyOptOutController extends Controller
 
     public function actionIndex(): void
     {
-        if (session()->has('privacy-consent')) {
-            session()->remove('privacy-consent');
+        if (Yii::$app->session->has('privacy-consent')) {
+            Yii::$app->session->remove('privacy-consent');
         }
     }
 }

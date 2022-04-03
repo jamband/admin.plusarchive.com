@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
+use app\controllers\site\AdminController;
 use app\tests\acceptance\fixtures\AdminUserFixture;
 use app\tests\acceptance\fixtures\HomeFixture;
 
 /**
  * @noinspection PhpUnused
+ * @see AdminController
  */
 class AdminCest
 {

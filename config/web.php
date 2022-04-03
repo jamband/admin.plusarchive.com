@@ -31,6 +31,7 @@ $config = [
             ],
         ],
         'errorHandler' => [
+            /** @see app\controllers\site\ErrorController */
             'errorAction' => 'site/error/index',
         ],
         'formatter' => [

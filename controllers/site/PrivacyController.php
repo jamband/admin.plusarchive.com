@@ -6,9 +6,6 @@ namespace app\controllers\site;
 
 use app\controllers\Controller;
 
-/**
- * @noinspection PhpUnused
- */
 class PrivacyController extends Controller
 {
     public function actionIndex(): string

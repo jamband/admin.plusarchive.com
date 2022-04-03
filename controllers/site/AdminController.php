@@ -9,9 +9,6 @@ use app\filters\AccessControl;
 use app\models\Track;
 use yii\helpers\ArrayHelper;
 
-/**
- * @noinspection PhpUnused
- */
 class AdminController extends Controller
 {
     public function behaviors(): array
@@ -31,13 +28,11 @@ class AdminController extends Controller
 
     public function actionIndex(): string
     {
-        $tracks = Track::find()
-            ->favorites()
-            ->latest()
-            ->all();
-
         return $this->render('//'.$this->id, [
-            'tracks' => $tracks,
+            'tracks' => Track::find()
+                ->favorites()
+                ->latest()
+                ->all(),
         ]);
     }
 }

@@ -6,13 +6,11 @@ namespace app\controllers\auth;
 
 use app\controllers\Controller;
 use app\filters\AccessControl;
+use Yii;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\Response;
 
-/**
- * @noinspection PhpUnused
- */
 class LogoutController extends Controller
 {
     public function behaviors(): array
@@ -38,8 +36,8 @@ class LogoutController extends Controller
 
     public function actionIndex(): Response
     {
-        user()->logout();
-        session()->setFlash('notification', 'Logged out successfully.');
+        Yii::$app->user->logout();
+        Yii::$app->session->setFlash('notification', 'Logged out successfully.');
 
         return $this->goHome();
     }

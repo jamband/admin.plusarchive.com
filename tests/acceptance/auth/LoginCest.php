@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace app\tests\acceptance\auth;
 
 use AcceptanceTester;
+use app\controllers\auth\LoginController;
 use app\tests\acceptance\fixtures\LoginFixture;
 
 /**
  * @noinspection PhpUnused
+ * @see LoginController
  */
 class LoginCest
 {

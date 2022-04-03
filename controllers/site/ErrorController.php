@@ -7,9 +7,6 @@ namespace app\controllers\site;
 use app\controllers\Controller;
 use yii\web\ErrorAction;
 
-/**
- * @noinspection PhpUnused
- */
 class ErrorController extends Controller
 {
     public function actions(): array

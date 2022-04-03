@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
+use app\controllers\site\HomeController;
 use app\tests\acceptance\fixtures\HomeFixture;
 use Codeception\Util\Locator;
 
 /**
  * @noinspection PhpUnused
+ * @see HomeController
  */
 class HomeCest
 {

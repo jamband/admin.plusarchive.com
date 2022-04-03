@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace app\tests\acceptance\auth;
 
 use AcceptanceTester;
+use app\controllers\auth\SignupController;
 use app\tests\acceptance\fixtures\SignupFixture;
 
 /**
  * @noinspection PhpUnused
+ * @see SignupController
  */
 class SignupCest
 {
