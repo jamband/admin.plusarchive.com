@@ -36,8 +36,7 @@ class LoginCest
 
         $I->fillField('#loginform-password', 'adminadmin');
         $I->click('button[type=submit]');
-        $I->wait(1);
-        $I->see('Admin', '.navbar');
+        $I->waitForText('Admin', selector: '.navbar');
         $I->seeCurrentUrlEquals('/index-test.php');
 
         $I->amOnPage(url(['/auth/login/index']));
