@@ -1,10 +1,13 @@
 <?php
 
- declare(strict_types=1);
+declare(strict_types=1);
+
+use app\components\Hashids;
+use yii\helpers\ArrayHelper;
 
 require __DIR__.'/test-container.php';
 
-return yii\helpers\ArrayHelper::merge(require __DIR__.'/web.php', [
+return ArrayHelper::merge(require __DIR__.'/web.php', [
     'id' => 'test',
     'components' => [
         'urlManager' => [
@@ -18,7 +21,7 @@ return yii\helpers\ArrayHelper::merge(require __DIR__.'/web.php', [
             'enableCsrfValidation' => false,
         ],
         'hashids' => [
-            'class' => app\components\Hashids::class,
+            'class' => Hashids::class,
             'salt' => 'testsalt',
             'minHashLength' => 8,
             'alphabet' => 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-',

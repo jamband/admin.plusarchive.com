@@ -1,13 +1,15 @@
 <?php
 
- declare(strict_types=1);
+declare(strict_types=1);
 
-Yii::$container->set(Jamband\Ripple\Ripple::class, function () {
+use Jamband\Ripple\Ripple;
+
+Yii::$container->set(Ripple::class, function () {
     $response['title'] = 'Foo Title';
     $response['thumbnail_url'] = 'http://dev.plusarchive:8080/assets/apple-touch-icon.png';
     $response = json_encode($response);
 
-    $ripple = new Jamband\Ripple\Ripple;
+    $ripple = new Ripple;
     $ripple->options(['response' => $response]);
     return $ripple;
 });

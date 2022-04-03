@@ -2,8 +2,15 @@
 
 declare(strict_types=1);
 
+use app\components\Hashids;
+use yii\caching\ApcCache;
+use yii\db\Connection;
+use yii\helpers\Url;
+use yii\log\FileTarget;
+use yii\rbac\PhpManager;
+
 Yii::$classMap = [
-    yii\helpers\Url::class => '@app/helpers/Url.php',
+    Url::class => '@app/helpers/Url.php',
 ];
 
 return [
@@ -12,23 +19,23 @@ return [
     'bootstrap' => ['log'],
     'components' => [
         'authManager' => [
-            'class' => yii\rbac\PhpManager::class,
+            'class' => PhpManager::class,
         ],
         'cache' => [
-            'class' => yii\caching\ApcCache::class,
+            'class' => ApcCache::class,
             'useApcu' => true,
         ],
         'log' => [
             'targets' => [
                 [
-                    'class' => yii\log\FileTarget::class,
+                    'class' => FileTarget::class,
                     'levels' => ['error', 'warning'],
                     'logVars' => ['_GET', '_POST', '_FILES', '_COOKIE', '_SESSION'],
                 ],
             ],
         ],
         'db' => [
-            'class' => yii\db\Connection::class,
+            'class' => Connection::class,
             'dsn' => $_SERVER['DB_DSN'],
             'username' => $_SERVER['DB_USER'],
             'password' => $_SERVER['DB_PASS'],
@@ -36,7 +43,7 @@ return [
             'enableSchemaCache' => true,
         ],
         'hashids' => [
-            'class' => app\components\Hashids::class,
+            'class' => Hashids::class,
             'salt' => $_SERVER['HASHIDS_SALT'],
             'minHashLength' => 11,
             'alphabet' => $_SERVER['HASHIDS_ALPHABET'],

@@ -1,6 +1,23 @@
 <?php
 
- declare(strict_types=1);
+declare(strict_types=1);
+
+use app\components\Formatter;
+use app\components\Sort;
+use app\controllers\site\ErrorController;
+use app\models\User;
+use yii\data\Pagination;
+use yii\data\Sort as BaseSort;
+use yii\debug\Module as DebugModule;
+use yii\filters\AjaxFilter;
+use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
+use yii\web\JqueryAsset;
+use yii\widgets\ActiveField;
+use yii\widgets\ActiveForm;
+use yii\widgets\DetailView;
+use yii\widgets\LinkPager;
+use yii\widgets\PjaxAsset;
 
 $config = [
     'id' => 'web',
@@ -10,7 +27,7 @@ $config = [
             'cookieValidationKey' => $_SERVER['COOKIE_VALIDATION_KEY'],
         ],
         'user' => [
-            'identityClass' => app\models\User::class,
+            'identityClass' => User::class,
             'enableAutoLogin' => true,
             'loginUrl' => ['auth/login/index'],
         ],
@@ -30,11 +47,11 @@ $config = [
             ],
         ],
         'errorHandler' => [
-            /** @see app\controllers\site\ErrorController */
+            /** @see ErrorController */
             'errorAction' => 'site/error/index',
         ],
         'formatter' => [
-            'class' => app\components\Formatter::class,
+            'class' => Formatter::class,
             'dateFormat' => 'yyyy.MM.dd',
             'datetimeFormat' => 'yyyy.MM.dd HH:mm',
         ],
@@ -47,35 +64,35 @@ $config = [
     ],
     'container' => [
         'definitions' => [
-            yii\data\Pagination::class => [
+            Pagination::class => [
                 'pageSizeParam' => false,
             ],
-            yii\data\Sort::class => [
-                'class' => app\components\Sort::class,
+            BaseSort::class => [
+                'class' => Sort::class,
             ],
-            yii\filters\AjaxFilter::class => [
+            AjaxFilter::class => [
                 'errorMessage' => 'Invalid request.',
             ],
-            yii\widgets\DetailView::class => [
+            DetailView::class => [
                 'options' => ['class' => 'table table-striped table-bordered detail-view'],
             ],
-            yii\grid\GridView::class => [
+            GridView::class => [
                 'layout' => '{items}',
                 'tableOptions' => ['class' => 'table table-striped table-bordered'],
             ],
-            yii\widgets\ActiveField::class => [
+            ActiveField::class => [
                 'options' => ['class' => 'mb-3'],
                 'errorOptions' => ['class' => 'invalid-feedback'],
                 'labelOptions' => ['class' => 'form-label'],
                 'hintOptions' => ['class' => 'form-text'],
             ],
-            yii\widgets\ActiveForm::class => [
+            ActiveForm::class => [
                 'validateOnBlur' => false,
-                'validationStateOn' => yii\widgets\ActiveForm::VALIDATION_STATE_ON_INPUT,
+                'validationStateOn' => ActiveForm::VALIDATION_STATE_ON_INPUT,
                 'errorCssClass' => 'is-invalid',
                 'successCssClass' => 'is-valid',
             ],
-            yii\widgets\LinkPager::class => [
+            LinkPager::class => [
                 'maxButtonCount' => false,
                 'prevPageLabel' => '<i class="fas fa-angle-left"></i>',
                 'nextPageLabel' => '<i class="fas fa-angle-right"></i>',
@@ -113,18 +130,18 @@ $config = [
 if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
-        'class' => yii\debug\Module::class,
+        'class' => DebugModule::class,
         'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 
     $config['container']['definitions'] += [
-        yii\web\JqueryAsset::class => [
+        JqueryAsset::class => [
             'sourcePath' => '@app/node_modules/jquery/dist',
         ],
-        yii\widgets\PjaxAsset::class => [
+        PjaxAsset::class => [
             'sourcePath' => '@app/node_modules/yii2-pjax',
         ],
     ];
 }
 
-return yii\helpers\ArrayHelper::merge(require __DIR__.'/common.php', $config);
+return ArrayHelper::merge(require __DIR__.'/common.php', $config);
