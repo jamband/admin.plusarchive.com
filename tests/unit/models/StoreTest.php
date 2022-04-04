@@ -26,28 +26,23 @@ class StoreTest extends Unit
         $this->assertSame(1, count($stores[1]->tags));
         $this->assertSame('tag1', $stores[1]->tags[0]->name);
 
-        // sort=Name
-        $stores = Store::all('Name')->models;
-        $this->assertSame(4, count($stores));
-        $this->assertSame('store1', $stores[0]->name);
-
         // country=Japan
-        $stores = Store::all(null, 'Japan')->models;
+        $stores = Store::all(country: 'Japan')->models;
         $this->assertSame(2, count($stores));
         $this->assertSame('store1', $stores[0]->name);
         $this->assertSame('store4', $stores[1]->name);
 
         // tag=tag1
-        $stores = Store::all(null, null, 'tag1')->models;
+        $stores = Store::all(tag: 'tag1')->models;
         $this->assertSame(1, count($stores));
         $this->assertSame('store1', $stores[0]->name);
 
         // country=Japan&tag=tag2
-        $stores = Store::all(null, 'Japan', 'tag2')->models;
+        $stores = Store::all(country: 'Japan', tag: 'tag2')->models;
         $this->assertSame(0, count($stores));
 
         // search=3
-        $stores = Store::all(null, null, null, '3')->models;
+        $stores = Store::all(search: '3')->models;
         $this->assertSame(1, count($stores));
         $this->assertSame('store3', $stores[0]->name);
     }

@@ -53,7 +53,6 @@ class Bookmark extends ActiveRecord
     }
 
     public static function all(
-        string|null $sort = null,
         string|null $country = null,
         string|null $tag = null,
         string|null $search = null,
@@ -65,15 +64,15 @@ class Bookmark extends ActiveRecord
             $query->country($country);
         }
 
-        if (null === $search) {
-            $query->sort($sort);
-        } else {
-            $query->search($search)
-                ->inNameOrder();
-        }
-
         if (null !== $tag) {
             $query->allTagValues($tag);
+        }
+
+        if (null !== $search) {
+            $query->search($search)
+                ->inNameOrder();
+        } else {
+            $query->latest();
         }
 
         return new ActiveDataProvider([

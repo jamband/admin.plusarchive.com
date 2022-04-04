@@ -9,7 +9,6 @@ use app\tests\unit\fixtures\label\LabelQueryBehaviorsFixture;
 use app\tests\unit\fixtures\label\LabelQueryCountryFixture;
 use app\tests\unit\fixtures\label\LabelQueryInNameOrderFixture;
 use app\tests\unit\fixtures\label\LabelQuerySearchFixture;
-use app\tests\unit\fixtures\label\LabelQuerySortFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
@@ -81,29 +80,5 @@ class LabelQueryTest extends Unit
         $this->assertSame('bar', $labels[0]->name);
         $this->assertSame('baz', $labels[1]->name);
         $this->assertSame('foo', $labels[2]->name);
-    }
-
-    public function testSort(): void
-    {
-        $fixtures['labels'] = labelQuerySortFixture::class;
-        $this->tester->haveFixtures($fixtures);
-
-        $labels = Label::find()->sort('Name')->all();
-        $this->assertSame(3, count($labels));
-        $this->assertSame('bar', $labels[0]->name);
-        $this->assertSame('baz', $labels[1]->name);
-        $this->assertSame('foo', $labels[2]->name);
-
-        $labels = Label::find()->sort('Foo')->all();
-        $this->assertSame(3, count($labels));
-        $this->assertSame('foo', $labels[0]->name);
-        $this->assertSame('baz', $labels[1]->name);
-        $this->assertSame('bar', $labels[2]->name);
-
-        $labels = Label::find()->sort(null)->all();
-        $this->assertSame(3, count($labels));
-        $this->assertSame('foo', $labels[0]->name);
-        $this->assertSame('baz', $labels[1]->name);
-        $this->assertSame('bar', $labels[2]->name);
     }
 }

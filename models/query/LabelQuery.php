@@ -41,13 +41,4 @@ class LabelQuery extends ActiveQuery
     {
         return $this->orderBy(['name' => SORT_ASC]);
     }
-
-    public function sort(string|null $sort): LabelQuery
-    {
-        if ('Name' === $sort) {
-            return $this->inNameOrder();
-        }
-
-        return $this->latest();
-    }
 }

@@ -9,7 +9,6 @@ use app\tests\unit\fixtures\bookmark\BookmarkQueryBehaviorsFixture;
 use app\tests\unit\fixtures\bookmark\BookmarkQueryCountryFixture;
 use app\tests\unit\fixtures\bookmark\BookmarkQueryInNameOrderFixture;
 use app\tests\unit\fixtures\bookmark\BookmarkQuerySearchFixture;
-use app\tests\unit\fixtures\bookmark\BookmarkQuerySortFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
@@ -81,29 +80,5 @@ class BookmarkQueryTest extends Unit
         $this->assertSame('bar', $bookmarks[0]->name);
         $this->assertSame('baz', $bookmarks[1]->name);
         $this->assertSame('foo', $bookmarks[2]->name);
-    }
-
-    public function testSort(): void
-    {
-        $fixtures['bookmarks'] = BookmarkQuerySortFixture::class;
-        $this->tester->haveFixtures($fixtures);
-
-        $bookmarks = Bookmark::find()->sort('Name')->all();
-        $this->assertSame(3, count($bookmarks));
-        $this->assertSame('bar', $bookmarks[0]->name);
-        $this->assertSame('baz', $bookmarks[1]->name);
-        $this->assertSame('foo', $bookmarks[2]->name);
-
-        $bookmarks = Bookmark::find()->sort('Foo')->all();
-        $this->assertSame(3, count($bookmarks));
-        $this->assertSame('foo', $bookmarks[0]->name);
-        $this->assertSame('baz', $bookmarks[1]->name);
-        $this->assertSame('bar', $bookmarks[2]->name);
-
-        $bookmarks = Bookmark::find()->sort(null)->all();
-        $this->assertSame(3, count($bookmarks));
-        $this->assertSame('foo', $bookmarks[0]->name);
-        $this->assertSame('baz', $bookmarks[1]->name);
-        $this->assertSame('bar', $bookmarks[2]->name);
     }
 }

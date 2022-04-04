@@ -26,28 +26,23 @@ class BookmarkTest extends Unit
         $this->assertSame(1, count($bookmarks[1]->tags));
         $this->assertSame('tag1', $bookmarks[1]->tags[0]->name);
 
-        // sort=Name
-        $bookmarks = Bookmark::all('Name')->models;
-        $this->assertSame(4, count($bookmarks));
-        $this->assertSame('bookmark1', $bookmarks[0]->name);
-
         // country=Japan
-        $bookmarks = Bookmark::all(null, 'Japan')->models;
+        $bookmarks = Bookmark::all(country: 'Japan')->models;
         $this->assertSame(2, count($bookmarks));
         $this->assertSame('bookmark1', $bookmarks[0]->name);
         $this->assertSame('bookmark4', $bookmarks[1]->name);
 
         // tag=tag1
-        $bookmarks = Bookmark::all(null, null, 'tag1')->models;
+        $bookmarks = Bookmark::all(tag: 'tag1')->models;
         $this->assertSame(1, count($bookmarks));
         $this->assertSame('bookmark1', $bookmarks[0]->name);
 
         // country=Japan&tag=tag2
-        $bookmarks = Bookmark::all(null, 'Japan', 'tag2')->models;
+        $bookmarks = Bookmark::all(country: 'Japan', tag: 'tag2')->models;
         $this->assertSame(0, count($bookmarks));
 
         // search=3
-        $bookmarks = Bookmark::all(null, null, null, '3')->models;
+        $bookmarks = Bookmark::all(search: '3')->models;
         $this->assertSame(1, count($bookmarks));
         $this->assertSame('bookmark3', $bookmarks[0]->name);
     }

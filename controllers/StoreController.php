@@ -40,14 +40,12 @@ class StoreController extends Controller
     }
 
     public function actionIndex(
-        string $sort = null,
         string|null $country = null,
         string|null $tag = null,
         string|null $search = null
     ): string {
         return $this->render('index', [
-            'data' => Store::all($sort, $country, $tag, $search),
-            'sort' => $sort ?: 'Sort',
+            'data' => Store::all($country, $tag, $search),
             'country' => $country ?: 'Countries',
             'tag' => $tag ?: 'Tags',
             'search' => $search,

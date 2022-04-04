@@ -43,13 +43,4 @@ class StoreQuery extends ActiveQuery
     {
         return $this->orderBy(['name' => SORT_ASC]);
     }
-
-    public function sort(string|null $sort): StoreQuery
-    {
-        if ('Name' === $sort) {
-            return $this->inNameOrder();
-        }
-
-        return $this->latest();
-    }
 }

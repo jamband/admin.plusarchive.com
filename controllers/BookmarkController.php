@@ -40,14 +40,12 @@ class BookmarkController extends Controller
     }
 
     public function actionIndex(
-        string|null $sort = null,
         string|null $country = null,
         string|null $tag = null,
         string|null $search = null
     ): string {
         return $this->render('index', [
-            'data' => Bookmark::all($sort, $country, $tag, $search),
-            'sort' => $sort ?: 'Sort',
+            'data' => Bookmark::all($country, $tag, $search),
             'country' => $country ?: 'Countries',
             'tag' => $tag ?: 'Tags',
             'search' => $search,

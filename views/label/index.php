@@ -3,7 +3,6 @@
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $data
- * @var string $sort
  * @var string $country
  * @var string $tag
  * @var string $search
@@ -21,7 +20,6 @@ $this->title = 'Labels - '.Yii::$app->name;
     <div class="row">
         <div class="col-lg-4">
             <?= $this->render('_search', [
-                'sort' => $sort,
                 'country' => $country,
                 'tag' => $tag,
                 'search' => $search,

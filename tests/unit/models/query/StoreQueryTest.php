@@ -9,7 +9,6 @@ use app\tests\unit\fixtures\store\StoreQueryBehaviorsFixture;
 use app\tests\unit\fixtures\store\StoreQueryCountryFixture;
 use app\tests\unit\fixtures\store\StoreQueryInNameOrderFixture;
 use app\tests\unit\fixtures\store\StoreQuerySearchFixture;
-use app\tests\unit\fixtures\store\StoreQuerySortFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
@@ -81,29 +80,5 @@ class StoreQueryTest extends Unit
         $this->assertSame('bar', $stores[0]->name);
         $this->assertSame('baz', $stores[1]->name);
         $this->assertSame('foo', $stores[2]->name);
-    }
-
-    public function testSort(): void
-    {
-        $fixtures['stores'] = storeQuerySortFixture::class;
-        $this->tester->haveFixtures($fixtures);
-
-        $stores = Store::find()->sort('Name')->all();
-        $this->assertSame(3, count($stores));
-        $this->assertSame('bar', $stores[0]->name);
-        $this->assertSame('baz', $stores[1]->name);
-        $this->assertSame('foo', $stores[2]->name);
-
-        $stores = Store::find()->sort('Foo')->all();
-        $this->assertSame(3, count($stores));
-        $this->assertSame('foo', $stores[0]->name);
-        $this->assertSame('baz', $stores[1]->name);
-        $this->assertSame('bar', $stores[2]->name);
-
-        $stores = Store::find()->sort(null)->all();
-        $this->assertSame(3, count($stores));
-        $this->assertSame('foo', $stores[0]->name);
-        $this->assertSame('baz', $stores[1]->name);
-        $this->assertSame('bar', $stores[2]->name);
     }
 }

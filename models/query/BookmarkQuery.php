@@ -43,13 +43,4 @@ class BookmarkQuery extends ActiveQuery
     {
         return $this->orderBy(['bookmark.name' => SORT_ASC]);
     }
-
-    public function sort(string|null $sort): BookmarkQuery
-    {
-        if ('Name' === $sort) {
-            return $this->inNameOrder();
-        }
-
-        return $this->latest();
-    }
 }
