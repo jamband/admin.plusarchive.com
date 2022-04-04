@@ -7,9 +7,6 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller as BaseController;
 
-/**
- * @noinspection PhpUnused
- */
 class Controller extends BaseController
 {
     public function beforeAction($action): bool
