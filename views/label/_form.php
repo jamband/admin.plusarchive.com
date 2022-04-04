@@ -7,6 +7,7 @@
  */
 
 use app\models\LabelTag;
+use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 ?>
@@ -14,7 +15,7 @@ use yii\widgets\ActiveForm;
     <div class="col-md-5">
         <div class="mt-2 mb-3 text-info">
             <i class="fas fa-info-circle"></i>
-            <strong><?= h($model->getAttributeLabel('link')) ?></strong> が複数ある場合は改行で区切って入力してください。
+            <strong><?= Html::encode($model->getAttributeLabel('link')) ?></strong> が複数ある場合は改行で区切って入力してください。
         </div>
     </div>
     <div class="col-md-5 offset-md-1 order-md-first mb-3">

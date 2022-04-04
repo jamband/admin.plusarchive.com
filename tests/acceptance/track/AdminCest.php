@@ -7,6 +7,7 @@ namespace app\tests\acceptance\track;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -28,7 +29,7 @@ class AdminCest
 
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/track/admin']));
+        $I->amOnPage(Url::to(['/track/admin']));
         $I->see('Track', '#menu-controller');
         $I->see('Providers', '#search-provider');
         $I->see('Genres', '#search-genre');

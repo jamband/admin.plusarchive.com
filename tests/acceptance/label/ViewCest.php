@@ -6,6 +6,7 @@ namespace app\tests\acceptance\label;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\LabelFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class ViewCest
         $I->seePageNotFound(['/label/view', 'id' => 1]);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/label/admin']));
+        $I->amOnPage(Url::to(['/label/admin']));
         $I->click('//*[@id="grid-view-label"]/table/tbody/tr[1]/td[7]/a[1]/i');
         $I->seeCurrentUrlEquals('/index-test.php/labels/1');
         $I->see('Label', '#menu-controller');

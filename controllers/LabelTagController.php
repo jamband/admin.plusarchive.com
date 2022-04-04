@@ -7,6 +7,7 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\LabelTag;
 use app\models\search\LabelTagSearch;
+use Yii;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -45,7 +46,7 @@ class LabelTagController extends Controller
     {
         return $this->render('admin', [
             'search' => $searchModel = new LabelTagSearch,
-            'data' => $searchModel->search(request()->queryParams),
+            'data' => $searchModel->search($this->request->queryParams),
         ]);
     }
 
@@ -56,8 +57,8 @@ class LabelTagController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Label tag has been updated.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Label tag has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -70,7 +71,7 @@ class LabelTagController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('notification', 'Label tag has been deleted.');
+        Yii::$app->session->setFlash('notification', 'Label tag has been deleted.');
 
         return $this->redirect(['admin']);
     }

@@ -7,6 +7,7 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\Bookmark;
 use app\models\search\BookmarkSearch;
+use Yii;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -60,7 +61,7 @@ class BookmarkController extends Controller
     {
         return $this->render('admin', [
             'search' => $searchModel = new BookmarkSearch,
-            'data' => $searchModel->search(request()->queryParams),
+            'data' => $searchModel->search($this->request->queryParams),
         ]);
     }
 
@@ -79,8 +80,8 @@ class BookmarkController extends Controller
         $model = new Bookmark;
         $model->loadDefaultValues();
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Bookmark has been added.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Bookmark has been added.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -97,8 +98,8 @@ class BookmarkController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Bookmark has been updated.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Bookmark has been updated.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -111,7 +112,7 @@ class BookmarkController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('notification', 'Bookmark has been deleted.');
+        Yii::$app->session->setFlash('notification', 'Bookmark has been deleted.');
 
         return $this->redirect(['admin']);
     }

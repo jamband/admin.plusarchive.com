@@ -6,6 +6,7 @@ namespace app\tests\acceptance\playlist;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\PlaylistFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -30,7 +31,7 @@ class UpdateCest
 
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/playlist/update', 'id' => 3]));
+        $I->amOnPage(Url::to(['/playlist/update', 'id' => 3]));
         $I->seeInField('#playlistupdateform-url', $this->fixtures['playlist3']['url']);
         $I->seeInField('#playlistupdateform-title', $this->fixtures['playlist3']['title']);
         $I->seeInField('#playlistupdateform-image', $this->fixtures['playlist3']['image']);

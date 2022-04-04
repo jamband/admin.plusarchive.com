@@ -55,11 +55,11 @@ class PlaylistController extends Controller
      */
     public function actionView(string $id): string
     {
-        $model = $this->findModel(hashids()->decode($id));
+        $model = $this->findModel(Yii::$app->hashids->decode($id));
 
          /** @var Ripple $ripple */
         $ripple = Yii::createObject(Ripple::class);
-        $ripple->options(['embed' => app()->params['embed-playlist']]);
+        $ripple->options(['embed' => Yii::$app->params['embed-playlist']]);
 
         return $this->render('view', [
             'model' => $model,
@@ -74,7 +74,7 @@ class PlaylistController extends Controller
     {
         return $this->render('admin', [
             'search' => $searchModel = new PlaylistSearch,
-            'data' => $searchModel->search(request()->queryParams),
+            'data' => $searchModel->search($this->request->queryParams),
         ]);
     }
 
@@ -82,8 +82,8 @@ class PlaylistController extends Controller
     {
         $model = new PlaylistCreateForm;
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Playlist has been added.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Playlist has been added.');
 
             return $this->redirect(['admin']);
         }
@@ -104,8 +104,8 @@ class PlaylistController extends Controller
             throw new NotFoundHttpException('Page not found.');
         }
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Playlist has been updated.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Playlist has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -118,7 +118,7 @@ class PlaylistController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('notification', 'Playlist has been deleted.');
+        Yii::$app->session->setFlash('notification', 'Playlist has been deleted.');
 
         return $this->redirect(['admin']);
     }

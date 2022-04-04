@@ -6,6 +6,7 @@ namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
 use app\controllers\site\AboutController;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -18,7 +19,7 @@ class AboutCest
      */
     public function ensureThatAboutWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/site/about/index']));
+        $I->amOnPage(Url::to(['/site/about/index']));
         $I->see('About', 'h1');
     }
 }

@@ -7,6 +7,7 @@ namespace app\tests\acceptance\labelTag;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\LabelTagFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class AdminCest
         $I->seePageNotFound(['/label-tag/admin']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/label-tag/admin']));
+        $I->amOnPage(Url::to(['/label-tag/admin']));
         $I->see('LabelTag', '#menu-controller');
         $I->see('Admin: 3', '#menu-action');
         $I->see('tag1', '.grid-view');

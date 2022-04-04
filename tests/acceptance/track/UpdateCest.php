@@ -6,6 +6,7 @@ namespace app\tests\acceptance\track;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -30,7 +31,7 @@ class UpdateCest
 
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/track/update', 'id' => 5]));
+        $I->amOnPage(Url::to(['/track/update', 'id' => 5]));
 
         $I->seeInField('#trackupdateform-url', $this->fixtures['track5']['url']);
         $I->seeInField('#trackupdateform-title', $this->fixtures['track5']['title']);

@@ -13,6 +13,7 @@ use Jamband\Ripple\Ripple;
 use Yii;
 use yii\filters\AjaxFilter;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
@@ -64,7 +65,7 @@ class TrackController extends Controller
             'provider' => $provider ?: 'Providers',
             'genre' => $genre ?: 'Genres',
             'search' => $search,
-            'embedAction' => url(['now']),
+            'embedAction' => Url::to(['now']),
         ]);
     }
 
@@ -80,7 +81,7 @@ class TrackController extends Controller
     ): string {
         /** @var Ripple $ripple */
         $ripple = Yii::createObject(Ripple::class);
-        $ripple->options(['embed' => app()->params['embed-track-modal']]);
+        $ripple->options(['embed' => Yii::$app->params['embed-track-modal']]);
 
         return $this->renderAjax('now', [
             'embed' => $ripple->embed($url, $key),
@@ -95,11 +96,11 @@ class TrackController extends Controller
      */
     public function actionView(string $id): string
     {
-        $model = $this->findModel(hashids()->decode($id));
+        $model = $this->findModel(Yii::$app->hashids->decode($id));
 
         /** @var Ripple $ripple */
         $ripple = Yii::createObject(Ripple::class);
-        $ripple->options(['embed' => app()->params['embed-track']]);
+        $ripple->options(['embed' => Yii::$app->params['embed-track']]);
 
         return $this->render('view', [
             'model' => $model,
@@ -122,7 +123,7 @@ class TrackController extends Controller
             'provider' => $provider ?: 'Providers',
             'genre' => $genre ?: 'Genres',
             'search' => $search,
-            'embedAction' => url(['now']),
+            'embedAction' => Url::to(['now']),
         ]);
     }
 
@@ -130,8 +131,8 @@ class TrackController extends Controller
     {
         $model = new TrackCreateForm;
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'New track has been added.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'New track has been added.');
 
             return $this->redirect(['admin']);
         }
@@ -152,8 +153,8 @@ class TrackController extends Controller
             throw new NotFoundHttpException('Page not found.');
         }
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Track has been updated.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Track has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -166,7 +167,7 @@ class TrackController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('notification', 'Track has been deleted.');
+        Yii::$app->session->setFlash('notification', 'Track has been deleted.');
 
         return $this->redirect(['admin']);
     }
@@ -177,7 +178,7 @@ class TrackController extends Controller
     public function actionStopAllUrge(): Response
     {
         Track::stopAllUrge();
-        session()->setFlash('notification', 'All Urge of track has been stopped.');
+        Yii::$app->session->setFlash('notification', 'All Urge of track has been stopped.');
 
         return $this->redirect(['/admin']);
     }

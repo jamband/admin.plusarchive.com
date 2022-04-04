@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
+use Yii;
 use yii\web\Controller as BaseController;
 
 /**
@@ -17,7 +18,7 @@ class Controller extends BaseController
             return false;
         }
 
-        if (user()->can('admin')) {
+        if (Yii::$app->user->can('admin')) {
             $this->layout = 'admin/main';
         }
 

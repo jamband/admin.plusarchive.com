@@ -5,7 +5,7 @@
  * @var $model app\models\Store
  */
 
-$this->title = "Update Store: $model->name - ".app()->name;
+$this->title = "Update Store: $model->name - ".Yii::$app->name;
 ?>
 <?= $this->render('/common/nav/update', ['model' => $model]) ?>
 <?= $this->render('_form', ['model' => $model]) ?>

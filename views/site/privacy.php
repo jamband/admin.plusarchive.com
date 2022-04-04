@@ -4,7 +4,7 @@
  * @var yii\web\View $this
  */
 
-$this->title = 'Privacy Policy - '.app()->name;
+$this->title = 'Privacy Policy - '.Yii::$app->name;
 ?>
 <div class="row">
     <div class="col-lg-8 offset-lg-1">

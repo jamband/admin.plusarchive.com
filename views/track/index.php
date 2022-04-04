@@ -11,9 +11,10 @@
 
 use app\models\MusicGenre;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 
-$this->title = app()->name;
+$this->title = Yii::$app->name;
 ?>
 <div id="now-playing" class="text-center"></div>
 <?php Pjax::begin() ?>
@@ -32,11 +33,11 @@ $this->title = app()->name;
                         <div class="ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $model->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
                             <?= Html::tag('img', '', [
                                 'class' => 'card-img-top opacity-75',
-                                'src' => h($model->image),
+                                'src' => Html::encode($model->image),
                                 'alt' => '',
                                 'loading' => 'lazy',
                                 'data-action' => $embedAction,
-                                'data-id' => hashids()->encode($model->id),
+                                'data-id' => Yii::$app->hashids->encode($model->id),
                                 'data-url' => $model->url,
                                 'data-title' => $model->title,
                                 'data-provider' => $model->providerText,
@@ -47,23 +48,23 @@ $this->title = app()->name;
                     </div>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a class="text-light" href="<?= url(['view', 'id' => hashids()->encode($model->id)]) ?>" data-pjax="0">
-                                <?= h($model->title) ?>
+                            <a class="text-light" href="<?= Url::to(['view', 'id' => Yii::$app->hashids->encode($model->id)]) ?>" data-pjax="0">
+                                <?= Html::encode($model->title) ?>
                             </a>
                         </h6>
                         <div class="card-text">
-                            <a class="tag" href="<?= url(['', 'provider' => $model->providerText]) ?>">
-                                <?= h($model->providerText) ?>
+                            <a class="tag" href="<?= Url::to(['', 'provider' => $model->providerText]) ?>">
+                                <?= Html::encode($model->providerText) ?>
                             </a>
                             <?php /** @var MusicGenre $genre */ ?>
                             <?php foreach ($model->musicGenres as $genre): ?>
-                                <a class="mb-2 tag" href="<?= url(['', 'genre' => $genre->name]) ?>">
-                                    <?= h($genre->name) ?>
+                                <a class="mb-2 tag" href="<?= Url::to(['', 'genre' => $genre->name]) ?>">
+                                    <?= Html::encode($genre->name) ?>
                                 </a>
                             <?php endforeach ?>
                         </div>
                         <div class="card-date">
-                            <i class="fas fa-fw fa-sm fa-clock"></i> <?= formatter()->asDate($model->created_at) ?>
+                            <i class="fas fa-fw fa-sm fa-clock"></i> <?= Yii::$app->formatter->asDate($model->created_at) ?>
                         </div>
                     </div>
                 </div>

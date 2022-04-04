@@ -6,6 +6,7 @@ namespace app\tests\acceptance\label;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\LabelFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -23,7 +24,7 @@ class IndexCest
      */
     public function ensureThatLabelsWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/']));
+        $I->amOnPage(Url::to(['/']));
         $I->click('Label', '#navbar');
         $I->seeCurrentUrlEquals('/index-test.php/labels');
         $I->see('Labels', 'h1');

@@ -8,6 +8,7 @@ use app\models\form\LoginForm;
 use app\tests\unit\fixtures\auth\LoginFormFixture;
 use Codeception\Test\Unit;
 use UnitTester;
+use Yii;
 
 class LoginFormTest extends Unit
 {
@@ -24,7 +25,7 @@ class LoginFormTest extends Unit
 
         $this->assertFalse($model->login());
         $this->assertNotEmpty($model->errors);
-        $this->assertTrue(user()->isGuest);
+        $this->assertTrue(Yii::$app->user->isGuest);
     }
 
     public function testLogin(): void
@@ -39,6 +40,6 @@ class LoginFormTest extends Unit
 
         $this->assertTrue($model->login());
         $this->assertEmpty($model->errors);
-        $this->assertFalse(user()->isGuest);
+        $this->assertFalse(Yii::$app->user->isGuest);
     }
 }

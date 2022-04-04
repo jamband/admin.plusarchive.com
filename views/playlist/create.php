@@ -5,7 +5,7 @@
  * @var app\models\Playlist $model
  */
 
-$this->title = 'Create Playlist - '.app()->name;
+$this->title = 'Create Playlist - '.Yii::$app->name;
 ?>
 <?= $this->render('/common/nav/create', ['model' => $model]) ?>
 <?= $this->render('_form', ['model' => $model, 'action' => 'Create']); ?>

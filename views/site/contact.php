@@ -4,7 +4,7 @@
  * @var yii\web\View $this
  */
 
-$this->title = 'Contact - '.app()->name;
+$this->title = 'Contact - '.Yii::$app->name;
 ?>
 <div class="row">
     <div class="col-lg-8 offset-lg-1">

@@ -7,6 +7,7 @@ namespace app\tests\acceptance\track;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -24,7 +25,7 @@ class IndexCest
      */
     public function ensureThatTracksWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/track/index']));
+        $I->amOnPage(Url::to(['/track/index']));
         $I->see('Providers', '#search-provider');
         $I->see('Genres', '#search-genre');
         $I->see('5 results');

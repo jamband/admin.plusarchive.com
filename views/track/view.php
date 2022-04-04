@@ -7,36 +7,38 @@
  */
 
 use app\models\MusicGenre;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
-$this->title = "$model->title - ".app()->name;
+$this->title = "$model->title - ".Yii::$app->name;
 ?>
 <?php if (preg_match('/\A(YouTube|Vimeo)\z/', $model->providerText)): ?>
     <div class="ratio ratio-16x9">
-        <iframe class="rounded" src="<?= h($embed) ?>" allowfullscreen></iframe>
+        <iframe class="rounded" src="<?= Html::encode($embed) ?>" allowfullscreen></iframe>
     </div>
 <?php else: ?>
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
             <div class="ratio ratio-1x1">
-                <iframe class="rounded" src="<?= h($embed) ?>" allowfullscreen></iframe>
+                <iframe class="rounded" src="<?= Html::encode($embed) ?>" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 <?php endif ?>
 <div class="mt-2 text-center">
-    <h5><?= h($model->title) ?></h5>
-    <a class="tag" href="<?= url(['index', 'provider' => $model->providerText]) ?>">
-        <?= h($model->providerText) ?>
+    <h5><?= Html::encode($model->title) ?></h5>
+    <a class="tag" href="<?= Url::to(['index', 'provider' => $model->providerText]) ?>">
+        <?= Html::encode($model->providerText) ?>
     </a>
     <?php /** @var MusicGenre $genre */ ?>
     <?php foreach ($model->musicGenres as $genre): ?>
-        <a class="tag" href="<?= url(['index', 'genre' => $genre->name]) ?>">
-            <?= h($genre->name) ?>
+        <a class="tag" href="<?= Url::to(['index', 'genre' => $genre->name]) ?>">
+            <?= Html::encode($genre->name) ?>
         </a>
     <?php endforeach ?>
     <div class="mt-4">
-        <a href="<?= url(['index']) ?>"><i class="fas fa-fw fa-sm fa-angle-left"></i> Back to tracks</a>
+        <a href="<?= Url::to(['index']) ?>"><i class="fas fa-fw fa-sm fa-angle-left"></i> Back to tracks</a>
         <span class="mx-1">or</span>
-        <a href="<?= url(['/']) ?>">Recent Favorites</a>
+        <a href="<?= Url::to(['/']) ?>">Recent Favorites</a>
     </div>
 </div>

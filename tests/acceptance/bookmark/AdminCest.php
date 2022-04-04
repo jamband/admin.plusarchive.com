@@ -7,6 +7,7 @@ namespace app\tests\acceptance\bookmark;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class AdminCest
         $I->seePageNotFound(['/bookmark/admin']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/bookmark/admin']));
+        $I->amOnPage(Url::to(['/bookmark/admin']));
         $I->see('Bookmark', '#menu-controller');
         $I->see('Admin: 4', '#menu-action');
         $I->see('bookmark1', '.grid-view');

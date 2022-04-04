@@ -8,7 +8,7 @@
 
 use yii\widgets\ActiveForm;
 
-$this->title = "Update MusicGenre: $model->name - ".app()->name;
+$this->title = "Update MusicGenre: $model->name - ".Yii::$app->name;
 ?>
 <?= $this->render('/common/nav/update', ['model' => $model]) ?>
 

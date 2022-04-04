@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use yii\helpers\Url;
+
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -24,7 +26,7 @@ class AcceptanceTester extends Codeception\Actor
     public function loginAsAdmin(): void
     {
         $I = $this;
-        $I->amOnPage(url(['/auth/login/index']));
+        $I->amOnPage(Url::to(['/auth/login/index']));
         $I->fillField('#loginform-username', 'admin');
         $I->fillField('#loginform-password', 'adminadmin');
         $I->click('button[type=submit]');
@@ -34,21 +36,21 @@ class AcceptanceTester extends Codeception\Actor
     public function seeBadRequest(array|string $url): void
     {
         $I = $this;
-        $I->amOnPage(url($url));
+        $I->amOnPage(Url::to($url));
         $I->see('Invalid request.');
     }
 
     public function seePageNotFound(array|string $url): void
     {
         $I = $this;
-        $I->amOnPage(url($url));
+        $I->amOnPage(Url::to($url));
         $I->see('Page not found.');
     }
 
     public function seeMethodNotAllowed(array|string $url): void
     {
         $I = $this;
-        $I->amOnPage(url($url));
+        $I->amOnPage(Url::to($url));
         $I->see('Method not allowed.');
     }
 }

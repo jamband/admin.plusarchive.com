@@ -8,6 +8,7 @@ use AcceptanceTester;
 use app\controllers\site\HomeController;
 use app\tests\acceptance\fixtures\HomeFixture;
 use Codeception\Util\Locator;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class HomeCest
      */
     public function ensureThatAboutWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/']));
+        $I->amOnPage(Url::to(['/']));
         $I->see('Recent favorite tracks', 'h1');
         $I->see('Search by genres', 'h1');
 

@@ -1,6 +1,15 @@
+<?php
+
+/**
+ * @var yii\web\View $this
+ */
+
+use yii\helpers\Html;
+
+?>
 <h1>About</h1>
 <p>
-    <?= h(app()->name) ?> is music archive website for everyday.<br>
+    <?= Html::encode(Yii::$app->name) ?> is music archive website for everyday.<br>
     This website is an open source project.
 </p>
 <a href="https://github.com/jamband/admin.plusarchive.com" rel="noopener" target="_blank">

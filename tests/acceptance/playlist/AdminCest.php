@@ -7,6 +7,7 @@ namespace app\tests\acceptance\playlist;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\PlaylistFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class AdminCest
         $I->seePageNotFound(['/playlist/admin']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/playlist/admin']));
+        $I->amOnPage(Url::to(['/playlist/admin']));
         $I->see('Playlist', '#menu-controller');
         $I->see('Admin: 3', '#menu-action');
         $I->see('playlist1', '.grid-view');

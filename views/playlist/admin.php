@@ -9,9 +9,10 @@
 use app\components\ActionColumn;
 use app\models\Music;
 use yii\grid\GridView;
+use yii\helpers\Html;
 use yii\widgets\Pjax;
 
-$this->title = 'Admin Playlists - '.app()->name;
+$this->title = 'Admin Playlists - '.Yii::$app->name;
 ?>
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [
@@ -27,13 +28,13 @@ $this->title = 'Admin Playlists - '.app()->name;
                 'attribute' => 'title',
                 'format' => 'raw',
                 'value' => function ($data) {
-                    return formatter()->asUrlWithText($data->url, $data->title);
+                    return Yii::$app->formatter->asUrlWithText($data->url, $data->title);
                 },
             ],
             [
                 'attribute' => 'provider',
                 'value' => function ($model) {
-                    return h($model->providerText);
+                    return Html::encode($model->providerText);
                 },
                 'filter' => Music::PROVIDERS,
                 'filterInputOptions' => ['class' => 'form-select'],

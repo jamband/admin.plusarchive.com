@@ -8,6 +8,7 @@ use AcceptanceTester;
 use app\controllers\site\AdminController;
 use app\tests\acceptance\fixtures\AdminUserFixture;
 use app\tests\acceptance\fixtures\HomeFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -30,7 +31,7 @@ class AdminCest
         $I->seePageNotFound(['/site/admin/index']);
 
         $I->loginAsAdmin();
-        $I->amOnPage(url(['/site/admin/index']));
+        $I->amOnPage(Url::to(['/site/admin/index']));
 
         $I->click('#menu-controller');
         $I->click('Tracks', '#menu-controller + .dropdown-menu');

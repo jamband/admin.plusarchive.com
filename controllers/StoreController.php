@@ -7,6 +7,7 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\Store;
 use app\models\search\StoreSearch;
+use Yii;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -60,7 +61,7 @@ class StoreController extends Controller
     {
         return $this->render('admin', [
             'search' => $searchModel = new StoreSearch,
-            'data' => $searchModel->search(request()->queryParams),
+            'data' => $searchModel->search($this->request->queryParams),
         ]);
     }
 
@@ -78,8 +79,8 @@ class StoreController extends Controller
     {
         $model = new Store;
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Store has been added.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Store has been added.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -96,8 +97,8 @@ class StoreController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Store has been updated.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Store has been updated.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -110,7 +111,7 @@ class StoreController extends Controller
     public function actionDelete(int $id): string|Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('notification', 'Store has been deleted.');
+        Yii::$app->session->setFlash('notification', 'Store has been deleted.');
 
         return $this->redirect(['admin']);
     }

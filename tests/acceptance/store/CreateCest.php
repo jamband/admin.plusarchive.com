@@ -6,6 +6,7 @@ namespace app\tests\acceptance\store;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class CreateCest
         $I->seePageNotFound(['/store/create']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/store/admin']));
+        $I->amOnPage(Url::to(['/store/admin']));
         $I->see('Admin: 3', '#menu-action');
 
         $I->click('#menu-action');

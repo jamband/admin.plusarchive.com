@@ -7,6 +7,7 @@ namespace app\tests\acceptance\auth;
 use AcceptanceTester;
 use app\controllers\auth\LogoutController;
 use app\tests\acceptance\fixtures\LoginFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -25,7 +26,7 @@ class LogoutCest
      */
     public function ensureThatLogoutWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/auth/login/index']));
+        $I->amOnPage(Url::to(['/auth/login/index']));
         $I->see('Log in', 'h1');
         $I->dontSee('Admin', '.navbar');
 

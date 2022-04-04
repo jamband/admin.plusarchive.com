@@ -19,11 +19,6 @@
     "bower-asset/punycode": "*",
     "bower-asset/yii2-pjax": "*"
   },
-  "autoload": {
-    "files": [
-      "helpers/functions.php"
-    ]
-  },
   "scripts": {
     "dev": "composer install --quiet && yarn --silent && yarn dev",
     "serve": "php -S localhost:8000 -t web",

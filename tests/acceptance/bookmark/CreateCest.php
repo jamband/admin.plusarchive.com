@@ -6,6 +6,7 @@ namespace app\tests\acceptance\bookmark;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class CreateCest
         $I->seePageNotFound(['/bookmark/create']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/bookmark/admin']));
+        $I->amOnPage(Url::to(['/bookmark/admin']));
         $I->see('Admin: 4', '#menu-action');
 
         $I->click('#menu-action');

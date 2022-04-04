@@ -5,6 +5,8 @@
  * @var string $content
  */
 
+use yii\helpers\Html;
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -13,15 +15,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= h($this->title) ?></title>
-    <link rel="icon" type="image/png" href="<?= asset('favicon.png') ?>">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= asset('apple-touch-icon.png') ?>">
-    <link rel="stylesheet" href="<?= asset('app.css')?>">
+    <title><?= Html::encode($this->title) ?></title>
+    <link rel="icon" type="image/png" href="<?= Html::asset('favicon.png') ?>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= Html::asset('apple-touch-icon.png') ?>">
+    <link rel="stylesheet" href="<?= Html::asset('app.css')?>">
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
-    <?php if (session()->hasFlash('notification')): ?>
+    <?php if (Yii::$app->session->hasFlash('notification')): ?>
         <?= $this->render('/common/notification') ?>
     <?php endif ?>
     <?= $this->render('navbar') ?>
@@ -32,7 +34,7 @@
         <i class="fas fa-fw fa-info-circle"></i>
         Currently logged in as an administrator.
     </footer>
-    <script src="<?= asset('app.js') ?>"></script>
+    <script src="<?= Html::asset('app.js') ?>"></script>
 <?php $this->endBody() ?>
 </body>
 </html>

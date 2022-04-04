@@ -8,6 +8,7 @@
  */
 
 use app\models\MusicGenre;
+use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 ?>
@@ -15,9 +16,9 @@ use yii\widgets\ActiveForm;
     <div class="col-md-5">
         <div class="mt-2 mb-3 text-info">
             <i class="fas fa-info-circle"></i>
-            <?= h($model->getAttributeLabel('title')) ?> と
-            <?= h($model->getAttributeLabel('image')) ?> は
-            <?= h($model->getAttributeLabel('url')) ?> の値から自動取得されます。
+            <?= Html::encode($model->getAttributeLabel('title')) ?> と
+            <?= Html::encode($model->getAttributeLabel('image')) ?> は
+            <?= Html::encode($model->getAttributeLabel('url')) ?> の値から自動取得されます。
             もし独自のものに変更したい場合は、フォームから直接入力することもできます。
         </div>
     </div>
@@ -28,7 +29,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'urge')->radioList([0 => 'off', 1 => 'on']) ?>
             <?= $form->field($model, 'tagValues')->dropdownList(MusicGenre::listData('name'), ['multiple' => true]) ?>
-            <button class="btn btn-primary" type="submit"><?= h($action) ?></button>
+            <button class="btn btn-primary" type="submit"><?= Html::encode($action) ?></button>
         <?php ActiveForm::end() ?>
     </div>
 </div>

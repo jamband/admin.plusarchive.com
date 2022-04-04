@@ -7,6 +7,7 @@ namespace app\tests\acceptance\musicGenre;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\MusicGenreFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class AdminCest
         $I->seePageNotFound(['/music-genre/admin']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/music-genre/admin']));
+        $I->amOnPage(Url::to(['/music-genre/admin']));
         $I->see('MusicGenre', '#menu-controller');
         $I->see('Admin: 5', '#menu-action');
         $I->see('genre1', '.grid-view');

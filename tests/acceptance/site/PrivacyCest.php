@@ -6,6 +6,7 @@ namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
 use app\controllers\site\PrivacyController;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -18,7 +19,7 @@ class PrivacyCest
      */
     public function ensureThatPrivacyWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/site/privacy/index']));
+        $I->amOnPage(Url::to(['/site/privacy/index']));
         $I->see('Privacy Policy', 'h1');
     }
 }

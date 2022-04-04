@@ -7,6 +7,7 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\search\MusicGenreSearch;
 use app\models\MusicGenre;
+use Yii;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -45,7 +46,7 @@ class MusicGenreController extends Controller
     {
         return $this->render('admin', [
             'search' => $searchModel = new MusicGenreSearch,
-            'data' => $searchModel->search(request()->queryParams),
+            'data' => $searchModel->search($this->request->queryParams),
         ]);
     }
 
@@ -56,8 +57,8 @@ class MusicGenreController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Music genre has been updated.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Music genre has been updated.');
 
             return $this->redirect(['admin']);
         }
@@ -71,7 +72,7 @@ class MusicGenreController extends Controller
     {
         $this->findModel($id)->delete();
 
-        session()->setFlash('notification', 'Music genre has been deleted.');
+        Yii::$app->session->setFlash('notification', 'Music genre has been deleted.');
         return $this->redirect(['admin']);
     }
 

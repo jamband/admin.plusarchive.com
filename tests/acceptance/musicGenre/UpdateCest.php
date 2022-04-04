@@ -6,6 +6,7 @@ namespace app\tests\acceptance\musicGenre;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\MusicGenreFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class UpdateCest
         $I->seePageNotFound(['/music-genre/update', 'id' => 1]);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/music-genre/admin']));
+        $I->amOnPage(Url::to(['/music-genre/admin']));
         $I->click('//*[@id="grid-view-music-genre"]/table/tbody/tr[1]/td[5]/a[1]/i');
         $I->seeCurrentUrlEquals('/index-test.php/music-genres/update/1');
         $I->see('MusicGenre', '#menu-controller');

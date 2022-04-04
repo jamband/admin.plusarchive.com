@@ -7,6 +7,7 @@ namespace app\controllers;
 use app\filters\AccessControl;
 use app\models\Label;
 use app\models\search\LabelSearch;
+use Yii;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
@@ -60,7 +61,7 @@ class LabelController extends Controller
     {
         return $this->render('admin', [
             'search' => $searchModel = new LabelSearch,
-            'data' => $searchModel->search(request()->queryParams),
+            'data' => $searchModel->search($this->request->queryParams),
         ]);
     }
 
@@ -78,8 +79,8 @@ class LabelController extends Controller
     {
         $model = new Label;
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Label has been added.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Label has been added.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -96,8 +97,8 @@ class LabelController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(request()->post()) && $model->save()) {
-            session()->setFlash('notification', 'Label has been updated.');
+        if ($model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('notification', 'Label has been updated.');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -110,7 +111,7 @@ class LabelController extends Controller
     public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
-        session()->setFlash('notification', 'Label has been deleted.');
+        Yii::$app->session->setFlash('notification', 'Label has been deleted.');
 
         return $this->redirect(['admin']);
     }

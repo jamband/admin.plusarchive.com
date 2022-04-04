@@ -9,6 +9,9 @@
  * @var string $provider
  */
 
+use yii\helpers\Html;
+use yii\helpers\Url;
+
 ?>
 <div id="track-modal" class="modal fade">
     <div class="text-center modal-dialog">
@@ -16,12 +19,12 @@
             <div class="modal-body">
                 <?php if (in_array($provider, ['Vimeo', 'YouTube'], true)): ?>
                 <div class="ratio ratio-16x9 mb-2">
-                    <iframe src="<?= h($embed) ?>" allowfullscreen></iframe>
+                    <iframe src="<?= Html::encode($embed) ?>" allowfullscreen></iframe>
                 </div>
                 <?php else: ?>
-                    <iframe width="100%" height="120" src="<?= h($embed) ?>" allowfullscreen></iframe>
+                    <iframe width="100%" height="120" src="<?= Html::encode($embed) ?>" allowfullscreen></iframe>
                 <?php endif ?>
-                <a class="tag" href="<?= url(['view', 'id' => $id])?>">
+                <a class="tag" href="<?= Url::to(['view', 'id' => $id])?>">
                     View <i class="fas fa-fw fa-sm fa-angle-right"></i>
                 </a>
                 <div class="now-playing-loading">
@@ -33,7 +36,7 @@
 </div>
 <div class="mb-2">
     <i class="fas fa-fw fa-sm fa-volume-up"></i>
-    <button type="button" class="now-playing-title ms-1 align-baseline btn btn-link text-light fw-bold"><?= h($title) ?></button>
+    <button type="button" class="now-playing-title ms-1 align-baseline btn btn-link text-light fw-bold"><?= Html::encode($title) ?></button>
     <button type="button" class="now-playing-clear btn-close btn-sm align-text-top" aria-label="Close"></button>
 </div>
 

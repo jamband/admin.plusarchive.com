@@ -7,6 +7,7 @@ namespace app\tests\acceptance\auth;
 use AcceptanceTester;
 use app\controllers\auth\SignupController;
 use app\tests\acceptance\fixtures\SignupFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -25,7 +26,7 @@ class SignupCest
      */
     public function ensureThatSignupWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/']));
+        $I->amOnPage(Url::to(['/']));
         $I->click('#dropdownMoreLinks');
         $I->dontSee('Signup');
 

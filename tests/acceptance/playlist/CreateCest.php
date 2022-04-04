@@ -6,6 +6,7 @@ namespace app\tests\acceptance\playlist;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\PlaylistFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class CreateCest
 
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/playlist/admin']));
+        $I->amOnPage(Url::to(['/playlist/admin']));
         $I->see('Admin: 3', '#menu-action');
 
         $I->click('#menu-action');

@@ -7,6 +7,7 @@
  * @var string $action
  */
 
+use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 ?>
@@ -18,7 +19,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
-            <button class="btn btn-primary" type="submit"><?= h($action) ?></button>
+            <button class="btn btn-primary" type="submit"><?= Html::encode($action) ?></button>
         <?php ActiveForm::end() ?>
     </div>
 </div>

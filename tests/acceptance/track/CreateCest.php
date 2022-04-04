@@ -6,6 +6,7 @@ namespace app\tests\acceptance\track;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class CreateCest
 
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/track/admin']));
+        $I->amOnPage(Url::to(['/track/admin']));
         $I->click('#menu-action');
         $I->click('Create', '#menu-action + .dropdown-menu');
         $I->seeCurrentUrlEquals('/index-test.php/tracks/create');

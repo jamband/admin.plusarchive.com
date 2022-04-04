@@ -7,6 +7,7 @@ namespace app\tests\acceptance\bookmark;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -24,7 +25,7 @@ class IndexCest
      */
     public function ensureThatBookmarksWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/']));
+        $I->amOnPage(Url::to(['/']));
         $I->click('Bookmark', '#navbar');
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks');
         $I->see('Bookmarks', 'h1');

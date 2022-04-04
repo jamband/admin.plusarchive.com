@@ -5,7 +5,7 @@
  * @var app\models\Label $model
  */
 
-$this->title = 'Create Label - '.app()->name;
+$this->title = 'Create Label - '.Yii::$app->name;
 ?>
 <?= $this->render('/common/nav/create', ['model' => $model]) ?>
 <?= $this->render('_form', ['model' => $model]); ?>

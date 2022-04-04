@@ -6,6 +6,7 @@ namespace app\tests\acceptance\storeTag;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreTagFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class UpdateCest
         $I->seePageNotFound(['/store-tag/update', 'id' => 1]);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/store-tag/admin']));
+        $I->amOnPage(Url::to(['/store-tag/admin']));
         $I->click('//*[@id="grid-view-store-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
         $I->seeCurrentUrlEquals('/index-test.php/store-tags/update/1');
         $I->see('StoreTag', '#menu-controller');

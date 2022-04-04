@@ -7,6 +7,7 @@ namespace app\tests\acceptance\storeTag;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreTagFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class AdminCest
         $I->seePageNotFound(['/store-tag/admin']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/store-tag/admin']));
+        $I->amOnPage(Url::to(['/store-tag/admin']));
         $I->see('StoreTag', '#menu-controller');
         $I->see('Admin: 3', '#menu-action');
         $I->see('tag1', '.grid-view');

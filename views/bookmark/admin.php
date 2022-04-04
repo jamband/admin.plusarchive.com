@@ -11,7 +11,7 @@ use app\models\BookmarkTag;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
-$this->title = 'Admin Bookmarks - '.app()->name;
+$this->title = 'Admin Bookmarks - '.Yii::$app->name;
 ?>
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [
@@ -27,7 +27,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                 'attribute' => 'name',
                 'format' => 'raw',
                 'value' => function ($data) {
-                    return formatter()->asUrlWithText($data->url, $data->name);
+                    return Yii::$app->formatter->asUrlWithText($data->url, $data->name);
                 },
             ],
             [
@@ -39,7 +39,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
                 'attribute' => 'link',
                 'format' => 'raw',
                 'value' => function ($data) {
-                    return formatter()->asBrandIconLink($data->link, options: [
+                    return Yii::$app->formatter->asBrandIconLink($data->link, options: [
                         'class' => 'me-1 tag',
                     ]);
                 },
@@ -47,7 +47,7 @@ $this->title = 'Admin Bookmarks - '.app()->name;
             [
                 'attribute' => 'tag',
                 'value' => function ($data) {
-                    return formatter()->asTagValues($data->tagValues);
+                    return Yii::$app->formatter->asTagValues($data->tagValues);
                 },
                 'filter' => BookmarkTag::listData('name'),
                 'filterInputOptions' => ['class' => 'form-select'],

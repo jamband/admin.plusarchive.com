@@ -5,7 +5,7 @@
  * @var app\models\Track $model
  */
 
-$this->title = 'Create Track - '.app()->name;
+$this->title = 'Create Track - '.Yii::$app->name;
 ?>
 <?= $this->render('/common/nav/create') ?>
 <?= $this->render('_form', ['model' => $model, 'action' => 'Create']) ?>

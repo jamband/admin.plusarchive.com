@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
@@ -32,7 +33,7 @@ class User extends ActiveRecord implements IdentityInterface
         return static::findOne(['id' => $id]);
     }
 
-    public static function findIdentityByAccessToken($token, $type = null)
+    public static function findIdentityByAccessToken($token, $type = null): void
     {
         throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
     }
@@ -59,17 +60,17 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function validatePassword(string $password): bool
     {
-        return security()->validatePassword($password, $this->password);
+        return Yii::$app->security->validatePassword($password, $this->password);
     }
 
     public function setPassword(string $password): void
     {
-        $this->password = security()->generatePasswordHash($password);
+        $this->password = Yii::$app->security->generatePasswordHash($password);
     }
 
     public function setAuthKey(): void
     {
-        $this->auth_key = security()->generateRandomString();
+        $this->auth_key = Yii::$app->security->generateRandomString();
     }
 
     public function behaviors(): array

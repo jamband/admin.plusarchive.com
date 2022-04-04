@@ -4,7 +4,7 @@
  * @var yii\web\View $this
  */
 
-$this->title = 'Currently in maintenance - '.app()->name;
+$this->title = 'Currently in maintenance - '.Yii::$app->name;
 ?>
 <div class="row">
     <div class="col-lg-5 offset-lg-1 mb-4">

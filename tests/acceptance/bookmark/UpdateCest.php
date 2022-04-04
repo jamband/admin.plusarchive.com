@@ -6,6 +6,7 @@ namespace app\tests\acceptance\bookmark;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class UpdateCest
         $I->seePageNotFound(['/bookmark/update', 'id' => 1]);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/bookmark/admin']));
+        $I->amOnPage(Url::to(['/bookmark/admin']));
         $I->click('//*[@id="grid-view-bookmark"]/table/tbody/tr[1]/td[7]/a[2]/i'); // Update link
         $I->seeCurrentUrlEquals('/index-test.php/bookmarks/update/1');
         $I->see('Bookmark', '#menu-controller');

@@ -7,6 +7,7 @@ namespace app\tests\acceptance\auth;
 use AcceptanceTester;
 use app\controllers\auth\LoginController;
 use app\tests\acceptance\fixtures\LoginFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -25,7 +26,7 @@ class LoginCest
      */
     public function ensureThatLoginWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/auth/login/index']));
+        $I->amOnPage(Url::to(['/auth/login/index']));
         $I->see('Log in', 'h1');
 
         $I->click('button[type=submit]');
@@ -41,7 +42,7 @@ class LoginCest
         $I->waitForText('Admin', selector: '.navbar');
         $I->seeCurrentUrlEquals('/index-test.php');
 
-        $I->amOnPage(url(['/auth/login/index']));
+        $I->amOnPage(Url::to(['/auth/login/index']));
         $I->seeCurrentUrlEquals('/index-test.php');
     }
 }

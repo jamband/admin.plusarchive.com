@@ -6,6 +6,7 @@ namespace app\tests\acceptance\store;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class ViewCest
         $I->seePageNotFound(['/store/view', 'id' => 1]);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/store/admin']));
+        $I->amOnPage(Url::to(['/store/admin']));
         $I->click('//*[@id="grid-view-store"]/table/tbody/tr[1]/td[7]/a[1]/i');
         $I->seeCurrentUrlEquals('/index-test.php/stores/1');
         $I->see('Store', '#menu-controller');

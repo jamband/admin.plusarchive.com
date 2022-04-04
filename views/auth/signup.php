@@ -8,7 +8,7 @@
 
 use yii\widgets\ActiveForm;
 
-$this->title = 'Sign up - '.app()->name;
+$this->title = 'Sign up - '.Yii::$app->name;
 ?>
 <div class="row">
     <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">

@@ -5,9 +5,10 @@
  * @var app\models\Track[] $tracks
  */
 
- use yii\helpers\Html;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
-$this->title = 'Admin - '.app()->name;
+$this->title = 'Admin - '.Yii::$app->name;
 ?>
 <div class="text-center">
     <?= $this->render('/common/nav/base') ?>
@@ -17,7 +18,7 @@ $this->title = 'Admin - '.app()->name;
             <i class="fas fa-fw fa-sm fa-angle-down"></i>
         </a>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="<?= url(['/track/stop-all-urge']) ?>" data-confirm="Are you sure?" data-method="post">
+            <a class="dropdown-item" href="<?= Url::to(['/track/stop-all-urge']) ?>" data-confirm="Are you sure?" data-method="post">
                 Stop All Urge
             </a>
         </div>
@@ -31,10 +32,10 @@ $this->title = 'Admin - '.app()->name;
         <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
                 <div class="card-img-wrap">
-                    <a href="<?= url(['/track/view', 'id' => hashids()->encode($track->id)]) ?>" class="d-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $track->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
+                    <a href="<?= Url::to(['/track/view', 'id' => Yii::$app->hashids->encode($track->id)]) ?>" class="d-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $track->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
                         <?= Html::tag('img', '', [
                             'class' => 'card-img-top opacity-75',
-                            'src' => h($track->image),
+                            'src' => Html::encode($track->image),
                             'alt' => '',
                             'loading' => 'lazy',
                         ]) ?>
@@ -43,20 +44,20 @@ $this->title = 'Admin - '.app()->name;
                 </div>
                 <div class="card-body">
                     <h6 class="card-title">
-                        <?= h($track->title) ?>
+                        <?= Html::encode($track->title) ?>
                     </h6>
                     <div class="card-text">
-                        <a class="tag" href="<?= url(['/track/admin', 'provider' => $track->providerText]) ?>">
-                            <?= h($track->providerText) ?>
+                        <a class="tag" href="<?= Url::to(['/track/admin', 'provider' => $track->providerText]) ?>">
+                            <?= Html::encode($track->providerText) ?>
                         </a>
                         <?php foreach ($track->musicGenres as $genre): ?>
-                            <a class="mb-2 tag" href="<?= url(['/track/admin', 'genre' => $genre->name]) ?>">
-                                <?= h($genre->name) ?>
+                            <a class="mb-2 tag" href="<?= Url::to(['/track/admin', 'genre' => $genre->name]) ?>">
+                                <?= Html::encode($genre->name) ?>
                             </a>
                         <?php endforeach ?>
                     </div>
                     <div class="card-date">
-                        <a class="text-body" href="<?= url(['/track/update', 'id' => $track->id]) ?>" data-pjax="0">
+                        <a class="text-body" href="<?= Url::to(['/track/update', 'id' => $track->id]) ?>" data-pjax="0">
                             <i class="fas fa-fw fa-sm fa-edit"></i> Update
                         </a>
                     </div>

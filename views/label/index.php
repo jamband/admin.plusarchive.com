@@ -11,9 +11,11 @@
 
 use app\models\Label;
 use app\models\LabelTag;
+use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 
-$this->title = 'Labels - '.app()->name;
+$this->title = 'Labels - '.Yii::$app->name;
 ?>
 <?php Pjax::begin() ?>
     <div class="row">
@@ -32,21 +34,21 @@ $this->title = 'Labels - '.app()->name;
                 <?php /* @var Label $model */ ?>
                 <?php foreach ($data->models as $model): ?>
                     <article class="col-lg-6 mb-4">
-                        <h6 class="mb-1"><?= formatter()->asUrlWithText($model->url, $model->name, ['class' => 'fw-bold']) ?></h6>
+                        <h6 class="mb-1"><?= Yii::$app->formatter->asUrlWithText($model->url, $model->name, ['class' => 'fw-bold']) ?></h6>
                         <section class="mb-1">
-                            <span class="me-2 text-light"><?= h($model->getAttributeLabel('country')) ?>:</span>
-                            <?= h($model->country) ?>
+                            <span class="me-2 text-light"><?= Html::encode($model->getAttributeLabel('country')) ?>:</span>
+                            <?= Html::encode($model->country) ?>
                         </section>
                         <section class="mb-1">
-                            <span class="me-2 text-light"><?= h($model->getAttributeLabel('link')) ?>:</span>
-                            <?= formatter()->asBrandIconLink($model->link, options: ['class' => 'me-1 tag']) ?>
+                            <span class="me-2 text-light"><?= Html::encode($model->getAttributeLabel('link')) ?>:</span>
+                            <?= Yii::$app->formatter->asBrandIconLink($model->link, options: ['class' => 'me-1 tag']) ?>
                         </section>
                         <section class="mb-1">
-                            <span class="me-2 text-light"><?= h($model->getAttributeLabel('tagValues')) ?>:</span>
+                            <span class="me-2 text-light"><?= Html::encode($model->getAttributeLabel('tagValues')) ?>:</span>
                             <?php /** @var LabelTag $tag */ ?>
                             <?php foreach ($model->labelTags as $tag): ?>
-                                <a class="tag" href="<?= url(['', 'tag' => $tag->name]) ?>">
-                                    <?= h($tag->name) ?>
+                                <a class="tag" href="<?= Url::to(['', 'tag' => $tag->name]) ?>">
+                                    <?= Html::encode($tag->name) ?>
                                 </a>
                             <?php endforeach ?>
                         </section>

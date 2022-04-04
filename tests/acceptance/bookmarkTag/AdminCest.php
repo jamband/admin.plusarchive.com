@@ -7,6 +7,7 @@ namespace app\tests\acceptance\bookmarkTag;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\BookmarkTagFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class AdminCest
         $I->seePageNotFound(['/bookmark-tag/admin']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/bookmark-tag/admin']));
+        $I->amOnPage(Url::to(['/bookmark-tag/admin']));
         $I->see('BookmarkTag', '#menu-controller');
         $I->see('Admin: 3', '#menu-action');
         $I->see('tag1', '.grid-view');

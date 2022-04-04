@@ -6,6 +6,7 @@ namespace app\tests\acceptance\track;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\TrackStopAllUrgeFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -28,7 +29,7 @@ class StopAllUrgeCest
         $I->loginAsAdmin();
         $I->seeMethodNotAllowed(['/track/stop-all-urge']);
 
-        $I->amOnPage(url(['/site/admin/index']));
+        $I->amOnPage(Url::to(['/site/admin/index']));
         $I->see('Action', '#menu-action');
         $I->see('track1', '.card-title');
         $I->see('track2', '.card-title');

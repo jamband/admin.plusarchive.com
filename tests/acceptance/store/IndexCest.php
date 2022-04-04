@@ -7,6 +7,7 @@ namespace app\tests\acceptance\store;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -24,7 +25,7 @@ class IndexCest
      */
     public function ensureThatStoresWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(url(['/']));
+        $I->amOnPage(Url::to(['/']));
         $I->click('Store', '#navbar');
         $I->seeCurrentUrlEquals('/index-test.php/stores');
         $I->see('Stores', 'h1');

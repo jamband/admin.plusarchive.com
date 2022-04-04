@@ -6,6 +6,7 @@ namespace app\tests\acceptance\label;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\LabelFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class CreateCest
         $I->seePageNotFound(['/label/create']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/label/admin']));
+        $I->amOnPage(Url::to(['/label/admin']));
         $I->see('Admin: 3', '#menu-action');
 
         $I->click('#menu-action');

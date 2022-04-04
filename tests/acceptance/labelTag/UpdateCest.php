@@ -6,6 +6,7 @@ namespace app\tests\acceptance\labelTag;
 
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\LabelTagFixture;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -26,7 +27,7 @@ class UpdateCest
         $I->seePageNotFound(['/label-tag/update', 'id' => 1]);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/label-tag/admin']));
+        $I->amOnPage(Url::to(['/label-tag/admin']));
         $I->click('//*[@id="grid-view-label-tag"]/table/tbody/tr[1]/td[5]/a[1]/i');
         $I->seeCurrentUrlEquals('/index-test.php/label-tags/update/1');
         $I->see('LabelTag', '#menu-controller');

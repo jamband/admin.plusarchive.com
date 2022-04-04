@@ -10,7 +10,7 @@ use app\components\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
-$this->title = 'Admin BookmarkTags - '.app()->name;
+$this->title = 'Admin BookmarkTags - '.Yii::$app->name;
 ?>
 <?php Pjax::begin() ?>
     <?= $this->render('/common/nav/admin', [

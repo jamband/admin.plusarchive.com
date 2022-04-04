@@ -7,6 +7,7 @@ namespace app\tests\acceptance\store;
 use AcceptanceTester;
 use app\tests\acceptance\fixtures\StoreFixture;
 use Facebook\WebDriver\WebDriverKeys;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -27,7 +28,7 @@ class AdminCest
         $I->seePageNotFound(['/store/admin']);
         $I->loginAsAdmin();
 
-        $I->amOnPage(url(['/store/admin']));
+        $I->amOnPage(Url::to(['/store/admin']));
         $I->see('Store', '#menu-controller');
         $I->see('Admin: 3', '#menu-action');
         $I->see('store1', '.grid-view');

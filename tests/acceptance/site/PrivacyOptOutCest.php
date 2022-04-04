@@ -6,6 +6,8 @@ namespace app\tests\acceptance\site;
 
 use AcceptanceTester;
 use app\controllers\site\PrivacyOptOutController;
+use Yii;
+use yii\helpers\Url;
 
 /**
  * @noinspection PhpUnused
@@ -20,12 +22,12 @@ class PrivacyOptOutCest
     {
         $I->seeBadRequest(['/site/privacy-opt-out/index']);
 
-        $I->amOnPage(url(['/site/privacy/index']));
+        $I->amOnPage(Url::to(['/site/privacy/index']));
         $I->see('Privacy Policy', 'footer');
-        $I->dontSee(app()->name, 'footer');
+        $I->dontSee(Yii::$app->name, 'footer');
 
         $I->click('ACCEPT', 'footer');
-        $I->waitForText(app()->name, selector: 'footer');
+        $I->waitForText(Yii::$app->name, selector: 'footer');
         $I->dontSee('Privacy Policy', 'footer');
 
         $I->click('Opt-Out');
@@ -33,6 +35,6 @@ class PrivacyOptOutCest
         $I->seeInPopup('Google Analytics opt-out has been completed.');
         $I->acceptPopup();
         $I->see('Privacy Policy', 'footer');
-        $I->dontSee(app()->name, 'footer');
+        $I->dontSee(Yii::$app->name, 'footer');
     }
 }

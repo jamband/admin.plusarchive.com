@@ -7,7 +7,7 @@
 
 use yii\widgets\DetailView;
 
-$this->title = "View Bookmark: $model->name - ".app()->name;
+$this->title = "View Bookmark: $model->name - ".Yii::$app->name;
 ?>
 <?= $this->render('/common/nav/view', ['model' => $model]) ?>
 
@@ -22,7 +22,7 @@ $this->title = "View Bookmark: $model->name - ".app()->name;
             'attribute' => 'link',
             'format' => 'raw',
             'value' => function ($data) {
-                return formatter()->asBrandIconLink($data->link, options: [
+                return Yii::$app->formatter->asBrandIconLink($data->link, options: [
                     'class' => 'me-1 tag',
                 ]);
             }

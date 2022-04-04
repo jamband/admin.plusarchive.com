@@ -4,6 +4,8 @@
  * @var yii\web\View $this
  */
 
+use yii\helpers\Html;
+
 $this->registerJsFile('https://www.googletagmanager.com/gtag/js?id=UA-77180716-1', [
     'async' => true,
     'position' => $this::POS_HEAD,
@@ -29,4 +31,4 @@ $(document).on('pjax:end', function () {
 JS
 );
 ?>
-<span class="text-light"><?= h(app()->name) ?></span>
+<span class="text-light"><?= Html::encode(Yii::$app->name) ?></span>
