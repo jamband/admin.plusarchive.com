@@ -29,6 +29,7 @@ class AdminController extends Controller
     {
         return $this->render('//'.$this->id, [
             'tracks' => Track::find()
+                ->with(['genres'])
                 ->favorites()
                 ->latest()
                 ->all(),
