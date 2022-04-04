@@ -7,13 +7,12 @@ namespace app\controllers\site;
 use app\controllers\Controller;
 use app\filters\AccessControl;
 use app\models\Track;
-use yii\helpers\ArrayHelper;
 
 class AdminController extends Controller
 {
     public function behaviors(): array
     {
-        return ArrayHelper::merge(parent::behaviors(), [
+        return [
             'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
@@ -23,7 +22,7 @@ class AdminController extends Controller
                     ],
                 ],
             ],
-        ]);
+        ];
     }
 
     public function actionIndex(): string

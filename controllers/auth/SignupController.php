@@ -8,14 +8,13 @@ use app\controllers\Controller;
 use app\filters\AccessControl;
 use app\models\form\SignupForm;
 use Yii;
-use yii\helpers\ArrayHelper;
 use yii\web\Response;
 
 class SignupController extends Controller
 {
     public function behaviors(): array
     {
-        return ArrayHelper::merge(parent::behaviors(), [
+        return [
             'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
@@ -25,7 +24,7 @@ class SignupController extends Controller
                     ],
                 ],
             ],
-        ]);
+        ];
     }
 
     public function actionIndex(): string|Response

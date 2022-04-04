@@ -8,14 +8,13 @@ use app\controllers\Controller;
 use app\filters\AccessControl;
 use Yii;
 use yii\filters\VerbFilter;
-use yii\helpers\ArrayHelper;
 use yii\web\Response;
 
 class LogoutController extends Controller
 {
     public function behaviors(): array
     {
-        return ArrayHelper::merge(parent::behaviors(), [
+        return [
             'access' => [
                 'class' => AccessControl::class,
                 'rules' => [
@@ -31,7 +30,7 @@ class LogoutController extends Controller
                     'index' => ['post'],
                 ],
             ],
-        ]);
+        ];
     }
 
     public function actionIndex(): Response
