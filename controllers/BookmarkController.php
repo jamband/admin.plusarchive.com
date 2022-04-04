@@ -46,8 +46,8 @@ class BookmarkController extends Controller
     ): string {
         return $this->render('index', [
             'data' => Bookmark::all($country, $tag, $search),
-            'country' => $country ?: 'Countries',
-            'tag' => $tag ?: 'Tags',
+            'country' => $country,
+            'tag' => $tag,
             'search' => $search,
         ]);
     }

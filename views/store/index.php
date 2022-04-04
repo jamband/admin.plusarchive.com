@@ -3,9 +3,9 @@
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $data
- * @var string $country
- * @var string $tag
- * @var string $search
+ * @var string|null $country
+ * @var string|null $tag
+ * @var string|null $search
  */
 
 use app\models\Store;

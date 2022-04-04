@@ -46,8 +46,8 @@ class StoreController extends Controller
     ): string {
         return $this->render('index', [
             'data' => Store::all($country, $tag, $search),
-            'country' => $country ?: 'Countries',
-            'tag' => $tag ?: 'Tags',
+            'country' => $country,
+            'tag' => $tag,
             'search' => $search,
         ]);
     }

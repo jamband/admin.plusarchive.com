@@ -46,8 +46,8 @@ class LabelController extends Controller
     ): string {
         return $this->render('index', [
             'data' => Label::all($country, $tag, $search),
-            'country' => $country ?: 'Countries',
-            'tag' => $tag ?: 'Tags',
+            'country' => $country,
+            'tag' => $tag,
             'search' => $search,
         ]);
     }
