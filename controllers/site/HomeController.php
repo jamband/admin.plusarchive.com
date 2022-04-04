@@ -16,7 +16,7 @@ class HomeController extends Controller
         return $this->render('/site/home', [
             'data' => new ActiveDataProvider([
                 'query' => Track::find()
-                    ->with('musicGenres')
+                    ->with('genres')
                     ->favorites()
                     ->latest(),
                 'pagination' => false,

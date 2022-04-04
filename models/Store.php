@@ -20,7 +20,8 @@ use yii\behaviors\TimestampBehavior;
  * @property int $created_at
  * @property int $updated_at
  *
- * @property StoreTag[] $storeTags
+ * @property StoreTag[] $tags
+ * @see Store::getTags()
  */
 class Store extends ActiveRecord
 {
@@ -43,10 +44,7 @@ class Store extends ActiveRecord
         return new StoreQuery(static::class);
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
-    public function getStoreTags(): ActiveQuery
+    public function getTags(): ActiveQuery
     {
         return $this->hasMany(StoreTag::class, ['id' => 'store_tag_id'])
             ->viaTable('store_tag_assn', ['store_id' => 'id'])
@@ -60,7 +58,7 @@ class Store extends ActiveRecord
         string|null $search = null,
     ): ActiveDataProvider {
         $query = static::find()
-            ->with(['storeTags']);
+            ->with(['tags']);
 
         if (null !== $country) {
             $query->country($country);
@@ -106,7 +104,7 @@ class Store extends ActiveRecord
             'taggable' => [
                 'class' => TaggableBehavior::class,
                 'tagValuesAsArray' => true,
-                'tagRelation' => 'storeTags',
+                'tagRelation' => 'tags',
             ],
         ];
     }

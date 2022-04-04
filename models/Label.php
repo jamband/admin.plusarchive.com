@@ -20,7 +20,8 @@ use yii\db\ActiveRecord;
  * @property int $created_at
  * @property int $updated_at
  *
- * @property LabelTag[] $labelTags
+ * @property LabelTag[] $tags
+ * @see Label::getTags()
  */
 class Label extends ActiveRecord
 {
@@ -43,10 +44,7 @@ class Label extends ActiveRecord
         return new LabelQuery(static::class);
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
-    public function getLabelTags(): ActiveQuery
+    public function getTags(): ActiveQuery
     {
         return $this->hasMany(LabelTag::class, ['id' => 'label_tag_id'])
             ->viaTable('label_tag_assn', ['label_id' => 'id'])
@@ -60,7 +58,7 @@ class Label extends ActiveRecord
         string|null $search = null,
     ): ActiveDataProvider {
         $query = static::find()
-            ->with(['labelTags']);
+            ->with(['tags']);
 
         if (null !== $country) {
             $query->country($country);
@@ -106,7 +104,7 @@ class Label extends ActiveRecord
             'taggable' => [
                 'class' => TaggableBehavior::class,
                 'tagValuesAsArray' => true,
-                'tagRelation' => 'labelTags',
+                'tagRelation' => 'tags',
             ],
         ];
     }

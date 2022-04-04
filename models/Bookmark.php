@@ -19,9 +19,10 @@ use yii\db\ActiveRecord;
  * @property string $link
  * @property int $created_at
  * @property int $updated_at
- * @property BookmarkTag[] $bookmarkTags
+ * @property BookmarkTag[] $tags
  *
  * @property string $statusText
+ * @see Bookmark::getTags()
  */
 class Bookmark extends ActiveRecord
 {
@@ -44,10 +45,7 @@ class Bookmark extends ActiveRecord
         return new BookmarkQuery(static::class);
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
-    public function getBookmarkTags(): ActiveQuery
+    public function getTags(): ActiveQuery
     {
         return $this->hasMany(BookmarkTag::class, ['id' => 'bookmark_tag_id'])
             ->viaTable('bookmark_tag_assn', ['bookmark_id' => 'id'])
@@ -61,7 +59,7 @@ class Bookmark extends ActiveRecord
         string|null $search = null,
     ): ActiveDataProvider {
         $query = static::find()
-            ->with(['bookmarkTags']);
+            ->with(['tags']);
 
         if (null !== $country) {
             $query->country($country);
@@ -107,7 +105,7 @@ class Bookmark extends ActiveRecord
             'taggable' => [
                 'class' => TaggableBehavior::class,
                 'tagValuesAsArray' => true,
-                'tagRelation' => 'bookmarkTags',
+                'tagRelation' => 'tags',
             ],
         ];
     }

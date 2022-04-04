@@ -57,7 +57,7 @@ $this->title = Yii::$app->name;
                                 <?= Html::encode($model->providerText) ?>
                             </a>
                             <?php /** @var MusicGenre $genre */ ?>
-                            <?php foreach ($model->musicGenres as $genre): ?>
+                            <?php foreach ($model->genres as $genre): ?>
                                 <a class="mb-2 tag" href="<?= Url::to(['', 'genre' => $genre->name]) ?>">
                                     <?= Html::encode($genre->name) ?>
                                 </a>

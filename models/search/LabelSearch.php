@@ -26,7 +26,7 @@ class LabelSearch extends Label
     public function search(array $params = []): ActiveDataProvider
     {
         $query = Label::find()
-            ->with(['labelTags']);
+            ->with(['tags']);
 
         $data = new ActiveDataProvider([
             'query' => $query,

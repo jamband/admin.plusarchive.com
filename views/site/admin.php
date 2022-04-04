@@ -50,7 +50,7 @@ $this->title = 'Admin - '.Yii::$app->name;
                         <a class="tag" href="<?= Url::to(['/track/admin', 'provider' => $track->providerText]) ?>">
                             <?= Html::encode($track->providerText) ?>
                         </a>
-                        <?php foreach ($track->musicGenres as $genre): ?>
+                        <?php foreach ($track->genres as $genre): ?>
                             <a class="mb-2 tag" href="<?= Url::to(['/track/admin', 'genre' => $genre->name]) ?>">
                                 <?= Html::encode($genre->name) ?>
                             </a>

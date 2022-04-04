@@ -26,7 +26,7 @@ class BookmarkSearch extends Bookmark
     public function search(array $params = []): ActiveDataProvider
     {
         $query = Bookmark::find()
-            ->with(['bookmarkTags']);
+            ->with(['tags']);
 
         $data = new ActiveDataProvider([
             'query' => $query,

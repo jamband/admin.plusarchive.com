@@ -26,7 +26,7 @@ class StoreSearch extends Store
     public function search(array $params = []): ActiveDataProvider
     {
         $query = Store::find()
-            ->with(['storeTags']);
+            ->with(['tags']);
 
         $data = new ActiveDataProvider([
             'query' => $query,

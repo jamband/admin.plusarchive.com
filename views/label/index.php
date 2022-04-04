@@ -46,7 +46,7 @@ $this->title = 'Labels - '.Yii::$app->name;
                         <section class="mb-1">
                             <span class="me-2 text-light"><?= Html::encode($model->getAttributeLabel('tagValues')) ?>:</span>
                             <?php /** @var LabelTag $tag */ ?>
-                            <?php foreach ($model->labelTags as $tag): ?>
+                            <?php foreach ($model->tags as $tag): ?>
                                 <a class="tag" href="<?= Url::to(['', 'tag' => $tag->name]) ?>">
                                     <?= Html::encode($tag->name) ?>
                                 </a>

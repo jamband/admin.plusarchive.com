@@ -23,8 +23,8 @@ class BookmarkTest extends Unit
         $this->assertSame(4, count($bookmarks));
         $this->assertSame('bookmark2', $bookmarks[0]->name);
 
-        $this->assertSame(1, count($bookmarks[1]->bookmarkTags));
-        $this->assertSame('tag1', $bookmarks[1]->bookmarkTags[0]->name);
+        $this->assertSame(1, count($bookmarks[1]->tags));
+        $this->assertSame('tag1', $bookmarks[1]->tags[0]->name);
 
         // sort=Name
         $bookmarks = Bookmark::all('Name')->models;

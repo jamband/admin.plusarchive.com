@@ -23,8 +23,8 @@ class StoreTest extends Unit
         $this->assertSame(4, count($stores));
         $this->assertSame('store2', $stores[0]->name);
 
-        $this->assertSame(1, count($stores[1]->storeTags));
-        $this->assertSame('tag1', $stores[1]->storeTags[0]->name);
+        $this->assertSame(1, count($stores[1]->tags));
+        $this->assertSame('tag1', $stores[1]->tags[0]->name);
 
         // sort=Name
         $stores = Store::all('Name')->models;

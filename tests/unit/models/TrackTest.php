@@ -38,8 +38,8 @@ class TrackTest extends Unit
         $this->assertSame(5, count($tracks));
         $this->assertSame('track4', $tracks[0]->title);
 
-        $this->assertSame(1, count($tracks[4]->musicGenres));
-        $this->assertSame('genre1', $tracks[4]->musicGenres[0]->name);
+        $this->assertSame(1, count($tracks[4]->genres));
+        $this->assertSame('genre1', $tracks[4]->genres[0]->name);
 
         // provider=YouTube
         $tracks = Track::all('YouTube')->models;
@@ -74,8 +74,8 @@ class TrackTest extends Unit
         $this->assertSame(5, count($tracks));
         $this->assertSame('track4', $tracks[0]->title);
 
-        $this->assertSame(1, count($tracks[4]->musicGenres));
-        $this->assertSame('genre1', $tracks[4]->musicGenres[0]->name);
+        $this->assertSame(1, count($tracks[4]->genres));
+        $this->assertSame('genre1', $tracks[4]->genres[0]->name);
 
         // sort=Title
         $tracks = Track::allasAdmin('Title')->models;

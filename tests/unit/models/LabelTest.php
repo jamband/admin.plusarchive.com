@@ -23,8 +23,8 @@ class LabelTest extends Unit
         $this->assertSame(4, count($labels));
         $this->assertSame('label2', $labels[0]->name);
 
-        $this->assertSame(1, count($labels[1]->labelTags));
-        $this->assertSame('tag1', $labels[1]->labelTags[0]->name);
+        $this->assertSame(1, count($labels[1]->tags));
+        $this->assertSame('tag1', $labels[1]->tags[0]->name);
 
         // sort=Name
         $labels = Label::all('Name')->models;

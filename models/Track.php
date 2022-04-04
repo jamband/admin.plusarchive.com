@@ -13,14 +13,12 @@ use yii\helpers\ArrayHelper;
 /**
  * @property string $tagValues
  *
- * @property musicGenre[] $musicGenres
+ * @property musicGenre[] $genres
+ * @see Track::getGenres()
  */
 class Track extends Music
 {
-    /**
-     * @noinspection PhpUnused
-     */
-    public function getMusicGenres(): ActiveQuery
+    public function getGenres(): ActiveQuery
     {
         return $this->hasMany(MusicGenre::class, ['id' => 'music_genre_id'])
             ->viaTable('music_genre_assn', ['music_id' => 'id'])
@@ -38,7 +36,7 @@ class Track extends Music
         string|null $search = null,
     ): ActiveDataProvider {
         $query = static::find()
-            ->with(['musicGenres']);
+            ->with(['genres']);
 
         if (null !== $provider) {
             $query->provider($provider);
@@ -70,7 +68,7 @@ class Track extends Music
         string|null $search = null,
     ): ActiveDataProvider {
         $query = static::find()
-            ->with(['musicGenres']);
+            ->with(['genres']);
 
         if (null !== $provider) {
             $query->provider($provider);
@@ -106,7 +104,7 @@ class Track extends Music
             'taggable' => [
                 'class' => TaggableBehavior::class,
                 'tagValuesAsArray' => true,
-                'tagRelation' => 'musicGenres',
+                'tagRelation' => 'genres',
             ],
         ]);
     }
