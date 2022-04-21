@@ -23,10 +23,10 @@ use yii\helpers\Url;
         <?= Html::encode($country ?? 'Countries') ?> <i class="fas fa-fw fa-sm fa-angle-down"></i>
     </a>
     <ul class="dropdown-menu scrollable-menu">
-        <a class="dropdown-item" href="<?= Url::currentPlus(['country' => null, 'search' => null]) ?>">Reset</a>
+        <a class="dropdown-item" href="<?= Url::current(['country' => null, 'search' => null, 'page' => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
         <?php foreach (Label::getCountries() as $country): ?>
-            <a class="dropdown-item" href="<?= Url::currentPlus(['country' => $country, 'search' => null]) ?>"><?= Html::encode($country) ?></a>
+            <a class="dropdown-item" href="<?= Url::current(['country' => $country, 'search' => null, 'page' => null]) ?>"><?= Html::encode($country) ?></a>
         <?php endforeach ?>
     </ul>
 </div>
@@ -35,10 +35,10 @@ use yii\helpers\Url;
         <?= Html::encode($tag ?? 'Tags') ?> <i class="fas fa-fw fa-sm fa-angle-down"></i>
     </a>
     <ul class="dropdown-menu">
-        <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => null, 'search' => null]) ?>">Reset</a>
+        <a class="dropdown-item" href="<?= Url::current(['tag' => null, 'search' => null, 'page' => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
         <?php foreach (LabelTag::getNames() as $tag): ?>
-            <a class="dropdown-item" href="<?= Url::currentPlus(['tag' => $tag, 'search' => null]) ?>"><?= Html::encode($tag) ?></a>
+            <a class="dropdown-item" href="<?= Url::current(['tag' => $tag, 'search' => null, 'page' => null]) ?>"><?= Html::encode($tag) ?></a>
         <?php endforeach ?>
     </ul>
 </div>

@@ -26,10 +26,10 @@ use yii\helpers\Url;
                     <?= Html::encode($provider ?? 'Providers') ?> <i class="fas fa-fw fa-sm fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?= Url::currentPlus(['provider' => null, 'search' => null]) ?>">Reset</a>
+                    <a class="dropdown-item" href="<?= Url::current(['provider' => null, 'search' => null, 'page' => null]) ?>">Reset</a>
                     <div class="dropdown-divider"></div>
                     <?php foreach (Music::PROVIDERS as $provider): ?>
-                        <a class="dropdown-item" href="<?= Url::currentPlus(['provider' => $provider, 'search' => null]) ?>"><?= Html::encode($provider) ?></a>
+                        <a class="dropdown-item" href="<?= Url::current(['provider' => $provider, 'search' => null, 'page' => null]) ?>"><?= Html::encode($provider) ?></a>
                     <?php endforeach ?>
                 </div>
             </div>
@@ -38,10 +38,10 @@ use yii\helpers\Url;
                     <?= Html::encode($genre ?? 'Genres') ?> <i class="fas fa-fw fa-sm fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => null, 'search' => null]) ?>">Reset</a>
+                    <a class="dropdown-item" href="<?= Url::current(['genre' => null, 'search' => null, 'page' => null]) ?>">Reset</a>
                     <div class="dropdown-divider"></div>
                     <?php foreach (MusicGenre::getNames() as $genre): ?>
-                        <a class="dropdown-item" href="<?= Url::currentPlus(['genre' => $genre, 'search' => null]) ?>"><?= Html::encode($genre) ?></a>
+                        <a class="dropdown-item" href="<?= Url::current(['genre' => $genre, 'search' => null, 'page' => null]) ?>"><?= Html::encode($genre) ?></a>
                     <?php endforeach ?>
                 </div>
             </div>

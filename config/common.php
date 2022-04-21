@@ -6,13 +6,11 @@ use app\components\Hashids;
 use yii\caching\ApcCache;
 use yii\db\Connection;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\log\FileTarget;
 use yii\rbac\PhpManager;
 
 Yii::$classMap = [
     Html::class => '@app/helpers/Html.php',
-    Url::class => '@app/helpers/Url.php',
 ];
 
 return [
