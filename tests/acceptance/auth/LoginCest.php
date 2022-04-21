@@ -26,7 +26,7 @@ class LoginCest
      */
     public function ensureThatLoginWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::to(['/auth/login/index']));
+        $I->amOnPage(Url::toRoute('/login'));
         $I->see('Log in', 'h1');
 
         $I->click('button[type=submit]');
@@ -40,9 +40,9 @@ class LoginCest
         $I->fillField('#loginform-password', 'adminadmin');
         $I->click('button[type=submit]');
         $I->waitForText('Admin', selector: '.navbar');
-        $I->seeCurrentUrlEquals('/index-test.php');
+        $I->seeCurrentUrlEquals(Url::home());
 
-        $I->amOnPage(Url::to(['/auth/login/index']));
-        $I->seeCurrentUrlEquals('/index-test.php');
+        $I->amOnPage(Url::toRoute('/login'));
+        $I->seeCurrentUrlEquals(Url::home());
     }
 }

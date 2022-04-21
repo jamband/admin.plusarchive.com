@@ -11,4 +11,4 @@ modules:
 
     - Yii2:
         part: [fixtures]
-        entryScript: index-test.php
+        entryScript: /index-test.php

@@ -10,6 +10,7 @@ use yii\data\Pagination;
 use yii\data\Sort as BaseSort;
 use yii\debug\Module as DebugModule;
 use yii\filters\AjaxFilter;
+use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\web\JqueryAsset;
@@ -17,11 +18,12 @@ use yii\widgets\ActiveField;
 use yii\widgets\ActiveForm;
 use yii\widgets\DetailView;
 use yii\widgets\LinkPager;
+use yii\widgets\Pjax;
 use yii\widgets\PjaxAsset;
 
 $config = [
     'id' => 'web',
-    // 'catchAll' => ['site/offline/index'],
+//    'catchAll' => ['site/offline/index'],
     'components' => [
         'request' => [
             'cookieValidationKey' => $_SERVER['COOKIE_VALIDATION_KEY'],
@@ -31,21 +33,7 @@ $config = [
             'enableAutoLogin' => true,
             'loginUrl' => ['auth/login/index'],
         ],
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'enableStrictParsing' => true,
-            'rules' => [
-                '<controller:(track|playlist|label|store|bookmark)>s' => '<controller>/index',
-                '<controller:(login|logout|signup)>' => 'auth/<controller>/index',
-                '<controller:(about|admin|contact|offline|privacy|privacy-consent|privacy-opt-out|third-party-licenses)>' => 'site/<controller>/index',
-                '<controller:\w+>s/<id:\d+>' => '<controller>/view',
-                '<controller:[\w-]+>s/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:[\w-]+>s/<action:(admin|create|now|list|stop-all-urge)>' => '<controller>/<action>',
-                '<controller:(track|playlist)>s/<id:[\w-]+>' => '<controller>/view',
-                '' => 'site/home/index',
-            ],
-        ],
+        'urlManager' => require __DIR__.'/routes.php',
         'errorHandler' => [
             /** @see ErrorController */
             'errorAction' => 'site/error/index',
@@ -80,6 +68,16 @@ $config = [
                 'layout' => '{items}',
                 'tableOptions' => ['class' => 'table table-striped table-bordered'],
             ],
+            ActionColumn::class => [
+                'icons' => [
+                    'eye-open' => '<i class="fas fa-fw fa-eye"></i>',
+                    'pencil' => '<i class="fas fa-fw fa-edit"></i>',
+                    'trash' => '<i class="fas fa-fw fa-trash"></i>',
+                ],
+                'buttonOptions' => [
+                    'class' => 'me-0 tag',
+                ],
+            ],
             ActiveField::class => [
                 'options' => ['class' => 'mb-3'],
                 'errorOptions' => ['class' => 'invalid-feedback'],
@@ -106,6 +104,9 @@ $config = [
                 'linkOptions' => ['class' => 'page-link'],
                 'disabledListItemSubTagOptions' => ['tag' => 'span', 'class' => 'page-link'],
                 'options' => ['class' => 'pagination my-4 text-center'],
+            ],
+            Pjax::class => [
+                'scrollTo' => 0,
             ],
         ],
     ],

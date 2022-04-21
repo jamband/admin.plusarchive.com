@@ -14,14 +14,14 @@ use yii\helpers\Url;
         <i class="fas fa-fw fa-sm fa-angle-down"></i>
     </a>
     <div class="dropdown-menu">
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/track/admin']) ?>">Tracks</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/playlist/admin']) ?>">Playlists</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/music-genre/admin']) ?>">MusicGenres</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/label/admin']) ?>">Labels</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/label-tag/admin']) ?>">LabelTags</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/store/admin']) ?>">Stores</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/store-tag/admin']) ?>">StoreTags</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/bookmark/admin']) ?>">Bookmarks</a>
-        <a class="dropdown-item" data-pjax="0" href="<?= Url::to(['/bookmark-tag/admin']) ?>">BookmarkTags</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/tracks/admin') ?>">Tracks</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/playlists/admin') ?>">Playlists</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/musicGenres/admin') ?>">MusicGenres</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/labels/admin') ?>">Labels</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/labelTags/admin') ?>">LabelTags</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/stores/admin') ?>">Stores</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/storeTags/admin') ?>">StoreTags</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/bookmarks/admin') ?>">Bookmarks</a>
+        <a class="dropdown-item" data-pjax="0" href="<?= Url::toRoute('/bookmarkTags/admin') ?>">BookmarkTags</a>
     </div>
 </div>

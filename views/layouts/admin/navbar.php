@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$cid = Yii::$app->controller->id;
+[$group, $action] = explode('/', Yii::$app->controller->id);
 ?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
@@ -17,38 +17,38 @@ $cid = Yii::$app->controller->id;
         </button>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <div class="d-md-none navbar-nav">
-                <a class="nav-link<?= 'site/admin' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/site/admin/index']) ?>">Admin</a>
-                <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/track/index']) ?>">Tracks</a>
-                <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/playlist/index']) ?>">Playlists</a>
-                <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/label/index']) ?>">Labels</a>
-                <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/store/index']) ?>">Stores</a>
-                <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/bookmark/index']) ?>">Bookmarks</a>
-                <a class="nav-link<?= 'auth/signup' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/auth/signup/index']) ?>">Signup</a>
-                <a class="nav-link" href="<?= Url::to(['/auth/logout/index']) ?>" data-method="post">Logout</a>
-                <a class="nav-link<?= 'site/about' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/site/about/index']) ?>">About</a>
-                <a class="nav-link<?= 'site/privacy' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/site/privacy/index']) ?>">Privacy</a>
-                <a class="nav-link<?= 'site/contact' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/site/contact/index']) ?>">Contact</a>
-                <a class="nav-link<?= 'site/third-party-licenses' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/site/third-party-licenses/index']) ?>">Third Party Licenses</a>
+                <a class="nav-link<?= 'site/admin' === $group.'/'.$action ? ' active' : '' ?>" href="<?= Url::toRoute('/admin') ?>">Admin</a>
+                <a class="nav-link<?= 'tracks' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/tracks') ?>">Tracks</a>
+                <a class="nav-link<?= 'playlists' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/playlists') ?>">Playlists</a>
+                <a class="nav-link<?= 'labels' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/labels') ?>">Labels</a>
+                <a class="nav-link<?= 'stores' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/stores') ?>">Stores</a>
+                <a class="nav-link<?= 'bookmarks' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/bookmarks') ?>">Bookmarks</a>
+                <a class="nav-link<?= 'signup' === $action ? ' active' : '' ?>" href="<?= Url::toRoute('/signup') ?>">Signup</a>
+                <a class="nav-link" href="<?= Url::toRoute('/logout') ?>" data-method="post">Logout</a>
+                <a class="nav-link<?= 'about' === $action ? ' active' : '' ?>" href="<?= Url::toRoute('/about') ?>">About</a>
+                <a class="nav-link<?= 'privacy' === $action ? ' active' : '' ?>" href="<?= Url::toRoute(['/privacy']) ?>">Privacy</a>
+                <a class="nav-link<?= 'contact' === $action ? ' active' : '' ?>" href="<?= Url::toRoute(['/contact']) ?>">Contact</a>
+                <a class="nav-link<?= 'third-party-licenses' === $action ? ' active' : '' ?>" href="<?= Url::toRoute(['/third-party-licenses']) ?>">Third Party Licenses</a>
             </div>
             <div id="navbar" class="d-none d-md-flex navbar-nav">
-                <a class="nav-link<?= 'site/admin' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/site/admin/index']) ?>">Admin</a>
-                <a class="nav-link<?= 'track' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/track/index']) ?>">Tracks</a>
-                <a class="nav-link<?= 'playlist' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/playlist/index']) ?>">Playlists</a>
-                <a class="nav-link<?= 'label' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/label/index']) ?>">Labels</a>
-                <a class="nav-link<?= 'store' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/store/index']) ?>">Stores</a>
-                <a class="nav-link<?= 'bookmark' === $cid ? ' active' : '' ?>" href="<?= Url::to(['/bookmark/index']) ?>">Bookmarks</a>
+                <a class="nav-link<?= 'site/admin' === $group.'/'.$action ? ' active' : '' ?>" href="<?= Url::toRoute('/admin') ?>">Admin</a>
+                <a class="nav-link<?= 'tracks' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/tracks') ?>">Tracks</a>
+                <a class="nav-link<?= 'playlists' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/playlists') ?>">Playlists</a>
+                <a class="nav-link<?= 'labels' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/labels') ?>">Labels</a>
+                <a class="nav-link<?= 'stores' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/stores') ?>">Stores</a>
+                <a class="nav-link<?= 'bookmarks' === $group ? ' active' : '' ?>" href="<?= Url::toRoute('/bookmarks') ?>">Bookmarks</a>
                 <div class="dropdown">
                     <a class="nav-link" href="#" id="dropdownMoreLinks" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-h"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMoreLinks">
-                        <a class="dropdown-item" href="<?= Url::to(['/auth/signup/index']) ?>">Signup</a>
-                        <a class="dropdown-item" href="<?= Url::to(['/auth/logout/index']) ?>" data-method="post">Logout</a>
+                        <a class="dropdown-item" href="<?= Url::toRoute('/signup') ?>">Signup</a>
+                        <a class="dropdown-item" href="<?= Url::toRoute('/logout') ?>" data-method="post">Logout</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= Url::to(['/site/about/index']) ?>">About</a>
-                        <a class="dropdown-item" href="<?= Url::to(['/site/privacy/index']) ?>">Privacy</a>
-                        <a class="dropdown-item" href="<?= Url::to(['/site/contact/index']) ?>">Contact</a>
-                        <a class="dropdown-item" href="<?= Url::to(['/site/third-party-licenses/index']) ?>">Third Party Licenses</a>
+                        <a class="dropdown-item" href="<?= Url::toRoute('/about') ?>">About</a>
+                        <a class="dropdown-item" href="<?= Url::toRoute('/privacy') ?>">Privacy</a>
+                        <a class="dropdown-item" href="<?= Url::toRoute('/contact') ?>">Contact</a>
+                        <a class="dropdown-item" href="<?= Url::toRoute('/third-party-licenses') ?>">Third Party Licenses</a>
                     </div>
                 </div>
             </div>

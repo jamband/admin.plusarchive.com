@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace app\controllers\site;
 
-use app\controllers\Controller;
 use Yii;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 class OfflineController extends Controller

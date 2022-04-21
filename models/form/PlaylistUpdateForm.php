@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models\form;
 
 use app\models\Music;
-use app\models\NotFoundModelException;
 use app\models\Playlist;
 use yii\helpers\ArrayHelper;
 
@@ -19,14 +18,12 @@ class PlaylistUpdateForm extends PlaylistForm
     {
         $this->_playlist = Playlist::findOne($id);
 
-        if (null === $this->_playlist) {
-            throw new NotFoundModelException;
+        if (null !== $this->_playlist) {
+            $this->id = $this->_playlist->id;
+            $this->url = $this->_playlist->url;
+            $this->title = $this->_playlist->title;
+            $this->image = $this->_playlist->image;
         }
-
-        $this->id = $id;
-        $this->url = $this->_playlist->url;
-        $this->title = $this->_playlist->title;
-        $this->image = $this->_playlist->image;
 
         parent::__construct($config);
     }

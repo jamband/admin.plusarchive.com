@@ -19,7 +19,7 @@ class PrivacyCest
      */
     public function ensureThatPrivacyWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::to(['/site/privacy/index']));
+        $I->amOnPage(Url::toRoute('/privacy'));
         $I->see('Privacy Policy', 'h1');
     }
 }

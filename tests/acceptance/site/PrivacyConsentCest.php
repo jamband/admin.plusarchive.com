@@ -20,11 +20,11 @@ class PrivacyConsentCest
      */
     public function ensureThatPrivacyConsentWorks(AcceptanceTester $I): void
     {
-        $I->seeBadRequest(['/site/privacy-consent/index']);
+        $I->seeBadRequest('/privacy-consent');
 
-        $I->amOnPage(Url::to(['/']));
+        $I->amOnPage(Url::toRoute('/'));
         $I->click('Privacy Policy', 'footer');
-        $I->seeCurrentUrlEquals('/index-test.php/privacy');
+        $I->seeCurrentUrlEquals(Url::toRoute('/privacy'));
 
         $I->click('ACCEPT', 'footer');
         $I->waitForText(Yii::$app->name, selector: 'footer');

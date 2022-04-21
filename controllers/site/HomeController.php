@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace app\controllers\site;
 
-use app\controllers\Controller;
-use app\models\Track;
 use app\models\MusicGenre;
+use app\models\Track;
 use yii\data\ActiveDataProvider;
+use yii\web\Controller;
 
 class HomeController extends Controller
 {

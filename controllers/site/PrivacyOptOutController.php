@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace app\controllers\site;
 
-use app\controllers\Controller;
 use Yii;
 use yii\filters\AjaxFilter;
+use yii\web\Controller;
 
 class PrivacyOptOutController extends Controller
 {

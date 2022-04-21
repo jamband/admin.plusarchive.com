@@ -19,7 +19,7 @@ class ContactCest
      */
     public function ensureThatContactWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::to(['/site/contact/index']));
+        $I->amOnPage(Url::toRoute('/contact'));
         $I->see('Contact', 'h1');
     }
 }

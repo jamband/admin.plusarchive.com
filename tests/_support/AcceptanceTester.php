@@ -26,31 +26,31 @@ class AcceptanceTester extends Codeception\Actor
     public function loginAsAdmin(): void
     {
         $I = $this;
-        $I->amOnPage(Url::to(['/auth/login/index']));
+        $I->amOnPage(Url::toRoute('/login'));
         $I->fillField('#loginform-username', 'admin');
         $I->fillField('#loginform-password', 'adminadmin');
         $I->click('button[type=submit]');
         $I->waitForText('Logged in successfully.');
     }
 
-    public function seeBadRequest(array|string $url): void
+    public function seeBadRequest(string $url): void
     {
         $I = $this;
-        $I->amOnPage(Url::to($url));
+        $I->amOnPage(Url::toRoute($url));
         $I->see('Invalid request.');
     }
 
-    public function seePageNotFound(array|string $url): void
+    public function seePageNotFound(string $url): void
     {
         $I = $this;
-        $I->amOnPage(Url::to($url));
+        $I->amOnPage(Url::toRoute($url));
         $I->see('Page not found.');
     }
 
-    public function seeMethodNotAllowed(array|string $url): void
+    public function seeMethodNotAllowed(string $url): void
     {
         $I = $this;
-        $I->amOnPage(Url::to($url));
+        $I->amOnPage(Url::toRoute($url));
         $I->see('Method not allowed.');
     }
 }

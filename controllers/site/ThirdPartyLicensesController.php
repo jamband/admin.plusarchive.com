@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace app\controllers\site;
 
-use app\controllers\Controller;
 use Yii;
 use yii\helpers\Html;
+use yii\web\Controller;
 
 class ThirdPartyLicensesController extends Controller
 {

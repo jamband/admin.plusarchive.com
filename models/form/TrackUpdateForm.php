@@ -6,7 +6,6 @@ namespace app\models\form;
 
 use app\models\Music;
 use app\models\Track;
-use app\models\NotFoundModelException;
 use yii\helpers\ArrayHelper;
 
 class TrackUpdateForm extends TrackForm
@@ -19,16 +18,14 @@ class TrackUpdateForm extends TrackForm
     {
         $this->_track = Track::findOne($id);
 
-        if (null === $this->_track) {
-            throw new NotFoundModelException;
+        if (null !== $this->_track) {
+            $this->id = $this->_track->id;
+            $this->url = $this->_track->url;
+            $this->title = $this->_track->title;
+            $this->image = $this->_track->image;
+            $this->urge = $this->_track->urge;
+            $this->tagValues = $this->_track->tagValues;
         }
-
-        $this->id = $id;
-        $this->url = $this->_track->url;
-        $this->title = $this->_track->title;
-        $this->image = $this->_track->image;
-        $this->urge = $this->_track->urge;
-        $this->tagValues = $this->_track->tagValues;
 
         parent::__construct($config);
     }

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace app\controllers\auth;
 
-use app\controllers\Controller;
-use app\filters\AccessControl;
 use Yii;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\web\Controller;
 use yii\web\Response;
 
 class LogoutController extends Controller
@@ -26,9 +26,7 @@ class LogoutController extends Controller
             ],
             'verbs' => [
                 'class' => VerbFilter::class,
-                'actions' => [
-                    'index' => ['post'],
-                ],
+                'actions' => ['index' => ['POST']],
             ],
         ];
     }

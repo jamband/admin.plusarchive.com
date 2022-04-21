@@ -20,7 +20,7 @@ $this->title = Yii::$app->name;
         <div class="col-md-6 col-lg-4 mb-sm-4">
             <div class="card">
                 <div class="card-img-wrap">
-                    <a href="<?= Url::to(['/track/view', 'id' => Yii::$app->hashids->encode($model->id)]) ?>" class="d-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $model->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
+                    <a href="<?= Url::to(['/tracks/view/index', 'id' => Yii::$app->hashids->encode($model->id)]) ?>" class="d-block ratio <?= preg_match('/\A(Bandcamp|SoundCloud)\z/', $model->providerText) ? 'ratio-1x1' : 'ratio-16x9' ?>">
                         <?= Html::tag('img', '', [
                             'class' => 'card-img-top opacity-75',
                             'src' => Html::encode($model->image),
@@ -32,7 +32,7 @@ $this->title = Yii::$app->name;
                 </div>
                 <div class="card-body">
                     <h6 class="card-title">
-                        <a class="text-light" href="<?= Url::to(['/track/view', 'id' => Yii::$app->hashids->encode($model->id)]) ?>">
+                        <a class="text-light" href="<?= Url::to(['/tracks/view/index', 'id' => Yii::$app->hashids->encode($model->id)]) ?>">
                             <?= Html::encode($model->title) ?>
                         </a>
                     </h6>

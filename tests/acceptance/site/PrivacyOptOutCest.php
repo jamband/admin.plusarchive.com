@@ -20,9 +20,9 @@ class PrivacyOptOutCest
      */
     public function ensureThatPrivacyOptOutWorks(AcceptanceTester $I): void
     {
-        $I->seeBadRequest(['/site/privacy-opt-out/index']);
+        $I->seeBadRequest('/privacy-opt-out');
 
-        $I->amOnPage(Url::to(['/site/privacy/index']));
+        $I->amOnPage(Url::toRoute(['/privacy']));
         $I->see('Privacy Policy', 'footer');
         $I->dontSee(Yii::$app->name, 'footer');
 

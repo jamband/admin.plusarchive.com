@@ -18,6 +18,6 @@ class OfflineCest
      */
     public function ensureThatOfflineWorks(AcceptanceTester $I): void
     {
-        $I->seePageNotFound(['/site/offline/index']);
+        $I->seePageNotFound('/offline');
     }
 }

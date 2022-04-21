@@ -26,14 +26,12 @@ class SignupCest
      */
     public function ensureThatSignupWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::to(['/']));
-        $I->click('#dropdownMoreLinks');
-        $I->dontSee('Signup');
+        $I->amOnPage(Url::toRoute('/signup'));
+        $I->seeInCurrentUrl(Url::toRoute('/login'));
 
-        $I->seePageNotFound(['/auth/signup/index']);
         $I->loginAsAdmin();
 
-        $I->seeCurrentUrlEquals('/index-test.php');
+        $I->amOnPage(url::toRoute('/admin'));
         $I->click('#dropdownMoreLinks');
         $I->click('Signup', '.dropdown-menu');
         $I->see('Sign up', 'h1');
@@ -41,11 +39,11 @@ class SignupCest
         $I->click('button[type=submit]');
         $I->waitForElement('.is-invalid');
 
-        $I->fillField('#signupform-username', 'newuser');
-        $I->fillField('#signupform-email', 'newuser@example.com');
-        $I->fillField('#signupform-password', 'newusernewuser');
+        $I->fillField('#signupform-username', 'new_user');
+        $I->fillField('#signupform-email', 'new_user@example.com');
+        $I->fillField('#signupform-password', 'new_user_new_user');
         $I->click('button[type=submit]');
         $I->waitForText('Signed up successfully.');
-        $I->seeCurrentUrlEquals('/index-test.php');
+        $I->seeCurrentUrlEquals(Url::home());
     }
 }

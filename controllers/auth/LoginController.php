@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace app\controllers\auth;
 
-use app\controllers\Controller;
 use app\models\form\LoginForm;
 use Yii;
+use yii\web\Controller;
 use yii\web\Response;
 
 class LoginController extends Controller
@@ -17,7 +17,7 @@ class LoginController extends Controller
             return $this->goHome();
         }
 
-        $model = new LoginForm;
+        $model = new LoginForm();
 
         if ($model->load($this->request->post()) && $model->login()) {
             Yii::$app->session->setFlash('notification', 'Logged in successfully.');

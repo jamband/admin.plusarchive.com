@@ -26,18 +26,15 @@ class LogoutCest
      */
     public function ensureThatLogoutWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::to(['/auth/login/index']));
-        $I->see('Log in', 'h1');
-        $I->dontSee('Admin', '.navbar');
+        $I->amOnPage(Url::toRoute('/logout'));
+        $I->seeInCurrentUrl(Url::toRoute('/login'));
 
         $I->loginAsAdmin();
-        $I->see('Admin', '.navbar');
 
+        $I->amOnPage(Url::toRoute('/admin'));
         $I->click('#dropdownMoreLinks');
         $I->click('Logout', '.dropdown-menu');
-
-        $I->click('#dropdownMoreLinks');
-        $I->dontSee('Logout');
-        $I->seeCurrentUrlEquals('/index-test.php');
+        $I->waitForText('Logged out successfully.');
+        $I->seeCurrentUrlEquals(Url::home());
     }
 }

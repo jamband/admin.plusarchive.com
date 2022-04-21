@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace app\controllers\site;
 
-use app\controllers\Controller;
-use app\filters\AccessControl;
 use app\models\Track;
+use yii\filters\AccessControl;
+use yii\web\Controller;
 
 class AdminController extends Controller
 {
+    public $layout = 'admin/main';
+
     public function behaviors(): array
     {
         return [

@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace app\controllers\auth;
 
-use app\controllers\Controller;
-use app\filters\AccessControl;
 use app\models\form\SignupForm;
 use Yii;
+use yii\filters\AccessControl;
+use yii\web\Controller;
 use yii\web\Response;
 
 class SignupController extends Controller
 {
+    public $layout = 'admin/main';
+
     public function behaviors(): array
     {
         return [
@@ -29,7 +31,7 @@ class SignupController extends Controller
 
     public function actionIndex(): string|Response
     {
-        $model = new SignupForm;
+        $model = new SignupForm();
 
         if ($model->load($this->request->post())) {
             $user = $model->signup();
@@ -37,7 +39,7 @@ class SignupController extends Controller
             if (null !== $user && Yii::$app->user->login($user)) {
                 Yii::$app->session->setFlash('notification', 'Signed up successfully.');
 
-                return $this->goBack();
+                return $this->goHome();
             }
         }
 

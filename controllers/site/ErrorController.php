@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace app\controllers\site;
 
-use app\controllers\Controller;
+use yii\web\Controller;
 use yii\web\ErrorAction;
 
 class ErrorController extends Controller

@@ -27,7 +27,7 @@ class HomeCest
      */
     public function ensureThatAboutWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::to(['/']));
+        $I->amOnPage(Url::toRoute('/'));
         $I->see('Recent favorite tracks', 'h1');
         $I->see('Search by genres', 'h1');
 
@@ -36,15 +36,15 @@ class HomeCest
         $I->see('track3', '.card-title');
 
         $I->click('genre1');
-        $I->seeCurrentUrlEquals('/index-test.php/tracks?genre=genre1');
+        $I->seeCurrentUrlEquals(Url::toRoute('/tracks?genre=genre1'));
         $I->moveBack();
 
         $I->click('Go to Tracks');
-        $I->seeCurrentUrlEquals('/index-test.php/tracks');
+        $I->seeCurrentUrlEquals(Url::toRoute('/tracks'));
         $I->moveBack();
 
         $I->click(Locator::elementAt('//a[contains(text(), "Playlists")]', 2));
-        $I->seeCurrentUrlEquals('/index-test.php/playlists');
+        $I->seeCurrentUrlEquals(Url::toRoute('/playlists'));
         $I->moveBack();
     }
 }

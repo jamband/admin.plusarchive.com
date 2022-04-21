@@ -19,7 +19,7 @@ class AboutCest
      */
     public function ensureThatAboutWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::to(['/site/about/index']));
+        $I->amOnPage(Url::toRoute('/about'));
         $I->see('About', 'h1');
     }
 }

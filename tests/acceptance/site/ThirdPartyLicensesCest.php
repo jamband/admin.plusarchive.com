@@ -19,7 +19,7 @@ class ThirdPartyLicensesCest
      */
     public function ensureThatThirdPartyLicensesWorks(AcceptanceTester $I): void
     {
-        $I->amOnPage(Url::to(['/site/third-party-licenses/index']));
+        $I->amOnPage(Url::toRoute('/third-party-licenses'));
         $I->see('Third-Party Licenses', 'h1');
         $I->see('jquery');
     }
