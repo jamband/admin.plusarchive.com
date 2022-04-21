@@ -11,11 +11,11 @@ class Html extends BaseHtml
 {
     public static function asset(string $file): string
     {
-        $manifest = Yii::getAlias('@app/web/assets/manifest.json');
+        $manifestPath = Yii::getAlias('@app/web/assets/manifest.json');
 
-        $manifest = file_exists($manifest)
-            ? json_decode(file_get_contents($manifest))
-            : new stdClass;
+        $manifest = file_exists($manifestPath)
+            ? json_decode(file_get_contents($manifestPath))
+            : new stdClass();
 
         return property_exists($manifest, $file)
             ? '/assets/'.$manifest->$file
