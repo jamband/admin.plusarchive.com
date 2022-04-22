@@ -23,7 +23,7 @@ $this->title = 'Bookmarks - '.Yii::$app->name;
                 'country' => $country,
                 'tag' => $tag,
                 'search' => $search,
-                'pageParam' => $data->totalCount,
+                'pageParam' => $data->pagination->pageParam,
                 'total' => $data->totalCount,
             ]) ?>
             <h1 class="my-2">Bookmarks</h1>
