@@ -22,6 +22,7 @@ $this->title = Yii::$app->name;
             'provider' => $provider,
             'genre' => $genre,
             'search' => $search,
+            'pageParam' => $data->pagination->pageParam,
             'total' => $data->totalCount,
         ]) ?>
         <?php /** @var app\models\Track $model */ ?>

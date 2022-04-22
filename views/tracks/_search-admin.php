@@ -5,6 +5,7 @@
  * @var string|null $provider
  * @var string|null $genre
  * @var string|null $search
+ * @var string $pageParam
  */
 
 use app\models\Music;
@@ -25,10 +26,10 @@ use yii\helpers\Url;
                     <?= Html::encode($provider ?? 'Providers') ?> <i class="fas fa-fw fa-sm fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?= Url::current(['provider' => null, 'search' => null, 'page' => null]) ?>">Reset</a>
+                    <a class="dropdown-item" href="<?= Url::current(['provider' => null, 'search' => null, $pageParam => null]) ?>">Reset</a>
                     <div class="dropdown-divider"></div>
                     <?php foreach (Music::PROVIDERS as $provider): ?>
-                        <a class="dropdown-item" href="<?= Url::current(['provider' => $provider, 'search' => null, 'page' => null]) ?>"><?= Html::encode($provider) ?></a>
+                        <a class="dropdown-item" href="<?= Url::current(['provider' => $provider, 'search' => null, $pageParam => null]) ?>"><?= Html::encode($provider) ?></a>
                     <?php endforeach ?>
                 </div>
             </div>
@@ -37,10 +38,10 @@ use yii\helpers\Url;
                     <?= Html::encode($genre ?? 'Genres') ?> <i class="fas fa-fw fa-sm fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?= Url::current(['genre' => null, 'search' => null, 'page' => null]) ?>">Reset</a>
+                    <a class="dropdown-item" href="<?= Url::current(['genre' => null, 'search' => null, $pageParam => null]) ?>">Reset</a>
                     <div class="dropdown-divider"></div>
                     <?php foreach (MusicGenre::getNames() as $name): ?>
-                        <a class="dropdown-item" href="<?= Url::current(['genre' => $name, 'search' => null, 'page' => null]) ?>"><?= Html::encode($name) ?></a>
+                        <a class="dropdown-item" href="<?= Url::current(['genre' => $name, 'search' => null, $pageParam => null]) ?>"><?= Html::encode($name) ?></a>
                     <?php endforeach ?>
                 </div>
             </div>

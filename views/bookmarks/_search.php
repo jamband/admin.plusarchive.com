@@ -5,6 +5,7 @@
  * @var string|null $country
  * @var string|null $tag
  * @var string|null $search
+ * @var string $pageParam
  * @var int $total
  */
 
@@ -23,10 +24,10 @@ use yii\helpers\Url;
         <?= Html::encode($country ?? 'Countries') ?> <i class="fas fa-fw fa-sm fa-angle-down"></i>
     </a>
     <div class="dropdown-menu scrollable-menu">
-        <a class="dropdown-item" href="<?= Url::current(['country' => null, 'search' => null, 'page' => null]) ?>">Reset</a>
+        <a class="dropdown-item" href="<?= Url::current(['country' => null, 'search' => null, $pageParam => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
         <?php foreach (Bookmark::getCountries() as $country): ?>
-            <a class="dropdown-item" href="<?= Url::current(['country' => $country, 'search' => null, 'page' => null]) ?>"><?= Html::encode($country) ?></a>
+            <a class="dropdown-item" href="<?= Url::current(['country' => $country, 'search' => null, $pageParam => null]) ?>"><?= Html::encode($country) ?></a>
         <?php endforeach ?>
     </div>
 </div>
@@ -35,10 +36,10 @@ use yii\helpers\Url;
         <?= Html::encode($tag ?? 'Tags') ?> <i class="fas fa-fw fa-sm fa-angle-down"></i>
     </a>
     <div class="dropdown-menu">
-        <a class="dropdown-item" href="<?= Url::current(['tag' => null, 'search' => null, 'page' => null]) ?>">Reset</a>
+        <a class="dropdown-item" href="<?= Url::current(['tag' => null, 'search' => null, $pageParam => null]) ?>">Reset</a>
         <div class="dropdown-divider"></div>
         <?php foreach (BookmarkTag::getNames() as $tag): ?>
-            <a class="dropdown-item" href="<?= Url::current(['tag' => $tag, 'search' => null, 'page' => null]) ?>"><?= Html::encode($tag) ?></a>
+            <a class="dropdown-item" href="<?= Url::current(['tag' => $tag, 'search' => null, $pageParam => null]) ?>"><?= Html::encode($tag) ?></a>
         <?php endforeach ?>
     </div>
 </div>

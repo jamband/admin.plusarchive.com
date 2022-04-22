@@ -26,6 +26,7 @@ $this->title = 'Admin Tracks - '.Yii::$app->name;
             'provider' => $provider,
             'genre' => $genre,
             'search' => $search,
+            'pageParam' => $data->pagination->pageParam,
         ]) ?>
         <?php /** @var app\models\Track $model */ ?>
         <?php foreach ($data->models as $model): ?>
