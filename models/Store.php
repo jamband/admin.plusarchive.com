@@ -6,10 +6,9 @@ namespace app\models;
 
 use app\models\query\StoreQuery;
 use creocoder\taggable\TaggableBehavior;
-use yii\data\ActiveDataProvider;
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\behaviors\TimestampBehavior;
 
 /**
  * @property int $id
@@ -49,37 +48,6 @@ class Store extends ActiveRecord
         return $this->hasMany(StoreTag::class, ['id' => 'store_tag_id'])
             ->viaTable('store_tag_assn', ['store_id' => 'id'])
             ->orderBy(['name' => SORT_ASC]);
-    }
-
-    public static function all(
-        string|null $country = null,
-        string|null $tag = null,
-        string|null $search = null,
-    ): ActiveDataProvider {
-        $query = static::find()
-            ->with(['tags']);
-
-        if (null !== $country) {
-            $query->country($country);
-        }
-
-        if (null !== $tag) {
-            $query->allTagValues($tag);
-        }
-
-        if (null !== $search) {
-            $query->search($search)
-                ->inNameOrder();
-        } else {
-            $query->latest();
-        }
-
-        return new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => [
-                'pageSize' => 8,
-            ],
-        ]);
     }
 
     public function rules(): array

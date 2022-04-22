@@ -6,7 +6,6 @@ namespace app\models;
 
 use app\models\query\TrackQuery;
 use creocoder\taggable\TaggableBehavior;
-use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
 use yii\helpers\ArrayHelper;
 
@@ -28,69 +27,6 @@ class Track extends Music
     public static function find(): TrackQuery
     {
         return new TrackQuery(static::class);
-    }
-
-    public static function all(
-        string|null $provider = null,
-        string|null $genre = null,
-        string|null $search = null,
-    ): ActiveDataProvider {
-        $query = static::find()
-            ->with(['genres']);
-
-        if (null !== $provider) {
-            $query->provider($provider);
-        }
-
-        if (null === $search) {
-            $query->latest();
-        } else {
-            $query->search($search)
-                ->inTitleOrder();
-        }
-
-        if (null !== $genre && '' !== $genre) {
-            $query->allTagValues($genre);
-        }
-
-        return new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => [
-                'pageSize' => 24,
-            ],
-        ]);
-    }
-
-    public static function allAsAdmin(
-        string|null $sort = null,
-        string|null $provider = null,
-        string|null $genre = null,
-        string|null $search = null,
-    ): ActiveDataProvider {
-        $query = static::find()
-            ->with(['genres']);
-
-        if (null !== $provider) {
-            $query->provider($provider);
-        }
-
-        if (null === $search) {
-            $query->sort($sort);
-        } else {
-            $query->search($search)
-                ->inTitleOrder();
-        }
-
-        if (null !== $genre && '' !== $genre) {
-            $query->allTagValues($genre);
-        }
-
-        return new ActiveDataProvider([
-            'query' => $query,
-            'pagination' => [
-                'pageSize' => 24,
-            ],
-        ]);
     }
 
     public static function stopAllUrge(): void
