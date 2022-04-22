@@ -6,7 +6,9 @@ namespace app\models\search;
 
 use app\models\Bookmark;
 use app\models\BookmarkTag;
+use Yii;
 use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 
 class BookmarkSearch extends Bookmark
 {
@@ -28,12 +30,18 @@ class BookmarkSearch extends Bookmark
         $query = Bookmark::find()
             ->with(['tags']);
 
+        /** @var Pagination $pagination */
+        $pagination = Yii::createObject(Pagination::class);
+
         $data = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
                 'defaultOrder' => [
                     'created_at' => SORT_DESC,
                 ],
+                'params' => array_merge($params, [
+                    $pagination->pageParam => null,
+                ]),
             ],
         ]);
 

@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace app\models\search;
 
-use yii\data\ActiveDataProvider;
 use app\models\Store;
 use app\models\StoreTag;
+use Yii;
+use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 
 class StoreSearch extends Store
 {
@@ -28,12 +30,18 @@ class StoreSearch extends Store
         $query = Store::find()
             ->with(['tags']);
 
+        /** @var Pagination $pagination */
+        $pagination = Yii::createObject(Pagination::class);
+
         $data = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
                 'defaultOrder' => [
                     'created_at' => SORT_DESC,
                 ],
+                'params' => array_merge($params, [
+                    $pagination->pageParam => null,
+                ]),
             ],
         ]);
 

@@ -3,11 +3,9 @@
 declare(strict_types=1);
 
 use app\components\Formatter;
-use app\components\Sort;
 use app\controllers\site\ErrorController;
 use app\models\User;
 use yii\data\Pagination;
-use yii\data\Sort as BaseSort;
 use yii\debug\Module as DebugModule;
 use yii\filters\AjaxFilter;
 use yii\grid\ActionColumn;
@@ -54,9 +52,6 @@ $config = [
         'definitions' => [
             Pagination::class => [
                 'pageSizeParam' => false,
-            ],
-            BaseSort::class => [
-                'class' => Sort::class,
             ],
             AjaxFilter::class => [
                 'errorMessage' => 'Invalid request.',

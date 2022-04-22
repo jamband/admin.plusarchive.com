@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace app\models\search;
 
 use app\models\LabelTag;
+use Yii;
 use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 
 class LabelTagSearch extends LabelTag
 {
@@ -20,10 +22,18 @@ class LabelTagSearch extends LabelTag
     {
         $query = LabelTag::find();
 
+        /** @var Pagination $pagination */
+        $pagination = Yii::createObject(Pagination::class);
+
         $data = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
-                'defaultOrder' => ['created_at' => SORT_DESC],
+                'defaultOrder' => [
+                    'created_at' => SORT_DESC,
+                ],
+                'params' => array_merge($params, [
+                    $pagination->pageParam => null,
+                ]),
             ],
         ]);
 

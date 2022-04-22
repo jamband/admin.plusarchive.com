@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace app\models\search;
 
 use app\models\Music;
-use yii\data\ActiveDataProvider;
 use app\models\Playlist;
+use Yii;
+use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 
 class PlaylistSearch extends Playlist
 {
@@ -24,12 +26,18 @@ class PlaylistSearch extends Playlist
     {
         $query = static::find();
 
+        /** @var Pagination $pagination */
+        $pagination = Yii::createObject(Pagination::class);
+
         $data = new ActiveDataProvider([
             'query' => $query,
             'sort' => [
                 'defaultOrder' => [
                     'created_at' => SORT_DESC,
                 ],
+                'params' => array_merge($params, [
+                    $pagination->pageParam => null,
+                ]),
             ],
         ]);
 
