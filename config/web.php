@@ -140,4 +140,4 @@ if (YII_ENV_DEV) {
     ];
 }
 
-return ArrayHelper::merge(require __DIR__.'/common.php', $config);
+return ArrayHelper::merge(require __DIR__.'/base.php', $config);
