@@ -20,7 +20,7 @@ class TrackCreateForm extends TrackForm
     public function save(): bool
     {
         if ($this->validate()) {
-            $track = new Track;
+            $track = new Track();
             $track->url = $this->url;
             $track->title = $this->title;
             $track->image = $this->image;

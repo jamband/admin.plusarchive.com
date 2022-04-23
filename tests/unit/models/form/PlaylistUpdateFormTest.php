@@ -11,6 +11,7 @@ use app\tests\unit\fixtures\music\PlaylistUpdateFormFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
+/** @see PlaylistUpdateForm */
 class PlaylistUpdateFormTest extends Unit
 {
     protected UnitTester $tester;

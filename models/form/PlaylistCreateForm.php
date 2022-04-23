@@ -20,15 +20,15 @@ class PlaylistCreateForm extends PlaylistForm
     public function save(): bool
     {
         if ($this->validate()) {
-            $track = new Playlist;
-            $track->url = $this->url;
-            $track->title = $this->title;
-            $track->image = $this->image;
-            $track->provider = array_search($this->_ripple->provider(), Music::PROVIDERS, true);
-            $track->provider_key = $this->_ripple->id();
-            $track->type = Music::TYPE_PLAYLIST;
+            $playlist = new Playlist();
+            $playlist->url = $this->url;
+            $playlist->title = $this->title;
+            $playlist->image = $this->image;
+            $playlist->provider = array_search($this->_ripple->provider(), Music::PROVIDERS, true);
+            $playlist->provider_key = $this->_ripple->id();
+            $playlist->type = Music::TYPE_PLAYLIST;
 
-            return $track->save();
+            return $playlist->save();
         }
 
         return false;

@@ -7,52 +7,64 @@ namespace app\models\form;
 use Jamband\Ripple\Ripple;
 use Yii;
 use yii\base\Model;
+use yii\validators\InlineValidator;
 
 class PlaylistForm extends Model
 {
-    public $url;
-    public $title;
-    public $image;
+    public string|null $url = null;
+    public string|null $title = null;
+    public string|null $image = null;
 
     protected Ripple $_ripple;
 
     public function __construct($config = [])
     {
-        $this->_ripple = Yii::$container->get(Ripple::class);
+        $this->_ripple = Yii::createObject(Ripple::class);
 
         parent::__construct($config);
+    }
+
+    public function attributeLabels(): array
+    {
+        return [
+            'url' => 'URL',
+        ];
     }
 
     public function rules(): array
     {
         return [
-            [['url'], 'required'],
-            [['url', 'title', 'image'], 'trim'],
-            [['url', 'image'], 'url'],
+            ['url', 'required'],
+            ['url', 'trim'],
+            ['url', 'url'],
+            ['url', 'validateValidUrl'], /** @see validateValidUrl */
+            ['url', 'validateHasContent'], /** @see validateHasContent */
 
-            ['url', 'validateValidUrl'],
-            ['url', 'validateHasContent'],
+            ['title', 'trim'],
             ['title', 'string', 'max' => 200],
+
+            ['image', 'trim'],
+            ['image', 'url'],
         ];
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
-    public function validateValidUrl(string $attribute): void
-    {
+    public function validateValidUrl(
+        string $attribute,
+        /** @noinspection PhpUnusedParameterInspection */ mixed $params,
+        InlineValidator $validator,
+    ): void {
         if (null === $this->_ripple->url()) {
-            $this->addError($attribute, 'The URL is invalid.');
+            $validator->addError($this, $attribute, 'The {attribute} is invalid.');
         }
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
-    public function validateHasContent(string $attribute): void
-    {
+    public function validateHasContent(
+        string $attribute,
+        /** @noinspection PhpUnusedParameterInspection */ mixed $params,
+        InlineValidator $validator
+    ): void {
         if (null === $this->_ripple->id()) {
-            $this->addError($attribute, 'Unable to retrieve the contents from the URL.');
+            $validator->addError($this, $attribute, 'Unable to retrieve the contents from the {attribute}.');
         }
     }
 

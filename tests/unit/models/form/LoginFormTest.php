@@ -10,6 +10,7 @@ use Codeception\Test\Unit;
 use UnitTester;
 use Yii;
 
+/** @see LoginForm */
 class LoginFormTest extends Unit
 {
     protected UnitTester $tester;
@@ -19,7 +20,7 @@ class LoginFormTest extends Unit
         $fixtures['users'] = LoginFormFixture::class;
         $this->tester->haveFixtures($fixtures);
 
-        $model = new LoginForm;
+        $model = new LoginForm();
         $model->username = 'foo';
         $model->password = 'bar';
 
@@ -34,7 +35,7 @@ class LoginFormTest extends Unit
         $this->tester->haveFixtures($fixtures);
         $user = $this->tester->grabFixture('users', 'user1');
 
-        $model = new LoginForm;
+        $model = new LoginForm();
         $model->username = $user['username'];
         $model->password = str_repeat($user['username'], 2);
 

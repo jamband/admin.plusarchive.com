@@ -10,9 +10,9 @@ use yii\base\Model;
 
 class LoginForm extends Model
 {
-    public $username;
-    public $password;
-    public $rememberMe = true;
+    public string|null $username = null;
+    public string|null $password = null;
+    public bool $rememberMe = true;
 
     private User|null|bool $_user = false;
 
@@ -26,16 +26,15 @@ class LoginForm extends Model
     public function rules(): array
     {
         return [
-            [['username', 'password'], 'required'],
+            ['username', 'required'],
 
-            ['password', 'validatePassword'],
+            ['password', 'required'],
+            ['password', 'validatePassword'], /** @see validatePassword */
+
             ['rememberMe', 'boolean'],
         ];
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
     public function validatePassword(): void
     {
         if (!$this->hasErrors()) {

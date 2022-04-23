@@ -19,7 +19,7 @@ class TrackCreateFormFixture extends BaseTrackFixture
                 'title' => 'track1',
                 'image' => 'http://dev.plusarchive:8080/assets/favicon.png',
                 'type' => Music::TYPE_TRACK,
-                'urge' => false,
+                'urge' => 0,
                 'created_at' => time(),
                 'updated_at' => time(),
             ],

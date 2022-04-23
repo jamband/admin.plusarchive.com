@@ -10,13 +10,14 @@ use app\tests\unit\fixtures\auth\SignupFormFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
+/** @see SignupForm */
 class SignupFormTest extends Unit
 {
     protected UnitTester $tester;
 
     public function testSignupFails(): void
     {
-        $model = new SignupForm;
+        $model = new SignupForm();
         $this->assertNull($model->signup());
     }
 
@@ -26,7 +27,7 @@ class SignupFormTest extends Unit
         $this->tester->haveFixtures($fixtures);
         $user1 = $this->tester->grabFixture('users', 'user1');
 
-        $model = new SignupForm;
+        $model = new SignupForm();
         $model->username = $user1->username;
 
         $this->assertNull($model->signup());
@@ -35,7 +36,7 @@ class SignupFormTest extends Unit
 
     public function testSignup(): void
     {
-        $model = new SignupForm;
+        $model = new SignupForm();
         $model->username = 'new_user';
         $model->email = 'new_user@example.com';
         $model->password = str_repeat('new_user', 2);

@@ -5,30 +5,27 @@ declare(strict_types=1);
 namespace app\models\form;
 
 use app\models\Music;
+use app\models\Track;
 use Jamband\Ripple\Ripple;
 use Yii;
 use yii\base\Model;
-use app\models\Track;
 use yii\validators\InlineValidator;
 
 class TrackForm extends Model
 {
-    public $url;
-    public $title;
-    public $image;
-    public $urge;
-    public $tagValues;
+    public string|null $url = null;
+    public string|null $title = null;
+    public string|null $image = null;
+    public int $urge = 0;
+    public array|string|null $tagValues = null;
 
     private const URGE_LIMIT = 6;
 
     protected Ripple $_ripple;
 
-    /**
-     * @param array $config
-     */
     public function __construct($config = [])
     {
-        $this->_ripple = Yii::$container->get(Ripple::class);
+        $this->_ripple = Yii::createObject(Ripple::class);
 
         parent::__construct($config);
     }
@@ -43,46 +40,51 @@ class TrackForm extends Model
     public function rules(): array
     {
         return [
-            [['url'], 'required'],
-            [['url', 'title', 'image'], 'trim'],
-            [['url', 'image'], 'url'],
+            ['url', 'required'],
+            ['url', 'trim'],
+            ['url', 'url'],
+            ['url', 'validateValidUrl'], /** @see validateValidUrl */
+            ['url', 'validateHasContent'], /** @see validateHasContent */
 
-            ['url', 'validateValidUrl'],
-            ['url', 'validateHasContent'],
+            ['title', 'trim'],
             ['title', 'string', 'max' => 200],
+
+            ['image', 'trim'],
+            ['image', 'url'],
+
             ['urge', 'boolean'],
             ['urge', 'default', 'value' => false],
-            ['urge', 'validateLimit'],
+            ['urge', 'validateLimit'], /** @see validateLimit */
+
             ['tagValues', 'safe'],
         ];
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
-    public function validateValidUrl(string $attribute): void
-    {
+    public function validateValidUrl(
+        string $attribute,
+        /** @noinspection PhpUnusedParameterInspection */ mixed $params,
+        InlineValidator $validator,
+    ): void {
         if (null === $this->_ripple->url()) {
-            $this->addError($attribute, 'The URL is invalid.');
+            $validator->addError($this, $attribute, 'The {attribute} is invalid.');
         }
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
-    public function validateHasContent(string $attribute): void
-    {
+    public function validateHasContent(
+        string $attribute,
+        /** @noinspection PhpUnusedParameterInspection */ mixed $params,
+        InlineValidator $validator,
+    ): void {
         if (null === $this->_ripple->id()) {
-            $this->addError($attribute, 'Unable to retrieve the contents from the URL.');
+            $validator->addError($this, $attribute, 'Unable to retrieve the contents from the {attribute}.');
         }
     }
 
-    /**
-     * @noinspection PhpUnused
-     * @noinspection PhpUnusedParameterInspection $params
-     */
-    public function validateLimit(string $attribute, mixed $params, InlineValidator $validator): void
-    {
+    public function validateLimit(
+        string $attribute,
+        /** @noinspection PhpUnusedParameterInspection */ mixed $params,
+        InlineValidator $validator,
+    ): void {
         $favoriteIds = [];
         foreach (Track::find()->favorites()->column() as $id) {
             $favoriteIds[] = (int)$id;

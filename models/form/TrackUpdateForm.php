@@ -10,9 +10,9 @@ use yii\helpers\ArrayHelper;
 
 class TrackUpdateForm extends TrackForm
 {
-    public $id;
+    public int|null $id = null;
 
-    private ?Track $_track;
+    private Track|null $_track;
 
     public function __construct(int $id, array $config = [])
     {

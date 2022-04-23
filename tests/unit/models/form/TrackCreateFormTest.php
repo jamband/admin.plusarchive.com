@@ -11,13 +11,14 @@ use app\tests\unit\fixtures\music\TrackCreateFormFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
+/** @see TrackCreateForm */
 class TrackCreateFormTest extends Unit
 {
     protected UnitTester $tester;
 
     public function testSaveFails(): void
     {
-        $model = new TrackCreateForm;
+        $model = new TrackCreateForm();
         $model->url = 'https://example.com/foo/bar';
         $this->assertFalse($model->save());
     }
@@ -28,7 +29,7 @@ class TrackCreateFormTest extends Unit
         $this->tester->haveFixtures($fixtures);
         $track1 = $this->tester->grabFixture('tracks', 'track1');
 
-        $model = new TrackCreateForm;
+        $model = new TrackCreateForm();
         $model->url = $track1->url;
         $this->assertFalse($model->save());
         $this->assertTrue($model->hasErrors('url'));
@@ -36,7 +37,7 @@ class TrackCreateFormTest extends Unit
 
     public function testSave(): void
     {
-        $model = new TrackCreateForm;
+        $model = new TrackCreateForm();
         $model->url = 'https://www.youtube.com/watch?v=foo';
         $model->tagValues = ['Folk', 'Rock'];
         $this->assertTrue($model->save());

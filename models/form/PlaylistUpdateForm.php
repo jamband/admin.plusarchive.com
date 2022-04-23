@@ -10,9 +10,9 @@ use yii\helpers\ArrayHelper;
 
 class PlaylistUpdateForm extends PlaylistForm
 {
-    public $id;
+    public int|null $id = null;
 
-    private ?Playlist $_playlist;
+    private Playlist|null $_playlist;
 
     public function __construct(int $id, array $config = [])
     {

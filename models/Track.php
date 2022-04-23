@@ -10,7 +10,7 @@ use yii\db\ActiveQuery;
 use yii\helpers\ArrayHelper;
 
 /**
- * @property string $tagValues
+ * @property string[] $tagValues
  *
  * @property musicGenre[] $genres
  * @see Track::getGenres()

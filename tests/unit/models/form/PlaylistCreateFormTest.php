@@ -11,13 +11,14 @@ use app\tests\unit\fixtures\music\PlaylistCreateFormFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
+/** @see PlaylistCreateForm */
 class PlaylistCreateFormTest extends Unit
 {
     protected UnitTester $tester;
 
     public function testSaveFails(): void
     {
-        $form = new PlaylistCreateForm;
+        $form = new PlaylistCreateForm();
         $form->url = 'https://example.com/foo/bar';
         $this->assertFalse($form->save());
     }
@@ -28,7 +29,7 @@ class PlaylistCreateFormTest extends Unit
         $this->tester->haveFixtures($fixtures);
         $playlist = $this->tester->grabFixture('playlists', 'playlist1');
 
-        $model = new PlaylistCreateForm;
+        $model = new PlaylistCreateForm();
         $model->url = $playlist['url'];
         $this->assertFalse($model->save());
         $this->assertTrue($model->hasErrors('url'));
@@ -36,7 +37,7 @@ class PlaylistCreateFormTest extends Unit
 
     public function testSave(): void
     {
-        $model = new PlaylistCreateForm;
+        $model = new PlaylistCreateForm();
         $model->url = 'https://www.youtube.com/playlist?list=foo';
         $this->assertTrue($model->save());
 
