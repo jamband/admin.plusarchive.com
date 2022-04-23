@@ -12,16 +12,23 @@ use yii\data\Pagination;
 
 class StoreSearch extends Store
 {
-    public $tag;
+    public string|null $tag = null;
 
     public function rules(): array
     {
         return [
-            [['name', 'link'], 'trim'],
-            [['name', 'country', 'link', 'tag'], 'safe'],
+            ['name', 'trim'],
+            ['name', 'safe'],
 
+            ['country', 'trim'],
             ['country', 'in', 'range' => static::getCountries()],
+            ['country', 'safe'],
+
+            ['link', 'trim'],
+            ['link', 'safe'],
+
             ['tag', 'in', 'range' => StoreTag::getNames()],
+            ['tag', 'safe'],
         ];
     }
 

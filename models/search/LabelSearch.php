@@ -12,15 +12,21 @@ use yii\data\Pagination;
 
 class LabelSearch extends Label
 {
-    public $tag;
+    public string|null $tag = null;
 
     public function rules(): array
     {
         return [
-            [['name', 'link'], 'trim'],
-            [['name', 'country', 'link', 'tag'], 'safe'],
+            ['name', 'trim'],
+            ['name', 'safe'],
 
+            ['country', 'safe'],
             ['country', 'in', 'range' => static::getCountries()],
+
+            ['link', 'trim'],
+            ['link', 'safe'],
+
+            ['tag', 'safe'],
             ['tag', 'in', 'range' => LabelTag::getNames()],
         ];
     }

@@ -15,10 +15,11 @@ class PlaylistSearch extends Playlist
     public function rules(): array
     {
         return [
-            [['title'], 'trim'],
-            [['provider', 'title'], 'safe'],
+            ['title', 'trim'],
+            ['title', 'safe'],
 
             ['provider', 'in', 'range' => array_keys(Music::PROVIDERS)],
+            ['provider', 'safe'],
         ];
     }
 

@@ -53,13 +53,23 @@ class Label extends ActiveRecord
     public function rules(): array
     {
         return [
-            [['name', 'url'], 'required'],
-            [['name', 'country', 'url', 'link'], 'trim'],
-            [['name', 'url'], 'unique'],
-            [['name', 'country'], 'string', 'max' => 200],
+            ['name', 'required'],
+            ['name', 'trim'],
+            ['name', 'unique'],
+            ['name', 'string', 'max' => 200],
 
+            ['country', 'trim'],
+            ['country', 'string', 'max' => 200],
+
+            ['url', 'required'],
+            ['url', 'trim'],
             ['url', 'url'],
+            ['url', 'unique'],
+            ['url', 'string', 'max' => 200],
+
+            ['link', 'trim'],
             ['link', 'string', 'max' => 1000],
+
             ['tagValues', 'safe'],
         ];
     }

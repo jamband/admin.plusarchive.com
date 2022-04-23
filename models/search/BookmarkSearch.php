@@ -12,16 +12,23 @@ use yii\data\Pagination;
 
 class BookmarkSearch extends Bookmark
 {
-    public $tag;
+    public string|null $tag = null;
 
     public function rules(): array
     {
         return [
-            [['name', 'link'], 'trim'],
-            [['name', 'country', 'link', 'status', 'tag'], 'safe'],
+            ['name', 'trim'],
+            ['name', 'safe'],
 
+            ['country', 'trim'],
             ['country', 'in', 'range' => static::getCountries()],
+            ['country', 'safe'],
+
+            ['link', 'trim'],
+            ['link', 'safe'],
+
             ['tag', 'in', 'range' => BookmarkTag::getNames()],
+            ['tag', 'safe'],
         ];
     }
 
