@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace app\models\query;
 
 use app\models\Music;
+use app\models\Track;
 use creocoder\taggable\TaggableQueryBehavior;
 use yii\db\ActiveQuery;
 
 /**
  * @method TrackQuery allTagValues($values, $attribute = null)
+ * @see Track
  */
 class TrackQuery extends ActiveQuery
 {
-    use ActiveQueryTrait;
-
     public function init(): void
     {
         parent::init();
@@ -46,21 +46,9 @@ class TrackQuery extends ActiveQuery
         return $this->orderBy(['title' => SORT_ASC]);
     }
 
-    public function inUpdateOrder(): TrackQuery
+    public function latest(): TrackQuery
     {
-        return $this->orderBy(['updated_at' => SORT_DESC]);
-    }
-
-    public function sort(string|null $sort): TrackQuery
-    {
-        if ('Title' === $sort) {
-            return $this->inTitleOrder();
-
-        } elseif ('Update' === $sort) {
-            return $this->inUpdateOrder();
-        }
-
-        return $this->latest();
+        return $this->orderBy(['created_at' => SORT_DESC]);
     }
 
     public function favorites(): TrackQuery

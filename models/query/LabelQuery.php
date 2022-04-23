@@ -8,11 +8,10 @@ use yii\db\ActiveQuery;
 
 /**
  * @method LabelQuery allTagValues($values, $attribute = null)
+ * @see Label
  */
 class LabelQuery extends ActiveQuery
 {
-    use ActiveQueryTrait;
-
     public function behaviors(): array
     {
         return [
@@ -40,5 +39,10 @@ class LabelQuery extends ActiveQuery
     public function inNameOrder(): LabelQuery
     {
         return $this->orderBy(['name' => SORT_ASC]);
+    }
+
+    public function latest(): LabelQuery
+    {
+        return $this->orderBy(['created_at' => SORT_DESC]);
     }
 }

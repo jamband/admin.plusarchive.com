@@ -5,18 +5,19 @@ declare(strict_types=1);
 namespace app\tests\unit\models\query;
 
 use app\models\Music;
+use app\models\query\TrackQuery;
 use app\models\Track;
 use app\tests\unit\fixtures\music\TrackQueryBehaviorsFixture;
 use app\tests\unit\fixtures\music\TrackQueryFavoritesFixture;
 use app\tests\unit\fixtures\music\TrackQueryFindFixture;
 use app\tests\unit\fixtures\music\TrackQueryInTitleOrderFixture;
-use app\tests\unit\fixtures\music\TrackQueryInUpdateOrderFixture;
+use app\tests\unit\fixtures\music\TrackQueryLatestFixture;
 use app\tests\unit\fixtures\music\TrackQueryProviderFixture;
 use app\tests\unit\fixtures\music\TrackQuerySearchFixture;
-use app\tests\unit\fixtures\music\TrackQuerySortFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
+/** @see TrackQuery */
 class TrackQueryTest extends Unit
 {
     protected UnitTester $tester;
@@ -100,46 +101,16 @@ class TrackQueryTest extends Unit
         $this->assertSame('foo', $tracks[2]->title);
     }
 
-    public function testInUpdateOrder(): void
+    public function testLatest(): void
     {
-        $fixtures['tracks'] = TrackQueryInUpdateOrderFixture::class;
+        $fixtures['tracks'] = TrackQueryLatestFixture::class;
         $this->tester->haveFixtures($fixtures);
 
-        $tracks = Track::find()->inUpdateOrder()->all();
+        $tracks = Track::find()->latest()->all();
         $this->assertSame(3, count($tracks));
-        $this->assertSame('bar', $tracks[0]->title);
-        $this->assertSame('foo', $tracks[1]->title);
-        $this->assertSame('baz', $tracks[2]->title);
-    }
-
-    public function testSort(): void
-    {
-        $fixtures['tracks'] = TrackQuerySortFixture::class;
-        $this->tester->haveFixtures($fixtures);
-
-        $tracks = Track::find()->sort('Title')->all();
-        $this->assertSame(3, count($tracks));
-        $this->assertSame('bar', $tracks[0]->title);
-        $this->assertSame('baz', $tracks[1]->title);
-        $this->assertSame('foo', $tracks[2]->title);
-
-        $tracks = Track::find()->sort('Update')->all();
-        $this->assertSame(3, count($tracks));
-        $this->assertSame('bar', $tracks[0]->title);
-        $this->assertSame('foo', $tracks[1]->title);
-        $this->assertSame('baz', $tracks[2]->title);
-
-        $tracks = Track::find()->sort('Foo')->all();
-        $this->assertSame(3, count($tracks));
-        $this->assertSame('baz', $tracks[0]->title);
-        $this->assertSame('bar', $tracks[1]->title);
-        $this->assertSame('foo', $tracks[2]->title);
-
-        $tracks = Track::find()->sort(null)->all();
-        $this->assertSame(3, count($tracks));
-        $this->assertSame('baz', $tracks[0]->title);
-        $this->assertSame('bar', $tracks[1]->title);
-        $this->assertSame('foo', $tracks[2]->title);
+        $this->assertSame('track1', $tracks[0]->title);
+        $this->assertSame('track3', $tracks[1]->title);
+        $this->assertSame('track2', $tracks[2]->title);
     }
 
     public function testFavorites(): void

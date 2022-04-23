@@ -10,11 +10,10 @@ use yii\db\ActiveQuery;
 
 /**
  * @method BookmarkQuery allTagValues($values, $attribute = null)
+ * @see Bookmark
  */
 class BookmarkQuery extends ActiveQuery
 {
-    use ActiveQueryTrait;
-
     public function behaviors(): array
     {
         return [
@@ -34,13 +33,18 @@ class BookmarkQuery extends ActiveQuery
     public function search(string $search): BookmarkQuery
     {
         return $this->andFilterWhere(['or',
-            ['like', 'bookmark.name', trim($search)],
+            ['like', 'name', trim($search)],
             ['like', 'link', trim($search)],
         ]);
     }
 
     public function inNameOrder(): BookmarkQuery
     {
-        return $this->orderBy(['bookmark.name' => SORT_ASC]);
+        return $this->orderBy(['name' => SORT_ASC]);
+    }
+
+    public function latest(): BookmarkQuery
+    {
+        return $this->orderBy(['created_at' => SORT_DESC]);
     }
 }

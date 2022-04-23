@@ -5,13 +5,16 @@ declare(strict_types=1);
 namespace app\tests\unit\models\query;
 
 use app\models\Bookmark;
+use app\models\query\BookmarkQuery;
 use app\tests\unit\fixtures\bookmark\BookmarkQueryBehaviorsFixture;
 use app\tests\unit\fixtures\bookmark\BookmarkQueryCountryFixture;
 use app\tests\unit\fixtures\bookmark\BookmarkQueryInNameOrderFixture;
+use app\tests\unit\fixtures\bookmark\BookmarkQueryLatestFixture;
 use app\tests\unit\fixtures\bookmark\BookmarkQuerySearchFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
+/** @see BookmarkQuery */
 class BookmarkQueryTest extends Unit
 {
     protected UnitTester $tester;
@@ -80,5 +83,17 @@ class BookmarkQueryTest extends Unit
         $this->assertSame('bar', $bookmarks[0]->name);
         $this->assertSame('baz', $bookmarks[1]->name);
         $this->assertSame('foo', $bookmarks[2]->name);
+    }
+
+    public function testLatest(): void
+    {
+        $fixtures['bookmarks'] = BookmarkQueryLatestFixture::class;
+        $this->tester->haveFixtures($fixtures);
+
+        $bookmarks = Bookmark::find()->latest()->all();
+        $this->assertSame(3, count($bookmarks));
+        $this->assertSame('bookmark1', $bookmarks[0]->name);
+        $this->assertSame('bookmark3', $bookmarks[1]->name);
+        $this->assertSame('bookmark2', $bookmarks[2]->name);
     }
 }

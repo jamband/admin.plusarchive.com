@@ -10,11 +10,10 @@ use yii\db\ActiveQuery;
 
 /**
  * @method StoreQuery allTagValues($values, $attribute = null)
+ * @see Store
  */
 class StoreQuery extends ActiveQuery
 {
-    use ActiveQueryTrait;
-
     public function behaviors(): array
     {
         return [
@@ -42,5 +41,10 @@ class StoreQuery extends ActiveQuery
     public function inNameOrder(): StoreQuery
     {
         return $this->orderBy(['name' => SORT_ASC]);
+    }
+
+    public function latest(): StoreQuery
+    {
+        return $this->orderBy(['created_at' => SORT_DESC]);
     }
 }

@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace app\tests\unit\models\query;
 
+use app\models\query\StoreQuery;
 use app\models\Store;
 use app\tests\unit\fixtures\store\StoreQueryBehaviorsFixture;
 use app\tests\unit\fixtures\store\StoreQueryCountryFixture;
 use app\tests\unit\fixtures\store\StoreQueryInNameOrderFixture;
+use app\tests\unit\fixtures\store\StoreQueryLatestFixture;
 use app\tests\unit\fixtures\store\StoreQuerySearchFixture;
 use Codeception\Test\Unit;
 use UnitTester;
 
+/** @see StoreQuery */
 class StoreQueryTest extends Unit
 {
     protected UnitTester $tester;
@@ -80,5 +83,17 @@ class StoreQueryTest extends Unit
         $this->assertSame('bar', $stores[0]->name);
         $this->assertSame('baz', $stores[1]->name);
         $this->assertSame('foo', $stores[2]->name);
+    }
+
+    public function testLatest(): void
+    {
+        $fixtures['stores'] = StoreQueryLatestFixture::class;
+        $this->tester->haveFixtures($fixtures);
+
+        $stores = Store::find()->latest()->all();
+        $this->assertSame(3, count($stores));
+        $this->assertSame('store1', $stores[0]->name);
+        $this->assertSame('store3', $stores[1]->name);
+        $this->assertSame('store2', $stores[2]->name);
     }
 }
