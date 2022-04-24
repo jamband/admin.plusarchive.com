@@ -9,7 +9,7 @@ use app\models\query\TrackQuery;
 use app\models\Track;
 use app\tests\unit\fixtures\music\TrackQueryBehaviorsFixture;
 use app\tests\unit\fixtures\music\TrackQueryFavoritesFixture;
-use app\tests\unit\fixtures\music\TrackQueryFindFixture;
+use app\tests\unit\fixtures\music\TrackQueryInitFixture;
 use app\tests\unit\fixtures\music\TrackQueryInTitleOrderFixture;
 use app\tests\unit\fixtures\music\TrackQueryLatestFixture;
 use app\tests\unit\fixtures\music\TrackQueryProviderFixture;
@@ -24,7 +24,7 @@ class TrackQueryTest extends Unit
 
     public function testInit(): void
     {
-        $fixtures['tracks'] = TrackQueryFindFixture::class;
+        $fixtures['tracks'] = TrackQueryInitFixture::class;
         $this->tester->haveFixtures($fixtures);
 
         $tracks = Track::find()->all();

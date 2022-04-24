@@ -7,7 +7,7 @@ namespace app\tests\unit\fixtures\music;
 use app\models\Music;
 use app\tests\fixtures\BaseTrackFixture;
 
-class TrackQueryFindFixture extends BaseTrackFixture
+class TrackQueryInitFixture extends BaseTrackFixture
 {
     protected function getData(): array
     {

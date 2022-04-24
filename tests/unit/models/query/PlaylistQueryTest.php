@@ -7,7 +7,7 @@ namespace app\tests\unit\models\query;
 use app\models\Music;
 use app\models\Playlist;
 use app\models\query\PlaylistQuery;
-use app\tests\unit\fixtures\music\PlaylistFindFixture;
+use app\tests\unit\fixtures\music\PlaylistQueryInitFixture;
 use app\tests\unit\fixtures\music\PlaylistQueryLatestFixture;
 use Codeception\Test\Unit;
 use UnitTester;
@@ -19,7 +19,7 @@ class PlaylistQueryTest extends Unit
 
     public function testInit(): void
     {
-        $fixtures['playlists'] = PlaylistFindFixture::class;
+        $fixtures['playlists'] = PlaylistQueryInitFixture::class;
         $this->tester->haveFixtures($fixtures);
 
         $playlists = Playlist::find()->all();

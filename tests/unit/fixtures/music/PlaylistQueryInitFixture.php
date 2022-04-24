@@ -7,7 +7,7 @@ namespace app\tests\unit\fixtures\music;
 use app\models\Music;
 use app\tests\fixtures\BasePlaylistFixture;
 
-class PlaylistFindFixture extends BasePlaylistFixture
+class PlaylistQueryInitFixture extends BasePlaylistFixture
 {
     protected function getData(): array
     {
