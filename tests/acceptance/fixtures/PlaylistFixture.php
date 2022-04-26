@@ -9,10 +9,6 @@ use app\tests\fixtures\BasePlaylistFixture;
 
 class PlaylistFixture extends BasePlaylistFixture
 {
-    public $depends = [
-        AdminUserFixture::class,
-    ];
-
     protected function getData(): array
     {
         return [

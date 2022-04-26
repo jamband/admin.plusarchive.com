@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace app\tests\acceptance\fixtures;
 
 use app\tests\fixtures\BaseMusicGenreFixture;
+use app\tests\unit\fixtures\music\MusicGenreAssnFixture;
 
 class MusicGenreFixture extends BaseMusicGenreFixture
 {
     public $depends = [
-        AdminUserFixture::class,
+        MusicGenreAssnFixture::class,
     ];
 
     protected function getData(): array

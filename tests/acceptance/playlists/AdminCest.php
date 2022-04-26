@@ -6,6 +6,7 @@ namespace app\tests\acceptance\playlists;
 
 use AcceptanceTester;
 use app\controllers\playlists\AdminController;
+use app\tests\acceptance\fixtures\AdminUserFixture;
 use app\tests\acceptance\fixtures\PlaylistFixture;
 use Facebook\WebDriver\WebDriverKeys;
 use yii\helpers\Url;
@@ -18,6 +19,7 @@ class AdminCest
 {
     public function _before(AcceptanceTester $I): void
     {
+        $fixtures['users'] = AdminUserFixture::class;
         $fixtures['playlists'] = PlaylistFixture::class;
         $I->haveFixtures($fixtures);
     }

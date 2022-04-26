@@ -6,6 +6,7 @@ namespace app\tests\acceptance\musicGenres;
 
 use AcceptanceTester;
 use app\controllers\musicGenres\DeleteController;
+use app\tests\acceptance\fixtures\AdminUserFixture;
 use app\tests\acceptance\fixtures\MusicGenreFixture;
 use yii\helpers\Url;
 
@@ -17,6 +18,7 @@ class DeleteCest
 {
     public function _before(AcceptanceTester $I): void
     {
+        $fixtures['users'] = AdminUserFixture::class;
         $fixtures['genres'] = MusicGenreFixture::class;
         $I->haveFixtures($fixtures);
     }

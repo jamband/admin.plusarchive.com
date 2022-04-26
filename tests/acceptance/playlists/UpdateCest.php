@@ -6,6 +6,7 @@ namespace app\tests\acceptance\playlists;
 
 use AcceptanceTester;
 use app\controllers\playlists\UpdateController;
+use app\tests\acceptance\fixtures\AdminUserFixture;
 use app\tests\acceptance\fixtures\PlaylistFixture;
 use yii\helpers\Url;
 
@@ -19,6 +20,7 @@ class UpdateCest
 
     public function _before(AcceptanceTester $I): void
     {
+        $fixtures['users'] = AdminUserFixture::class;
         $fixtures['playlists'] = PlaylistFixture::class;
         $I->haveFixtures($fixtures);
         $this->fixtures = $I->grabFixture('playlists');
