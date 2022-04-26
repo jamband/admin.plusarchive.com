@@ -10,5 +10,5 @@ modules:
             args: [--headless, --disable-gpu, window-size=1920x1080]
 
     - Yii2:
-        part: [fixtures]
+        part: [init, fixtures]
         entryScript: /index-test.php
