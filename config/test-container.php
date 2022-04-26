@@ -9,7 +9,8 @@ Yii::$container->set(Ripple::class, function () {
     $response['thumbnail_url'] = 'http://dev.plusarchive:8080/assets/apple-touch-icon.png';
     $response = json_encode($response);
 
-    $ripple = new Ripple;
+    $ripple = new Ripple();
     $ripple->options(['response' => $response]);
+
     return $ripple;
 });
