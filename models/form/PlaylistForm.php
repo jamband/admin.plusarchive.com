@@ -63,7 +63,7 @@ class PlaylistForm extends Model
         /** @noinspection PhpUnusedParameterInspection */ mixed $params,
         InlineValidator $validator
     ): void {
-        if (null === $this->_ripple->id()) {
+        if (null === $this->_ripple->image()) {
             $validator->addError($this, $attribute, 'Unable to retrieve the contents from the {attribute}.');
         }
     }

@@ -33,6 +33,7 @@ class TrackForm extends Model
     public function attributeLabels(): array
     {
         return [
+            'url' => 'URL',
             'tagValues' => 'Genres',
         ];
     }
@@ -75,7 +76,7 @@ class TrackForm extends Model
         /** @noinspection PhpUnusedParameterInspection */ mixed $params,
         InlineValidator $validator,
     ): void {
-        if (null === $this->_ripple->id()) {
+        if (null === $this->_ripple->image()) {
             $validator->addError($this, $attribute, 'Unable to retrieve the contents from the {attribute}.');
         }
     }
@@ -108,25 +109,30 @@ class TrackForm extends Model
 
     protected function convertImage(): string|null
     {
+        if (null === $this->_ripple->image()) {
+            return null;
+        }
+
         $provider = array_search($this->_ripple->provider(), Music::PROVIDERS, true);
-        $image = $this->_ripple->image();
 
-        if (Music::PROVIDER_BANDCAMP === $provider) {
-            return preg_replace('/[0-9]+\.jpg\z/', '4.jpg', $image);
+        if (!$provider) {
+            return null;
         }
 
-        if (Music::PROVIDER_SOUNDCLOUD === $provider) {
-            return str_replace('t500x500', 't300x300', $image);
-        }
+        return match ($provider) {
+            Music::PROVIDER_BANDCAMP =>
+                preg_replace('/[0-9]+\.jpg\z/', '4.jpg', $this->_ripple->image()),
 
-        if (Music::PROVIDER_VIMEO === $provider) {
-            return preg_replace('/[x0-9]+\.jpg/', '320.jpg', $image);
-        }
+            Music::PROVIDER_SOUNDCLOUD =>
+                str_replace('t500x500', 't300x300', $this->_ripple->image()),
 
-        if (Music::PROVIDER_YOUTUBE === $provider) {
-            return str_replace('hqdefault.jpg', 'mqdefault.jpg', $image);
-        }
+            Music::PROVIDER_VIMEO =>
+                preg_replace('/[x0-9]+\.jpg/', '320.jpg', $this->_ripple->image()),
 
-        return null;
+            Music::PROVIDER_YOUTUBE =>
+                str_replace('hqdefault.jpg', 'mqdefault.jpg', $this->_ripple->image()),
+
+            default => null,
+        };
     }
 }
