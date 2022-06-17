@@ -25,6 +25,7 @@
 
     .card-img-top {
       cursor: pointer;
+      object-fit: cover;
 
       @include media-breakpoint-down(sm) {
         border-bottom-left-radius: $border-radius;
